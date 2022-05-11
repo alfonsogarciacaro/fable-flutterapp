@@ -74,22 +74,32 @@ type StatelessWidget [<NamedParams>] (?key: Key) =
     abstract build: BuildContext -> Widget
     interface Widget
 
-// This is actually an abstract class but I declare it as an interface
-// because we actually inherit from State<'T>
-[<ImportMember(PATH)>]
-type StatefulElement =
-    interface end
+// // This is actually an abstract class but I declare it as an interface
+// // because we actually inherit from State<'T>
+// [<ImportMember(PATH)>]
+// type StatefulElement =
+//     interface end
 
-[<ImportMember(PATH); AbstractClass>]
-type State<'T> () =
-    abstract build: BuildContext -> Widget
-    member _.setState(f: unit -> unit) = ()
-    interface StatefulElement
+// [<ImportMember(PATH); AbstractClass>]
+// type State<'T> () =
+//     abstract build: BuildContext -> Widget
+//     member _.setState(f: unit -> unit) = ()
+//     interface StatefulElement
 
-[<ImportMember(PATH); AbstractClass>]
-type StatefulWidget [<NamedParams>] (?key: Key) =
-    abstract createState: unit -> StatefulElement
-    interface Widget
+// [<ImportMember(PATH); AbstractClass>]
+// type StatefulWidget [<NamedParams>] (?key: Key) =
+//     abstract createState: unit -> StatefulElement
+//     interface Widget
 
 [<ImportMember(PATH)>]
 let runApp(w: Widget): unit = jsNative
+
+type Dispatch<'Msg> = 'Msg -> unit
+type Cmd<'Msg> = (Dispatch<'Msg> -> unit) list
+type Init<'Model, 'Msg> = unit -> 'Model * Cmd<'Msg>
+type Update<'Model, 'Msg> = 'Msg -> 'Model -> 'Model * Cmd<'Msg>
+type View<'Model, 'Msg> = 'Model -> Dispatch<'Msg> -> Widget
+
+[<ImportMember("util/elmish.dart")>]
+type ElmishWidget<'Model, 'Msg> (init: Init<'Model, 'Msg>, update: Update<'Model, 'Msg>, view: View<'Model, 'Msg>) =
+    interface Widget
