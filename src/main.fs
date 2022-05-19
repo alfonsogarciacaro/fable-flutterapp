@@ -2,8 +2,9 @@
 
 open Fable.Core
 open Flutter.Material
+open Flutter.Elmish
 
-module Elmish =
+module App =
     type Model = int
     type Msg = Increment | Decrement
 
@@ -31,7 +32,7 @@ module Elmish =
             )
         )
 
-open Elmish
+open App
 
 type MyApp(?key: Key) =
     inherit StatelessWidget(?key=key)
