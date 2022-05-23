@@ -6,7 +6,7 @@ open Flutter.Material
 type Dispatch<'Msg> = 'Msg -> unit
 type Init<'Arg, 'Model, 'Msg> = 'Arg -> 'Model * Cmd<'Msg>
 type Update<'Model, 'Msg> = 'Msg -> 'Model -> 'Model * Cmd<'Msg>
-type View<'Model, 'Msg> = 'Model -> Dispatch<'Msg> -> Widget
+type View<'Model, 'Msg> = 'Model -> Dispatch<'Msg> -> (BuildContext -> Widget)
 
 type ElmishState<'Arg, 'Model, 'Msg>() =
     inherit State<ElmishWidget<'Arg, 'Model, 'Msg>>()
@@ -17,7 +17,7 @@ type ElmishState<'Arg, 'Model, 'Msg>() =
 
         match _state with
         | Some(model, dispatch) ->
-            (Program.view program) model dispatch
+            (Program.view program) model dispatch context
         | None ->
             let model, cmd = Program.init program this.widget.Arg
 
@@ -29,13 +29,13 @@ type ElmishState<'Arg, 'Model, 'Msg>() =
             |> Program.run
 
             let dispatch = snd _state.Value
-            (Program.view program) model dispatch
+            (Program.view program) model dispatch context
 
-and ElmishWidget<'Arg, 'Model, 'Msg> (program: Program<'Arg, 'Model, 'Msg, Widget>, arg: 'Arg, ?key) =
+and ElmishWidget<'Arg, 'Model, 'Msg> (program: Program<'Arg, 'Model, 'Msg, (BuildContext -> Widget)>, arg: 'Arg, ?key) =
     inherit StatefulWidget(?key=key)
 
-    member _.Program = program
-    member _.Arg = arg
+    member _.Program: Program<'Arg, 'Model, 'Msg, (BuildContext -> Widget)> = program
+    member _.Arg: 'Arg = arg
 
     override _.createState() =
         ElmishState<'Arg, 'Model, 'Msg>() :> State
