@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="prelude.fs" />
+    <Compile Include="cmd.fs" />
+    <!-- <Compile Include="cmd.obsolete.fs" /> -->
+    <Compile Include="ring.fs" />
+    <Compile Include="program.fs" />
+    <Compile Include="flutter.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fable.Flutter\Fable.Flutter.fsproj" />
+  </ItemGroup>
+
+</Project>

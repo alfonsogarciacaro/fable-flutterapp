@@ -6,13 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- <Compile Include="Flutter.fs" /> -->
     <Compile Include="Flutter.Material.fs" />
-    <Compile Include="elmish.fs" />
-    <Compile Include="main.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fable.Core" Version="4.0.0-snake-island-alpha-001" />
+    <PackageReference Include="Fable.Core" Version="4.0.0-snake-island-alpha-003" />
   </ItemGroup>
 
 </Project>

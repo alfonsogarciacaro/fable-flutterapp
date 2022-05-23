@@ -2,7 +2,6 @@ module Flutter.Material
 
 open Fable.Core
 open Fable.Core.Dart
-type NamedParamsAttribute = ParamObjectAttribute
 
 let [<Literal>] PATH = "package:flutter/material.dart"
 
