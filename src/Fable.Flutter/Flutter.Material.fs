@@ -82,12 +82,20 @@ module Material =
         interface Widget
 
     [<ImportMember(PATH); IsConst>]
+    type Row [<NamedParams>] (children: Widget[], ?mainAxisAlignment: MainAxisAlignment) =
+        interface Widget
+
+    [<ImportMember(PATH); IsConst>]
+    type Expanded [<NamedParams>] (child: Widget) =
+        interface Widget
+
+    [<ImportMember(PATH); IsConst>]
     type Text(text: string) =
         interface Widget
 
     [<ImportMember(PATH)>]
-    type TextEditingController  (?text : string) =
-        member _.text: string = nativeOnly
+    type TextEditingController (?text : string) =
+        member _.text with get(): string = nativeOnly and set(_: string): unit = nativeOnly
         member _.clear(): unit = nativeOnly
         // inherit ValueNotifier<TextEditingValue>(jsNative)
         // static member fromValue(value : TextEditingValue) : TextEditingController = jsNative
@@ -112,6 +120,10 @@ module Material =
     type MaterialButton [<NamedParams>] (child: Widget, ?onPressed: unit->unit, ?tooltip: string) =
         interface Widget
 
+    [<ImportMember(PATH); IsConst>]
+    type IconButton [<NamedParams>] (icon: Widget, ?onPressed: unit->unit, ?tooltip: string) =
+        interface Widget
+
     [<ImportMember(PATH)>]
     type IconData =
         interface end
@@ -119,6 +131,8 @@ module Material =
     [<ImportMember(PATH)>]
     type Icons =
         [<IsConst>] static member add: IconData = jsNative
+        [<IsConst>] static member edit: IconData = jsNative
+        [<IsConst>] static member delete: IconData = jsNative
         [<IsConst>] static member remove: IconData = jsNative
 
     [<ImportMember(PATH); IsConst>]
