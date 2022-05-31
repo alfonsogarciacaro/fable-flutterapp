@@ -1,7 +1,10 @@
 ﻿module Main
 
-open Flutter
+open Flutter.Foundation
+open Flutter.Widgets
 open Flutter.Material
+open Flutter.Services
+
 open Elmish
 open Elmish.Flutter
 
@@ -42,32 +45,25 @@ module App =
                 if t.id = id then { t with title = title } else t)
             { model with todos = todos }, Cmd.none
 
-    // Where should this be? In the model?
-    // In "standard" Dart it would likely be a private field of the widget class
-    let _textController = TextEditingController()
-
     let displayDialog text dispatch (context: BuildContext) =
-        _textController.text <- text
         Material.showDialog(
             context = context,
             builder = (fun context ->
                 AlertDialog(
                     title = Text("Add a task to your list"),
-                    content = TextField(
-                        controller = _textController,
+                    content = TextFormField(
+                        initialValue = text,
+                        autofocus = true,
+                        textInputAction = TextInputAction.``done``,
+                        onFieldSubmitted = (fun text ->
+                            Navigator.``of``(context).pop()
+                            text |> dispatch
+                        ),
                         decoration = InputDecoration(
                             hintText = "Enter task here"
                         )
                     ),
                     actions = [|
-                        MaterialButton(
-                            child = Text("ADD"),
-                            onPressed = fun () ->
-                                Navigator.``of``(context).pop()
-                                let text = _textController.text
-                                _textController.clear()
-                                text |> dispatch
-                        )
                         MaterialButton(
                             child = Text("CANCEL"),
                             onPressed = fun () ->
@@ -79,29 +75,36 @@ module App =
         )
 
     let buildTodos (model: Model) dispatch context =
-        model.todos
-        |> List.map (fun t ->
-            ListTile(
-                Row [|
+        let todos =
+            model.todos
+            |> List.map (fun t ->
+                ListTile(title = Row [|
                     Expanded(Text(t.title))
-                    IconButton(Icon(Icons.edit), onPressed = fun () ->
-                        let dispatch text = EditTodo(t.id, text) |> dispatch
-                        displayDialog t.title dispatch context |> ignore
+                    IconButton(
+                        icon = Icon(Icons.edit),
+                        onPressed = fun () ->
+                            let dispatch text = EditTodo(t.id, text) |> dispatch
+                            displayDialog t.title dispatch context |> ignore
                     )
-                    IconButton(Icon(Icons.delete), onPressed = fun () ->
-                        DeleteTodo t.id |> dispatch)
-                |]
-            ) :> Widget
-        )
-        |> List.toArray
-        |> ListView
+                    IconButton(
+                        icon = Icon(Icons.delete),
+                        onPressed = fun () -> DeleteTodo t.id |> dispatch
+                    )
+                |]) :> Widget
+            )
+            |> List.toArray
+        ListView(children=todos)
 
     let view (model: Model) (dispatch: Msg -> unit) context: Widget =
         Scaffold(
-            appBar = AppBar(Text("F# loves Flutter")),
-            body = buildTodos model dispatch context,
+            appBar = AppBar(title = Text("F# loves Flutter")),
+            body = Row [|
+                Expanded(flex=1, child=SizedBox.shrink())
+                Expanded(flex=2, child=buildTodos model dispatch context)
+                Expanded(flex=1, child=SizedBox.shrink())
+            |],
             floatingActionButton = FloatingActionButton(
-                Icon(Icons.add),
+                child = Icon(Icons.task),
                 tooltip = "Add Item",
                 onPressed = fun () ->
                     displayDialog "" (AddTodo >> dispatch) context |> ignore
@@ -111,8 +114,7 @@ module App =
 open App
 open Fable.Core.Dart
 
-[<IsConst>]
-type MyApp(?key: Key) =
+type MyApp [<IsConst>] (?key: Key) =
     inherit StatelessWidget(?key=key)
     override _.build(context) =
         MaterialApp(
@@ -121,4 +123,4 @@ type MyApp(?key: Key) =
         )
 
 let main() =
-    MyApp() |> Material.runApp
+    MyApp() |> Widgets.runApp

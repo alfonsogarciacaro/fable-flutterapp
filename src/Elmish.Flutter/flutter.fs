@@ -1,7 +1,7 @@
 namespace Elmish.Flutter
 
 open Elmish
-open Flutter.Material
+open Flutter.Widgets
 
 type Dispatch<'Msg> = 'Msg -> unit
 type Init<'Arg, 'Model, 'Msg> = 'Arg -> 'Model * Cmd<'Msg>

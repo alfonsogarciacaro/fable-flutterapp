@@ -6,7 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- <Compile Include="Flutter.fs" /> -->
+    <Compile Include="Dart.fs" />
+    <Compile Include="Dart.UI.fs" />
+    <Compile Include="Dart.VectorMath.fs" />
+    <Compile Include="Flutter.Foundation.fs" />
+    <Compile Include="Flutter.Gestures.fs" />
+    <Compile Include="Flutter.Services.fs" />
+    <Compile Include="Flutter.Painting.fs" />
+    <Compile Include="Flutter.Semantics.fs" />
+    <Compile Include="Flutter.Scheduler.fs" />
+    <Compile Include="Flutter.Animation.fs" />
+    <Compile Include="Flutter.Rendering.fs" />
+    <Compile Include="Flutter.Widgets.fs" />
     <Compile Include="Flutter.Material.fs" />
   </ItemGroup>
 

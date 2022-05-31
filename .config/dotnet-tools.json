@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "fable": {
-      "version": "4.0.0-snake-island-alpha-006",
+      "version": "4.0.0-snake-island-alpha-009",
       "commands": [
         "fable"
       ]
