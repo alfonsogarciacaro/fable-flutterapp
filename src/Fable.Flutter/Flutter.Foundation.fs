@@ -2,6 +2,7 @@ namespace rec Flutter.Foundation
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 open Dart
@@ -100,13 +101,13 @@ type ErrorSpacer () =
 
 /// https://api.flutter.dev/flutter/foundation/FlutterErrorDetails-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type FlutterErrorDetails [<IsConst; NamedParams>] (``exception``: obj, ?stack: StackTrace, ?library: string, ?context: DiagnosticsNode, ?stackFilter: (string seq -> string seq), ?informationCollector: (unit -> DiagnosticsNode seq), ?silent: bool) =
+type FlutterErrorDetails [<IsConst; NamedParams>] (``exception``: obj, [<Optional>] stack: StackTrace, [<Optional>] library: string, [<Optional>] context: DiagnosticsNode, [<Optional>] stackFilter: (string seq -> string seq), [<Optional>] informationCollector: (unit -> DiagnosticsNode seq), [<Optional>] silent: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/DiagnosticsStackTrace-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DiagnosticsStackTrace [<NamedParams(fromIndex=2)>] (name: string, stack: StackTrace option, ?stackFilter: (string seq -> string seq), ?showSeparator: bool) =
-  [<NamedParams(fromIndex=1)>] static member singleFrame(name: string, frame: string, ?showSeparator: bool): DiagnosticsStackTrace = nativeOnly
+type DiagnosticsStackTrace [<NamedParams(fromIndex=2)>] (name: string, stack: DartNullable<StackTrace>, [<Optional>] stackFilter: (string seq -> string seq), [<Optional>] showSeparator: bool) =
+  [<NamedParams(fromIndex=1)>] static member singleFrame(name: string, frame: string, [<Optional>] showSeparator: bool): DiagnosticsStackTrace = nativeOnly
 
 /// https://api.flutter.dev/flutter/foundation/CachingIterable-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
@@ -125,7 +126,7 @@ type BindingBase () =
 
 /// https://api.flutter.dev/flutter/foundation/DebugReassembleConfig-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DebugReassembleConfig [<NamedParams>] (?widgetName: string) =
+type DebugReassembleConfig [<NamedParams>] ([<Optional>] widgetName: string) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/BitField-class.html
@@ -136,7 +137,7 @@ type BitField<'T> (length: int) =
 /// https://api.flutter.dev/flutter/foundation/Listenable-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
 type Listenable [<IsConst>] () =
-  static member merge(listenables: Listenable option[]): Listenable = nativeOnly
+  static member merge(listenables: DartNullable<Listenable>[]): Listenable = nativeOnly
 
 /// https://api.flutter.dev/flutter/foundation/ValueListenable-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
@@ -155,82 +156,82 @@ type ValueNotifier<'T> (_value: 'T) =
 
 /// https://api.flutter.dev/flutter/foundation/TextTreeConfiguration-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type TextTreeConfiguration [<NamedParams>] (prefixLineOne: string, prefixOtherLines: string, prefixLastChildLineOne: string, prefixOtherLinesRootNode: string, linkCharacter: string, propertyPrefixIfChildren: string, propertyPrefixNoChildren: string, ?lineBreak: string, ?lineBreakProperties: bool, ?afterName: string, ?afterDescriptionIfBody: string, ?afterDescription: string, ?beforeProperties: string, ?afterProperties: string, ?mandatoryAfterProperties: string, ?propertySeparator: string, ?bodyIndent: string, ?footer: string, ?showChildren: bool, ?addBlankLineIfNoChildren: bool, ?isNameOnOwnLine: bool, ?isBlankLineBetweenPropertiesAndChildren: bool, ?beforeName: string, ?suffixLineOne: string, ?mandatoryFooter: string) =
+type TextTreeConfiguration [<NamedParams>] (prefixLineOne: string, prefixOtherLines: string, prefixLastChildLineOne: string, prefixOtherLinesRootNode: string, linkCharacter: string, propertyPrefixIfChildren: string, propertyPrefixNoChildren: string, [<Optional>] lineBreak: string, [<Optional>] lineBreakProperties: bool, [<Optional>] afterName: string, [<Optional>] afterDescriptionIfBody: string, [<Optional>] afterDescription: string, [<Optional>] beforeProperties: string, [<Optional>] afterProperties: string, [<Optional>] mandatoryAfterProperties: string, [<Optional>] propertySeparator: string, [<Optional>] bodyIndent: string, [<Optional>] footer: string, [<Optional>] showChildren: bool, [<Optional>] addBlankLineIfNoChildren: bool, [<Optional>] isNameOnOwnLine: bool, [<Optional>] isBlankLineBetweenPropertiesAndChildren: bool, [<Optional>] beforeName: string, [<Optional>] suffixLineOne: string, [<Optional>] mandatoryFooter: string) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/TextTreeRenderer-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type TextTreeRenderer [<NamedParams>] (?minLevel: DiagnosticLevel, ?wrapWidth: int, ?wrapWidthProperties: int, ?maxDescendentsTruncatableNode: int) =
+type TextTreeRenderer [<NamedParams>] ([<Optional>] minLevel: DiagnosticLevel, [<Optional>] wrapWidth: int, [<Optional>] wrapWidthProperties: int, [<Optional>] maxDescendentsTruncatableNode: int) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DiagnosticsNode [<NamedParams>] (name: string option, ?style: DiagnosticsTreeStyle, ?showName: bool, ?showSeparator: bool, ?linePrefix: string) =
-  [<NamedParams(fromIndex=1)>] static member message(message: string, ?style: DiagnosticsTreeStyle, ?level: DiagnosticLevel, ?allowWrap: bool): DiagnosticsNode = nativeOnly
+type DiagnosticsNode [<NamedParams>] (name: DartNullable<string>, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] showName: bool, [<Optional>] showSeparator: bool, [<Optional>] linePrefix: string) =
+  [<NamedParams(fromIndex=1)>] static member message(message: string, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] level: DiagnosticLevel, [<Optional>] allowWrap: bool): DiagnosticsNode = nativeOnly
 
 /// https://api.flutter.dev/flutter/foundation/MessageProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type MessageProperty [<NamedParams(fromIndex=2)>] (name: string, message: string, ?style: DiagnosticsTreeStyle, ?level: DiagnosticLevel) =
+type MessageProperty [<NamedParams(fromIndex=2)>] (name: string, message: string, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/StringProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type StringProperty [<NamedParams(fromIndex=2)>] (name: string, value: string option, ?description: string, ?tooltip: string, ?showName: bool, ?defaultValue: obj, ?quoted: bool, ?ifEmpty: string, ?style: DiagnosticsTreeStyle, ?level: DiagnosticLevel) =
+type StringProperty [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<string>, [<Optional>] description: string, [<Optional>] tooltip: string, [<Optional>] showName: bool, [<Optional>] defaultValue: obj, [<Optional>] quoted: bool, [<Optional>] ifEmpty: string, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/DoubleProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DoubleProperty [<NamedParams(fromIndex=2)>] (name: string, value: float option, ?ifNull: string, ?unit: string, ?tooltip: string, ?defaultValue: obj, ?showName: bool, ?style: DiagnosticsTreeStyle, ?level: DiagnosticLevel) =
-  [<NamedParams(fromIndex=2)>] static member ``lazy``(name: string, computeValue: (unit -> float option), ?ifNull: string, ?showName: bool, ?unit: string, ?tooltip: string, ?defaultValue: obj, ?level: DiagnosticLevel): DoubleProperty = nativeOnly
+type DoubleProperty [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<float>, [<Optional>] ifNull: string, [<Optional>] unit: string, [<Optional>] tooltip: string, [<Optional>] defaultValue: obj, [<Optional>] showName: bool, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] level: DiagnosticLevel) =
+  [<NamedParams(fromIndex=2)>] static member ``lazy``(name: string, computeValue: (unit -> DartNullable<float>), [<Optional>] ifNull: string, [<Optional>] showName: bool, [<Optional>] unit: string, [<Optional>] tooltip: string, [<Optional>] defaultValue: obj, [<Optional>] level: DiagnosticLevel): DoubleProperty = nativeOnly
 
 /// https://api.flutter.dev/flutter/foundation/IntProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type IntProperty [<NamedParams(fromIndex=2)>] (name: string, value: int option, ?ifNull: string, ?showName: bool, ?unit: string, ?defaultValue: obj, ?style: DiagnosticsTreeStyle, ?level: DiagnosticLevel) =
+type IntProperty [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<int>, [<Optional>] ifNull: string, [<Optional>] showName: bool, [<Optional>] unit: string, [<Optional>] defaultValue: obj, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/PercentProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type PercentProperty [<NamedParams(fromIndex=2)>] (name: string, fraction: float option, ?ifNull: string, ?showName: bool, ?tooltip: string, ?unit: string, ?level: DiagnosticLevel) =
+type PercentProperty [<NamedParams(fromIndex=2)>] (name: string, fraction: DartNullable<float>, [<Optional>] ifNull: string, [<Optional>] showName: bool, [<Optional>] tooltip: string, [<Optional>] unit: string, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/FlagProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type FlagProperty [<NamedParams(fromIndex=1)>] (name: string, value: bool option, ?ifTrue: string, ?ifFalse: string, ?showName: bool, ?defaultValue: obj, ?level: DiagnosticLevel) =
+type FlagProperty [<NamedParams(fromIndex=1)>] (name: string, value: DartNullable<bool>, [<Optional>] ifTrue: string, [<Optional>] ifFalse: string, [<Optional>] showName: bool, [<Optional>] defaultValue: obj, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/IterableProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type IterableProperty<'T> [<NamedParams(fromIndex=2)>] (name: string, value: 'T seq option, ?defaultValue: obj, ?ifNull: string, ?ifEmpty: string, ?style: DiagnosticsTreeStyle, ?showName: bool, ?showSeparator: bool, ?level: DiagnosticLevel) =
+type IterableProperty<'T> [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<'T seq>, [<Optional>] defaultValue: obj, [<Optional>] ifNull: string, [<Optional>] ifEmpty: string, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] showName: bool, [<Optional>] showSeparator: bool, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/EnumProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type EnumProperty<'T> [<NamedParams(fromIndex=2)>] (name: string, value: 'T option, ?defaultValue: obj, ?level: DiagnosticLevel) =
+type EnumProperty<'T> [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<'T>, [<Optional>] defaultValue: obj, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/ObjectFlagProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type ObjectFlagProperty<'T> [<NamedParams(fromIndex=2)>] (name: string, value: 'T option, ?ifPresent: string, ?ifNull: string, ?showName: bool, ?level: DiagnosticLevel) =
-  [<NamedParams(fromIndex=2)>] static member has(name: string, value: 'T option, ?level: DiagnosticLevel): ObjectFlagProperty<'T> = nativeOnly
+type ObjectFlagProperty<'T> [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<'T>, [<Optional>] ifPresent: string, [<Optional>] ifNull: string, [<Optional>] showName: bool, [<Optional>] level: DiagnosticLevel) =
+  [<NamedParams(fromIndex=2)>] static member has(name: string, value: DartNullable<'T>, [<Optional>] level: DiagnosticLevel): ObjectFlagProperty<'T> = nativeOnly
 
 /// https://api.flutter.dev/flutter/foundation/FlagsSummary-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type FlagsSummary<'T> [<NamedParams(fromIndex=2)>] (name: string, value: Dictionary<string, 'T option>, ?ifEmpty: string, ?showName: bool, ?showSeparator: bool, ?level: DiagnosticLevel) =
+type FlagsSummary<'T> [<NamedParams(fromIndex=2)>] (name: string, value: Dictionary<string, DartNullable<'T>>, [<Optional>] ifEmpty: string, [<Optional>] showName: bool, [<Optional>] showSeparator: bool, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/DiagnosticsProperty-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DiagnosticsProperty<'T> [<NamedParams(fromIndex=2)>] (name: string option, value: 'T option, ?description: string, ?ifNull: string, ?ifEmpty: string, ?showName: bool, ?showSeparator: bool, ?defaultValue: obj, ?tooltip: string, ?missingIfNull: bool, ?linePrefix: string, ?expandableValue: bool, ?allowWrap: bool, ?allowNameWrap: bool, ?style: DiagnosticsTreeStyle, ?level: DiagnosticLevel) =
-  [<NamedParams(fromIndex=2)>] static member ``lazy``(name: string option, computeValue: (unit -> 'T option), ?description: string, ?ifNull: string, ?ifEmpty: string, ?showName: bool, ?showSeparator: bool, ?defaultValue: obj, ?tooltip: string, ?missingIfNull: bool, ?expandableValue: bool, ?allowWrap: bool, ?allowNameWrap: bool, ?style: DiagnosticsTreeStyle, ?level: DiagnosticLevel): DiagnosticsProperty<'T> = nativeOnly
+type DiagnosticsProperty<'T> [<NamedParams(fromIndex=2)>] (name: DartNullable<string>, value: DartNullable<'T>, [<Optional>] description: string, [<Optional>] ifNull: string, [<Optional>] ifEmpty: string, [<Optional>] showName: bool, [<Optional>] showSeparator: bool, [<Optional>] defaultValue: obj, [<Optional>] tooltip: string, [<Optional>] missingIfNull: bool, [<Optional>] linePrefix: string, [<Optional>] expandableValue: bool, [<Optional>] allowWrap: bool, [<Optional>] allowNameWrap: bool, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] level: DiagnosticLevel) =
+  [<NamedParams(fromIndex=2)>] static member ``lazy``(name: DartNullable<string>, computeValue: (unit -> DartNullable<'T>), [<Optional>] description: string, [<Optional>] ifNull: string, [<Optional>] ifEmpty: string, [<Optional>] showName: bool, [<Optional>] showSeparator: bool, [<Optional>] defaultValue: obj, [<Optional>] tooltip: string, [<Optional>] missingIfNull: bool, [<Optional>] expandableValue: bool, [<Optional>] allowWrap: bool, [<Optional>] allowNameWrap: bool, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] level: DiagnosticLevel): DiagnosticsProperty<'T> = nativeOnly
 
 /// https://api.flutter.dev/flutter/foundation/DiagnosticableNode-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DiagnosticableNode<'T> [<NamedParams>] (value: 'T, style: DiagnosticsTreeStyle option, ?name: string) =
+type DiagnosticableNode<'T> [<NamedParams>] (value: 'T, style: DartNullable<DiagnosticsTreeStyle>, [<Optional>] name: string) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/DiagnosticableTreeNode-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DiagnosticableTreeNode [<NamedParams>] (value: DiagnosticableTree, style: DiagnosticsTreeStyle option, ?name: string) =
+type DiagnosticableTreeNode [<NamedParams>] (value: DiagnosticableTree, style: DartNullable<DiagnosticsTreeStyle>, [<Optional>] name: string) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/DiagnosticPropertiesBuilder-class.html
@@ -245,12 +246,12 @@ type DiagnosticableTree [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/foundation/DiagnosticsBlock-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DiagnosticsBlock [<NamedParams>] (?name: string, ?style: DiagnosticsTreeStyle, ?showName: bool, ?showSeparator: bool, ?linePrefix: string, ?value: obj, ?description: string, ?level: DiagnosticLevel, ?allowTruncate: bool, ?children: DiagnosticsNode[], ?properties: DiagnosticsNode[]) =
+type DiagnosticsBlock [<NamedParams>] ([<Optional>] name: string, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] showName: bool, [<Optional>] showSeparator: bool, [<Optional>] linePrefix: string, [<Optional>] value: obj, [<Optional>] description: string, [<Optional>] level: DiagnosticLevel, [<Optional>] allowTruncate: bool, [<Optional>] children: DiagnosticsNode[], [<Optional>] properties: DiagnosticsNode[]) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/DiagnosticsSerializationDelegate-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type DiagnosticsSerializationDelegate [<IsConst; NamedParams>] (?subtreeDepth: int, ?includeProperties: bool) =
+type DiagnosticsSerializationDelegate [<IsConst; NamedParams>] ([<Optional>] subtreeDepth: int, [<Optional>] includeProperties: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/foundation/Key-class.html
@@ -320,7 +321,7 @@ type ReadBuffer (data: ByteData) =
 
 /// https://api.flutter.dev/flutter/foundation/StackFrame-class.html
 [<ImportMember("package:flutter/foundation.dart")>]
-type StackFrame [<IsConst; NamedParams>] (number: int, column: int, line: int, packageScheme: string, package: string, packagePath: string, method: string, source: string, ?className: string, ?isConstructor: bool) =
+type StackFrame [<IsConst; NamedParams>] (number: int, column: int, line: int, packageScheme: string, package: string, packagePath: string, method: string, source: string, [<Optional>] className: string, [<Optional>] isConstructor: bool) =
   [<IsConst>] static member asynchronousSuspension: StackFrame = nativeOnly
   [<IsConst>] static member stackOverFlowElision: StackFrame = nativeOnly
 

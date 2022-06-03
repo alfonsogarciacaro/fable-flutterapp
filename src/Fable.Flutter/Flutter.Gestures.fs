@@ -2,6 +2,7 @@ namespace rec Flutter.Gestures
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 open Dart
@@ -51,7 +52,7 @@ type SamplingClock () =
 
 /// https://api.flutter.dev/flutter/gestures/FlutterErrorDetailsForPointerEventDispatcher-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type FlutterErrorDetailsForPointerEventDispatcher [<IsConst; NamedParams>] (``exception``: obj, ?stack: StackTrace, ?library: string, ?context: DiagnosticsNode, ?event: PointerEvent, ?hitTestEntry: HitTestEntry<HitTestTarget>, ?informationCollector: (unit -> DiagnosticsNode seq), ?silent: bool) =
+type FlutterErrorDetailsForPointerEventDispatcher [<IsConst; NamedParams>] (``exception``: obj, [<Optional>] stack: StackTrace, [<Optional>] library: string, [<Optional>] context: DiagnosticsNode, [<Optional>] event: PointerEvent, [<Optional>] hitTestEntry: HitTestEntry<HitTestTarget>, [<Optional>] informationCollector: (unit -> DiagnosticsNode seq), [<Optional>] silent: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerEventConverter-class.html
@@ -66,102 +67,102 @@ type Drag () =
 
 /// https://api.flutter.dev/flutter/gestures/DragDownDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type DragDownDetails [<NamedParams>] (?globalPosition: Offset, ?localPosition: Offset) =
+type DragDownDetails [<NamedParams>] ([<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/DragStartDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type DragStartDetails [<NamedParams>] (?sourceTimeStamp: TimeSpan, ?globalPosition: Offset, ?localPosition: Offset, ?kind: PointerDeviceKind) =
+type DragStartDetails [<NamedParams>] ([<Optional>] sourceTimeStamp: TimeSpan, [<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset, [<Optional>] kind: PointerDeviceKind) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/DragUpdateDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type DragUpdateDetails [<NamedParams>] (globalPosition: Offset, ?sourceTimeStamp: TimeSpan, ?delta: Offset, ?primaryDelta: float, ?localPosition: Offset) =
+type DragUpdateDetails [<NamedParams>] (globalPosition: Offset, [<Optional>] sourceTimeStamp: TimeSpan, [<Optional>] delta: Offset, [<Optional>] primaryDelta: float, [<Optional>] localPosition: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/DragEndDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type DragEndDetails [<NamedParams>] (?velocity: Velocity, ?primaryVelocity: float) =
+type DragEndDetails [<NamedParams>] ([<Optional>] velocity: Velocity, [<Optional>] primaryVelocity: float) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/EagerGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type EagerGestureRecognizer [<NamedParams>] (?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type EagerGestureRecognizer [<NamedParams>] ([<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerEvent [<IsConst; NamedParams>] (?embedderId: int, ?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?delta: Offset, ?buttons: int, ?down: bool, ?obscured: bool, ?pressure: float, ?pressureMin: float, ?pressureMax: float, ?distance: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?platformData: int, ?synthesized: bool, ?transform: Matrix4, ?original: PointerEvent) =
+type PointerEvent [<IsConst; NamedParams>] ([<Optional>] embedderId: int, [<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] delta: Offset, [<Optional>] buttons: int, [<Optional>] down: bool, [<Optional>] obscured: bool, [<Optional>] pressure: float, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distance: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] platformData: int, [<Optional>] synthesized: bool, [<Optional>] transform: Matrix4, [<Optional>] original: PointerEvent) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerAddedEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerAddedEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?obscured: bool, ?pressureMin: float, ?pressureMax: float, ?distance: float, ?distanceMax: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?embedderId: int) =
+type PointerAddedEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] obscured: bool, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distance: float, [<Optional>] distanceMax: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerRemovedEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerRemovedEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?obscured: bool, ?pressureMin: float, ?pressureMax: float, ?distanceMax: float, ?radiusMin: float, ?radiusMax: float, ?original: PointerRemovedEvent, ?embedderId: int) =
+type PointerRemovedEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] obscured: bool, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distanceMax: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] original: PointerRemovedEvent, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerHoverEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerHoverEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?kind: PointerDeviceKind, ?pointer: int, ?device: int, ?position: Offset, ?delta: Offset, ?buttons: int, ?obscured: bool, ?pressureMin: float, ?pressureMax: float, ?distance: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?synthesized: bool, ?embedderId: int) =
+type PointerHoverEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] kind: PointerDeviceKind, [<Optional>] pointer: int, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] delta: Offset, [<Optional>] buttons: int, [<Optional>] obscured: bool, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distance: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] synthesized: bool, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerEnterEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerEnterEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?delta: Offset, ?buttons: int, ?obscured: bool, ?pressureMin: float, ?pressureMax: float, ?distance: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?down: bool, ?synthesized: bool, ?embedderId: int) =
+type PointerEnterEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] delta: Offset, [<Optional>] buttons: int, [<Optional>] obscured: bool, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distance: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] down: bool, [<Optional>] synthesized: bool, [<Optional>] embedderId: int) =
   static member fromMouseEvent(event: PointerEvent): PointerEnterEvent = nativeOnly
 
 /// https://api.flutter.dev/flutter/gestures/PointerExitEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerExitEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?kind: PointerDeviceKind, ?pointer: int, ?device: int, ?position: Offset, ?delta: Offset, ?buttons: int, ?obscured: bool, ?pressureMin: float, ?pressureMax: float, ?distance: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?down: bool, ?synthesized: bool, ?embedderId: int) =
+type PointerExitEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] kind: PointerDeviceKind, [<Optional>] pointer: int, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] delta: Offset, [<Optional>] buttons: int, [<Optional>] obscured: bool, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distance: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] down: bool, [<Optional>] synthesized: bool, [<Optional>] embedderId: int) =
   static member fromMouseEvent(event: PointerEvent): PointerExitEvent = nativeOnly
 
 /// https://api.flutter.dev/flutter/gestures/PointerDownEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerDownEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?buttons: int, ?obscured: bool, ?pressure: float, ?pressureMin: float, ?pressureMax: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?embedderId: int) =
+type PointerDownEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] buttons: int, [<Optional>] obscured: bool, [<Optional>] pressure: float, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerMoveEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerMoveEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?delta: Offset, ?buttons: int, ?obscured: bool, ?pressure: float, ?pressureMin: float, ?pressureMax: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?platformData: int, ?synthesized: bool, ?embedderId: int) =
+type PointerMoveEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] delta: Offset, [<Optional>] buttons: int, [<Optional>] obscured: bool, [<Optional>] pressure: float, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] platformData: int, [<Optional>] synthesized: bool, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerUpEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerUpEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?buttons: int, ?obscured: bool, ?pressure: float, ?pressureMin: float, ?pressureMax: float, ?distance: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?embedderId: int) =
+type PointerUpEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] buttons: int, [<Optional>] obscured: bool, [<Optional>] pressure: float, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distance: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerSignalEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerSignalEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?embedderId: int) =
+type PointerSignalEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerScrollEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerScrollEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?scrollDelta: Offset, ?embedderId: int) =
+type PointerScrollEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] scrollDelta: Offset, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerCancelEvent-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PointerCancelEvent [<IsConst; NamedParams>] (?timeStamp: TimeSpan, ?pointer: int, ?kind: PointerDeviceKind, ?device: int, ?position: Offset, ?buttons: int, ?obscured: bool, ?pressureMin: float, ?pressureMax: float, ?distance: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?embedderId: int) =
+type PointerCancelEvent [<IsConst; NamedParams>] ([<Optional>] timeStamp: TimeSpan, [<Optional>] pointer: int, [<Optional>] kind: PointerDeviceKind, [<Optional>] device: int, [<Optional>] position: Offset, [<Optional>] buttons: int, [<Optional>] obscured: bool, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distance: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] embedderId: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/ForcePressDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type ForcePressDetails [<NamedParams>] (globalPosition: Offset, pressure: float, ?localPosition: Offset) =
+type ForcePressDetails [<NamedParams>] (globalPosition: Offset, pressure: float, [<Optional>] localPosition: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/ForcePressGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type ForcePressGestureRecognizer [<NamedParams>] (?startPressure: float, ?peakPressure: float, ?interpolation: (float -> float -> float -> float), ?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type ForcePressGestureRecognizer [<NamedParams>] ([<Optional>] startPressure: float, [<Optional>] peakPressure: float, [<Optional>] interpolation: (float -> float -> float -> float), [<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/DeviceGestureSettings-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type DeviceGestureSettings [<IsConst; NamedParams>] (?touchSlop: float) =
+type DeviceGestureSettings [<IsConst; NamedParams>] ([<Optional>] touchSlop: float) =
   static member fromWindow(window: FlutterView): DeviceGestureSettings = nativeOnly
 
 /// https://api.flutter.dev/flutter/gestures/HitTestable-class.html
@@ -191,27 +192,27 @@ type HitTestResult () =
 
 /// https://api.flutter.dev/flutter/gestures/LongPressDownDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type LongPressDownDetails [<IsConst; NamedParams>] (?globalPosition: Offset, ?localPosition: Offset, ?kind: PointerDeviceKind) =
+type LongPressDownDetails [<IsConst; NamedParams>] ([<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset, [<Optional>] kind: PointerDeviceKind) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/LongPressStartDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type LongPressStartDetails [<IsConst; NamedParams>] (?globalPosition: Offset, ?localPosition: Offset) =
+type LongPressStartDetails [<IsConst; NamedParams>] ([<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/LongPressMoveUpdateDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type LongPressMoveUpdateDetails [<IsConst; NamedParams>] (?globalPosition: Offset, ?localPosition: Offset, ?offsetFromOrigin: Offset, ?localOffsetFromOrigin: Offset) =
+type LongPressMoveUpdateDetails [<IsConst; NamedParams>] ([<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset, [<Optional>] offsetFromOrigin: Offset, [<Optional>] localOffsetFromOrigin: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/LongPressEndDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type LongPressEndDetails [<IsConst; NamedParams>] (?globalPosition: Offset, ?localPosition: Offset, ?velocity: Velocity) =
+type LongPressEndDetails [<IsConst; NamedParams>] ([<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset, [<Optional>] velocity: Velocity) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/LongPressGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type LongPressGestureRecognizer [<NamedParams>] (?duration: TimeSpan, ?postAcceptSlopTolerance: float, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>, ?debugOwner: obj) =
+type LongPressGestureRecognizer [<NamedParams>] ([<Optional>] duration: TimeSpan, [<Optional>] postAcceptSlopTolerance: float, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>, [<Optional>] debugOwner: obj) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PolynomialFit-class.html
@@ -226,82 +227,82 @@ type LeastSquaresSolver (x: float[], y: float[], w: float[]) =
 
 /// https://api.flutter.dev/flutter/gestures/DragGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type DragGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?dragStartBehavior: DragStartBehavior, ?velocityTrackerBuilder: (PointerEvent -> VelocityTracker), ?supportedDevices: HashSet<PointerDeviceKind>) =
+type DragGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] velocityTrackerBuilder: (PointerEvent -> VelocityTracker), [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/VerticalDragGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type VerticalDragGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type VerticalDragGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/HorizontalDragGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type HorizontalDragGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type HorizontalDragGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PanGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PanGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type PanGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/MultiDragPointerState-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type MultiDragPointerState (initialPosition: Offset, kind: PointerDeviceKind, gestureSettings: DeviceGestureSettings option) =
+type MultiDragPointerState (initialPosition: Offset, kind: PointerDeviceKind, gestureSettings: DartNullable<DeviceGestureSettings>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/MultiDragGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type MultiDragGestureRecognizer [<NamedParams>] (debugOwner: obj option, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type MultiDragGestureRecognizer [<NamedParams>] (debugOwner: DartNullable<obj>, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/ImmediateMultiDragGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type ImmediateMultiDragGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type ImmediateMultiDragGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/HorizontalMultiDragGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type HorizontalMultiDragGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type HorizontalMultiDragGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/VerticalMultiDragGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type VerticalMultiDragGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type VerticalMultiDragGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/DelayedMultiDragGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type DelayedMultiDragGestureRecognizer [<NamedParams>] (?delay: TimeSpan, ?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type DelayedMultiDragGestureRecognizer [<NamedParams>] ([<Optional>] delay: TimeSpan, [<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/DoubleTapGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type DoubleTapGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type DoubleTapGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/MultiTapGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type MultiTapGestureRecognizer [<NamedParams>] (?longTapDelay: TimeSpan, ?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type MultiTapGestureRecognizer [<NamedParams>] ([<Optional>] longTapDelay: TimeSpan, [<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/SerialTapDownDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type SerialTapDownDetails [<NamedParams>] (kind: PointerDeviceKind, ?globalPosition: Offset, ?localPosition: Offset, ?buttons: int, ?count: int) =
+type SerialTapDownDetails [<NamedParams>] (kind: PointerDeviceKind, [<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset, [<Optional>] buttons: int, [<Optional>] count: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/SerialTapCancelDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type SerialTapCancelDetails [<NamedParams>] (?count: int) =
+type SerialTapCancelDetails [<NamedParams>] ([<Optional>] count: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/SerialTapUpDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type SerialTapUpDetails [<NamedParams>] (?globalPosition: Offset, ?localPosition: Offset, ?kind: PointerDeviceKind, ?count: int) =
+type SerialTapUpDetails [<NamedParams>] ([<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset, [<Optional>] kind: PointerDeviceKind, [<Optional>] count: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/SerialTapGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type SerialTapGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type SerialTapGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PointerRouter-class.html
@@ -316,17 +317,17 @@ type PointerSignalResolver () =
 
 /// https://api.flutter.dev/flutter/gestures/GestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type GestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type GestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/OneSequenceGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type OneSequenceGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type OneSequenceGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/PrimaryPointerGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type PrimaryPointerGestureRecognizer [<NamedParams>] (?deadline: TimeSpan, ?preAcceptSlopTolerance: float, ?postAcceptSlopTolerance: float, ?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type PrimaryPointerGestureRecognizer [<NamedParams>] ([<Optional>] deadline: TimeSpan, [<Optional>] preAcceptSlopTolerance: float, [<Optional>] postAcceptSlopTolerance: float, [<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/OffsetPair-class.html
@@ -343,42 +344,42 @@ type PointerEventResampler () =
 
 /// https://api.flutter.dev/flutter/gestures/ScaleStartDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type ScaleStartDetails [<NamedParams>] (?focalPoint: Offset, ?localFocalPoint: Offset, ?pointerCount: int) =
+type ScaleStartDetails [<NamedParams>] ([<Optional>] focalPoint: Offset, [<Optional>] localFocalPoint: Offset, [<Optional>] pointerCount: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/ScaleUpdateDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type ScaleUpdateDetails [<NamedParams>] (?focalPoint: Offset, ?localFocalPoint: Offset, ?scale: float, ?horizontalScale: float, ?verticalScale: float, ?rotation: float, ?pointerCount: int, ?focalPointDelta: Offset) =
+type ScaleUpdateDetails [<NamedParams>] ([<Optional>] focalPoint: Offset, [<Optional>] localFocalPoint: Offset, [<Optional>] scale: float, [<Optional>] horizontalScale: float, [<Optional>] verticalScale: float, [<Optional>] rotation: float, [<Optional>] pointerCount: int, [<Optional>] focalPointDelta: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/ScaleEndDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type ScaleEndDetails [<NamedParams>] (?velocity: Velocity, ?pointerCount: int) =
+type ScaleEndDetails [<NamedParams>] ([<Optional>] velocity: Velocity, [<Optional>] pointerCount: int) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/ScaleGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type ScaleGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?kind: PointerDeviceKind, ?supportedDevices: HashSet<PointerDeviceKind>, ?dragStartBehavior: DragStartBehavior) =
+type ScaleGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] kind: PointerDeviceKind, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>, [<Optional>] dragStartBehavior: DragStartBehavior) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/TapDownDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type TapDownDetails [<NamedParams>] (?globalPosition: Offset, ?localPosition: Offset, ?kind: PointerDeviceKind) =
+type TapDownDetails [<NamedParams>] ([<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset, [<Optional>] kind: PointerDeviceKind) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/TapUpDetails-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type TapUpDetails [<NamedParams>] (kind: PointerDeviceKind, ?globalPosition: Offset, ?localPosition: Offset) =
+type TapUpDetails [<NamedParams>] (kind: PointerDeviceKind, [<Optional>] globalPosition: Offset, [<Optional>] localPosition: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/BaseTapGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type BaseTapGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type BaseTapGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/TapGestureRecognizer-class.html
 [<ImportMember("package:flutter/gestures.dart")>]
-type TapGestureRecognizer [<NamedParams>] (?debugOwner: obj, ?supportedDevices: HashSet<PointerDeviceKind>) =
+type TapGestureRecognizer [<NamedParams>] ([<Optional>] debugOwner: obj, [<Optional>] supportedDevices: HashSet<PointerDeviceKind>) =
   class end
 
 /// https://api.flutter.dev/flutter/gestures/GestureArenaTeam-class.html

@@ -1,6 +1,7 @@
 namespace rec Flutter.Scheduler
 
 open System
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 
@@ -29,7 +30,7 @@ type TickerProvider [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/scheduler/Ticker-class.html
 [<ImportMember("package:flutter/scheduler.dart")>]
-type Ticker [<NamedParams(fromIndex=1)>] (_onTick: (TimeSpan -> unit), ?debugLabel: string) =
+type Ticker [<NamedParams(fromIndex=1)>] (_onTick: (TimeSpan -> unit), [<Optional>] debugLabel: string) =
   class end
 
 /// https://api.flutter.dev/flutter/scheduler/TickerFuture-class.html

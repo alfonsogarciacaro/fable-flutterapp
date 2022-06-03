@@ -112,9 +112,8 @@ module App =
         )
 
 open App
-open Fable.Core.Dart
 
-type MyApp [<IsConst>] (?key: Key) =
+type MyApp (?key: Key) =
     inherit StatelessWidget(?key=key)
     override _.build(context) =
         MaterialApp(

@@ -1,6 +1,7 @@
 namespace rec Flutter.Semantics
 
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 open Dart
@@ -26,33 +27,33 @@ type CustomSemanticsAction [<IsConst; NamedParams>] (label: string) =
 
 /// https://api.flutter.dev/flutter/semantics/AttributedString-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
-type AttributedString [<NamedParams(fromIndex=1)>] (string: string, ?attributes: StringAttribute[]) =
+type AttributedString [<NamedParams(fromIndex=1)>] (string: string, [<Optional>] attributes: StringAttribute[]) =
   class end
 
 /// https://api.flutter.dev/flutter/semantics/AttributedStringProperty-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
-type AttributedStringProperty [<NamedParams(fromIndex=2)>] (name: string, value: AttributedString option, ?showName: bool, ?showWhenEmpty: bool, ?defaultValue: obj, ?level: DiagnosticLevel, ?description: string) =
+type AttributedStringProperty [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<AttributedString>, [<Optional>] showName: bool, [<Optional>] showWhenEmpty: bool, [<Optional>] defaultValue: obj, [<Optional>] level: DiagnosticLevel, [<Optional>] description: string) =
   class end
 
 /// https://api.flutter.dev/flutter/semantics/SemanticsData-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
-type SemanticsData [<NamedParams>] (flags: int, actions: int, attributedLabel: AttributedString, attributedValue: AttributedString, attributedIncreasedValue: AttributedString, attributedDecreasedValue: AttributedString, attributedHint: AttributedString, textDirection: TextDirection option, rect: Rect, elevation: float, thickness: float, textSelection: TextSelection option, scrollIndex: int option, scrollChildCount: int option, scrollPosition: float option, scrollExtentMax: float option, scrollExtentMin: float option, platformViewId: int option, maxValueLength: int option, currentValueLength: int option, ?tags: HashSet<SemanticsTag>, ?transform: Matrix4, ?customSemanticsActionIds: int[]) =
+type SemanticsData [<NamedParams>] (flags: int, actions: int, attributedLabel: AttributedString, attributedValue: AttributedString, attributedIncreasedValue: AttributedString, attributedDecreasedValue: AttributedString, attributedHint: AttributedString, textDirection: DartNullable<TextDirection>, rect: Rect, elevation: float, thickness: float, textSelection: DartNullable<TextSelection>, scrollIndex: DartNullable<int>, scrollChildCount: DartNullable<int>, scrollPosition: DartNullable<float>, scrollExtentMax: DartNullable<float>, scrollExtentMin: DartNullable<float>, platformViewId: DartNullable<int>, maxValueLength: DartNullable<int>, currentValueLength: DartNullable<int>, [<Optional>] tags: HashSet<SemanticsTag>, [<Optional>] transform: Matrix4, [<Optional>] customSemanticsActionIds: int[]) =
   class end
 
 /// https://api.flutter.dev/flutter/semantics/SemanticsHintOverrides-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
-type SemanticsHintOverrides [<IsConst; NamedParams>] (?onTapHint: string, ?onLongPressHint: string) =
+type SemanticsHintOverrides [<IsConst; NamedParams>] ([<Optional>] onTapHint: string, [<Optional>] onLongPressHint: string) =
   class end
 
 /// https://api.flutter.dev/flutter/semantics/SemanticsProperties-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
-type SemanticsProperties [<IsConst; NamedParams>] (?enabled: bool, ?``checked``: bool, ?selected: bool, ?toggled: bool, ?button: bool, ?link: bool, ?header: bool, ?textField: bool, ?slider: bool, ?keyboardKey: bool, ?readOnly: bool, ?focusable: bool, ?focused: bool, ?inMutuallyExclusiveGroup: bool, ?hidden: bool, ?obscured: bool, ?multiline: bool, ?scopesRoute: bool, ?namesRoute: bool, ?image: bool, ?liveRegion: bool, ?maxValueLength: int, ?currentValueLength: int, ?label: string, ?attributedLabel: AttributedString, ?value: string, ?attributedValue: AttributedString, ?increasedValue: string, ?attributedIncreasedValue: AttributedString, ?decreasedValue: string, ?attributedDecreasedValue: AttributedString, ?hint: string, ?attributedHint: AttributedString, ?hintOverrides: SemanticsHintOverrides, ?textDirection: TextDirection, ?sortKey: SemanticsSortKey, ?tagForChildren: SemanticsTag, ?onTap: (unit -> unit), ?onLongPress: (unit -> unit), ?onScrollLeft: (unit -> unit), ?onScrollRight: (unit -> unit), ?onScrollUp: (unit -> unit), ?onScrollDown: (unit -> unit), ?onIncrease: (unit -> unit), ?onDecrease: (unit -> unit), ?onCopy: (unit -> unit), ?onCut: (unit -> unit), ?onPaste: (unit -> unit), ?onMoveCursorForwardByCharacter: (bool -> unit), ?onMoveCursorBackwardByCharacter: (bool -> unit), ?onMoveCursorForwardByWord: (bool -> unit), ?onMoveCursorBackwardByWord: (bool -> unit), ?onSetSelection: (TextSelection -> unit), ?onSetText: (string -> unit), ?onDidGainAccessibilityFocus: (unit -> unit), ?onDidLoseAccessibilityFocus: (unit -> unit), ?onDismiss: (unit -> unit), ?customSemanticsActions: Dictionary<CustomSemanticsAction, (unit -> unit)>) =
+type SemanticsProperties [<IsConst; NamedParams>] ([<Optional>] enabled: bool, [<Optional>] ``checked``: bool, [<Optional>] selected: bool, [<Optional>] toggled: bool, [<Optional>] button: bool, [<Optional>] link: bool, [<Optional>] header: bool, [<Optional>] textField: bool, [<Optional>] slider: bool, [<Optional>] keyboardKey: bool, [<Optional>] readOnly: bool, [<Optional>] focusable: bool, [<Optional>] focused: bool, [<Optional>] inMutuallyExclusiveGroup: bool, [<Optional>] hidden: bool, [<Optional>] obscured: bool, [<Optional>] multiline: bool, [<Optional>] scopesRoute: bool, [<Optional>] namesRoute: bool, [<Optional>] image: bool, [<Optional>] liveRegion: bool, [<Optional>] maxValueLength: int, [<Optional>] currentValueLength: int, [<Optional>] label: string, [<Optional>] attributedLabel: AttributedString, [<Optional>] value: string, [<Optional>] attributedValue: AttributedString, [<Optional>] increasedValue: string, [<Optional>] attributedIncreasedValue: AttributedString, [<Optional>] decreasedValue: string, [<Optional>] attributedDecreasedValue: AttributedString, [<Optional>] hint: string, [<Optional>] attributedHint: AttributedString, [<Optional>] hintOverrides: SemanticsHintOverrides, [<Optional>] textDirection: TextDirection, [<Optional>] sortKey: SemanticsSortKey, [<Optional>] tagForChildren: SemanticsTag, [<Optional>] onTap: (unit -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] onScrollLeft: (unit -> unit), [<Optional>] onScrollRight: (unit -> unit), [<Optional>] onScrollUp: (unit -> unit), [<Optional>] onScrollDown: (unit -> unit), [<Optional>] onIncrease: (unit -> unit), [<Optional>] onDecrease: (unit -> unit), [<Optional>] onCopy: (unit -> unit), [<Optional>] onCut: (unit -> unit), [<Optional>] onPaste: (unit -> unit), [<Optional>] onMoveCursorForwardByCharacter: (bool -> unit), [<Optional>] onMoveCursorBackwardByCharacter: (bool -> unit), [<Optional>] onMoveCursorForwardByWord: (bool -> unit), [<Optional>] onMoveCursorBackwardByWord: (bool -> unit), [<Optional>] onSetSelection: (TextSelection -> unit), [<Optional>] onSetText: (string -> unit), [<Optional>] onDidGainAccessibilityFocus: (unit -> unit), [<Optional>] onDidLoseAccessibilityFocus: (unit -> unit), [<Optional>] onDismiss: (unit -> unit), [<Optional>] customSemanticsActions: Dictionary<CustomSemanticsAction, (unit -> unit)>) =
   class end
 
 /// https://api.flutter.dev/flutter/semantics/SemanticsNode-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
-type SemanticsNode [<NamedParams>] (?key: Key, ?showOnScreen: (unit -> unit)) =
-  [<NamedParams>] static member root(owner: SemanticsOwner, ?key: Key, ?showOnScreen: (unit -> unit)): SemanticsNode = nativeOnly
+type SemanticsNode [<NamedParams>] ([<Optional>] key: Key, [<Optional>] showOnScreen: (unit -> unit)) =
+  [<NamedParams>] static member root(owner: SemanticsOwner, [<Optional>] key: Key, [<Optional>] showOnScreen: (unit -> unit)): SemanticsNode = nativeOnly
 
 /// https://api.flutter.dev/flutter/semantics/SemanticsOwner-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
@@ -66,12 +67,12 @@ type SemanticsConfiguration () =
 
 /// https://api.flutter.dev/flutter/semantics/SemanticsSortKey-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
-type SemanticsSortKey [<IsConst; NamedParams>] (?name: string) =
+type SemanticsSortKey [<IsConst; NamedParams>] ([<Optional>] name: string) =
   class end
 
 /// https://api.flutter.dev/flutter/semantics/OrdinalSortKey-class.html
 [<ImportMember("package:flutter/semantics.dart")>]
-type OrdinalSortKey [<IsConst; NamedParams(fromIndex=1)>] (order: float, ?name: string) =
+type OrdinalSortKey [<IsConst; NamedParams(fromIndex=1)>] (order: float, [<Optional>] name: string) =
   class end
 
 /// https://api.flutter.dev/flutter/semantics/SemanticsEvent-class.html

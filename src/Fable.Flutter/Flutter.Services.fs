@@ -2,6 +2,7 @@ namespace rec Flutter.Services
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 open Dart
@@ -172,7 +173,7 @@ type BinaryMessenger [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/services/ClipboardData-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type ClipboardData [<IsConst; NamedParams>] (?text: string) =
+type ClipboardData [<IsConst; NamedParams>] ([<Optional>] text: string) =
   class end
 
 /// https://api.flutter.dev/flutter/services/Clipboard-class.html
@@ -204,22 +205,22 @@ type KeyboardLockMode =
 
 /// https://api.flutter.dev/flutter/services/KeyEvent-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type KeyEvent [<IsConst; NamedParams>] (physicalKey: PhysicalKeyboardKey, logicalKey: LogicalKeyboardKey, timeStamp: TimeSpan, ?character: string, ?synthesized: bool) =
+type KeyEvent [<IsConst; NamedParams>] (physicalKey: PhysicalKeyboardKey, logicalKey: LogicalKeyboardKey, timeStamp: TimeSpan, [<Optional>] character: string, [<Optional>] synthesized: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/services/KeyDownEvent-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type KeyDownEvent [<IsConst; NamedParams>] (physicalKey: PhysicalKeyboardKey, logicalKey: LogicalKeyboardKey, timeStamp: TimeSpan, ?character: string, ?synthesized: bool) =
+type KeyDownEvent [<IsConst; NamedParams>] (physicalKey: PhysicalKeyboardKey, logicalKey: LogicalKeyboardKey, timeStamp: TimeSpan, [<Optional>] character: string, [<Optional>] synthesized: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/services/KeyUpEvent-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type KeyUpEvent [<IsConst; NamedParams>] (physicalKey: PhysicalKeyboardKey, logicalKey: LogicalKeyboardKey, timeStamp: TimeSpan, ?synthesized: bool) =
+type KeyUpEvent [<IsConst; NamedParams>] (physicalKey: PhysicalKeyboardKey, logicalKey: LogicalKeyboardKey, timeStamp: TimeSpan, [<Optional>] synthesized: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/services/KeyRepeatEvent-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type KeyRepeatEvent [<IsConst; NamedParams>] (physicalKey: PhysicalKeyboardKey, logicalKey: LogicalKeyboardKey, timeStamp: TimeSpan, ?character: string) =
+type KeyRepeatEvent [<IsConst; NamedParams>] (physicalKey: PhysicalKeyboardKey, logicalKey: LogicalKeyboardKey, timeStamp: TimeSpan, [<Optional>] character: string) =
   class end
 
 /// https://api.flutter.dev/flutter/services/HardwareKeyboard-class.html
@@ -229,7 +230,7 @@ type HardwareKeyboard () =
 
 /// https://api.flutter.dev/flutter/services/KeyMessage-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type KeyMessage [<IsConst>] (events: KeyEvent[], rawEvent: RawKeyEvent option) =
+type KeyMessage [<IsConst>] (events: KeyEvent[], rawEvent: DartNullable<RawKeyEvent>) =
   class end
 
 /// https://api.flutter.dev/flutter/services/KeyEventManager-class.html
@@ -984,7 +985,7 @@ type MessageCodec<'T> () =
 
 /// https://api.flutter.dev/flutter/services/MethodCall-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type MethodCall [<IsConst>] (method: string, ?arguments: obj) =
+type MethodCall [<IsConst>] (method: string, [<Optional>] arguments: obj) =
   class end
 
 /// https://api.flutter.dev/flutter/services/MethodCodec-class.html
@@ -1019,7 +1020,7 @@ type StandardMessageCodec [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/services/StandardMethodCodec-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type StandardMethodCodec [<IsConst>] (?messageCodec: StandardMessageCodec) =
+type StandardMethodCodec [<IsConst>] ([<Optional>] messageCodec: StandardMessageCodec) =
   class end
 
 /// https://api.flutter.dev/flutter/services/MouseCursorManager-class.html
@@ -1085,27 +1086,27 @@ type SystemMouseCursors =
 
 /// https://api.flutter.dev/flutter/services/MouseTrackerAnnotation-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type MouseTrackerAnnotation [<IsConst; NamedParams>] (?onEnter: (PointerEnterEvent -> unit), ?onExit: (PointerExitEvent -> unit), ?cursor: MouseCursor, ?validForMouseTracker: bool) =
+type MouseTrackerAnnotation [<IsConst; NamedParams>] ([<Optional>] onEnter: (PointerEnterEvent -> unit), [<Optional>] onExit: (PointerExitEvent -> unit), [<Optional>] cursor: MouseCursor, [<Optional>] validForMouseTracker: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/services/BasicMessageChannel-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type BasicMessageChannel<'T> [<IsConst; NamedParams(fromIndex=2)>] (name: string, codec: MessageCodec<'T>, ?binaryMessenger: BinaryMessenger) =
+type BasicMessageChannel<'T> [<IsConst; NamedParams(fromIndex=2)>] (name: string, codec: MessageCodec<'T>, [<Optional>] binaryMessenger: BinaryMessenger) =
   class end
 
 /// https://api.flutter.dev/flutter/services/MethodChannel-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type MethodChannel [<IsConst>] (name: string, ?codec: MethodCodec, ?binaryMessenger: BinaryMessenger) =
+type MethodChannel [<IsConst>] (name: string, [<Optional>] codec: MethodCodec, [<Optional>] binaryMessenger: BinaryMessenger) =
   class end
 
 /// https://api.flutter.dev/flutter/services/OptionalMethodChannel-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type OptionalMethodChannel [<IsConst>] (name: string, ?codec: MethodCodec, ?binaryMessenger: BinaryMessenger) =
+type OptionalMethodChannel [<IsConst>] (name: string, [<Optional>] codec: MethodCodec, [<Optional>] binaryMessenger: BinaryMessenger) =
   class end
 
 /// https://api.flutter.dev/flutter/services/EventChannel-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type EventChannel [<IsConst>] (name: string, ?codec: MethodCodec, ?binaryMessenger: BinaryMessenger) =
+type EventChannel [<IsConst>] (name: string, [<Optional>] codec: MethodCodec, [<Optional>] binaryMessenger: BinaryMessenger) =
   class end
 
 /// https://api.flutter.dev/flutter/services/PlatformViewsRegistry-class.html
@@ -1181,17 +1182,17 @@ type RawKeyEventData [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/services/RawKeyEvent-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyEvent [<IsConst; NamedParams>] (data: RawKeyEventData, ?character: string, ?repeat: bool) =
-  static member fromMessage(message: Dictionary<string, obj option>): RawKeyEvent = nativeOnly
+type RawKeyEvent [<IsConst; NamedParams>] (data: RawKeyEventData, [<Optional>] character: string, [<Optional>] repeat: bool) =
+  static member fromMessage(message: Dictionary<string, DartNullable<obj>>): RawKeyEvent = nativeOnly
 
 /// https://api.flutter.dev/flutter/services/RawKeyDownEvent-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyDownEvent [<IsConst; NamedParams>] (data: RawKeyEventData, ?character: string, ?repeat: bool) =
+type RawKeyDownEvent [<IsConst; NamedParams>] (data: RawKeyEventData, [<Optional>] character: string, [<Optional>] repeat: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/services/RawKeyUpEvent-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyUpEvent [<IsConst; NamedParams>] (data: RawKeyEventData, ?character: string) =
+type RawKeyUpEvent [<IsConst; NamedParams>] (data: RawKeyEventData, [<Optional>] character: string) =
   class end
 
 /// https://api.flutter.dev/flutter/services/RawKeyboard-class.html
@@ -1201,7 +1202,7 @@ type RawKeyboard =
 
 /// https://api.flutter.dev/flutter/services/RawKeyEventDataAndroid-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyEventDataAndroid [<IsConst; NamedParams>] (?flags: int, ?codePoint: int, ?plainCodePoint: int, ?keyCode: int, ?scanCode: int, ?metaState: int, ?eventSource: int, ?vendorId: int, ?productId: int, ?deviceId: int, ?repeatCount: int) =
+type RawKeyEventDataAndroid [<IsConst; NamedParams>] ([<Optional>] flags: int, [<Optional>] codePoint: int, [<Optional>] plainCodePoint: int, [<Optional>] keyCode: int, [<Optional>] scanCode: int, [<Optional>] metaState: int, [<Optional>] eventSource: int, [<Optional>] vendorId: int, [<Optional>] productId: int, [<Optional>] deviceId: int, [<Optional>] repeatCount: int) =
   [<IsConst>] static member modifierNone: int = nativeOnly
   [<IsConst>] static member modifierAlt: int = nativeOnly
   [<IsConst>] static member modifierLeftAlt: int = nativeOnly
@@ -1223,7 +1224,7 @@ type RawKeyEventDataAndroid [<IsConst; NamedParams>] (?flags: int, ?codePoint: i
 
 /// https://api.flutter.dev/flutter/services/RawKeyEventDataFuchsia-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyEventDataFuchsia [<IsConst; NamedParams>] (?hidUsage: int, ?codePoint: int, ?modifiers: int) =
+type RawKeyEventDataFuchsia [<IsConst; NamedParams>] ([<Optional>] hidUsage: int, [<Optional>] codePoint: int, [<Optional>] modifiers: int) =
   [<IsConst>] static member modifierNone: int = nativeOnly
   [<IsConst>] static member modifierCapsLock: int = nativeOnly
   [<IsConst>] static member modifierLeftShift: int = nativeOnly
@@ -1241,7 +1242,7 @@ type RawKeyEventDataFuchsia [<IsConst; NamedParams>] (?hidUsage: int, ?codePoint
 
 /// https://api.flutter.dev/flutter/services/RawKeyEventDataIos-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyEventDataIos [<IsConst; NamedParams>] (?characters: string, ?charactersIgnoringModifiers: string, ?keyCode: int, ?modifiers: int) =
+type RawKeyEventDataIos [<IsConst; NamedParams>] ([<Optional>] characters: string, [<Optional>] charactersIgnoringModifiers: string, [<Optional>] keyCode: int, [<Optional>] modifiers: int) =
   [<IsConst>] static member modifierCapsLock: int = nativeOnly
   [<IsConst>] static member modifierShift: int = nativeOnly
   [<IsConst>] static member modifierLeftShift: int = nativeOnly
@@ -1262,7 +1263,7 @@ type RawKeyEventDataIos [<IsConst; NamedParams>] (?characters: string, ?characte
 
 /// https://api.flutter.dev/flutter/services/RawKeyEventDataLinux-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyEventDataLinux [<IsConst; NamedParams>] (keyHelper: KeyHelper, isDown: bool, ?unicodeScalarValues: int, ?scanCode: int, ?keyCode: int, ?modifiers: int) =
+type RawKeyEventDataLinux [<IsConst; NamedParams>] (keyHelper: KeyHelper, isDown: bool, [<Optional>] unicodeScalarValues: int, [<Optional>] scanCode: int, [<Optional>] keyCode: int, [<Optional>] modifiers: int) =
   class end
 
 /// https://api.flutter.dev/flutter/services/KeyHelper-class.html
@@ -1292,7 +1293,7 @@ type GtkKeyHelper () =
 
 /// https://api.flutter.dev/flutter/services/RawKeyEventDataMacOs-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyEventDataMacOs [<IsConst; NamedParams>] (?characters: string, ?charactersIgnoringModifiers: string, ?keyCode: int, ?modifiers: int) =
+type RawKeyEventDataMacOs [<IsConst; NamedParams>] ([<Optional>] characters: string, [<Optional>] charactersIgnoringModifiers: string, [<Optional>] keyCode: int, [<Optional>] modifiers: int) =
   [<IsConst>] static member modifierCapsLock: int = nativeOnly
   [<IsConst>] static member modifierShift: int = nativeOnly
   [<IsConst>] static member modifierLeftShift: int = nativeOnly
@@ -1313,7 +1314,7 @@ type RawKeyEventDataMacOs [<IsConst; NamedParams>] (?characters: string, ?charac
 
 /// https://api.flutter.dev/flutter/services/RawKeyEventDataWeb-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyEventDataWeb [<IsConst; NamedParams>] (code: string, key: string, ?location: int, ?metaState: int, ?keyCode: int) =
+type RawKeyEventDataWeb [<IsConst; NamedParams>] (code: string, key: string, [<Optional>] location: int, [<Optional>] metaState: int, [<Optional>] keyCode: int) =
   [<IsConst>] static member modifierNone: int = nativeOnly
   [<IsConst>] static member modifierShift: int = nativeOnly
   [<IsConst>] static member modifierAlt: int = nativeOnly
@@ -1325,7 +1326,7 @@ type RawKeyEventDataWeb [<IsConst; NamedParams>] (code: string, key: string, ?lo
 
 /// https://api.flutter.dev/flutter/services/RawKeyEventDataWindows-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawKeyEventDataWindows [<IsConst; NamedParams>] (?keyCode: int, ?scanCode: int, ?characterCodePoint: int, ?modifiers: int) =
+type RawKeyEventDataWindows [<IsConst; NamedParams>] ([<Optional>] keyCode: int, [<Optional>] scanCode: int, [<Optional>] characterCodePoint: int, [<Optional>] modifiers: int) =
   [<IsConst>] static member modifierShift: int = nativeOnly
   [<IsConst>] static member modifierLeftShift: int = nativeOnly
   [<IsConst>] static member modifierRightShift: int = nativeOnly
@@ -1349,9 +1350,9 @@ type RestorationManager () =
 /// https://api.flutter.dev/flutter/services/RestorationBucket-class.html
 [<ImportMember("package:flutter/services.dart")>]
 type RestorationBucket =
-  [<NamedParams>] static member empty(restorationId: string, debugOwner: obj option): RestorationBucket = nativeOnly
-  [<NamedParams>] static member root(manager: RestorationManager, rawData: Dictionary<obj option, obj option> option): RestorationBucket = nativeOnly
-  [<NamedParams>] static member child(restorationId: string, parent: RestorationBucket, debugOwner: obj option): RestorationBucket = nativeOnly
+  [<NamedParams>] static member empty(restorationId: string, debugOwner: DartNullable<obj>): RestorationBucket = nativeOnly
+  [<NamedParams>] static member root(manager: RestorationManager, rawData: DartNullable<Dictionary<DartNullable<obj>, DartNullable<obj>>>): RestorationBucket = nativeOnly
+  [<NamedParams>] static member child(restorationId: string, parent: RestorationBucket, debugOwner: DartNullable<obj>): RestorationBucket = nativeOnly
 
 /// https://api.flutter.dev/flutter/services/SystemChannels-class.html
 [<ImportMember("package:flutter/services.dart")>]
@@ -1359,10 +1360,10 @@ type SystemChannels =
   [<IsConst>] static member navigation: MethodChannel = nativeOnly
   [<IsConst>] static member platform: MethodChannel = nativeOnly
   [<IsConst>] static member textInput: MethodChannel = nativeOnly
-  [<IsConst>] static member keyEvent: BasicMessageChannel<obj option> = nativeOnly
-  [<IsConst>] static member lifecycle: BasicMessageChannel<string option> = nativeOnly
-  [<IsConst>] static member system: BasicMessageChannel<obj option> = nativeOnly
-  [<IsConst>] static member accessibility: BasicMessageChannel<obj option> = nativeOnly
+  [<IsConst>] static member keyEvent: BasicMessageChannel<DartNullable<obj>> = nativeOnly
+  [<IsConst>] static member lifecycle: BasicMessageChannel<DartNullable<string>> = nativeOnly
+  [<IsConst>] static member system: BasicMessageChannel<DartNullable<obj>> = nativeOnly
+  [<IsConst>] static member accessibility: BasicMessageChannel<DartNullable<obj>> = nativeOnly
   [<IsConst>] static member platform_views: MethodChannel = nativeOnly
   [<IsConst>] static member skia: MethodChannel = nativeOnly
   [<IsConst>] static member mouseCursor: MethodChannel = nativeOnly
@@ -1373,12 +1374,12 @@ type SystemChannels =
 
 /// https://api.flutter.dev/flutter/services/ApplicationSwitcherDescription-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type ApplicationSwitcherDescription [<IsConst; NamedParams>] (?label: string, ?primaryColor: int) =
+type ApplicationSwitcherDescription [<IsConst; NamedParams>] ([<Optional>] label: string, [<Optional>] primaryColor: int) =
   class end
 
 /// https://api.flutter.dev/flutter/services/SystemUiOverlayStyle-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type SystemUiOverlayStyle [<IsConst; NamedParams>] (?systemNavigationBarColor: Color, ?systemNavigationBarDividerColor: Color, ?systemNavigationBarIconBrightness: Brightness, ?systemNavigationBarContrastEnforced: bool, ?statusBarColor: Color, ?statusBarBrightness: Brightness, ?statusBarIconBrightness: Brightness, ?systemStatusBarContrastEnforced: bool) =
+type SystemUiOverlayStyle [<IsConst; NamedParams>] ([<Optional>] systemNavigationBarColor: Color, [<Optional>] systemNavigationBarDividerColor: Color, [<Optional>] systemNavigationBarIconBrightness: Brightness, [<Optional>] systemNavigationBarContrastEnforced: bool, [<Optional>] statusBarColor: Color, [<Optional>] statusBarBrightness: Brightness, [<Optional>] statusBarIconBrightness: Brightness, [<Optional>] systemStatusBarContrastEnforced: bool) =
   [<IsConst>] static member light: SystemUiOverlayStyle = nativeOnly
   [<IsConst>] static member dark: SystemUiOverlayStyle = nativeOnly
 
@@ -1399,9 +1400,9 @@ type SystemSound =
 
 /// https://api.flutter.dev/flutter/services/TextSelection-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type TextSelection [<IsConst; NamedParams>] (baseOffset: int, extentOffset: int, ?affinity: TextAffinity, ?isDirectional: bool) =
+type TextSelection [<IsConst; NamedParams>] (baseOffset: int, extentOffset: int, [<Optional>] affinity: TextAffinity, [<Optional>] isDirectional: bool) =
   inherit TextRange(0, 0)
-  [<IsConst; NamedParams>] static member collapsed(offset: int, ?affinity: TextAffinity): TextSelection = nativeOnly
+  [<IsConst; NamedParams>] static member collapsed(offset: int, [<Optional>] affinity: TextAffinity): TextSelection = nativeOnly
   static member fromPosition(position: TextPosition): TextSelection = nativeOnly
 
 /// https://api.flutter.dev/flutter/services/TextLayoutMetrics-class.html
@@ -1481,7 +1482,7 @@ type AutofillHints =
 
 /// https://api.flutter.dev/flutter/services/AutofillConfiguration-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type AutofillConfiguration [<IsConst; NamedParams>] (uniqueIdentifier: string, autofillHints: string[], currentEditingValue: TextEditingValue, ?hintText: string) =
+type AutofillConfiguration [<IsConst; NamedParams>] (uniqueIdentifier: string, autofillHints: string[], currentEditingValue: TextEditingValue, [<Optional>] hintText: string) =
   [<IsConst>] static member disabled: AutofillConfiguration = nativeOnly
 
 /// https://api.flutter.dev/flutter/services/AutofillClient-class.html
@@ -1526,19 +1527,19 @@ type TextInputFormatter () =
 
 /// https://api.flutter.dev/flutter/services/FilteringTextInputFormatter-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type FilteringTextInputFormatter [<NamedParams(fromIndex=1)>] (filterPattern: Pattern, allow: bool, ?replacementString: string) =
-  [<NamedParams(fromIndex=1)>] static member allow(filterPattern: Pattern, ?replacementString: string): FilteringTextInputFormatter = nativeOnly
-  [<NamedParams(fromIndex=1)>] static member deny(filterPattern: Pattern, ?replacementString: string): FilteringTextInputFormatter = nativeOnly
+type FilteringTextInputFormatter [<NamedParams(fromIndex=1)>] (filterPattern: Pattern, allow: bool, [<Optional>] replacementString: string) =
+  [<NamedParams(fromIndex=1)>] static member allow(filterPattern: Pattern, [<Optional>] replacementString: string): FilteringTextInputFormatter = nativeOnly
+  [<NamedParams(fromIndex=1)>] static member deny(filterPattern: Pattern, [<Optional>] replacementString: string): FilteringTextInputFormatter = nativeOnly
 
 /// https://api.flutter.dev/flutter/services/LengthLimitingTextInputFormatter-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type LengthLimitingTextInputFormatter [<NamedParams(fromIndex=1)>] (maxLength: int option, ?maxLengthEnforcement: MaxLengthEnforcement) =
+type LengthLimitingTextInputFormatter [<NamedParams(fromIndex=1)>] (maxLength: DartNullable<int>, [<Optional>] maxLengthEnforcement: MaxLengthEnforcement) =
   class end
 
 /// https://api.flutter.dev/flutter/services/TextInputType-class.html
 [<ImportMember("package:flutter/services.dart")>]
 type TextInputType =
-  [<IsConst; NamedParams>] static member numberWithOptions(?signed: bool, ?decimal: bool): TextInputType = nativeOnly
+  [<IsConst; NamedParams>] static member numberWithOptions([<Optional>] signed: bool, [<Optional>] decimal: bool): TextInputType = nativeOnly
   [<IsConst>] static member text: TextInputType = nativeOnly
   [<IsConst>] static member multiline: TextInputType = nativeOnly
   [<IsConst>] static member number: TextInputType = nativeOnly
@@ -1554,17 +1555,17 @@ type TextInputType =
 
 /// https://api.flutter.dev/flutter/services/TextInputConfiguration-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type TextInputConfiguration [<IsConst; NamedParams>] (?inputType: TextInputType, ?readOnly: bool, ?obscureText: bool, ?autocorrect: bool, ?smartDashesType: SmartDashesType, ?smartQuotesType: SmartQuotesType, ?enableSuggestions: bool, ?enableInteractiveSelection: bool, ?actionLabel: string, ?inputAction: TextInputAction, ?keyboardAppearance: Brightness, ?textCapitalization: TextCapitalization, ?autofillConfiguration: AutofillConfiguration, ?enableIMEPersonalizedLearning: bool, ?enableDeltaModel: bool) =
+type TextInputConfiguration [<IsConst; NamedParams>] ([<Optional>] inputType: TextInputType, [<Optional>] readOnly: bool, [<Optional>] obscureText: bool, [<Optional>] autocorrect: bool, [<Optional>] smartDashesType: SmartDashesType, [<Optional>] smartQuotesType: SmartQuotesType, [<Optional>] enableSuggestions: bool, [<Optional>] enableInteractiveSelection: bool, [<Optional>] actionLabel: string, [<Optional>] inputAction: TextInputAction, [<Optional>] keyboardAppearance: Brightness, [<Optional>] textCapitalization: TextCapitalization, [<Optional>] autofillConfiguration: AutofillConfiguration, [<Optional>] enableIMEPersonalizedLearning: bool, [<Optional>] enableDeltaModel: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/services/RawFloatingCursorPoint-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type RawFloatingCursorPoint [<NamedParams>] (state: FloatingCursorDragState, ?offset: Offset) =
+type RawFloatingCursorPoint [<NamedParams>] (state: FloatingCursorDragState, [<Optional>] offset: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/services/TextEditingValue-class.html
 [<ImportMember("package:flutter/services.dart")>]
-type TextEditingValue [<IsConst; NamedParams>] (?text: string, ?selection: TextSelection, ?composing: TextRange) =
+type TextEditingValue [<IsConst; NamedParams>] ([<Optional>] text: string, [<Optional>] selection: TextSelection, [<Optional>] composing: TextRange) =
   static member fromJSON(encoded: Dictionary<string, obj>): TextEditingValue = nativeOnly
   [<IsConst>] static member empty: TextEditingValue = nativeOnly
 

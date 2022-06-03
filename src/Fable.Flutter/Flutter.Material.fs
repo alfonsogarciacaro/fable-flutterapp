@@ -2,6 +2,7 @@ namespace rec Flutter.Material
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 open Dart
@@ -353,22 +354,22 @@ type ToggleableStateMixin =
 
 /// https://api.flutter.dev/flutter/material/AboutListTile-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type AboutListTile [<IsConst; NamedParams>] (?key: Key, ?icon: Widget, ?child: Widget, ?applicationName: string, ?applicationVersion: string, ?applicationIcon: Widget, ?applicationLegalese: string, ?aboutBoxChildren: Widget[], ?dense: bool) =
+type AboutListTile [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] icon: Widget, [<Optional>] child: Widget, [<Optional>] applicationName: string, [<Optional>] applicationVersion: string, [<Optional>] applicationIcon: Widget, [<Optional>] applicationLegalese: string, [<Optional>] aboutBoxChildren: Widget[], [<Optional>] dense: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/AboutDialog-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type AboutDialog [<IsConst; NamedParams>] (?key: Key, ?applicationName: string, ?applicationVersion: string, ?applicationIcon: Widget, ?applicationLegalese: string, ?children: Widget[]) =
+type AboutDialog [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] applicationName: string, [<Optional>] applicationVersion: string, [<Optional>] applicationIcon: Widget, [<Optional>] applicationLegalese: string, [<Optional>] children: Widget[]) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/LicensePage-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type LicensePage [<IsConst; NamedParams>] (?key: Key, ?applicationName: string, ?applicationVersion: string, ?applicationIcon: Widget, ?applicationLegalese: string) =
+type LicensePage [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] applicationName: string, [<Optional>] applicationVersion: string, [<Optional>] applicationIcon: Widget, [<Optional>] applicationLegalese: string) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/AnimatedIcon-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type AnimatedIcon [<IsConst; NamedParams>] (icon: AnimatedIconData, progress: Animation<float>, ?key: Key, ?color: Color, ?size: float, ?semanticLabel: string, ?textDirection: TextDirection) =
+type AnimatedIcon [<IsConst; NamedParams>] (icon: AnimatedIconData, progress: Animation<float>, [<Optional>] key: Key, [<Optional>] color: Color, [<Optional>] size: float, [<Optional>] semanticLabel: string, [<Optional>] textDirection: TextDirection) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/AnimatedIcons-class.html
@@ -396,195 +397,195 @@ type AnimatedIconData [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/material/MaterialApp-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialApp [<IsConst; NamedParams>] (?key: Key, ?navigatorKey: GlobalKey<NavigatorState>, ?scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>, ?home: Widget, ?routes: Dictionary<string, (BuildContext -> Widget)>, ?initialRoute: string, ?onGenerateRoute: (RouteSettings -> Route<obj> option), ?onGenerateInitialRoutes: (string -> Route<obj>[]), ?onUnknownRoute: (RouteSettings -> Route<obj> option), ?navigatorObservers: NavigatorObserver[], ?builder: (BuildContext -> Widget option -> Widget), ?title: string, ?onGenerateTitle: (BuildContext -> string), ?color: Color, ?theme: ThemeData, ?darkTheme: ThemeData, ?highContrastTheme: ThemeData, ?highContrastDarkTheme: ThemeData, ?themeMode: ThemeMode, ?locale: Locale, ?localizationsDelegates: LocalizationsDelegate<obj> seq, ?localeListResolutionCallback: (Locale[] option -> Locale seq -> Locale option), ?localeResolutionCallback: (Locale option -> Locale seq -> Locale option), ?supportedLocales: Locale seq, ?debugShowMaterialGrid: bool, ?showPerformanceOverlay: bool, ?checkerboardRasterCacheImages: bool, ?checkerboardOffscreenLayers: bool, ?showSemanticsDebugger: bool, ?debugShowCheckedModeBanner: bool, ?shortcuts: Dictionary<ShortcutActivator, Intent>, ?actions: Dictionary<Type, Action<Intent>>, ?restorationScopeId: string, ?scrollBehavior: ScrollBehavior, ?useInheritedMediaQuery: bool) =
+type MaterialApp [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] navigatorKey: GlobalKey<NavigatorState>, [<Optional>] scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>, [<Optional>] home: Widget, [<Optional>] routes: Dictionary<string, (BuildContext -> Widget)>, [<Optional>] initialRoute: string, [<Optional>] onGenerateRoute: (RouteSettings -> DartNullable<Route<obj>>), [<Optional>] onGenerateInitialRoutes: (string -> Route<obj>[]), [<Optional>] onUnknownRoute: (RouteSettings -> DartNullable<Route<obj>>), [<Optional>] navigatorObservers: NavigatorObserver[], [<Optional>] builder: (BuildContext -> DartNullable<Widget> -> Widget), [<Optional>] title: string, [<Optional>] onGenerateTitle: (BuildContext -> string), [<Optional>] color: Color, [<Optional>] theme: ThemeData, [<Optional>] darkTheme: ThemeData, [<Optional>] highContrastTheme: ThemeData, [<Optional>] highContrastDarkTheme: ThemeData, [<Optional>] themeMode: ThemeMode, [<Optional>] locale: Locale, [<Optional>] localizationsDelegates: LocalizationsDelegate<obj> seq, [<Optional>] localeListResolutionCallback: (DartNullable<Locale[]> -> Locale seq -> DartNullable<Locale>), [<Optional>] localeResolutionCallback: (DartNullable<Locale> -> Locale seq -> DartNullable<Locale>), [<Optional>] supportedLocales: Locale seq, [<Optional>] debugShowMaterialGrid: bool, [<Optional>] showPerformanceOverlay: bool, [<Optional>] checkerboardRasterCacheImages: bool, [<Optional>] checkerboardOffscreenLayers: bool, [<Optional>] showSemanticsDebugger: bool, [<Optional>] debugShowCheckedModeBanner: bool, [<Optional>] shortcuts: Dictionary<ShortcutActivator, Intent>, [<Optional>] actions: Dictionary<Type, Action<Intent>>, [<Optional>] restorationScopeId: string, [<Optional>] scrollBehavior: ScrollBehavior, [<Optional>] useInheritedMediaQuery: bool) =
   inherit Widget()
-  [<IsConst; NamedParams>] static member router(routeInformationParser: RouteInformationParser<obj>, routerDelegate: RouterDelegate<obj>, ?key: Key, ?scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>, ?routeInformationProvider: RouteInformationProvider, ?backButtonDispatcher: BackButtonDispatcher, ?builder: (BuildContext -> Widget option -> Widget), ?title: string, ?onGenerateTitle: (BuildContext -> string), ?color: Color, ?theme: ThemeData, ?darkTheme: ThemeData, ?highContrastTheme: ThemeData, ?highContrastDarkTheme: ThemeData, ?themeMode: ThemeMode, ?locale: Locale, ?localizationsDelegates: LocalizationsDelegate<obj> seq, ?localeListResolutionCallback: (Locale[] option -> Locale seq -> Locale option), ?localeResolutionCallback: (Locale option -> Locale seq -> Locale option), ?supportedLocales: Locale seq, ?debugShowMaterialGrid: bool, ?showPerformanceOverlay: bool, ?checkerboardRasterCacheImages: bool, ?checkerboardOffscreenLayers: bool, ?showSemanticsDebugger: bool, ?debugShowCheckedModeBanner: bool, ?shortcuts: Dictionary<ShortcutActivator, Intent>, ?actions: Dictionary<Type, Action<Intent>>, ?restorationScopeId: string, ?scrollBehavior: ScrollBehavior, ?useInheritedMediaQuery: bool): MaterialApp = nativeOnly
+  [<IsConst; NamedParams>] static member router(routeInformationParser: RouteInformationParser<obj>, routerDelegate: RouterDelegate<obj>, [<Optional>] key: Key, [<Optional>] scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>, [<Optional>] routeInformationProvider: RouteInformationProvider, [<Optional>] backButtonDispatcher: BackButtonDispatcher, [<Optional>] builder: (BuildContext -> DartNullable<Widget> -> Widget), [<Optional>] title: string, [<Optional>] onGenerateTitle: (BuildContext -> string), [<Optional>] color: Color, [<Optional>] theme: ThemeData, [<Optional>] darkTheme: ThemeData, [<Optional>] highContrastTheme: ThemeData, [<Optional>] highContrastDarkTheme: ThemeData, [<Optional>] themeMode: ThemeMode, [<Optional>] locale: Locale, [<Optional>] localizationsDelegates: LocalizationsDelegate<obj> seq, [<Optional>] localeListResolutionCallback: (DartNullable<Locale[]> -> Locale seq -> DartNullable<Locale>), [<Optional>] localeResolutionCallback: (DartNullable<Locale> -> Locale seq -> DartNullable<Locale>), [<Optional>] supportedLocales: Locale seq, [<Optional>] debugShowMaterialGrid: bool, [<Optional>] showPerformanceOverlay: bool, [<Optional>] checkerboardRasterCacheImages: bool, [<Optional>] checkerboardOffscreenLayers: bool, [<Optional>] showSemanticsDebugger: bool, [<Optional>] debugShowCheckedModeBanner: bool, [<Optional>] shortcuts: Dictionary<ShortcutActivator, Intent>, [<Optional>] actions: Dictionary<Type, Action<Intent>>, [<Optional>] restorationScopeId: string, [<Optional>] scrollBehavior: ScrollBehavior, [<Optional>] useInheritedMediaQuery: bool): MaterialApp = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/MaterialScrollBehavior-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialScrollBehavior [<IsConst; NamedParams>] (?androidOverscrollIndicator: AndroidOverscrollIndicator) =
+type MaterialScrollBehavior [<IsConst; NamedParams>] ([<Optional>] androidOverscrollIndicator: AndroidOverscrollIndicator) =
   inherit ScrollBehavior()
 
 /// https://api.flutter.dev/flutter/material/AppBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type AppBar [<NamedParams>] (?key: Key, ?leading: Widget, ?automaticallyImplyLeading: bool, ?title: Widget, ?actions: Widget[], ?flexibleSpace: Widget, ?bottom: PreferredSizeWidget, ?elevation: float, ?scrolledUnderElevation: float, ?shadowColor: Color, ?surfaceTintColor: Color, ?shape: ShapeBorder, ?backgroundColor: Color, ?foregroundColor: Color, ?brightness: Brightness, ?iconTheme: IconThemeData, ?actionsIconTheme: IconThemeData, ?textTheme: TextTheme, ?primary: bool, ?centerTitle: bool, ?excludeHeaderSemantics: bool, ?titleSpacing: float, ?toolbarOpacity: float, ?bottomOpacity: float, ?toolbarHeight: float, ?leadingWidth: float, ?backwardsCompatibility: bool, ?toolbarTextStyle: TextStyle, ?titleTextStyle: TextStyle, ?systemOverlayStyle: SystemUiOverlayStyle) =
+type AppBar [<NamedParams>] ([<Optional>] key: Key, [<Optional>] leading: Widget, [<Optional>] automaticallyImplyLeading: bool, [<Optional>] title: Widget, [<Optional>] actions: Widget[], [<Optional>] flexibleSpace: Widget, [<Optional>] bottom: PreferredSizeWidget, [<Optional>] elevation: float, [<Optional>] scrolledUnderElevation: float, [<Optional>] shadowColor: Color, [<Optional>] surfaceTintColor: Color, [<Optional>] shape: ShapeBorder, [<Optional>] backgroundColor: Color, [<Optional>] foregroundColor: Color, [<Optional>] brightness: Brightness, [<Optional>] iconTheme: IconThemeData, [<Optional>] actionsIconTheme: IconThemeData, [<Optional>] textTheme: TextTheme, [<Optional>] primary: bool, [<Optional>] centerTitle: bool, [<Optional>] excludeHeaderSemantics: bool, [<Optional>] titleSpacing: float, [<Optional>] toolbarOpacity: float, [<Optional>] bottomOpacity: float, [<Optional>] toolbarHeight: float, [<Optional>] leadingWidth: float, [<Optional>] backwardsCompatibility: bool, [<Optional>] toolbarTextStyle: TextStyle, [<Optional>] titleTextStyle: TextStyle, [<Optional>] systemOverlayStyle: SystemUiOverlayStyle) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/SliverAppBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SliverAppBar [<IsConst; NamedParams>] (?key: Key, ?leading: Widget, ?automaticallyImplyLeading: bool, ?title: Widget, ?actions: Widget[], ?flexibleSpace: Widget, ?bottom: PreferredSizeWidget, ?elevation: float, ?scrolledUnderElevation: float, ?shadowColor: Color, ?surfaceTintColor: Color, ?forceElevated: bool, ?backgroundColor: Color, ?foregroundColor: Color, ?brightness: Brightness, ?iconTheme: IconThemeData, ?actionsIconTheme: IconThemeData, ?textTheme: TextTheme, ?primary: bool, ?centerTitle: bool, ?excludeHeaderSemantics: bool, ?titleSpacing: float, ?collapsedHeight: float, ?expandedHeight: float, ?floating: bool, ?pinned: bool, ?snap: bool, ?stretch: bool, ?stretchTriggerOffset: float, ?onStretchTrigger: (unit -> Future<unit>), ?shape: ShapeBorder, ?toolbarHeight: float, ?leadingWidth: float, ?backwardsCompatibility: bool, ?toolbarTextStyle: TextStyle, ?titleTextStyle: TextStyle, ?systemOverlayStyle: SystemUiOverlayStyle) =
+type SliverAppBar [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] leading: Widget, [<Optional>] automaticallyImplyLeading: bool, [<Optional>] title: Widget, [<Optional>] actions: Widget[], [<Optional>] flexibleSpace: Widget, [<Optional>] bottom: PreferredSizeWidget, [<Optional>] elevation: float, [<Optional>] scrolledUnderElevation: float, [<Optional>] shadowColor: Color, [<Optional>] surfaceTintColor: Color, [<Optional>] forceElevated: bool, [<Optional>] backgroundColor: Color, [<Optional>] foregroundColor: Color, [<Optional>] brightness: Brightness, [<Optional>] iconTheme: IconThemeData, [<Optional>] actionsIconTheme: IconThemeData, [<Optional>] textTheme: TextTheme, [<Optional>] primary: bool, [<Optional>] centerTitle: bool, [<Optional>] excludeHeaderSemantics: bool, [<Optional>] titleSpacing: float, [<Optional>] collapsedHeight: float, [<Optional>] expandedHeight: float, [<Optional>] floating: bool, [<Optional>] pinned: bool, [<Optional>] snap: bool, [<Optional>] stretch: bool, [<Optional>] stretchTriggerOffset: float, [<Optional>] onStretchTrigger: (unit -> Future<unit>), [<Optional>] shape: ShapeBorder, [<Optional>] toolbarHeight: float, [<Optional>] leadingWidth: float, [<Optional>] backwardsCompatibility: bool, [<Optional>] toolbarTextStyle: TextStyle, [<Optional>] titleTextStyle: TextStyle, [<Optional>] systemOverlayStyle: SystemUiOverlayStyle) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/AppBarTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type AppBarTheme [<IsConst; NamedParams>] (?brightness: Brightness, ?color: Color, ?backgroundColor: Color, ?foregroundColor: Color, ?elevation: float, ?scrolledUnderElevation: float, ?shadowColor: Color, ?surfaceTintColor: Color, ?shape: ShapeBorder, ?iconTheme: IconThemeData, ?actionsIconTheme: IconThemeData, ?textTheme: TextTheme, ?centerTitle: bool, ?titleSpacing: float, ?toolbarHeight: float, ?toolbarTextStyle: TextStyle, ?titleTextStyle: TextStyle, ?systemOverlayStyle: SystemUiOverlayStyle, ?backwardsCompatibility: bool) =
+type AppBarTheme [<IsConst; NamedParams>] ([<Optional>] brightness: Brightness, [<Optional>] color: Color, [<Optional>] backgroundColor: Color, [<Optional>] foregroundColor: Color, [<Optional>] elevation: float, [<Optional>] scrolledUnderElevation: float, [<Optional>] shadowColor: Color, [<Optional>] surfaceTintColor: Color, [<Optional>] shape: ShapeBorder, [<Optional>] iconTheme: IconThemeData, [<Optional>] actionsIconTheme: IconThemeData, [<Optional>] textTheme: TextTheme, [<Optional>] centerTitle: bool, [<Optional>] titleSpacing: float, [<Optional>] toolbarHeight: float, [<Optional>] toolbarTextStyle: TextStyle, [<Optional>] titleTextStyle: TextStyle, [<Optional>] systemOverlayStyle: SystemUiOverlayStyle, [<Optional>] backwardsCompatibility: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/material/MaterialPointArcTween-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialPointArcTween [<NamedParams>] (?``begin``: Offset, ?``end``: Offset) =
+type MaterialPointArcTween [<NamedParams>] ([<Optional>] ``begin``: Offset, [<Optional>] ``end``: Offset) =
   inherit Tween<Offset>()
 
 /// https://api.flutter.dev/flutter/material/MaterialRectArcTween-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialRectArcTween [<NamedParams>] (?``begin``: Rect, ?``end``: Rect) =
+type MaterialRectArcTween [<NamedParams>] ([<Optional>] ``begin``: Rect, [<Optional>] ``end``: Rect) =
   inherit RectTween()
 
 /// https://api.flutter.dev/flutter/material/MaterialRectCenterArcTween-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialRectCenterArcTween [<NamedParams>] (?``begin``: Rect, ?``end``: Rect) =
+type MaterialRectCenterArcTween [<NamedParams>] ([<Optional>] ``begin``: Rect, [<Optional>] ``end``: Rect) =
   inherit RectTween()
 
 /// https://api.flutter.dev/flutter/material/Autocomplete-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Autocomplete<'T> [<IsConst; NamedParams>] (optionsBuilder: (TextEditingValue -> FutureOr<'T seq>), ?key: Key, ?displayStringForOption: ('T -> string), ?fieldViewBuilder: (BuildContext -> TextEditingController -> FocusNode -> (unit -> unit) -> Widget), ?onSelected: ('T -> unit), ?optionsMaxHeight: float, ?optionsViewBuilder: (BuildContext -> ('T -> unit) -> 'T seq -> Widget), ?initialValue: TextEditingValue) =
+type Autocomplete<'T> [<IsConst; NamedParams>] (optionsBuilder: (TextEditingValue -> FutureOr<'T seq>), [<Optional>] key: Key, [<Optional>] displayStringForOption: ('T -> string), [<Optional>] fieldViewBuilder: (BuildContext -> TextEditingController -> FocusNode -> (unit -> unit) -> Widget), [<Optional>] onSelected: ('T -> unit), [<Optional>] optionsMaxHeight: float, [<Optional>] optionsViewBuilder: (BuildContext -> ('T -> unit) -> 'T seq -> Widget), [<Optional>] initialValue: TextEditingValue) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/BackButtonIcon-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BackButtonIcon [<IsConst; NamedParams>] (?key: Key) =
+type BackButtonIcon [<IsConst; NamedParams>] ([<Optional>] key: Key) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/BackButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BackButton [<IsConst; NamedParams>] (?key: Key, ?color: Color, ?onPressed: (unit -> unit)) =
+type BackButton [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] color: Color, [<Optional>] onPressed: (unit -> unit)) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/CloseButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CloseButton [<IsConst; NamedParams>] (?key: Key, ?color: Color, ?onPressed: (unit -> unit)) =
+type CloseButton [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] color: Color, [<Optional>] onPressed: (unit -> unit)) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/MaterialBanner-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialBanner [<IsConst; NamedParams>] (content: Widget, actions: Widget[], ?key: Key, ?contentTextStyle: TextStyle, ?elevation: float, ?leading: Widget, ?backgroundColor: Color, ?padding: EdgeInsetsGeometry, ?leadingPadding: EdgeInsetsGeometry, ?forceActionsBelow: bool, ?overflowAlignment: OverflowBarAlignment, ?animation: Animation<float>, ?onVisible: (unit -> unit)) =
+type MaterialBanner [<IsConst; NamedParams>] (content: Widget, actions: Widget[], [<Optional>] key: Key, [<Optional>] contentTextStyle: TextStyle, [<Optional>] elevation: float, [<Optional>] leading: Widget, [<Optional>] backgroundColor: Color, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] leadingPadding: EdgeInsetsGeometry, [<Optional>] forceActionsBelow: bool, [<Optional>] overflowAlignment: OverflowBarAlignment, [<Optional>] animation: Animation<float>, [<Optional>] onVisible: (unit -> unit)) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/MaterialBannerThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialBannerThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?contentTextStyle: TextStyle, ?elevation: float, ?padding: EdgeInsetsGeometry, ?leadingPadding: EdgeInsetsGeometry) =
+type MaterialBannerThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] contentTextStyle: TextStyle, [<Optional>] elevation: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] leadingPadding: EdgeInsetsGeometry) =
   class end
 
 /// https://api.flutter.dev/flutter/material/MaterialBannerTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialBannerTheme [<IsConst; NamedParams>] (child: Widget, ?key: Key, ?data: MaterialBannerThemeData) =
+type MaterialBannerTheme [<IsConst; NamedParams>] (child: Widget, [<Optional>] key: Key, [<Optional>] data: MaterialBannerThemeData) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/BottomAppBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BottomAppBar [<IsConst; NamedParams>] (?key: Key, ?color: Color, ?elevation: float, ?shape: NotchedShape, ?clipBehavior: Clip, ?notchMargin: float, ?child: Widget) =
+type BottomAppBar [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] color: Color, [<Optional>] elevation: float, [<Optional>] shape: NotchedShape, [<Optional>] clipBehavior: Clip, [<Optional>] notchMargin: float, [<Optional>] child: Widget) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/BottomAppBarTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BottomAppBarTheme [<IsConst; NamedParams>] (?color: Color, ?elevation: float, ?shape: NotchedShape) =
+type BottomAppBarTheme [<IsConst; NamedParams>] ([<Optional>] color: Color, [<Optional>] elevation: float, [<Optional>] shape: NotchedShape) =
   class end
 
 /// https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BottomNavigationBar [<NamedParams>] (items: BottomNavigationBarItem[], ?key: Key, ?onTap: (int -> unit), ?currentIndex: int, ?elevation: float, ?``type``: BottomNavigationBarType, ?fixedColor: Color, ?backgroundColor: Color, ?iconSize: float, ?selectedItemColor: Color, ?unselectedItemColor: Color, ?selectedIconTheme: IconThemeData, ?unselectedIconTheme: IconThemeData, ?selectedFontSize: float, ?unselectedFontSize: float, ?selectedLabelStyle: TextStyle, ?unselectedLabelStyle: TextStyle, ?showSelectedLabels: bool, ?showUnselectedLabels: bool, ?mouseCursor: MouseCursor, ?enableFeedback: bool, ?landscapeLayout: BottomNavigationBarLandscapeLayout) =
+type BottomNavigationBar [<NamedParams>] (items: BottomNavigationBarItem[], [<Optional>] key: Key, [<Optional>] onTap: (int -> unit), [<Optional>] currentIndex: int, [<Optional>] elevation: float, [<Optional>] ``type``: BottomNavigationBarType, [<Optional>] fixedColor: Color, [<Optional>] backgroundColor: Color, [<Optional>] iconSize: float, [<Optional>] selectedItemColor: Color, [<Optional>] unselectedItemColor: Color, [<Optional>] selectedIconTheme: IconThemeData, [<Optional>] unselectedIconTheme: IconThemeData, [<Optional>] selectedFontSize: float, [<Optional>] unselectedFontSize: float, [<Optional>] selectedLabelStyle: TextStyle, [<Optional>] unselectedLabelStyle: TextStyle, [<Optional>] showSelectedLabels: bool, [<Optional>] showUnselectedLabels: bool, [<Optional>] mouseCursor: MouseCursor, [<Optional>] enableFeedback: bool, [<Optional>] landscapeLayout: BottomNavigationBarLandscapeLayout) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/BottomNavigationBarThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BottomNavigationBarThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?elevation: float, ?selectedIconTheme: IconThemeData, ?unselectedIconTheme: IconThemeData, ?selectedItemColor: Color, ?unselectedItemColor: Color, ?selectedLabelStyle: TextStyle, ?unselectedLabelStyle: TextStyle, ?showSelectedLabels: bool, ?showUnselectedLabels: bool, ?``type``: BottomNavigationBarType, ?enableFeedback: bool, ?landscapeLayout: BottomNavigationBarLandscapeLayout, ?mouseCursor: MaterialStateProperty<MouseCursor option>) =
+type BottomNavigationBarThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] selectedIconTheme: IconThemeData, [<Optional>] unselectedIconTheme: IconThemeData, [<Optional>] selectedItemColor: Color, [<Optional>] unselectedItemColor: Color, [<Optional>] selectedLabelStyle: TextStyle, [<Optional>] unselectedLabelStyle: TextStyle, [<Optional>] showSelectedLabels: bool, [<Optional>] showUnselectedLabels: bool, [<Optional>] ``type``: BottomNavigationBarType, [<Optional>] enableFeedback: bool, [<Optional>] landscapeLayout: BottomNavigationBarLandscapeLayout, [<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>) =
   class end
 
 /// https://api.flutter.dev/flutter/material/BottomNavigationBarTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BottomNavigationBarTheme [<IsConst; NamedParams>] (data: BottomNavigationBarThemeData, child: Widget, ?key: Key) =
+type BottomNavigationBarTheme [<IsConst; NamedParams>] (data: BottomNavigationBarThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/BottomSheet-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BottomSheet [<IsConst; NamedParams>] (onClosing: (unit -> unit), builder: (BuildContext -> Widget), ?key: Key, ?animationController: AnimationController, ?enableDrag: bool, ?onDragStart: (DragStartDetails -> unit), ?onDragEnd: (DragEndDetails -> bool -> unit), ?backgroundColor: Color, ?elevation: float, ?shape: ShapeBorder, ?clipBehavior: Clip, ?constraints: BoxConstraints) =
+type BottomSheet [<IsConst; NamedParams>] (onClosing: (unit -> unit), builder: (BuildContext -> Widget), [<Optional>] key: Key, [<Optional>] animationController: AnimationController, [<Optional>] enableDrag: bool, [<Optional>] onDragStart: (DragStartDetails -> unit), [<Optional>] onDragEnd: (DragEndDetails -> bool -> unit), [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] constraints: BoxConstraints) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/BottomSheetThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type BottomSheetThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?elevation: float, ?modalBackgroundColor: Color, ?modalElevation: float, ?shape: ShapeBorder, ?clipBehavior: Clip, ?constraints: BoxConstraints) =
+type BottomSheetThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] modalBackgroundColor: Color, [<Optional>] modalElevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] constraints: BoxConstraints) =
   class end
 
 /// https://api.flutter.dev/flutter/material/RawMaterialButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RawMaterialButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), ?key: Key, ?onLongPress: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?mouseCursor: MouseCursor, ?textStyle: TextStyle, ?fillColor: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?elevation: float, ?focusElevation: float, ?hoverElevation: float, ?highlightElevation: float, ?disabledElevation: float, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?constraints: BoxConstraints, ?shape: ShapeBorder, ?animationDuration: TimeSpan, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?child: Widget, ?enableFeedback: bool) =
+type RawMaterialButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] textStyle: TextStyle, [<Optional>] fillColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] elevation: float, [<Optional>] focusElevation: float, [<Optional>] hoverElevation: float, [<Optional>] highlightElevation: float, [<Optional>] disabledElevation: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] constraints: BoxConstraints, [<Optional>] shape: ShapeBorder, [<Optional>] animationDuration: TimeSpan, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] child: Widget, [<Optional>] enableFeedback: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ButtonBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ButtonBar [<IsConst; NamedParams>] (?key: Key, ?alignment: MainAxisAlignment, ?mainAxisSize: MainAxisSize, ?buttonTextTheme: ButtonTextTheme, ?buttonMinWidth: float, ?buttonHeight: float, ?buttonPadding: EdgeInsetsGeometry, ?buttonAlignedDropdown: bool, ?layoutBehavior: ButtonBarLayoutBehavior, ?overflowDirection: VerticalDirection, ?overflowButtonSpacing: float, ?children: Widget[]) =
+type ButtonBar [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] alignment: MainAxisAlignment, [<Optional>] mainAxisSize: MainAxisSize, [<Optional>] buttonTextTheme: ButtonTextTheme, [<Optional>] buttonMinWidth: float, [<Optional>] buttonHeight: float, [<Optional>] buttonPadding: EdgeInsetsGeometry, [<Optional>] buttonAlignedDropdown: bool, [<Optional>] layoutBehavior: ButtonBarLayoutBehavior, [<Optional>] overflowDirection: VerticalDirection, [<Optional>] overflowButtonSpacing: float, [<Optional>] children: Widget[]) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ButtonBarThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ButtonBarThemeData [<IsConst; NamedParams>] (?alignment: MainAxisAlignment, ?mainAxisSize: MainAxisSize, ?buttonTextTheme: ButtonTextTheme, ?buttonMinWidth: float, ?buttonHeight: float, ?buttonPadding: EdgeInsetsGeometry, ?buttonAlignedDropdown: bool, ?layoutBehavior: ButtonBarLayoutBehavior, ?overflowDirection: VerticalDirection) =
+type ButtonBarThemeData [<IsConst; NamedParams>] ([<Optional>] alignment: MainAxisAlignment, [<Optional>] mainAxisSize: MainAxisSize, [<Optional>] buttonTextTheme: ButtonTextTheme, [<Optional>] buttonMinWidth: float, [<Optional>] buttonHeight: float, [<Optional>] buttonPadding: EdgeInsetsGeometry, [<Optional>] buttonAlignedDropdown: bool, [<Optional>] layoutBehavior: ButtonBarLayoutBehavior, [<Optional>] overflowDirection: VerticalDirection) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ButtonBarTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ButtonBarTheme [<IsConst; NamedParams>] (data: ButtonBarThemeData, child: Widget, ?key: Key) =
+type ButtonBarTheme [<IsConst; NamedParams>] (data: ButtonBarThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/ButtonStyle-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ButtonStyle [<IsConst; NamedParams>] (?textStyle: MaterialStateProperty<TextStyle option>, ?backgroundColor: MaterialStateProperty<Color option>, ?foregroundColor: MaterialStateProperty<Color option>, ?overlayColor: MaterialStateProperty<Color option>, ?shadowColor: MaterialStateProperty<Color option>, ?surfaceTintColor: MaterialStateProperty<Color option>, ?elevation: MaterialStateProperty<float option>, ?padding: MaterialStateProperty<EdgeInsetsGeometry option>, ?minimumSize: MaterialStateProperty<Size option>, ?fixedSize: MaterialStateProperty<Size option>, ?maximumSize: MaterialStateProperty<Size option>, ?side: MaterialStateProperty<BorderSide option>, ?shape: MaterialStateProperty<OutlinedBorder option>, ?mouseCursor: MaterialStateProperty<MouseCursor option>, ?visualDensity: VisualDensity, ?tapTargetSize: MaterialTapTargetSize, ?animationDuration: TimeSpan, ?enableFeedback: bool, ?alignment: AlignmentGeometry, ?splashFactory: InteractiveInkFeatureFactory) =
+type ButtonStyle [<IsConst; NamedParams>] ([<Optional>] textStyle: MaterialStateProperty<DartNullable<TextStyle>>, [<Optional>] backgroundColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] foregroundColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] shadowColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] surfaceTintColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] elevation: MaterialStateProperty<DartNullable<float>>, [<Optional>] padding: MaterialStateProperty<DartNullable<EdgeInsetsGeometry>>, [<Optional>] minimumSize: MaterialStateProperty<DartNullable<Size>>, [<Optional>] fixedSize: MaterialStateProperty<DartNullable<Size>>, [<Optional>] maximumSize: MaterialStateProperty<DartNullable<Size>>, [<Optional>] side: MaterialStateProperty<DartNullable<BorderSide>>, [<Optional>] shape: MaterialStateProperty<DartNullable<OutlinedBorder>>, [<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>, [<Optional>] visualDensity: VisualDensity, [<Optional>] tapTargetSize: MaterialTapTargetSize, [<Optional>] animationDuration: TimeSpan, [<Optional>] enableFeedback: bool, [<Optional>] alignment: AlignmentGeometry, [<Optional>] splashFactory: InteractiveInkFeatureFactory) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ButtonStyleButton-class.html
 [<ImportMember("package:flutter/material.dart"); AbstractClass>]
-type ButtonStyleButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), onLongPress: (unit -> unit), onHover: (bool -> unit), onFocusChange: (bool -> unit), style: ButtonStyle option, focusNode: FocusNode option, autofocus: bool, clipBehavior: Clip, child: Widget option, ?key: Key) =
+type ButtonStyleButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), onLongPress: (unit -> unit), onHover: (bool -> unit), onFocusChange: (bool -> unit), style: DartNullable<ButtonStyle>, focusNode: DartNullable<FocusNode>, autofocus: bool, clipBehavior: Clip, child: DartNullable<Widget>, [<Optional>] key: Key) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ButtonTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ButtonTheme [<NamedParams>] (child: Widget, ?key: Key, ?textTheme: ButtonTextTheme, ?layoutBehavior: ButtonBarLayoutBehavior, ?minWidth: float, ?height: float, ?padding: EdgeInsetsGeometry, ?shape: ShapeBorder, ?alignedDropdown: bool, ?buttonColor: Color, ?disabledColor: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?colorScheme: ColorScheme, ?materialTapTargetSize: MaterialTapTargetSize) =
+type ButtonTheme [<NamedParams>] (child: Widget, [<Optional>] key: Key, [<Optional>] textTheme: ButtonTextTheme, [<Optional>] layoutBehavior: ButtonBarLayoutBehavior, [<Optional>] minWidth: float, [<Optional>] height: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] shape: ShapeBorder, [<Optional>] alignedDropdown: bool, [<Optional>] buttonColor: Color, [<Optional>] disabledColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] colorScheme: ColorScheme, [<Optional>] materialTapTargetSize: MaterialTapTargetSize) =
   inherit InheritedTheme(child)
-  [<IsConst; NamedParams>] static member fromButtonThemeData(data: ButtonThemeData, child: Widget, ?key: Key): ButtonTheme = nativeOnly
+  [<IsConst; NamedParams>] static member fromButtonThemeData(data: ButtonThemeData, child: Widget, [<Optional>] key: Key): ButtonTheme = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/ButtonThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ButtonThemeData [<IsConst; NamedParams>] (?textTheme: ButtonTextTheme, ?minWidth: float, ?height: float, ?padding: EdgeInsetsGeometry, ?shape: ShapeBorder, ?layoutBehavior: ButtonBarLayoutBehavior, ?alignedDropdown: bool, ?buttonColor: Color, ?disabledColor: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?colorScheme: ColorScheme, ?materialTapTargetSize: MaterialTapTargetSize) =
+type ButtonThemeData [<IsConst; NamedParams>] ([<Optional>] textTheme: ButtonTextTheme, [<Optional>] minWidth: float, [<Optional>] height: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] shape: ShapeBorder, [<Optional>] layoutBehavior: ButtonBarLayoutBehavior, [<Optional>] alignedDropdown: bool, [<Optional>] buttonColor: Color, [<Optional>] disabledColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] colorScheme: ColorScheme, [<Optional>] materialTapTargetSize: MaterialTapTargetSize) =
   class end
 
 /// https://api.flutter.dev/flutter/material/CalendarDatePicker-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CalendarDatePicker [<NamedParams>] (initialDate: DateTime, firstDate: DateTime, lastDate: DateTime, onDateChanged: (DateTime -> unit), ?key: Key, ?currentDate: DateTime, ?onDisplayedMonthChanged: (DateTime -> unit), ?initialCalendarMode: DatePickerMode, ?selectableDayPredicate: (DateTime -> bool)) =
+type CalendarDatePicker [<NamedParams>] (initialDate: DateTime, firstDate: DateTime, lastDate: DateTime, onDateChanged: (DateTime -> unit), [<Optional>] key: Key, [<Optional>] currentDate: DateTime, [<Optional>] onDisplayedMonthChanged: (DateTime -> unit), [<Optional>] initialCalendarMode: DatePickerMode, [<Optional>] selectableDayPredicate: (DateTime -> bool)) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/YearPicker-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type YearPicker [<NamedParams>] (firstDate: DateTime, lastDate: DateTime, selectedDate: DateTime, onChanged: (DateTime -> unit), ?key: Key, ?currentDate: DateTime, ?initialDate: DateTime, ?dragStartBehavior: DragStartBehavior) =
+type YearPicker [<NamedParams>] (firstDate: DateTime, lastDate: DateTime, selectedDate: DateTime, onChanged: (DateTime -> unit), [<Optional>] key: Key, [<Optional>] currentDate: DateTime, [<Optional>] initialDate: DateTime, [<Optional>] dragStartBehavior: DragStartBehavior) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/Card-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Card [<IsConst; NamedParams>] (?key: Key, ?color: Color, ?shadowColor: Color, ?surfaceTintColor: Color, ?elevation: float, ?shape: ShapeBorder, ?borderOnForeground: bool, ?margin: EdgeInsetsGeometry, ?clipBehavior: Clip, ?child: Widget, ?semanticContainer: bool) =
+type Card [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] color: Color, [<Optional>] shadowColor: Color, [<Optional>] surfaceTintColor: Color, [<Optional>] elevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] borderOnForeground: bool, [<Optional>] margin: EdgeInsetsGeometry, [<Optional>] clipBehavior: Clip, [<Optional>] child: Widget, [<Optional>] semanticContainer: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/CardTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CardTheme [<IsConst; NamedParams>] (?clipBehavior: Clip, ?color: Color, ?shadowColor: Color, ?surfaceTintColor: Color, ?elevation: float, ?margin: EdgeInsetsGeometry, ?shape: ShapeBorder) =
+type CardTheme [<IsConst; NamedParams>] ([<Optional>] clipBehavior: Clip, [<Optional>] color: Color, [<Optional>] shadowColor: Color, [<Optional>] surfaceTintColor: Color, [<Optional>] elevation: float, [<Optional>] margin: EdgeInsetsGeometry, [<Optional>] shape: ShapeBorder) =
   class end
 
 /// https://api.flutter.dev/flutter/material/Checkbox-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Checkbox [<IsConst; NamedParams>] (value: bool option, onChanged: (bool option -> unit), ?key: Key, ?tristate: bool, ?mouseCursor: MouseCursor, ?activeColor: Color, ?fillColor: MaterialStateProperty<Color option>, ?checkColor: Color, ?focusColor: Color, ?hoverColor: Color, ?overlayColor: MaterialStateProperty<Color option>, ?splashRadius: float, ?materialTapTargetSize: MaterialTapTargetSize, ?visualDensity: VisualDensity, ?focusNode: FocusNode, ?autofocus: bool, ?shape: OutlinedBorder, ?side: BorderSide) =
+type Checkbox [<IsConst; NamedParams>] (value: DartNullable<bool>, onChanged: (DartNullable<bool> -> unit), [<Optional>] key: Key, [<Optional>] tristate: bool, [<Optional>] mouseCursor: MouseCursor, [<Optional>] activeColor: Color, [<Optional>] fillColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] checkColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashRadius: float, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] visualDensity: VisualDensity, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] shape: OutlinedBorder, [<Optional>] side: BorderSide) =
   inherit Widget()
   [<IsConst>] static member width: float = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/CheckboxListTile-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CheckboxListTile [<IsConst; NamedParams>] (value: bool option, onChanged: (bool option -> unit), ?key: Key, ?activeColor: Color, ?checkColor: Color, ?tileColor: Color, ?title: Widget, ?subtitle: Widget, ?isThreeLine: bool, ?dense: bool, ?secondary: Widget, ?selected: bool, ?controlAffinity: ListTileControlAffinity, ?autofocus: bool, ?contentPadding: EdgeInsetsGeometry, ?tristate: bool, ?shape: ShapeBorder, ?checkboxShape: OutlinedBorder, ?selectedTileColor: Color, ?side: BorderSide, ?visualDensity: VisualDensity, ?focusNode: FocusNode, ?enableFeedback: bool) =
+type CheckboxListTile [<IsConst; NamedParams>] (value: DartNullable<bool>, onChanged: (DartNullable<bool> -> unit), [<Optional>] key: Key, [<Optional>] activeColor: Color, [<Optional>] checkColor: Color, [<Optional>] tileColor: Color, [<Optional>] title: Widget, [<Optional>] subtitle: Widget, [<Optional>] isThreeLine: bool, [<Optional>] dense: bool, [<Optional>] secondary: Widget, [<Optional>] selected: bool, [<Optional>] controlAffinity: ListTileControlAffinity, [<Optional>] autofocus: bool, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] tristate: bool, [<Optional>] shape: ShapeBorder, [<Optional>] checkboxShape: OutlinedBorder, [<Optional>] selectedTileColor: Color, [<Optional>] side: BorderSide, [<Optional>] visualDensity: VisualDensity, [<Optional>] focusNode: FocusNode, [<Optional>] enableFeedback: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/CheckboxThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CheckboxThemeData [<IsConst; NamedParams>] (?mouseCursor: MaterialStateProperty<MouseCursor option>, ?fillColor: MaterialStateProperty<Color option>, ?checkColor: MaterialStateProperty<Color option>, ?overlayColor: MaterialStateProperty<Color option>, ?splashRadius: float, ?materialTapTargetSize: MaterialTapTargetSize, ?visualDensity: VisualDensity, ?shape: OutlinedBorder, ?side: BorderSide) =
+type CheckboxThemeData [<IsConst; NamedParams>] ([<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>, [<Optional>] fillColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] checkColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashRadius: float, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] visualDensity: VisualDensity, [<Optional>] shape: OutlinedBorder, [<Optional>] side: BorderSide) =
   class end
 
 /// https://api.flutter.dev/flutter/material/CheckboxTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CheckboxTheme [<IsConst; NamedParams>] (data: CheckboxThemeData, child: Widget, ?key: Key) =
+type CheckboxTheme [<IsConst; NamedParams>] (data: CheckboxThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/ChipAttributes-class.html
@@ -619,58 +620,58 @@ type TappableChipAttributes =
 
 /// https://api.flutter.dev/flutter/material/Chip-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Chip [<IsConst; NamedParams>] (label: Widget, ?key: Key, ?avatar: Widget, ?labelStyle: TextStyle, ?labelPadding: EdgeInsetsGeometry, ?deleteIcon: Widget, ?onDeleted: (unit -> unit), ?deleteIconColor: Color, ?deleteButtonTooltipMessage: string, ?side: BorderSide, ?shape: OutlinedBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?backgroundColor: Color, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?materialTapTargetSize: MaterialTapTargetSize, ?elevation: float, ?shadowColor: Color, ?useDeleteButtonTooltip: bool) =
+type Chip [<IsConst; NamedParams>] (label: Widget, [<Optional>] key: Key, [<Optional>] avatar: Widget, [<Optional>] labelStyle: TextStyle, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] deleteIcon: Widget, [<Optional>] onDeleted: (unit -> unit), [<Optional>] deleteIconColor: Color, [<Optional>] deleteButtonTooltipMessage: string, [<Optional>] side: BorderSide, [<Optional>] shape: OutlinedBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] backgroundColor: Color, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] elevation: float, [<Optional>] shadowColor: Color, [<Optional>] useDeleteButtonTooltip: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/InputChip-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InputChip [<IsConst; NamedParams>] (label: Widget, ?key: Key, ?avatar: Widget, ?labelStyle: TextStyle, ?labelPadding: EdgeInsetsGeometry, ?selected: bool, ?isEnabled: bool, ?onSelected: (bool -> unit), ?deleteIcon: Widget, ?onDeleted: (unit -> unit), ?deleteIconColor: Color, ?deleteButtonTooltipMessage: string, ?onPressed: (unit -> unit), ?pressElevation: float, ?disabledColor: Color, ?selectedColor: Color, ?tooltip: string, ?side: BorderSide, ?shape: OutlinedBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?backgroundColor: Color, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?materialTapTargetSize: MaterialTapTargetSize, ?elevation: float, ?shadowColor: Color, ?selectedShadowColor: Color, ?showCheckmark: bool, ?checkmarkColor: Color, ?avatarBorder: ShapeBorder, ?useDeleteButtonTooltip: bool) =
+type InputChip [<IsConst; NamedParams>] (label: Widget, [<Optional>] key: Key, [<Optional>] avatar: Widget, [<Optional>] labelStyle: TextStyle, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] selected: bool, [<Optional>] isEnabled: bool, [<Optional>] onSelected: (bool -> unit), [<Optional>] deleteIcon: Widget, [<Optional>] onDeleted: (unit -> unit), [<Optional>] deleteIconColor: Color, [<Optional>] deleteButtonTooltipMessage: string, [<Optional>] onPressed: (unit -> unit), [<Optional>] pressElevation: float, [<Optional>] disabledColor: Color, [<Optional>] selectedColor: Color, [<Optional>] tooltip: string, [<Optional>] side: BorderSide, [<Optional>] shape: OutlinedBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] backgroundColor: Color, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] elevation: float, [<Optional>] shadowColor: Color, [<Optional>] selectedShadowColor: Color, [<Optional>] showCheckmark: bool, [<Optional>] checkmarkColor: Color, [<Optional>] avatarBorder: ShapeBorder, [<Optional>] useDeleteButtonTooltip: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ChoiceChip-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ChoiceChip [<IsConst; NamedParams>] (label: Widget, selected: bool, ?key: Key, ?avatar: Widget, ?labelStyle: TextStyle, ?labelPadding: EdgeInsetsGeometry, ?onSelected: (bool -> unit), ?pressElevation: float, ?selectedColor: Color, ?disabledColor: Color, ?tooltip: string, ?side: BorderSide, ?shape: OutlinedBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?backgroundColor: Color, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?materialTapTargetSize: MaterialTapTargetSize, ?elevation: float, ?shadowColor: Color, ?selectedShadowColor: Color, ?avatarBorder: ShapeBorder) =
+type ChoiceChip [<IsConst; NamedParams>] (label: Widget, selected: bool, [<Optional>] key: Key, [<Optional>] avatar: Widget, [<Optional>] labelStyle: TextStyle, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] onSelected: (bool -> unit), [<Optional>] pressElevation: float, [<Optional>] selectedColor: Color, [<Optional>] disabledColor: Color, [<Optional>] tooltip: string, [<Optional>] side: BorderSide, [<Optional>] shape: OutlinedBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] backgroundColor: Color, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] elevation: float, [<Optional>] shadowColor: Color, [<Optional>] selectedShadowColor: Color, [<Optional>] avatarBorder: ShapeBorder) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/FilterChip-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type FilterChip [<IsConst; NamedParams>] (label: Widget, onSelected: (bool -> unit), ?key: Key, ?avatar: Widget, ?labelStyle: TextStyle, ?labelPadding: EdgeInsetsGeometry, ?selected: bool, ?pressElevation: float, ?disabledColor: Color, ?selectedColor: Color, ?tooltip: string, ?side: BorderSide, ?shape: OutlinedBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?backgroundColor: Color, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?materialTapTargetSize: MaterialTapTargetSize, ?elevation: float, ?shadowColor: Color, ?selectedShadowColor: Color, ?showCheckmark: bool, ?checkmarkColor: Color, ?avatarBorder: ShapeBorder) =
+type FilterChip [<IsConst; NamedParams>] (label: Widget, onSelected: (bool -> unit), [<Optional>] key: Key, [<Optional>] avatar: Widget, [<Optional>] labelStyle: TextStyle, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] selected: bool, [<Optional>] pressElevation: float, [<Optional>] disabledColor: Color, [<Optional>] selectedColor: Color, [<Optional>] tooltip: string, [<Optional>] side: BorderSide, [<Optional>] shape: OutlinedBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] backgroundColor: Color, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] elevation: float, [<Optional>] shadowColor: Color, [<Optional>] selectedShadowColor: Color, [<Optional>] showCheckmark: bool, [<Optional>] checkmarkColor: Color, [<Optional>] avatarBorder: ShapeBorder) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ActionChip-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ActionChip [<IsConst; NamedParams>] (label: Widget, onPressed: (unit -> unit), ?key: Key, ?avatar: Widget, ?labelStyle: TextStyle, ?labelPadding: EdgeInsetsGeometry, ?pressElevation: float, ?tooltip: string, ?side: BorderSide, ?shape: OutlinedBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?backgroundColor: Color, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?materialTapTargetSize: MaterialTapTargetSize, ?elevation: float, ?shadowColor: Color) =
+type ActionChip [<IsConst; NamedParams>] (label: Widget, onPressed: (unit -> unit), [<Optional>] key: Key, [<Optional>] avatar: Widget, [<Optional>] labelStyle: TextStyle, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] pressElevation: float, [<Optional>] tooltip: string, [<Optional>] side: BorderSide, [<Optional>] shape: OutlinedBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] backgroundColor: Color, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] elevation: float, [<Optional>] shadowColor: Color) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/RawChip-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RawChip [<IsConst; NamedParams>] (label: Widget, ?key: Key, ?avatar: Widget, ?labelStyle: TextStyle, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?labelPadding: EdgeInsetsGeometry, ?deleteIcon: Widget, ?onDeleted: (unit -> unit), ?deleteIconColor: Color, ?deleteButtonTooltipMessage: string, ?onPressed: (unit -> unit), ?onSelected: (bool -> unit), ?pressElevation: float, ?tapEnabled: bool, ?selected: bool, ?isEnabled: bool, ?disabledColor: Color, ?selectedColor: Color, ?tooltip: string, ?side: BorderSide, ?shape: OutlinedBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?backgroundColor: Color, ?materialTapTargetSize: MaterialTapTargetSize, ?elevation: float, ?shadowColor: Color, ?selectedShadowColor: Color, ?showCheckmark: bool, ?checkmarkColor: Color, ?avatarBorder: ShapeBorder, ?useDeleteButtonTooltip: bool) =
+type RawChip [<IsConst; NamedParams>] (label: Widget, [<Optional>] key: Key, [<Optional>] avatar: Widget, [<Optional>] labelStyle: TextStyle, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] deleteIcon: Widget, [<Optional>] onDeleted: (unit -> unit), [<Optional>] deleteIconColor: Color, [<Optional>] deleteButtonTooltipMessage: string, [<Optional>] onPressed: (unit -> unit), [<Optional>] onSelected: (bool -> unit), [<Optional>] pressElevation: float, [<Optional>] tapEnabled: bool, [<Optional>] selected: bool, [<Optional>] isEnabled: bool, [<Optional>] disabledColor: Color, [<Optional>] selectedColor: Color, [<Optional>] tooltip: string, [<Optional>] side: BorderSide, [<Optional>] shape: OutlinedBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] backgroundColor: Color, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] elevation: float, [<Optional>] shadowColor: Color, [<Optional>] selectedShadowColor: Color, [<Optional>] showCheckmark: bool, [<Optional>] checkmarkColor: Color, [<Optional>] avatarBorder: ShapeBorder, [<Optional>] useDeleteButtonTooltip: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ChipTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ChipTheme [<IsConst; NamedParams>] (data: ChipThemeData, child: Widget, ?key: Key) =
+type ChipTheme [<IsConst; NamedParams>] (data: ChipThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/ChipThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ChipThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?deleteIconColor: Color, ?disabledColor: Color, ?selectedColor: Color, ?secondarySelectedColor: Color, ?shadowColor: Color, ?selectedShadowColor: Color, ?showCheckmark: bool, ?checkmarkColor: Color, ?labelPadding: EdgeInsetsGeometry, ?padding: EdgeInsetsGeometry, ?side: BorderSide, ?shape: OutlinedBorder, ?labelStyle: TextStyle, ?secondaryLabelStyle: TextStyle, ?brightness: Brightness, ?elevation: float, ?pressElevation: float) =
-  [<NamedParams>] static member fromDefaults(secondaryColor: Color, labelStyle: TextStyle, ?brightness: Brightness, ?primaryColor: Color): ChipThemeData = nativeOnly
+type ChipThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] deleteIconColor: Color, [<Optional>] disabledColor: Color, [<Optional>] selectedColor: Color, [<Optional>] secondarySelectedColor: Color, [<Optional>] shadowColor: Color, [<Optional>] selectedShadowColor: Color, [<Optional>] showCheckmark: bool, [<Optional>] checkmarkColor: Color, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] side: BorderSide, [<Optional>] shape: OutlinedBorder, [<Optional>] labelStyle: TextStyle, [<Optional>] secondaryLabelStyle: TextStyle, [<Optional>] brightness: Brightness, [<Optional>] elevation: float, [<Optional>] pressElevation: float) =
+  [<NamedParams>] static member fromDefaults(secondaryColor: Color, labelStyle: TextStyle, [<Optional>] brightness: Brightness, [<Optional>] primaryColor: Color): ChipThemeData = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/CircleAvatar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CircleAvatar [<IsConst; NamedParams>] (?key: Key, ?child: Widget, ?backgroundColor: Color, ?backgroundImage: ImageProvider<obj>, ?foregroundImage: ImageProvider<obj>, ?onBackgroundImageError: (obj -> StackTrace option -> unit), ?onForegroundImageError: (obj -> StackTrace option -> unit), ?foregroundColor: Color, ?radius: float, ?minRadius: float, ?maxRadius: float) =
+type CircleAvatar [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] child: Widget, [<Optional>] backgroundColor: Color, [<Optional>] backgroundImage: ImageProvider<obj>, [<Optional>] foregroundImage: ImageProvider<obj>, [<Optional>] onBackgroundImageError: (obj -> DartNullable<StackTrace> -> unit), [<Optional>] onForegroundImageError: (obj -> DartNullable<StackTrace> -> unit), [<Optional>] foregroundColor: Color, [<Optional>] radius: float, [<Optional>] minRadius: float, [<Optional>] maxRadius: float) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ColorScheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ColorScheme [<IsConst; NamedParams>] (brightness: Brightness, primary: Color, onPrimary: Color, secondary: Color, onSecondary: Color, error: Color, onError: Color, background: Color, onBackground: Color, surface: Color, onSurface: Color, ?primaryContainer: Color, ?onPrimaryContainer: Color, ?secondaryContainer: Color, ?onSecondaryContainer: Color, ?tertiary: Color, ?onTertiary: Color, ?tertiaryContainer: Color, ?onTertiaryContainer: Color, ?errorContainer: Color, ?onErrorContainer: Color, ?surfaceVariant: Color, ?onSurfaceVariant: Color, ?outline: Color, ?shadow: Color, ?inverseSurface: Color, ?onInverseSurface: Color, ?inversePrimary: Color, ?surfaceTint: Color, ?primaryVariant: Color, ?secondaryVariant: Color) =
-  [<NamedParams>] static member fromSeed(seedColor: Color, ?brightness: Brightness, ?primary: Color, ?onPrimary: Color, ?primaryContainer: Color, ?onPrimaryContainer: Color, ?secondary: Color, ?onSecondary: Color, ?secondaryContainer: Color, ?onSecondaryContainer: Color, ?tertiary: Color, ?onTertiary: Color, ?tertiaryContainer: Color, ?onTertiaryContainer: Color, ?error: Color, ?onError: Color, ?errorContainer: Color, ?onErrorContainer: Color, ?outline: Color, ?background: Color, ?onBackground: Color, ?surface: Color, ?onSurface: Color, ?surfaceVariant: Color, ?onSurfaceVariant: Color, ?inverseSurface: Color, ?onInverseSurface: Color, ?inversePrimary: Color, ?shadow: Color, ?surfaceTint: Color): ColorScheme = nativeOnly
-  [<IsConst; NamedParams>] static member light(?brightness: Brightness, ?primary: Color, ?onPrimary: Color, ?primaryContainer: Color, ?onPrimaryContainer: Color, ?secondary: Color, ?onSecondary: Color, ?secondaryContainer: Color, ?onSecondaryContainer: Color, ?tertiary: Color, ?onTertiary: Color, ?tertiaryContainer: Color, ?onTertiaryContainer: Color, ?error: Color, ?onError: Color, ?errorContainer: Color, ?onErrorContainer: Color, ?background: Color, ?onBackground: Color, ?surface: Color, ?onSurface: Color, ?surfaceVariant: Color, ?onSurfaceVariant: Color, ?outline: Color, ?shadow: Color, ?inverseSurface: Color, ?onInverseSurface: Color, ?inversePrimary: Color, ?surfaceTint: Color, ?primaryVariant: Color, ?secondaryVariant: Color): ColorScheme = nativeOnly
-  [<IsConst; NamedParams>] static member dark(?brightness: Brightness, ?primary: Color, ?onPrimary: Color, ?primaryContainer: Color, ?onPrimaryContainer: Color, ?secondary: Color, ?onSecondary: Color, ?secondaryContainer: Color, ?onSecondaryContainer: Color, ?tertiary: Color, ?onTertiary: Color, ?tertiaryContainer: Color, ?onTertiaryContainer: Color, ?error: Color, ?onError: Color, ?errorContainer: Color, ?onErrorContainer: Color, ?background: Color, ?onBackground: Color, ?surface: Color, ?onSurface: Color, ?surfaceVariant: Color, ?onSurfaceVariant: Color, ?outline: Color, ?shadow: Color, ?inverseSurface: Color, ?onInverseSurface: Color, ?inversePrimary: Color, ?surfaceTint: Color, ?primaryVariant: Color, ?secondaryVariant: Color): ColorScheme = nativeOnly
-  [<IsConst; NamedParams>] static member highContrastLight(?brightness: Brightness, ?primary: Color, ?onPrimary: Color, ?primaryContainer: Color, ?onPrimaryContainer: Color, ?secondary: Color, ?onSecondary: Color, ?secondaryContainer: Color, ?onSecondaryContainer: Color, ?tertiary: Color, ?onTertiary: Color, ?tertiaryContainer: Color, ?onTertiaryContainer: Color, ?error: Color, ?onError: Color, ?errorContainer: Color, ?onErrorContainer: Color, ?background: Color, ?onBackground: Color, ?surface: Color, ?onSurface: Color, ?surfaceVariant: Color, ?onSurfaceVariant: Color, ?outline: Color, ?shadow: Color, ?inverseSurface: Color, ?onInverseSurface: Color, ?inversePrimary: Color, ?surfaceTint: Color, ?primaryVariant: Color, ?secondaryVariant: Color): ColorScheme = nativeOnly
-  [<IsConst; NamedParams>] static member highContrastDark(?brightness: Brightness, ?primary: Color, ?onPrimary: Color, ?primaryContainer: Color, ?onPrimaryContainer: Color, ?secondary: Color, ?onSecondary: Color, ?secondaryContainer: Color, ?onSecondaryContainer: Color, ?tertiary: Color, ?onTertiary: Color, ?tertiaryContainer: Color, ?onTertiaryContainer: Color, ?error: Color, ?onError: Color, ?errorContainer: Color, ?onErrorContainer: Color, ?background: Color, ?onBackground: Color, ?surface: Color, ?onSurface: Color, ?surfaceVariant: Color, ?onSurfaceVariant: Color, ?outline: Color, ?shadow: Color, ?inverseSurface: Color, ?onInverseSurface: Color, ?inversePrimary: Color, ?surfaceTint: Color, ?primaryVariant: Color, ?secondaryVariant: Color): ColorScheme = nativeOnly
-  [<NamedParams>] static member fromSwatch(?primarySwatch: MaterialColor, ?primaryColorDark: Color, ?accentColor: Color, ?cardColor: Color, ?backgroundColor: Color, ?errorColor: Color, ?brightness: Brightness): ColorScheme = nativeOnly
+type ColorScheme [<IsConst; NamedParams>] (brightness: Brightness, primary: Color, onPrimary: Color, secondary: Color, onSecondary: Color, error: Color, onError: Color, background: Color, onBackground: Color, surface: Color, onSurface: Color, [<Optional>] primaryContainer: Color, [<Optional>] onPrimaryContainer: Color, [<Optional>] secondaryContainer: Color, [<Optional>] onSecondaryContainer: Color, [<Optional>] tertiary: Color, [<Optional>] onTertiary: Color, [<Optional>] tertiaryContainer: Color, [<Optional>] onTertiaryContainer: Color, [<Optional>] errorContainer: Color, [<Optional>] onErrorContainer: Color, [<Optional>] surfaceVariant: Color, [<Optional>] onSurfaceVariant: Color, [<Optional>] outline: Color, [<Optional>] shadow: Color, [<Optional>] inverseSurface: Color, [<Optional>] onInverseSurface: Color, [<Optional>] inversePrimary: Color, [<Optional>] surfaceTint: Color, [<Optional>] primaryVariant: Color, [<Optional>] secondaryVariant: Color) =
+  [<NamedParams>] static member fromSeed(seedColor: Color, [<Optional>] brightness: Brightness, [<Optional>] primary: Color, [<Optional>] onPrimary: Color, [<Optional>] primaryContainer: Color, [<Optional>] onPrimaryContainer: Color, [<Optional>] secondary: Color, [<Optional>] onSecondary: Color, [<Optional>] secondaryContainer: Color, [<Optional>] onSecondaryContainer: Color, [<Optional>] tertiary: Color, [<Optional>] onTertiary: Color, [<Optional>] tertiaryContainer: Color, [<Optional>] onTertiaryContainer: Color, [<Optional>] error: Color, [<Optional>] onError: Color, [<Optional>] errorContainer: Color, [<Optional>] onErrorContainer: Color, [<Optional>] outline: Color, [<Optional>] background: Color, [<Optional>] onBackground: Color, [<Optional>] surface: Color, [<Optional>] onSurface: Color, [<Optional>] surfaceVariant: Color, [<Optional>] onSurfaceVariant: Color, [<Optional>] inverseSurface: Color, [<Optional>] onInverseSurface: Color, [<Optional>] inversePrimary: Color, [<Optional>] shadow: Color, [<Optional>] surfaceTint: Color): ColorScheme = nativeOnly
+  [<IsConst; NamedParams>] static member light([<Optional>] brightness: Brightness, [<Optional>] primary: Color, [<Optional>] onPrimary: Color, [<Optional>] primaryContainer: Color, [<Optional>] onPrimaryContainer: Color, [<Optional>] secondary: Color, [<Optional>] onSecondary: Color, [<Optional>] secondaryContainer: Color, [<Optional>] onSecondaryContainer: Color, [<Optional>] tertiary: Color, [<Optional>] onTertiary: Color, [<Optional>] tertiaryContainer: Color, [<Optional>] onTertiaryContainer: Color, [<Optional>] error: Color, [<Optional>] onError: Color, [<Optional>] errorContainer: Color, [<Optional>] onErrorContainer: Color, [<Optional>] background: Color, [<Optional>] onBackground: Color, [<Optional>] surface: Color, [<Optional>] onSurface: Color, [<Optional>] surfaceVariant: Color, [<Optional>] onSurfaceVariant: Color, [<Optional>] outline: Color, [<Optional>] shadow: Color, [<Optional>] inverseSurface: Color, [<Optional>] onInverseSurface: Color, [<Optional>] inversePrimary: Color, [<Optional>] surfaceTint: Color, [<Optional>] primaryVariant: Color, [<Optional>] secondaryVariant: Color): ColorScheme = nativeOnly
+  [<IsConst; NamedParams>] static member dark([<Optional>] brightness: Brightness, [<Optional>] primary: Color, [<Optional>] onPrimary: Color, [<Optional>] primaryContainer: Color, [<Optional>] onPrimaryContainer: Color, [<Optional>] secondary: Color, [<Optional>] onSecondary: Color, [<Optional>] secondaryContainer: Color, [<Optional>] onSecondaryContainer: Color, [<Optional>] tertiary: Color, [<Optional>] onTertiary: Color, [<Optional>] tertiaryContainer: Color, [<Optional>] onTertiaryContainer: Color, [<Optional>] error: Color, [<Optional>] onError: Color, [<Optional>] errorContainer: Color, [<Optional>] onErrorContainer: Color, [<Optional>] background: Color, [<Optional>] onBackground: Color, [<Optional>] surface: Color, [<Optional>] onSurface: Color, [<Optional>] surfaceVariant: Color, [<Optional>] onSurfaceVariant: Color, [<Optional>] outline: Color, [<Optional>] shadow: Color, [<Optional>] inverseSurface: Color, [<Optional>] onInverseSurface: Color, [<Optional>] inversePrimary: Color, [<Optional>] surfaceTint: Color, [<Optional>] primaryVariant: Color, [<Optional>] secondaryVariant: Color): ColorScheme = nativeOnly
+  [<IsConst; NamedParams>] static member highContrastLight([<Optional>] brightness: Brightness, [<Optional>] primary: Color, [<Optional>] onPrimary: Color, [<Optional>] primaryContainer: Color, [<Optional>] onPrimaryContainer: Color, [<Optional>] secondary: Color, [<Optional>] onSecondary: Color, [<Optional>] secondaryContainer: Color, [<Optional>] onSecondaryContainer: Color, [<Optional>] tertiary: Color, [<Optional>] onTertiary: Color, [<Optional>] tertiaryContainer: Color, [<Optional>] onTertiaryContainer: Color, [<Optional>] error: Color, [<Optional>] onError: Color, [<Optional>] errorContainer: Color, [<Optional>] onErrorContainer: Color, [<Optional>] background: Color, [<Optional>] onBackground: Color, [<Optional>] surface: Color, [<Optional>] onSurface: Color, [<Optional>] surfaceVariant: Color, [<Optional>] onSurfaceVariant: Color, [<Optional>] outline: Color, [<Optional>] shadow: Color, [<Optional>] inverseSurface: Color, [<Optional>] onInverseSurface: Color, [<Optional>] inversePrimary: Color, [<Optional>] surfaceTint: Color, [<Optional>] primaryVariant: Color, [<Optional>] secondaryVariant: Color): ColorScheme = nativeOnly
+  [<IsConst; NamedParams>] static member highContrastDark([<Optional>] brightness: Brightness, [<Optional>] primary: Color, [<Optional>] onPrimary: Color, [<Optional>] primaryContainer: Color, [<Optional>] onPrimaryContainer: Color, [<Optional>] secondary: Color, [<Optional>] onSecondary: Color, [<Optional>] secondaryContainer: Color, [<Optional>] onSecondaryContainer: Color, [<Optional>] tertiary: Color, [<Optional>] onTertiary: Color, [<Optional>] tertiaryContainer: Color, [<Optional>] onTertiaryContainer: Color, [<Optional>] error: Color, [<Optional>] onError: Color, [<Optional>] errorContainer: Color, [<Optional>] onErrorContainer: Color, [<Optional>] background: Color, [<Optional>] onBackground: Color, [<Optional>] surface: Color, [<Optional>] onSurface: Color, [<Optional>] surfaceVariant: Color, [<Optional>] onSurfaceVariant: Color, [<Optional>] outline: Color, [<Optional>] shadow: Color, [<Optional>] inverseSurface: Color, [<Optional>] onInverseSurface: Color, [<Optional>] inversePrimary: Color, [<Optional>] surfaceTint: Color, [<Optional>] primaryVariant: Color, [<Optional>] secondaryVariant: Color): ColorScheme = nativeOnly
+  [<NamedParams>] static member fromSwatch([<Optional>] primarySwatch: MaterialColor, [<Optional>] primaryColorDark: Color, [<Optional>] accentColor: Color, [<Optional>] cardColor: Color, [<Optional>] backgroundColor: Color, [<Optional>] errorColor: Color, [<Optional>] brightness: Brightness): ColorScheme = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/MaterialColor-class.html
 [<ImportMember("package:flutter/material.dart")>]
@@ -742,27 +743,27 @@ type Colors =
 
 /// https://api.flutter.dev/flutter/material/DataColumn-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DataColumn [<IsConst; NamedParams>] (label: Widget, ?tooltip: string, ?numeric: bool, ?onSort: (int -> bool -> unit)) =
+type DataColumn [<IsConst; NamedParams>] (label: Widget, [<Optional>] tooltip: string, [<Optional>] numeric: bool, [<Optional>] onSort: (int -> bool -> unit)) =
   class end
 
 /// https://api.flutter.dev/flutter/material/DataRow-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DataRow [<IsConst; NamedParams>] (cells: DataCell[], ?key: LocalKey, ?selected: bool, ?onSelectChanged: (bool option -> unit), ?onLongPress: (unit -> unit), ?color: MaterialStateProperty<Color option>) =
-  [<NamedParams>] static member byIndex(cells: DataCell[], ?index: int, ?selected: bool, ?onSelectChanged: (bool option -> unit), ?onLongPress: (unit -> unit), ?color: MaterialStateProperty<Color option>): DataRow = nativeOnly
+type DataRow [<IsConst; NamedParams>] (cells: DataCell[], [<Optional>] key: LocalKey, [<Optional>] selected: bool, [<Optional>] onSelectChanged: (DartNullable<bool> -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] color: MaterialStateProperty<DartNullable<Color>>) =
+  [<NamedParams>] static member byIndex(cells: DataCell[], [<Optional>] index: int, [<Optional>] selected: bool, [<Optional>] onSelectChanged: (DartNullable<bool> -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] color: MaterialStateProperty<DartNullable<Color>>): DataRow = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/DataCell-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DataCell [<IsConst; NamedParams(fromIndex=1)>] (child: Widget, ?placeholder: bool, ?showEditIcon: bool, ?onTap: (unit -> unit), ?onLongPress: (unit -> unit), ?onTapDown: (TapDownDetails -> unit), ?onDoubleTap: (unit -> unit), ?onTapCancel: (unit -> unit)) =
+type DataCell [<IsConst; NamedParams(fromIndex=1)>] (child: Widget, [<Optional>] placeholder: bool, [<Optional>] showEditIcon: bool, [<Optional>] onTap: (unit -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] onTapDown: (TapDownDetails -> unit), [<Optional>] onDoubleTap: (unit -> unit), [<Optional>] onTapCancel: (unit -> unit)) =
   [<IsConst>] static member empty: DataCell = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/DataTable-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DataTable [<NamedParams>] (columns: DataColumn[], rows: DataRow[], ?key: Key, ?sortColumnIndex: int, ?sortAscending: bool, ?onSelectAll: (bool option -> unit), ?decoration: Decoration, ?dataRowColor: MaterialStateProperty<Color option>, ?dataRowHeight: float, ?dataTextStyle: TextStyle, ?headingRowColor: MaterialStateProperty<Color option>, ?headingRowHeight: float, ?headingTextStyle: TextStyle, ?horizontalMargin: float, ?columnSpacing: float, ?showCheckboxColumn: bool, ?showBottomBorder: bool, ?dividerThickness: float, ?checkboxHorizontalMargin: float, ?border: TableBorder) =
+type DataTable [<NamedParams>] (columns: DataColumn[], rows: DataRow[], [<Optional>] key: Key, [<Optional>] sortColumnIndex: int, [<Optional>] sortAscending: bool, [<Optional>] onSelectAll: (DartNullable<bool> -> unit), [<Optional>] decoration: Decoration, [<Optional>] dataRowColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] dataRowHeight: float, [<Optional>] dataTextStyle: TextStyle, [<Optional>] headingRowColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] headingRowHeight: float, [<Optional>] headingTextStyle: TextStyle, [<Optional>] horizontalMargin: float, [<Optional>] columnSpacing: float, [<Optional>] showCheckboxColumn: bool, [<Optional>] showBottomBorder: bool, [<Optional>] dividerThickness: float, [<Optional>] checkboxHorizontalMargin: float, [<Optional>] border: TableBorder) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TableRowInkWell-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TableRowInkWell [<IsConst; NamedParams>] (?key: Key, ?child: Widget, ?onTap: (unit -> unit), ?onDoubleTap: (unit -> unit), ?onLongPress: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?overlayColor: MaterialStateProperty<Color option>) =
+type TableRowInkWell [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] child: Widget, [<Optional>] onTap: (unit -> unit), [<Optional>] onDoubleTap: (unit -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>) =
   inherit InkResponse()
 
 /// https://api.flutter.dev/flutter/material/DataTableSource-class.html
@@ -772,12 +773,12 @@ type DataTableSource () =
 
 /// https://api.flutter.dev/flutter/material/DataTableThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DataTableThemeData [<IsConst; NamedParams>] (?decoration: Decoration, ?dataRowColor: MaterialStateProperty<Color option>, ?dataRowHeight: float, ?dataTextStyle: TextStyle, ?headingRowColor: MaterialStateProperty<Color option>, ?headingRowHeight: float, ?headingTextStyle: TextStyle, ?horizontalMargin: float, ?columnSpacing: float, ?dividerThickness: float, ?checkboxHorizontalMargin: float) =
+type DataTableThemeData [<IsConst; NamedParams>] ([<Optional>] decoration: Decoration, [<Optional>] dataRowColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] dataRowHeight: float, [<Optional>] dataTextStyle: TextStyle, [<Optional>] headingRowColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] headingRowHeight: float, [<Optional>] headingTextStyle: TextStyle, [<Optional>] horizontalMargin: float, [<Optional>] columnSpacing: float, [<Optional>] dividerThickness: float, [<Optional>] checkboxHorizontalMargin: float) =
   class end
 
 /// https://api.flutter.dev/flutter/material/DataTableTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DataTableTheme [<IsConst; NamedParams>] (data: DataTableThemeData, child: Widget, ?key: Key) =
+type DataTableTheme [<IsConst; NamedParams>] (data: DataTableThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/DateUtils-class.html
@@ -792,72 +793,72 @@ type DateTimeRange [<NamedParams>] (start: DateTime, ``end``: DateTime) =
 
 /// https://api.flutter.dev/flutter/material/DatePickerDialog-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DatePickerDialog [<NamedParams>] (initialDate: DateTime, firstDate: DateTime, lastDate: DateTime, ?key: Key, ?currentDate: DateTime, ?initialEntryMode: DatePickerEntryMode, ?selectableDayPredicate: (DateTime -> bool), ?cancelText: string, ?confirmText: string, ?helpText: string, ?initialCalendarMode: DatePickerMode, ?errorFormatText: string, ?errorInvalidText: string, ?fieldHintText: string, ?fieldLabelText: string, ?keyboardType: TextInputType, ?restorationId: string) =
+type DatePickerDialog [<NamedParams>] (initialDate: DateTime, firstDate: DateTime, lastDate: DateTime, [<Optional>] key: Key, [<Optional>] currentDate: DateTime, [<Optional>] initialEntryMode: DatePickerEntryMode, [<Optional>] selectableDayPredicate: (DateTime -> bool), [<Optional>] cancelText: string, [<Optional>] confirmText: string, [<Optional>] helpText: string, [<Optional>] initialCalendarMode: DatePickerMode, [<Optional>] errorFormatText: string, [<Optional>] errorInvalidText: string, [<Optional>] fieldHintText: string, [<Optional>] fieldLabelText: string, [<Optional>] keyboardType: TextInputType, [<Optional>] restorationId: string) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/DateRangePickerDialog-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DateRangePickerDialog [<IsConst; NamedParams>] (firstDate: DateTime, lastDate: DateTime, ?key: Key, ?initialDateRange: DateTimeRange, ?currentDate: DateTime, ?initialEntryMode: DatePickerEntryMode, ?helpText: string, ?cancelText: string, ?confirmText: string, ?saveText: string, ?errorInvalidRangeText: string, ?errorFormatText: string, ?errorInvalidText: string, ?fieldStartHintText: string, ?fieldEndHintText: string, ?fieldStartLabelText: string, ?fieldEndLabelText: string, ?restorationId: string) =
+type DateRangePickerDialog [<IsConst; NamedParams>] (firstDate: DateTime, lastDate: DateTime, [<Optional>] key: Key, [<Optional>] initialDateRange: DateTimeRange, [<Optional>] currentDate: DateTime, [<Optional>] initialEntryMode: DatePickerEntryMode, [<Optional>] helpText: string, [<Optional>] cancelText: string, [<Optional>] confirmText: string, [<Optional>] saveText: string, [<Optional>] errorInvalidRangeText: string, [<Optional>] errorFormatText: string, [<Optional>] errorInvalidText: string, [<Optional>] fieldStartHintText: string, [<Optional>] fieldEndHintText: string, [<Optional>] fieldStartLabelText: string, [<Optional>] fieldEndLabelText: string, [<Optional>] restorationId: string) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/Dialog-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Dialog [<IsConst; NamedParams>] (?key: Key, ?backgroundColor: Color, ?elevation: float, ?insetAnimationDuration: TimeSpan, ?insetAnimationCurve: Curve, ?insetPadding: EdgeInsets, ?clipBehavior: Clip, ?shape: ShapeBorder, ?alignment: AlignmentGeometry, ?child: Widget) =
+type Dialog [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] insetAnimationDuration: TimeSpan, [<Optional>] insetAnimationCurve: Curve, [<Optional>] insetPadding: EdgeInsets, [<Optional>] clipBehavior: Clip, [<Optional>] shape: ShapeBorder, [<Optional>] alignment: AlignmentGeometry, [<Optional>] child: Widget) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/AlertDialog-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type AlertDialog [<IsConst; NamedParams>] (?key: Key, ?title: Widget, ?titlePadding: EdgeInsetsGeometry, ?titleTextStyle: TextStyle, ?content: Widget, ?contentPadding: EdgeInsetsGeometry, ?contentTextStyle: TextStyle, ?actions: Widget[], ?actionsPadding: EdgeInsetsGeometry, ?actionsAlignment: MainAxisAlignment, ?actionsOverflowAlignment: OverflowBarAlignment, ?actionsOverflowDirection: VerticalDirection, ?actionsOverflowButtonSpacing: float, ?buttonPadding: EdgeInsetsGeometry, ?backgroundColor: Color, ?elevation: float, ?semanticLabel: string, ?insetPadding: EdgeInsets, ?clipBehavior: Clip, ?shape: ShapeBorder, ?alignment: AlignmentGeometry, ?scrollable: bool) =
+type AlertDialog [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] title: Widget, [<Optional>] titlePadding: EdgeInsetsGeometry, [<Optional>] titleTextStyle: TextStyle, [<Optional>] content: Widget, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] contentTextStyle: TextStyle, [<Optional>] actions: Widget[], [<Optional>] actionsPadding: EdgeInsetsGeometry, [<Optional>] actionsAlignment: MainAxisAlignment, [<Optional>] actionsOverflowAlignment: OverflowBarAlignment, [<Optional>] actionsOverflowDirection: VerticalDirection, [<Optional>] actionsOverflowButtonSpacing: float, [<Optional>] buttonPadding: EdgeInsetsGeometry, [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] semanticLabel: string, [<Optional>] insetPadding: EdgeInsets, [<Optional>] clipBehavior: Clip, [<Optional>] shape: ShapeBorder, [<Optional>] alignment: AlignmentGeometry, [<Optional>] scrollable: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/SimpleDialogOption-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SimpleDialogOption [<IsConst; NamedParams>] (?key: Key, ?onPressed: (unit -> unit), ?padding: EdgeInsets, ?child: Widget) =
+type SimpleDialogOption [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] onPressed: (unit -> unit), [<Optional>] padding: EdgeInsets, [<Optional>] child: Widget) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/SimpleDialog-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SimpleDialog [<IsConst; NamedParams>] (?key: Key, ?title: Widget, ?titlePadding: EdgeInsetsGeometry, ?titleTextStyle: TextStyle, ?children: Widget[], ?contentPadding: EdgeInsetsGeometry, ?backgroundColor: Color, ?elevation: float, ?semanticLabel: string, ?insetPadding: EdgeInsets, ?clipBehavior: Clip, ?shape: ShapeBorder, ?alignment: AlignmentGeometry) =
+type SimpleDialog [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] title: Widget, [<Optional>] titlePadding: EdgeInsetsGeometry, [<Optional>] titleTextStyle: TextStyle, [<Optional>] children: Widget[], [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] semanticLabel: string, [<Optional>] insetPadding: EdgeInsets, [<Optional>] clipBehavior: Clip, [<Optional>] shape: ShapeBorder, [<Optional>] alignment: AlignmentGeometry) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/DialogRoute-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DialogRoute<'T> [<NamedParams>] (context: BuildContext, builder: (BuildContext -> Widget), ?themes: CapturedThemes, ?barrierColor: Color, ?barrierDismissible: bool, ?barrierLabel: string, ?useSafeArea: bool, ?settings: RouteSettings, ?anchorPoint: Offset) =
+type DialogRoute<'T> [<NamedParams>] (context: BuildContext, builder: (BuildContext -> Widget), [<Optional>] themes: CapturedThemes, [<Optional>] barrierColor: Color, [<Optional>] barrierDismissible: bool, [<Optional>] barrierLabel: string, [<Optional>] useSafeArea: bool, [<Optional>] settings: RouteSettings, [<Optional>] anchorPoint: Offset) =
   inherit RawDialogRoute<'T>(nativeOnly)
 
 /// https://api.flutter.dev/flutter/material/DialogTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DialogTheme [<IsConst; NamedParams>] (?backgroundColor: Color, ?elevation: float, ?shape: ShapeBorder, ?alignment: AlignmentGeometry, ?titleTextStyle: TextStyle, ?contentTextStyle: TextStyle) =
+type DialogTheme [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] alignment: AlignmentGeometry, [<Optional>] titleTextStyle: TextStyle, [<Optional>] contentTextStyle: TextStyle) =
   class end
 
 /// https://api.flutter.dev/flutter/material/Divider-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Divider [<IsConst; NamedParams>] (?key: Key, ?height: float, ?thickness: float, ?indent: float, ?endIndent: float, ?color: Color) =
+type Divider [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] height: float, [<Optional>] thickness: float, [<Optional>] indent: float, [<Optional>] endIndent: float, [<Optional>] color: Color) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/VerticalDivider-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type VerticalDivider [<IsConst; NamedParams>] (?key: Key, ?width: float, ?thickness: float, ?indent: float, ?endIndent: float, ?color: Color) =
+type VerticalDivider [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] width: float, [<Optional>] thickness: float, [<Optional>] indent: float, [<Optional>] endIndent: float, [<Optional>] color: Color) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/DividerThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DividerThemeData [<IsConst; NamedParams>] (?color: Color, ?space: float, ?thickness: float, ?indent: float, ?endIndent: float) =
+type DividerThemeData [<IsConst; NamedParams>] ([<Optional>] color: Color, [<Optional>] space: float, [<Optional>] thickness: float, [<Optional>] indent: float, [<Optional>] endIndent: float) =
   class end
 
 /// https://api.flutter.dev/flutter/material/DividerTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DividerTheme [<IsConst; NamedParams>] (data: DividerThemeData, child: Widget, ?key: Key) =
+type DividerTheme [<IsConst; NamedParams>] (data: DividerThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/Drawer-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Drawer [<IsConst; NamedParams>] (?key: Key, ?backgroundColor: Color, ?elevation: float, ?shape: ShapeBorder, ?width: float, ?child: Widget, ?semanticLabel: string) =
+type Drawer [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] width: float, [<Optional>] child: Widget, [<Optional>] semanticLabel: string) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/DrawerController-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DrawerController [<IsConst; NamedParams>] (child: Widget, alignment: DrawerAlignment, ?key: GlobalKey<State<StatefulWidget>>, ?isDrawerOpen: bool, ?drawerCallback: (bool -> unit), ?dragStartBehavior: DragStartBehavior, ?scrimColor: Color, ?edgeDragWidth: float, ?enableOpenDragGesture: bool) =
+type DrawerController [<IsConst; NamedParams>] (child: Widget, alignment: DrawerAlignment, [<Optional>] key: GlobalKey<State<StatefulWidget>>, [<Optional>] isDrawerOpen: bool, [<Optional>] drawerCallback: (bool -> unit), [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] scrimColor: Color, [<Optional>] edgeDragWidth: float, [<Optional>] enableOpenDragGesture: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/DrawerControllerState-class.html
@@ -867,53 +868,53 @@ type DrawerControllerState () =
 
 /// https://api.flutter.dev/flutter/material/DrawerHeader-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DrawerHeader [<IsConst; NamedParams>] (child: Widget option, ?key: Key, ?decoration: Decoration, ?margin: EdgeInsetsGeometry, ?padding: EdgeInsetsGeometry, ?duration: TimeSpan, ?curve: Curve) =
+type DrawerHeader [<IsConst; NamedParams>] (child: DartNullable<Widget>, [<Optional>] key: Key, [<Optional>] decoration: Decoration, [<Optional>] margin: EdgeInsetsGeometry, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] duration: TimeSpan, [<Optional>] curve: Curve) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/DrawerThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DrawerThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?scrimColor: Color, ?elevation: float, ?shape: ShapeBorder, ?width: float) =
+type DrawerThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] scrimColor: Color, [<Optional>] elevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] width: float) =
   class end
 
 /// https://api.flutter.dev/flutter/material/DrawerTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DrawerTheme [<IsConst; NamedParams>] (data: DrawerThemeData, child: Widget, ?key: Key) =
+type DrawerTheme [<IsConst; NamedParams>] (data: DrawerThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/DropdownMenuItem-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DropdownMenuItem<'T> [<IsConst; NamedParams>] (child: Widget, ?key: Key, ?onTap: (unit -> unit), ?value: 'T, ?enabled: bool, ?alignment: AlignmentGeometry) =
+type DropdownMenuItem<'T> [<IsConst; NamedParams>] (child: Widget, [<Optional>] key: Key, [<Optional>] onTap: (unit -> unit), [<Optional>] value: 'T, [<Optional>] enabled: bool, [<Optional>] alignment: AlignmentGeometry) =
   class end
 
 /// https://api.flutter.dev/flutter/material/DropdownButtonHideUnderline-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DropdownButtonHideUnderline [<IsConst; NamedParams>] (child: Widget, ?key: Key) =
+type DropdownButtonHideUnderline [<IsConst; NamedParams>] (child: Widget, [<Optional>] key: Key) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/DropdownButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DropdownButton<'T> [<NamedParams>] (items: DropdownMenuItem<'T>[] option, onChanged: ('T option -> unit), ?key: Key, ?selectedItemBuilder: (BuildContext -> Widget[]), ?value: 'T, ?hint: Widget, ?disabledHint: Widget, ?onTap: (unit -> unit), ?elevation: int, ?style: TextStyle, ?underline: Widget, ?icon: Widget, ?iconDisabledColor: Color, ?iconEnabledColor: Color, ?iconSize: float, ?isDense: bool, ?isExpanded: bool, ?itemHeight: float, ?focusColor: Color, ?focusNode: FocusNode, ?autofocus: bool, ?dropdownColor: Color, ?menuMaxHeight: float, ?enableFeedback: bool, ?alignment: AlignmentGeometry, ?borderRadius: BorderRadius) =
+type DropdownButton<'T> [<NamedParams>] (items: DartNullable<DropdownMenuItem<'T>[]>, onChanged: (DartNullable<'T> -> unit), [<Optional>] key: Key, [<Optional>] selectedItemBuilder: (BuildContext -> Widget[]), [<Optional>] value: 'T, [<Optional>] hint: Widget, [<Optional>] disabledHint: Widget, [<Optional>] onTap: (unit -> unit), [<Optional>] elevation: int, [<Optional>] style: TextStyle, [<Optional>] underline: Widget, [<Optional>] icon: Widget, [<Optional>] iconDisabledColor: Color, [<Optional>] iconEnabledColor: Color, [<Optional>] iconSize: float, [<Optional>] isDense: bool, [<Optional>] isExpanded: bool, [<Optional>] itemHeight: float, [<Optional>] focusColor: Color, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] dropdownColor: Color, [<Optional>] menuMaxHeight: float, [<Optional>] enableFeedback: bool, [<Optional>] alignment: AlignmentGeometry, [<Optional>] borderRadius: BorderRadius) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/DropdownButtonFormField-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DropdownButtonFormField<'T> [<NamedParams>] (items: DropdownMenuItem<'T>[] option, onChanged: ('T option -> unit), ?key: Key, ?selectedItemBuilder: (BuildContext -> Widget[]), ?value: 'T, ?hint: Widget, ?disabledHint: Widget, ?onTap: (unit -> unit), ?elevation: int, ?style: TextStyle, ?icon: Widget, ?iconDisabledColor: Color, ?iconEnabledColor: Color, ?iconSize: float, ?isDense: bool, ?isExpanded: bool, ?itemHeight: float, ?focusColor: Color, ?focusNode: FocusNode, ?autofocus: bool, ?dropdownColor: Color, ?decoration: InputDecoration, ?onSaved: ('T option -> unit), ?validator: ('T option -> string option), ?autovalidateMode: AutovalidateMode, ?menuMaxHeight: float, ?enableFeedback: bool, ?alignment: AlignmentGeometry, ?borderRadius: BorderRadius) =
+type DropdownButtonFormField<'T> [<NamedParams>] (items: DartNullable<DropdownMenuItem<'T>[]>, onChanged: (DartNullable<'T> -> unit), [<Optional>] key: Key, [<Optional>] selectedItemBuilder: (BuildContext -> Widget[]), [<Optional>] value: 'T, [<Optional>] hint: Widget, [<Optional>] disabledHint: Widget, [<Optional>] onTap: (unit -> unit), [<Optional>] elevation: int, [<Optional>] style: TextStyle, [<Optional>] icon: Widget, [<Optional>] iconDisabledColor: Color, [<Optional>] iconEnabledColor: Color, [<Optional>] iconSize: float, [<Optional>] isDense: bool, [<Optional>] isExpanded: bool, [<Optional>] itemHeight: float, [<Optional>] focusColor: Color, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] dropdownColor: Color, [<Optional>] decoration: InputDecoration, [<Optional>] onSaved: (DartNullable<'T> -> unit), [<Optional>] validator: (DartNullable<'T> -> DartNullable<string>), [<Optional>] autovalidateMode: AutovalidateMode, [<Optional>] menuMaxHeight: float, [<Optional>] enableFeedback: bool, [<Optional>] alignment: AlignmentGeometry, [<Optional>] borderRadius: BorderRadius) =
   inherit FormField<'T>(nativeOnly)
 
 /// https://api.flutter.dev/flutter/material/ElevatedButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ElevatedButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), child: Widget option, ?key: Key, ?onLongPress: (unit -> unit), ?onHover: (bool -> unit), ?onFocusChange: (bool -> unit), ?style: ButtonStyle, ?focusNode: FocusNode, ?autofocus: bool, ?clipBehavior: Clip) =
+type ElevatedButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), child: DartNullable<Widget>, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHover: (bool -> unit), [<Optional>] onFocusChange: (bool -> unit), [<Optional>] style: ButtonStyle, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] clipBehavior: Clip) =
   inherit ButtonStyleButton(nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly)
-  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, ?key: Key, ?onLongPress: (unit -> unit), ?onHover: (bool -> unit), ?onFocusChange: (bool -> unit), ?style: ButtonStyle, ?focusNode: FocusNode, ?autofocus: bool, ?clipBehavior: Clip): ElevatedButton = nativeOnly
+  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHover: (bool -> unit), [<Optional>] onFocusChange: (bool -> unit), [<Optional>] style: ButtonStyle, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] clipBehavior: Clip): ElevatedButton = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/ElevatedButtonThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ElevatedButtonThemeData [<IsConst; NamedParams>] (?style: ButtonStyle) =
+type ElevatedButtonThemeData [<IsConst; NamedParams>] ([<Optional>] style: ButtonStyle) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ElevatedButtonTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ElevatedButtonTheme [<IsConst; NamedParams>] (data: ElevatedButtonThemeData, child: Widget, ?key: Key) =
+type ElevatedButtonTheme [<IsConst; NamedParams>] (data: ElevatedButtonThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/ElevationOverlay-class.html
@@ -923,38 +924,38 @@ type ElevationOverlay =
 
 /// https://api.flutter.dev/flutter/material/ExpandIcon-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ExpandIcon [<IsConst; NamedParams>] (onPressed: (bool -> unit), ?key: Key, ?isExpanded: bool, ?size: float, ?padding: EdgeInsetsGeometry, ?color: Color, ?disabledColor: Color, ?expandedColor: Color) =
+type ExpandIcon [<IsConst; NamedParams>] (onPressed: (bool -> unit), [<Optional>] key: Key, [<Optional>] isExpanded: bool, [<Optional>] size: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] color: Color, [<Optional>] disabledColor: Color, [<Optional>] expandedColor: Color) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ExpansionPanel-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ExpansionPanel [<NamedParams>] (headerBuilder: (BuildContext -> bool -> Widget), body: Widget, ?isExpanded: bool, ?canTapOnHeader: bool, ?backgroundColor: Color) =
+type ExpansionPanel [<NamedParams>] (headerBuilder: (BuildContext -> bool -> Widget), body: Widget, [<Optional>] isExpanded: bool, [<Optional>] canTapOnHeader: bool, [<Optional>] backgroundColor: Color) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ExpansionPanelRadio-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ExpansionPanelRadio [<NamedParams>] (value: obj, headerBuilder: (BuildContext -> bool -> Widget), body: Widget, ?canTapOnHeader: bool, ?backgroundColor: Color) =
+type ExpansionPanelRadio [<NamedParams>] (value: obj, headerBuilder: (BuildContext -> bool -> Widget), body: Widget, [<Optional>] canTapOnHeader: bool, [<Optional>] backgroundColor: Color) =
   inherit ExpansionPanel(headerBuilder, body)
 
 /// https://api.flutter.dev/flutter/material/ExpansionPanelList-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ExpansionPanelList [<IsConst; NamedParams>] (?key: Key, ?children: ExpansionPanel[], ?expansionCallback: (int -> bool -> unit), ?animationDuration: TimeSpan, ?expandedHeaderPadding: EdgeInsets, ?dividerColor: Color, ?elevation: float) =
+type ExpansionPanelList [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] children: ExpansionPanel[], [<Optional>] expansionCallback: (int -> bool -> unit), [<Optional>] animationDuration: TimeSpan, [<Optional>] expandedHeaderPadding: EdgeInsets, [<Optional>] dividerColor: Color, [<Optional>] elevation: float) =
   inherit Widget()
-  [<IsConst; NamedParams>] static member radio(?key: Key, ?children: ExpansionPanel[], ?expansionCallback: (int -> bool -> unit), ?animationDuration: TimeSpan, ?initialOpenPanelValue: obj, ?expandedHeaderPadding: EdgeInsets, ?dividerColor: Color, ?elevation: float): ExpansionPanelList = nativeOnly
+  [<IsConst; NamedParams>] static member radio([<Optional>] key: Key, [<Optional>] children: ExpansionPanel[], [<Optional>] expansionCallback: (int -> bool -> unit), [<Optional>] animationDuration: TimeSpan, [<Optional>] initialOpenPanelValue: obj, [<Optional>] expandedHeaderPadding: EdgeInsets, [<Optional>] dividerColor: Color, [<Optional>] elevation: float): ExpansionPanelList = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/ExpansionTile-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ExpansionTile [<IsConst; NamedParams>] (title: Widget, ?key: Key, ?leading: Widget, ?subtitle: Widget, ?onExpansionChanged: (bool -> unit), ?children: Widget[], ?trailing: Widget, ?initiallyExpanded: bool, ?maintainState: bool, ?tilePadding: EdgeInsetsGeometry, ?expandedCrossAxisAlignment: CrossAxisAlignment, ?expandedAlignment: Alignment, ?childrenPadding: EdgeInsetsGeometry, ?backgroundColor: Color, ?collapsedBackgroundColor: Color, ?textColor: Color, ?collapsedTextColor: Color, ?iconColor: Color, ?collapsedIconColor: Color, ?controlAffinity: ListTileControlAffinity) =
+type ExpansionTile [<IsConst; NamedParams>] (title: Widget, [<Optional>] key: Key, [<Optional>] leading: Widget, [<Optional>] subtitle: Widget, [<Optional>] onExpansionChanged: (bool -> unit), [<Optional>] children: Widget[], [<Optional>] trailing: Widget, [<Optional>] initiallyExpanded: bool, [<Optional>] maintainState: bool, [<Optional>] tilePadding: EdgeInsetsGeometry, [<Optional>] expandedCrossAxisAlignment: CrossAxisAlignment, [<Optional>] expandedAlignment: Alignment, [<Optional>] childrenPadding: EdgeInsetsGeometry, [<Optional>] backgroundColor: Color, [<Optional>] collapsedBackgroundColor: Color, [<Optional>] textColor: Color, [<Optional>] collapsedTextColor: Color, [<Optional>] iconColor: Color, [<Optional>] collapsedIconColor: Color, [<Optional>] controlAffinity: ListTileControlAffinity) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ExpansionTileThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ExpansionTileThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?collapsedBackgroundColor: Color, ?tilePadding: EdgeInsetsGeometry, ?expandedAlignment: AlignmentGeometry, ?childrenPadding: EdgeInsetsGeometry, ?iconColor: Color, ?collapsedIconColor: Color, ?textColor: Color, ?collapsedTextColor: Color) =
+type ExpansionTileThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] collapsedBackgroundColor: Color, [<Optional>] tilePadding: EdgeInsetsGeometry, [<Optional>] expandedAlignment: AlignmentGeometry, [<Optional>] childrenPadding: EdgeInsetsGeometry, [<Optional>] iconColor: Color, [<Optional>] collapsedIconColor: Color, [<Optional>] textColor: Color, [<Optional>] collapsedTextColor: Color) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ExpansionTileTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ExpansionTileTheme [<IsConst; NamedParams>] (data: ExpansionTileThemeData, child: Widget, ?key: Key) =
+type ExpansionTileTheme [<IsConst; NamedParams>] (data: ExpansionTileThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/Feedback-class.html
@@ -964,27 +965,27 @@ type Feedback =
 
 /// https://api.flutter.dev/flutter/material/FlatButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type FlatButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), child: Widget, ?key: Key, ?onLongPress: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?mouseCursor: MouseCursor, ?textTheme: ButtonTextTheme, ?textColor: Color, ?disabledTextColor: Color, ?color: Color, ?disabledColor: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?colorBrightness: Brightness, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?shape: ShapeBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?height: float, ?minWidth: float) =
+type FlatButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), child: Widget, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] textTheme: ButtonTextTheme, [<Optional>] textColor: Color, [<Optional>] disabledTextColor: Color, [<Optional>] color: Color, [<Optional>] disabledColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] colorBrightness: Brightness, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] height: float, [<Optional>] minWidth: float) =
   inherit MaterialButton(onPressed)
-  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, ?key: Key, ?onLongPress: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?mouseCursor: MouseCursor, ?textTheme: ButtonTextTheme, ?textColor: Color, ?disabledTextColor: Color, ?color: Color, ?disabledColor: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?colorBrightness: Brightness, ?padding: EdgeInsetsGeometry, ?shape: ShapeBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?minWidth: float, ?height: float): FlatButton = nativeOnly
+  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] textTheme: ButtonTextTheme, [<Optional>] textColor: Color, [<Optional>] disabledTextColor: Color, [<Optional>] color: Color, [<Optional>] disabledColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] colorBrightness: Brightness, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] minWidth: float, [<Optional>] height: float): FlatButton = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/FlexibleSpaceBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type FlexibleSpaceBar [<IsConst; NamedParams>] (?key: Key, ?title: Widget, ?background: Widget, ?centerTitle: bool, ?titlePadding: EdgeInsetsGeometry, ?collapseMode: CollapseMode, ?stretchModes: StretchMode[], ?expandedTitleScale: float) =
+type FlexibleSpaceBar [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] title: Widget, [<Optional>] background: Widget, [<Optional>] centerTitle: bool, [<Optional>] titlePadding: EdgeInsetsGeometry, [<Optional>] collapseMode: CollapseMode, [<Optional>] stretchModes: StretchMode[], [<Optional>] expandedTitleScale: float) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/FlexibleSpaceBarSettings-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type FlexibleSpaceBarSettings [<IsConst; NamedParams>] (toolbarOpacity: float, minExtent: float, maxExtent: float, currentExtent: float, child: Widget, ?key: Key, ?isScrolledUnder: bool) =
+type FlexibleSpaceBarSettings [<IsConst; NamedParams>] (toolbarOpacity: float, minExtent: float, maxExtent: float, currentExtent: float, child: Widget, [<Optional>] key: Key, [<Optional>] isScrolledUnder: bool) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/FloatingActionButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type FloatingActionButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), ?key: Key, ?child: Widget, ?tooltip: string, ?foregroundColor: Color, ?backgroundColor: Color, ?focusColor: Color, ?hoverColor: Color, ?splashColor: Color, ?heroTag: obj, ?elevation: float, ?focusElevation: float, ?hoverElevation: float, ?highlightElevation: float, ?disabledElevation: float, ?mouseCursor: MouseCursor, ?mini: bool, ?shape: ShapeBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?isExtended: bool, ?enableFeedback: bool) =
+type FloatingActionButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), [<Optional>] key: Key, [<Optional>] child: Widget, [<Optional>] tooltip: string, [<Optional>] foregroundColor: Color, [<Optional>] backgroundColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] splashColor: Color, [<Optional>] heroTag: obj, [<Optional>] elevation: float, [<Optional>] focusElevation: float, [<Optional>] hoverElevation: float, [<Optional>] highlightElevation: float, [<Optional>] disabledElevation: float, [<Optional>] mouseCursor: MouseCursor, [<Optional>] mini: bool, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] isExtended: bool, [<Optional>] enableFeedback: bool) =
   inherit Widget()
-  [<IsConst; NamedParams>] static member small(onPressed: (unit -> unit), ?key: Key, ?child: Widget, ?tooltip: string, ?foregroundColor: Color, ?backgroundColor: Color, ?focusColor: Color, ?hoverColor: Color, ?splashColor: Color, ?heroTag: obj, ?elevation: float, ?focusElevation: float, ?hoverElevation: float, ?highlightElevation: float, ?disabledElevation: float, ?mouseCursor: MouseCursor, ?shape: ShapeBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?enableFeedback: bool): FloatingActionButton = nativeOnly
-  [<IsConst; NamedParams>] static member large(onPressed: (unit -> unit), ?key: Key, ?child: Widget, ?tooltip: string, ?foregroundColor: Color, ?backgroundColor: Color, ?focusColor: Color, ?hoverColor: Color, ?splashColor: Color, ?heroTag: obj, ?elevation: float, ?focusElevation: float, ?hoverElevation: float, ?highlightElevation: float, ?disabledElevation: float, ?mouseCursor: MouseCursor, ?shape: ShapeBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?enableFeedback: bool): FloatingActionButton = nativeOnly
-  [<IsConst; NamedParams>] static member extended(onPressed: (unit -> unit), label: Widget, ?key: Key, ?tooltip: string, ?foregroundColor: Color, ?backgroundColor: Color, ?focusColor: Color, ?hoverColor: Color, ?heroTag: obj, ?elevation: float, ?focusElevation: float, ?hoverElevation: float, ?splashColor: Color, ?highlightElevation: float, ?disabledElevation: float, ?mouseCursor: MouseCursor, ?shape: ShapeBorder, ?isExtended: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?extendedIconLabelSpacing: float, ?extendedPadding: EdgeInsetsGeometry, ?extendedTextStyle: TextStyle, ?icon: Widget, ?enableFeedback: bool): FloatingActionButton = nativeOnly
+  [<IsConst; NamedParams>] static member small(onPressed: (unit -> unit), [<Optional>] key: Key, [<Optional>] child: Widget, [<Optional>] tooltip: string, [<Optional>] foregroundColor: Color, [<Optional>] backgroundColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] splashColor: Color, [<Optional>] heroTag: obj, [<Optional>] elevation: float, [<Optional>] focusElevation: float, [<Optional>] hoverElevation: float, [<Optional>] highlightElevation: float, [<Optional>] disabledElevation: float, [<Optional>] mouseCursor: MouseCursor, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] enableFeedback: bool): FloatingActionButton = nativeOnly
+  [<IsConst; NamedParams>] static member large(onPressed: (unit -> unit), [<Optional>] key: Key, [<Optional>] child: Widget, [<Optional>] tooltip: string, [<Optional>] foregroundColor: Color, [<Optional>] backgroundColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] splashColor: Color, [<Optional>] heroTag: obj, [<Optional>] elevation: float, [<Optional>] focusElevation: float, [<Optional>] hoverElevation: float, [<Optional>] highlightElevation: float, [<Optional>] disabledElevation: float, [<Optional>] mouseCursor: MouseCursor, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] enableFeedback: bool): FloatingActionButton = nativeOnly
+  [<IsConst; NamedParams>] static member extended(onPressed: (unit -> unit), label: Widget, [<Optional>] key: Key, [<Optional>] tooltip: string, [<Optional>] foregroundColor: Color, [<Optional>] backgroundColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] heroTag: obj, [<Optional>] elevation: float, [<Optional>] focusElevation: float, [<Optional>] hoverElevation: float, [<Optional>] splashColor: Color, [<Optional>] highlightElevation: float, [<Optional>] disabledElevation: float, [<Optional>] mouseCursor: MouseCursor, [<Optional>] shape: ShapeBorder, [<Optional>] isExtended: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] extendedIconLabelSpacing: float, [<Optional>] extendedPadding: EdgeInsetsGeometry, [<Optional>] extendedTextStyle: TextStyle, [<Optional>] icon: Widget, [<Optional>] enableFeedback: bool): FloatingActionButton = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/FloatingActionButtonLocation-class.html
 [<ImportMember("package:flutter/material.dart"); AbstractClass>]
@@ -1020,27 +1021,27 @@ type FloatingActionButtonAnimator [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/material/FloatingActionButtonThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type FloatingActionButtonThemeData [<IsConst; NamedParams>] (?foregroundColor: Color, ?backgroundColor: Color, ?focusColor: Color, ?hoverColor: Color, ?splashColor: Color, ?elevation: float, ?focusElevation: float, ?hoverElevation: float, ?disabledElevation: float, ?highlightElevation: float, ?shape: ShapeBorder, ?enableFeedback: bool, ?iconSize: float, ?sizeConstraints: BoxConstraints, ?smallSizeConstraints: BoxConstraints, ?largeSizeConstraints: BoxConstraints, ?extendedSizeConstraints: BoxConstraints, ?extendedIconLabelSpacing: float, ?extendedPadding: EdgeInsetsGeometry, ?extendedTextStyle: TextStyle) =
+type FloatingActionButtonThemeData [<IsConst; NamedParams>] ([<Optional>] foregroundColor: Color, [<Optional>] backgroundColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] splashColor: Color, [<Optional>] elevation: float, [<Optional>] focusElevation: float, [<Optional>] hoverElevation: float, [<Optional>] disabledElevation: float, [<Optional>] highlightElevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] enableFeedback: bool, [<Optional>] iconSize: float, [<Optional>] sizeConstraints: BoxConstraints, [<Optional>] smallSizeConstraints: BoxConstraints, [<Optional>] largeSizeConstraints: BoxConstraints, [<Optional>] extendedSizeConstraints: BoxConstraints, [<Optional>] extendedIconLabelSpacing: float, [<Optional>] extendedPadding: EdgeInsetsGeometry, [<Optional>] extendedTextStyle: TextStyle) =
   class end
 
 /// https://api.flutter.dev/flutter/material/FlutterLogo-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type FlutterLogo [<IsConst; NamedParams>] (?key: Key, ?size: float, ?textColor: Color, ?style: FlutterLogoStyle, ?duration: TimeSpan, ?curve: Curve) =
+type FlutterLogo [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] size: float, [<Optional>] textColor: Color, [<Optional>] style: FlutterLogoStyle, [<Optional>] duration: TimeSpan, [<Optional>] curve: Curve) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/GridTile-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type GridTile [<IsConst; NamedParams>] (child: Widget, ?key: Key, ?header: Widget, ?footer: Widget) =
+type GridTile [<IsConst; NamedParams>] (child: Widget, [<Optional>] key: Key, [<Optional>] header: Widget, [<Optional>] footer: Widget) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/GridTileBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type GridTileBar [<IsConst; NamedParams>] (?key: Key, ?backgroundColor: Color, ?leading: Widget, ?title: Widget, ?subtitle: Widget, ?trailing: Widget) =
+type GridTileBar [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] backgroundColor: Color, [<Optional>] leading: Widget, [<Optional>] title: Widget, [<Optional>] subtitle: Widget, [<Optional>] trailing: Widget) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/IconButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type IconButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), icon: Widget, ?key: Key, ?iconSize: float, ?visualDensity: VisualDensity, ?padding: EdgeInsetsGeometry, ?alignment: AlignmentGeometry, ?splashRadius: float, ?color: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?disabledColor: Color, ?mouseCursor: MouseCursor, ?focusNode: FocusNode, ?autofocus: bool, ?tooltip: string, ?enableFeedback: bool, ?constraints: BoxConstraints) =
+type IconButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), icon: Widget, [<Optional>] key: Key, [<Optional>] iconSize: float, [<Optional>] visualDensity: VisualDensity, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] alignment: AlignmentGeometry, [<Optional>] splashRadius: float, [<Optional>] color: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] disabledColor: Color, [<Optional>] mouseCursor: MouseCursor, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] tooltip: string, [<Optional>] enableFeedback: bool, [<Optional>] constraints: BoxConstraints) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/PlatformAdaptiveIcons-class.html
@@ -9749,29 +9750,29 @@ type Icons =
 
 /// https://api.flutter.dev/flutter/material/Ink-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Ink [<NamedParams>] (?key: Key, ?padding: EdgeInsetsGeometry, ?color: Color, ?decoration: Decoration, ?width: float, ?height: float, ?child: Widget) =
+type Ink [<NamedParams>] ([<Optional>] key: Key, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] color: Color, [<Optional>] decoration: Decoration, [<Optional>] width: float, [<Optional>] height: float, [<Optional>] child: Widget) =
   inherit Widget()
-  [<NamedParams>] static member image(image: ImageProvider<obj>, ?key: Key, ?padding: EdgeInsetsGeometry, ?onImageError: (obj -> StackTrace option -> unit), ?colorFilter: ColorFilter, ?fit: BoxFit, ?alignment: AlignmentGeometry, ?centerSlice: Rect, ?repeat: ImageRepeat, ?matchTextDirection: bool, ?width: float, ?height: float, ?child: Widget): Ink = nativeOnly
+  [<NamedParams>] static member image(image: ImageProvider<obj>, [<Optional>] key: Key, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] onImageError: (obj -> DartNullable<StackTrace> -> unit), [<Optional>] colorFilter: ColorFilter, [<Optional>] fit: BoxFit, [<Optional>] alignment: AlignmentGeometry, [<Optional>] centerSlice: Rect, [<Optional>] repeat: ImageRepeat, [<Optional>] matchTextDirection: bool, [<Optional>] width: float, [<Optional>] height: float, [<Optional>] child: Widget): Ink = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/InkDecoration-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InkDecoration [<NamedParams>] (decoration: Decoration option, configuration: ImageConfiguration, controller: MaterialInkController, referenceBox: RenderBox, ?onRemoved: (unit -> unit)) =
+type InkDecoration [<NamedParams>] (decoration: DartNullable<Decoration>, configuration: ImageConfiguration, controller: MaterialInkController, referenceBox: RenderBox, [<Optional>] onRemoved: (unit -> unit)) =
   inherit InkFeature(controller, referenceBox)
 
 /// https://api.flutter.dev/flutter/material/InkHighlight-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InkHighlight [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, color: Color, textDirection: TextDirection, ?shape: BoxShape, ?radius: float, ?borderRadius: BorderRadius, ?customBorder: ShapeBorder, ?rectCallback: (unit -> Rect), ?onRemoved: (unit -> unit), ?fadeDuration: TimeSpan) =
+type InkHighlight [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, color: Color, textDirection: TextDirection, [<Optional>] shape: BoxShape, [<Optional>] radius: float, [<Optional>] borderRadius: BorderRadius, [<Optional>] customBorder: ShapeBorder, [<Optional>] rectCallback: (unit -> Rect), [<Optional>] onRemoved: (unit -> unit), [<Optional>] fadeDuration: TimeSpan) =
   inherit InteractiveInkFeature(controller, referenceBox, color)
 
 /// https://api.flutter.dev/flutter/material/InkRipple-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InkRipple [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, position: Offset, color: Color, textDirection: TextDirection, ?containedInkWell: bool, ?rectCallback: (unit -> Rect), ?borderRadius: BorderRadius, ?customBorder: ShapeBorder, ?radius: float, ?onRemoved: (unit -> unit)) =
+type InkRipple [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, position: Offset, color: Color, textDirection: TextDirection, [<Optional>] containedInkWell: bool, [<Optional>] rectCallback: (unit -> Rect), [<Optional>] borderRadius: BorderRadius, [<Optional>] customBorder: ShapeBorder, [<Optional>] radius: float, [<Optional>] onRemoved: (unit -> unit)) =
   inherit InteractiveInkFeature(controller, referenceBox, color)
   [<IsConst>] static member splashFactory: InteractiveInkFeatureFactory = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/InkSparkle-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InkSparkle [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, color: Color, position: Offset, textDirection: TextDirection, ?containedInkWell: bool, ?rectCallback: (unit -> Rect), ?borderRadius: BorderRadius, ?customBorder: ShapeBorder, ?radius: float, ?onRemoved: (unit -> unit), ?turbulenceSeed: float) =
+type InkSparkle [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, color: Color, position: Offset, textDirection: TextDirection, [<Optional>] containedInkWell: bool, [<Optional>] rectCallback: (unit -> Rect), [<Optional>] borderRadius: BorderRadius, [<Optional>] customBorder: ShapeBorder, [<Optional>] radius: float, [<Optional>] onRemoved: (unit -> unit), [<Optional>] turbulenceSeed: float) =
   inherit InteractiveInkFeature(controller, referenceBox, color)
   [<IsConst>] static member splashFactory: InteractiveInkFeatureFactory = nativeOnly
   [<IsConst>] static member constantTurbulenceSeedSplashFactory: InteractiveInkFeatureFactory = nativeOnly
@@ -9783,13 +9784,13 @@ type FragmentShaderManager =
 
 /// https://api.flutter.dev/flutter/material/InkSplash-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InkSplash [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, textDirection: TextDirection, color: Color, ?position: Offset, ?containedInkWell: bool, ?rectCallback: (unit -> Rect), ?borderRadius: BorderRadius, ?customBorder: ShapeBorder, ?radius: float, ?onRemoved: (unit -> unit)) =
+type InkSplash [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, textDirection: TextDirection, color: Color, [<Optional>] position: Offset, [<Optional>] containedInkWell: bool, [<Optional>] rectCallback: (unit -> Rect), [<Optional>] borderRadius: BorderRadius, [<Optional>] customBorder: ShapeBorder, [<Optional>] radius: float, [<Optional>] onRemoved: (unit -> unit)) =
   inherit InteractiveInkFeature(controller, referenceBox, color)
   [<IsConst>] static member splashFactory: InteractiveInkFeatureFactory = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/InteractiveInkFeature-class.html
 [<ImportMember("package:flutter/material.dart"); AbstractClass>]
-type InteractiveInkFeature [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, color: Color, ?onRemoved: (unit -> unit)) =
+type InteractiveInkFeature [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, color: Color, [<Optional>] onRemoved: (unit -> unit)) =
   inherit InkFeature(controller, referenceBox)
 
 /// https://api.flutter.dev/flutter/material/InteractiveInkFeatureFactory-class.html
@@ -9799,33 +9800,33 @@ type InteractiveInkFeatureFactory [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/material/InkResponse-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InkResponse [<IsConst; NamedParams>] (?key: Key, ?child: Widget, ?onTap: (unit -> unit), ?onTapDown: (TapDownDetails -> unit), ?onTapUp: (TapUpDetails -> unit), ?onTapCancel: (unit -> unit), ?onDoubleTap: (unit -> unit), ?onLongPress: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?onHover: (bool -> unit), ?mouseCursor: MouseCursor, ?containedInkWell: bool, ?highlightShape: BoxShape, ?radius: float, ?borderRadius: BorderRadius, ?customBorder: ShapeBorder, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?overlayColor: MaterialStateProperty<Color option>, ?splashColor: Color, ?splashFactory: InteractiveInkFeatureFactory, ?enableFeedback: bool, ?excludeFromSemantics: bool, ?focusNode: FocusNode, ?canRequestFocus: bool, ?onFocusChange: (bool -> unit), ?autofocus: bool) =
+type InkResponse [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] child: Widget, [<Optional>] onTap: (unit -> unit), [<Optional>] onTapDown: (TapDownDetails -> unit), [<Optional>] onTapUp: (TapUpDetails -> unit), [<Optional>] onTapCancel: (unit -> unit), [<Optional>] onDoubleTap: (unit -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] onHover: (bool -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] containedInkWell: bool, [<Optional>] highlightShape: BoxShape, [<Optional>] radius: float, [<Optional>] borderRadius: BorderRadius, [<Optional>] customBorder: ShapeBorder, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashColor: Color, [<Optional>] splashFactory: InteractiveInkFeatureFactory, [<Optional>] enableFeedback: bool, [<Optional>] excludeFromSemantics: bool, [<Optional>] focusNode: FocusNode, [<Optional>] canRequestFocus: bool, [<Optional>] onFocusChange: (bool -> unit), [<Optional>] autofocus: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/InkWell-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InkWell [<IsConst; NamedParams>] (?key: Key, ?child: Widget, ?onTap: (unit -> unit), ?onDoubleTap: (unit -> unit), ?onLongPress: (unit -> unit), ?onTapDown: (TapDownDetails -> unit), ?onTapUp: (TapUpDetails -> unit), ?onTapCancel: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?onHover: (bool -> unit), ?mouseCursor: MouseCursor, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?overlayColor: MaterialStateProperty<Color option>, ?splashColor: Color, ?splashFactory: InteractiveInkFeatureFactory, ?radius: float, ?borderRadius: BorderRadius, ?customBorder: ShapeBorder, ?enableFeedback: bool, ?excludeFromSemantics: bool, ?focusNode: FocusNode, ?canRequestFocus: bool, ?onFocusChange: (bool -> unit), ?autofocus: bool) =
+type InkWell [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] child: Widget, [<Optional>] onTap: (unit -> unit), [<Optional>] onDoubleTap: (unit -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] onTapDown: (TapDownDetails -> unit), [<Optional>] onTapUp: (TapUpDetails -> unit), [<Optional>] onTapCancel: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] onHover: (bool -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashColor: Color, [<Optional>] splashFactory: InteractiveInkFeatureFactory, [<Optional>] radius: float, [<Optional>] borderRadius: BorderRadius, [<Optional>] customBorder: ShapeBorder, [<Optional>] enableFeedback: bool, [<Optional>] excludeFromSemantics: bool, [<Optional>] focusNode: FocusNode, [<Optional>] canRequestFocus: bool, [<Optional>] onFocusChange: (bool -> unit), [<Optional>] autofocus: bool) =
   inherit InkResponse()
 
 /// https://api.flutter.dev/flutter/material/InputBorder-class.html
 [<ImportMember("package:flutter/material.dart"); AbstractClass>]
-type InputBorder [<IsConst; NamedParams>] (?borderSide: BorderSide) =
+type InputBorder [<IsConst; NamedParams>] ([<Optional>] borderSide: BorderSide) =
   inherit ShapeBorder()
   [<IsConst>] static member none: InputBorder = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/UnderlineInputBorder-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type UnderlineInputBorder [<IsConst; NamedParams>] (?borderSide: BorderSide, ?borderRadius: BorderRadius) =
+type UnderlineInputBorder [<IsConst; NamedParams>] ([<Optional>] borderSide: BorderSide, [<Optional>] borderRadius: BorderRadius) =
   inherit InputBorder()
 
 /// https://api.flutter.dev/flutter/material/OutlineInputBorder-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type OutlineInputBorder [<IsConst; NamedParams>] (?borderSide: BorderSide, ?borderRadius: BorderRadius, ?gapPadding: float) =
+type OutlineInputBorder [<IsConst; NamedParams>] ([<Optional>] borderSide: BorderSide, [<Optional>] borderRadius: BorderRadius, [<Optional>] gapPadding: float) =
   inherit InputBorder()
 
 /// https://api.flutter.dev/flutter/material/InputDatePickerFormField-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InputDatePickerFormField [<NamedParams>] (firstDate: DateTime, lastDate: DateTime, ?key: Key, ?initialDate: DateTime, ?onDateSubmitted: (DateTime -> unit), ?onDateSaved: (DateTime -> unit), ?selectableDayPredicate: (DateTime -> bool), ?errorFormatText: string, ?errorInvalidText: string, ?fieldHintText: string, ?fieldLabelText: string, ?keyboardType: TextInputType, ?autofocus: bool) =
+type InputDatePickerFormField [<NamedParams>] (firstDate: DateTime, lastDate: DateTime, [<Optional>] key: Key, [<Optional>] initialDate: DateTime, [<Optional>] onDateSubmitted: (DateTime -> unit), [<Optional>] onDateSaved: (DateTime -> unit), [<Optional>] selectableDayPredicate: (DateTime -> bool), [<Optional>] errorFormatText: string, [<Optional>] errorInvalidText: string, [<Optional>] fieldHintText: string, [<Optional>] fieldLabelText: string, [<Optional>] keyboardType: TextInputType, [<Optional>] autofocus: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/FloatingLabelAlignment-class.html
@@ -9836,32 +9837,32 @@ type FloatingLabelAlignment =
 
 /// https://api.flutter.dev/flutter/material/InputDecorator-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InputDecorator [<IsConst; NamedParams>] (decoration: InputDecoration, ?key: Key, ?baseStyle: TextStyle, ?textAlign: TextAlign, ?textAlignVertical: TextAlignVertical, ?isFocused: bool, ?isHovering: bool, ?expands: bool, ?isEmpty: bool, ?child: Widget) =
+type InputDecorator [<IsConst; NamedParams>] (decoration: InputDecoration, [<Optional>] key: Key, [<Optional>] baseStyle: TextStyle, [<Optional>] textAlign: TextAlign, [<Optional>] textAlignVertical: TextAlignVertical, [<Optional>] isFocused: bool, [<Optional>] isHovering: bool, [<Optional>] expands: bool, [<Optional>] isEmpty: bool, [<Optional>] child: Widget) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/InputDecoration-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InputDecoration [<IsConst; NamedParams>] (?icon: Widget, ?iconColor: Color, ?label: Widget, ?labelText: string, ?labelStyle: TextStyle, ?floatingLabelStyle: TextStyle, ?helperText: string, ?helperStyle: TextStyle, ?helperMaxLines: int, ?hintText: string, ?hintStyle: TextStyle, ?hintTextDirection: TextDirection, ?hintMaxLines: int, ?errorText: string, ?errorStyle: TextStyle, ?errorMaxLines: int, ?floatingLabelBehavior: FloatingLabelBehavior, ?floatingLabelAlignment: FloatingLabelAlignment, ?isCollapsed: bool, ?isDense: bool, ?contentPadding: EdgeInsetsGeometry, ?prefixIcon: Widget, ?prefixIconConstraints: BoxConstraints, ?prefix: Widget, ?prefixText: string, ?prefixStyle: TextStyle, ?prefixIconColor: Color, ?suffixIcon: Widget, ?suffix: Widget, ?suffixText: string, ?suffixStyle: TextStyle, ?suffixIconColor: Color, ?suffixIconConstraints: BoxConstraints, ?counter: Widget, ?counterText: string, ?counterStyle: TextStyle, ?filled: bool, ?fillColor: Color, ?focusColor: Color, ?hoverColor: Color, ?errorBorder: InputBorder, ?focusedBorder: InputBorder, ?focusedErrorBorder: InputBorder, ?disabledBorder: InputBorder, ?enabledBorder: InputBorder, ?border: InputBorder, ?enabled: bool, ?semanticCounterText: string, ?alignLabelWithHint: bool, ?constraints: BoxConstraints) =
-  [<IsConst; NamedParams>] static member collapsed(hintText: string option, ?floatingLabelBehavior: FloatingLabelBehavior, ?floatingLabelAlignment: FloatingLabelAlignment, ?hintStyle: TextStyle, ?hintTextDirection: TextDirection, ?filled: bool, ?fillColor: Color, ?focusColor: Color, ?hoverColor: Color, ?border: InputBorder, ?enabled: bool): InputDecoration = nativeOnly
+type InputDecoration [<IsConst; NamedParams>] ([<Optional>] icon: Widget, [<Optional>] iconColor: Color, [<Optional>] label: Widget, [<Optional>] labelText: string, [<Optional>] labelStyle: TextStyle, [<Optional>] floatingLabelStyle: TextStyle, [<Optional>] helperText: string, [<Optional>] helperStyle: TextStyle, [<Optional>] helperMaxLines: int, [<Optional>] hintText: string, [<Optional>] hintStyle: TextStyle, [<Optional>] hintTextDirection: TextDirection, [<Optional>] hintMaxLines: int, [<Optional>] errorText: string, [<Optional>] errorStyle: TextStyle, [<Optional>] errorMaxLines: int, [<Optional>] floatingLabelBehavior: FloatingLabelBehavior, [<Optional>] floatingLabelAlignment: FloatingLabelAlignment, [<Optional>] isCollapsed: bool, [<Optional>] isDense: bool, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] prefixIcon: Widget, [<Optional>] prefixIconConstraints: BoxConstraints, [<Optional>] prefix: Widget, [<Optional>] prefixText: string, [<Optional>] prefixStyle: TextStyle, [<Optional>] prefixIconColor: Color, [<Optional>] suffixIcon: Widget, [<Optional>] suffix: Widget, [<Optional>] suffixText: string, [<Optional>] suffixStyle: TextStyle, [<Optional>] suffixIconColor: Color, [<Optional>] suffixIconConstraints: BoxConstraints, [<Optional>] counter: Widget, [<Optional>] counterText: string, [<Optional>] counterStyle: TextStyle, [<Optional>] filled: bool, [<Optional>] fillColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] errorBorder: InputBorder, [<Optional>] focusedBorder: InputBorder, [<Optional>] focusedErrorBorder: InputBorder, [<Optional>] disabledBorder: InputBorder, [<Optional>] enabledBorder: InputBorder, [<Optional>] border: InputBorder, [<Optional>] enabled: bool, [<Optional>] semanticCounterText: string, [<Optional>] alignLabelWithHint: bool, [<Optional>] constraints: BoxConstraints) =
+  [<IsConst; NamedParams>] static member collapsed(hintText: DartNullable<string>, [<Optional>] floatingLabelBehavior: FloatingLabelBehavior, [<Optional>] floatingLabelAlignment: FloatingLabelAlignment, [<Optional>] hintStyle: TextStyle, [<Optional>] hintTextDirection: TextDirection, [<Optional>] filled: bool, [<Optional>] fillColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] border: InputBorder, [<Optional>] enabled: bool): InputDecoration = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/InputDecorationTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type InputDecorationTheme [<IsConst; NamedParams>] (?labelStyle: TextStyle, ?floatingLabelStyle: TextStyle, ?helperStyle: TextStyle, ?helperMaxLines: int, ?hintStyle: TextStyle, ?errorStyle: TextStyle, ?errorMaxLines: int, ?floatingLabelBehavior: FloatingLabelBehavior, ?floatingLabelAlignment: FloatingLabelAlignment, ?isDense: bool, ?contentPadding: EdgeInsetsGeometry, ?isCollapsed: bool, ?iconColor: Color, ?prefixStyle: TextStyle, ?prefixIconColor: Color, ?suffixStyle: TextStyle, ?suffixIconColor: Color, ?counterStyle: TextStyle, ?filled: bool, ?fillColor: Color, ?focusColor: Color, ?hoverColor: Color, ?errorBorder: InputBorder, ?focusedBorder: InputBorder, ?focusedErrorBorder: InputBorder, ?disabledBorder: InputBorder, ?enabledBorder: InputBorder, ?border: InputBorder, ?alignLabelWithHint: bool, ?constraints: BoxConstraints) =
+type InputDecorationTheme [<IsConst; NamedParams>] ([<Optional>] labelStyle: TextStyle, [<Optional>] floatingLabelStyle: TextStyle, [<Optional>] helperStyle: TextStyle, [<Optional>] helperMaxLines: int, [<Optional>] hintStyle: TextStyle, [<Optional>] errorStyle: TextStyle, [<Optional>] errorMaxLines: int, [<Optional>] floatingLabelBehavior: FloatingLabelBehavior, [<Optional>] floatingLabelAlignment: FloatingLabelAlignment, [<Optional>] isDense: bool, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] isCollapsed: bool, [<Optional>] iconColor: Color, [<Optional>] prefixStyle: TextStyle, [<Optional>] prefixIconColor: Color, [<Optional>] suffixStyle: TextStyle, [<Optional>] suffixIconColor: Color, [<Optional>] counterStyle: TextStyle, [<Optional>] filled: bool, [<Optional>] fillColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] errorBorder: InputBorder, [<Optional>] focusedBorder: InputBorder, [<Optional>] focusedErrorBorder: InputBorder, [<Optional>] disabledBorder: InputBorder, [<Optional>] enabledBorder: InputBorder, [<Optional>] border: InputBorder, [<Optional>] alignLabelWithHint: bool, [<Optional>] constraints: BoxConstraints) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ListTile-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ListTile [<IsConst; NamedParams>] (?key: Key, ?leading: Widget, ?title: Widget, ?subtitle: Widget, ?trailing: Widget, ?isThreeLine: bool, ?dense: bool, ?visualDensity: VisualDensity, ?shape: ShapeBorder, ?style: ListTileStyle, ?selectedColor: Color, ?iconColor: Color, ?textColor: Color, ?contentPadding: EdgeInsetsGeometry, ?enabled: bool, ?onTap: (unit -> unit), ?onLongPress: (unit -> unit), ?mouseCursor: MouseCursor, ?selected: bool, ?focusColor: Color, ?hoverColor: Color, ?focusNode: FocusNode, ?autofocus: bool, ?tileColor: Color, ?selectedTileColor: Color, ?enableFeedback: bool, ?horizontalTitleGap: float, ?minVerticalPadding: float, ?minLeadingWidth: float) =
+type ListTile [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] leading: Widget, [<Optional>] title: Widget, [<Optional>] subtitle: Widget, [<Optional>] trailing: Widget, [<Optional>] isThreeLine: bool, [<Optional>] dense: bool, [<Optional>] visualDensity: VisualDensity, [<Optional>] shape: ShapeBorder, [<Optional>] style: ListTileStyle, [<Optional>] selectedColor: Color, [<Optional>] iconColor: Color, [<Optional>] textColor: Color, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] enabled: bool, [<Optional>] onTap: (unit -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] selected: bool, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] tileColor: Color, [<Optional>] selectedTileColor: Color, [<Optional>] enableFeedback: bool, [<Optional>] horizontalTitleGap: float, [<Optional>] minVerticalPadding: float, [<Optional>] minLeadingWidth: float) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ListTileThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ListTileThemeData [<IsConst; NamedParams>] (?dense: bool, ?shape: ShapeBorder, ?style: ListTileStyle, ?selectedColor: Color, ?iconColor: Color, ?textColor: Color, ?contentPadding: EdgeInsetsGeometry, ?tileColor: Color, ?selectedTileColor: Color, ?horizontalTitleGap: float, ?minVerticalPadding: float, ?minLeadingWidth: float, ?enableFeedback: bool, ?mouseCursor: MaterialStateProperty<MouseCursor option>, ?visualDensity: VisualDensity) =
+type ListTileThemeData [<IsConst; NamedParams>] ([<Optional>] dense: bool, [<Optional>] shape: ShapeBorder, [<Optional>] style: ListTileStyle, [<Optional>] selectedColor: Color, [<Optional>] iconColor: Color, [<Optional>] textColor: Color, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] tileColor: Color, [<Optional>] selectedTileColor: Color, [<Optional>] horizontalTitleGap: float, [<Optional>] minVerticalPadding: float, [<Optional>] minLeadingWidth: float, [<Optional>] enableFeedback: bool, [<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>, [<Optional>] visualDensity: VisualDensity) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ListTileTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ListTileTheme [<IsConst; NamedParams>] (child: Widget, ?key: Key, ?data: ListTileThemeData, ?dense: bool, ?shape: ShapeBorder, ?style: ListTileStyle, ?selectedColor: Color, ?iconColor: Color, ?textColor: Color, ?contentPadding: EdgeInsetsGeometry, ?tileColor: Color, ?selectedTileColor: Color, ?enableFeedback: bool, ?mouseCursor: MaterialStateProperty<MouseCursor option>, ?horizontalTitleGap: float, ?minVerticalPadding: float, ?minLeadingWidth: float) =
+type ListTileTheme [<IsConst; NamedParams>] (child: Widget, [<Optional>] key: Key, [<Optional>] data: ListTileThemeData, [<Optional>] dense: bool, [<Optional>] shape: ShapeBorder, [<Optional>] style: ListTileStyle, [<Optional>] selectedColor: Color, [<Optional>] iconColor: Color, [<Optional>] textColor: Color, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] tileColor: Color, [<Optional>] selectedTileColor: Color, [<Optional>] enableFeedback: bool, [<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>, [<Optional>] horizontalTitleGap: float, [<Optional>] minVerticalPadding: float, [<Optional>] minLeadingWidth: float) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/MaterialInkController-class.html
@@ -9871,23 +9872,23 @@ type MaterialInkController () =
 
 /// https://api.flutter.dev/flutter/material/Material-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Material [<IsConst; NamedParams>] (?key: Key, ?``type``: MaterialType, ?elevation: float, ?color: Color, ?shadowColor: Color, ?surfaceTintColor: Color, ?textStyle: TextStyle, ?borderRadius: BorderRadiusGeometry, ?shape: ShapeBorder, ?borderOnForeground: bool, ?clipBehavior: Clip, ?animationDuration: TimeSpan, ?child: Widget) =
+type Material [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] ``type``: MaterialType, [<Optional>] elevation: float, [<Optional>] color: Color, [<Optional>] shadowColor: Color, [<Optional>] surfaceTintColor: Color, [<Optional>] textStyle: TextStyle, [<Optional>] borderRadius: BorderRadiusGeometry, [<Optional>] shape: ShapeBorder, [<Optional>] borderOnForeground: bool, [<Optional>] clipBehavior: Clip, [<Optional>] animationDuration: TimeSpan, [<Optional>] child: Widget) =
   inherit Widget()
   [<IsConst>] static member defaultSplashRadius: float = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/InkFeature-class.html
 [<ImportMember("package:flutter/material.dart"); AbstractClass>]
-type InkFeature [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, ?onRemoved: (unit -> unit)) =
+type InkFeature [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, [<Optional>] onRemoved: (unit -> unit)) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ShapeBorderTween-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ShapeBorderTween [<NamedParams>] (?``begin``: ShapeBorder, ?``end``: ShapeBorder) =
-  inherit Tween<ShapeBorder option>()
+type ShapeBorderTween [<NamedParams>] ([<Optional>] ``begin``: ShapeBorder, [<Optional>] ``end``: ShapeBorder) =
+  inherit Tween<DartNullable<ShapeBorder>>()
 
 /// https://api.flutter.dev/flutter/material/MaterialButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), ?key: Key, ?onLongPress: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?mouseCursor: MouseCursor, ?textTheme: ButtonTextTheme, ?textColor: Color, ?disabledTextColor: Color, ?color: Color, ?disabledColor: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?colorBrightness: Brightness, ?elevation: float, ?focusElevation: float, ?hoverElevation: float, ?highlightElevation: float, ?disabledElevation: float, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?shape: ShapeBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?animationDuration: TimeSpan, ?minWidth: float, ?height: float, ?enableFeedback: bool, ?child: Widget) =
+type MaterialButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] textTheme: ButtonTextTheme, [<Optional>] textColor: Color, [<Optional>] disabledTextColor: Color, [<Optional>] color: Color, [<Optional>] disabledColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] colorBrightness: Brightness, [<Optional>] elevation: float, [<Optional>] focusElevation: float, [<Optional>] hoverElevation: float, [<Optional>] highlightElevation: float, [<Optional>] disabledElevation: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] animationDuration: TimeSpan, [<Optional>] minWidth: float, [<Optional>] height: float, [<Optional>] enableFeedback: bool, [<Optional>] child: Widget) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/MaterialLocalizations-class.html
@@ -9949,94 +9950,94 @@ type MergeableMaterialItem [<IsConst>] (key: LocalKey) =
 
 /// https://api.flutter.dev/flutter/material/MaterialSlice-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialSlice [<IsConst; NamedParams>] (key: LocalKey, child: Widget, ?color: Color) =
+type MaterialSlice [<IsConst; NamedParams>] (key: LocalKey, child: Widget, [<Optional>] color: Color) =
   inherit MergeableMaterialItem(key)
 
 /// https://api.flutter.dev/flutter/material/MaterialGap-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialGap [<IsConst; NamedParams>] (key: LocalKey, ?size: float) =
+type MaterialGap [<IsConst; NamedParams>] (key: LocalKey, [<Optional>] size: float) =
   inherit MergeableMaterialItem(key)
 
 /// https://api.flutter.dev/flutter/material/MergeableMaterial-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MergeableMaterial [<IsConst; NamedParams>] (?key: Key, ?mainAxis: Axis, ?elevation: float, ?hasDividers: bool, ?children: MergeableMaterialItem[], ?dividerColor: Color) =
+type MergeableMaterial [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] mainAxis: Axis, [<Optional>] elevation: float, [<Optional>] hasDividers: bool, [<Optional>] children: MergeableMaterialItem[], [<Optional>] dividerColor: Color) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/NavigationBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationBar [<IsConst; NamedParams>] (destinations: Widget[], ?key: Key, ?animationDuration: TimeSpan, ?selectedIndex: int, ?onDestinationSelected: (int -> unit), ?backgroundColor: Color, ?elevation: float, ?height: float, ?labelBehavior: NavigationDestinationLabelBehavior) =
+type NavigationBar [<IsConst; NamedParams>] (destinations: Widget[], [<Optional>] key: Key, [<Optional>] animationDuration: TimeSpan, [<Optional>] selectedIndex: int, [<Optional>] onDestinationSelected: (int -> unit), [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] height: float, [<Optional>] labelBehavior: NavigationDestinationLabelBehavior) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/NavigationDestination-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationDestination [<IsConst; NamedParams>] (icon: Widget, label: string, ?key: Key, ?selectedIcon: Widget, ?tooltip: string) =
+type NavigationDestination [<IsConst; NamedParams>] (icon: Widget, label: string, [<Optional>] key: Key, [<Optional>] selectedIcon: Widget, [<Optional>] tooltip: string) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/NavigationIndicator-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationIndicator [<IsConst; NamedParams>] (animation: Animation<float>, ?key: Key, ?color: Color, ?width: float, ?height: float, ?borderRadius: BorderRadius, ?shape: ShapeBorder) =
+type NavigationIndicator [<IsConst; NamedParams>] (animation: Animation<float>, [<Optional>] key: Key, [<Optional>] color: Color, [<Optional>] width: float, [<Optional>] height: float, [<Optional>] borderRadius: BorderRadius, [<Optional>] shape: ShapeBorder) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/NavigationBarThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationBarThemeData [<IsConst; NamedParams>] (?height: float, ?backgroundColor: Color, ?elevation: float, ?indicatorColor: Color, ?indicatorShape: ShapeBorder, ?labelTextStyle: MaterialStateProperty<TextStyle option>, ?iconTheme: MaterialStateProperty<IconThemeData option>, ?labelBehavior: NavigationDestinationLabelBehavior) =
+type NavigationBarThemeData [<IsConst; NamedParams>] ([<Optional>] height: float, [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] indicatorColor: Color, [<Optional>] indicatorShape: ShapeBorder, [<Optional>] labelTextStyle: MaterialStateProperty<DartNullable<TextStyle>>, [<Optional>] iconTheme: MaterialStateProperty<DartNullable<IconThemeData>>, [<Optional>] labelBehavior: NavigationDestinationLabelBehavior) =
   class end
 
 /// https://api.flutter.dev/flutter/material/NavigationBarTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationBarTheme [<IsConst; NamedParams>] (data: NavigationBarThemeData, child: Widget, ?key: Key) =
+type NavigationBarTheme [<IsConst; NamedParams>] (data: NavigationBarThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/NavigationRail-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationRail [<IsConst; NamedParams>] (destinations: NavigationRailDestination[], selectedIndex: int option, ?key: Key, ?backgroundColor: Color, ?extended: bool, ?leading: Widget, ?trailing: Widget, ?onDestinationSelected: (int -> unit), ?elevation: float, ?groupAlignment: float, ?labelType: NavigationRailLabelType, ?unselectedLabelTextStyle: TextStyle, ?selectedLabelTextStyle: TextStyle, ?unselectedIconTheme: IconThemeData, ?selectedIconTheme: IconThemeData, ?minWidth: float, ?minExtendedWidth: float, ?useIndicator: bool, ?indicatorColor: Color) =
+type NavigationRail [<IsConst; NamedParams>] (destinations: NavigationRailDestination[], selectedIndex: DartNullable<int>, [<Optional>] key: Key, [<Optional>] backgroundColor: Color, [<Optional>] extended: bool, [<Optional>] leading: Widget, [<Optional>] trailing: Widget, [<Optional>] onDestinationSelected: (int -> unit), [<Optional>] elevation: float, [<Optional>] groupAlignment: float, [<Optional>] labelType: NavigationRailLabelType, [<Optional>] unselectedLabelTextStyle: TextStyle, [<Optional>] selectedLabelTextStyle: TextStyle, [<Optional>] unselectedIconTheme: IconThemeData, [<Optional>] selectedIconTheme: IconThemeData, [<Optional>] minWidth: float, [<Optional>] minExtendedWidth: float, [<Optional>] useIndicator: bool, [<Optional>] indicatorColor: Color) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/NavigationRailDestination-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationRailDestination [<IsConst; NamedParams>] (icon: Widget, label: Widget, ?selectedIcon: Widget, ?padding: EdgeInsetsGeometry) =
+type NavigationRailDestination [<IsConst; NamedParams>] (icon: Widget, label: Widget, [<Optional>] selectedIcon: Widget, [<Optional>] padding: EdgeInsetsGeometry) =
   class end
 
 /// https://api.flutter.dev/flutter/material/NavigationRailThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationRailThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?elevation: float, ?unselectedLabelTextStyle: TextStyle, ?selectedLabelTextStyle: TextStyle, ?unselectedIconTheme: IconThemeData, ?selectedIconTheme: IconThemeData, ?groupAlignment: float, ?labelType: NavigationRailLabelType, ?useIndicator: bool, ?indicatorColor: Color, ?minWidth: float, ?minExtendedWidth: float) =
+type NavigationRailThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] unselectedLabelTextStyle: TextStyle, [<Optional>] selectedLabelTextStyle: TextStyle, [<Optional>] unselectedIconTheme: IconThemeData, [<Optional>] selectedIconTheme: IconThemeData, [<Optional>] groupAlignment: float, [<Optional>] labelType: NavigationRailLabelType, [<Optional>] useIndicator: bool, [<Optional>] indicatorColor: Color, [<Optional>] minWidth: float, [<Optional>] minExtendedWidth: float) =
   class end
 
 /// https://api.flutter.dev/flutter/material/NavigationRailTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NavigationRailTheme [<IsConst; NamedParams>] (data: NavigationRailThemeData, child: Widget, ?key: Key) =
+type NavigationRailTheme [<IsConst; NamedParams>] (data: NavigationRailThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/NoSplash-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type NoSplash [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, color: Color, ?onRemoved: (unit -> unit)) =
+type NoSplash [<NamedParams>] (controller: MaterialInkController, referenceBox: RenderBox, color: Color, [<Optional>] onRemoved: (unit -> unit)) =
   inherit InteractiveInkFeature(controller, referenceBox, color)
   [<IsConst>] static member splashFactory: InteractiveInkFeatureFactory = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/OutlinedButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type OutlinedButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), child: Widget, ?key: Key, ?onLongPress: (unit -> unit), ?onHover: (bool -> unit), ?onFocusChange: (bool -> unit), ?style: ButtonStyle, ?focusNode: FocusNode, ?autofocus: bool, ?clipBehavior: Clip) =
+type OutlinedButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), child: Widget, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHover: (bool -> unit), [<Optional>] onFocusChange: (bool -> unit), [<Optional>] style: ButtonStyle, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] clipBehavior: Clip) =
   inherit ButtonStyleButton(nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly)
-  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, ?key: Key, ?onLongPress: (unit -> unit), ?style: ButtonStyle, ?focusNode: FocusNode, ?autofocus: bool, ?clipBehavior: Clip): OutlinedButton = nativeOnly
+  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] style: ButtonStyle, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] clipBehavior: Clip): OutlinedButton = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/OutlinedButtonThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type OutlinedButtonThemeData [<IsConst; NamedParams>] (?style: ButtonStyle) =
+type OutlinedButtonThemeData [<IsConst; NamedParams>] ([<Optional>] style: ButtonStyle) =
   class end
 
 /// https://api.flutter.dev/flutter/material/OutlinedButtonTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type OutlinedButtonTheme [<IsConst; NamedParams>] (data: OutlinedButtonThemeData, child: Widget, ?key: Key) =
+type OutlinedButtonTheme [<IsConst; NamedParams>] (data: OutlinedButtonThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/MaterialPageRoute-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialPageRoute<'T> [<NamedParams>] (builder: (BuildContext -> Widget), ?settings: RouteSettings, ?maintainState: bool, ?fullscreenDialog: bool) =
+type MaterialPageRoute<'T> [<NamedParams>] (builder: (BuildContext -> Widget), [<Optional>] settings: RouteSettings, [<Optional>] maintainState: bool, [<Optional>] fullscreenDialog: bool) =
   inherit PageRoute<'T>()
 
 /// https://api.flutter.dev/flutter/material/MaterialPage-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type MaterialPage<'T> [<IsConst; NamedParams>] (child: Widget, ?maintainState: bool, ?fullscreenDialog: bool, ?key: LocalKey, ?name: string, ?arguments: obj, ?restorationId: string) =
+type MaterialPage<'T> [<IsConst; NamedParams>] (child: Widget, [<Optional>] maintainState: bool, [<Optional>] fullscreenDialog: bool, [<Optional>] key: LocalKey, [<Optional>] name: string, [<Optional>] arguments: obj, [<Optional>] restorationId: string) =
   inherit Page<'T>()
 
 /// https://api.flutter.dev/flutter/material/PageTransitionsBuilder-class.html
@@ -10066,12 +10067,12 @@ type CupertinoPageTransitionsBuilder [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/material/PageTransitionsTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type PageTransitionsTheme [<IsConst; NamedParams>] (?builders: Dictionary<TargetPlatform, PageTransitionsBuilder>) =
+type PageTransitionsTheme [<IsConst; NamedParams>] ([<Optional>] builders: Dictionary<TargetPlatform, PageTransitionsBuilder>) =
   class end
 
 /// https://api.flutter.dev/flutter/material/PaginatedDataTable-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type PaginatedDataTable [<NamedParams>] (columns: DataColumn[], source: DataTableSource, ?key: Key, ?header: Widget, ?actions: Widget[], ?sortColumnIndex: int, ?sortAscending: bool, ?onSelectAll: (bool option -> unit), ?dataRowHeight: float, ?headingRowHeight: float, ?horizontalMargin: float, ?columnSpacing: float, ?showCheckboxColumn: bool, ?showFirstLastButtons: bool, ?initialFirstRowIndex: int, ?onPageChanged: (int -> unit), ?rowsPerPage: int, ?availableRowsPerPage: int[], ?onRowsPerPageChanged: (int option -> unit), ?dragStartBehavior: DragStartBehavior, ?arrowHeadColor: Color, ?checkboxHorizontalMargin: float) =
+type PaginatedDataTable [<NamedParams>] (columns: DataColumn[], source: DataTableSource, [<Optional>] key: Key, [<Optional>] header: Widget, [<Optional>] actions: Widget[], [<Optional>] sortColumnIndex: int, [<Optional>] sortAscending: bool, [<Optional>] onSelectAll: (DartNullable<bool> -> unit), [<Optional>] dataRowHeight: float, [<Optional>] headingRowHeight: float, [<Optional>] horizontalMargin: float, [<Optional>] columnSpacing: float, [<Optional>] showCheckboxColumn: bool, [<Optional>] showFirstLastButtons: bool, [<Optional>] initialFirstRowIndex: int, [<Optional>] onPageChanged: (int -> unit), [<Optional>] rowsPerPage: int, [<Optional>] availableRowsPerPage: int[], [<Optional>] onRowsPerPageChanged: (DartNullable<int> -> unit), [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] arrowHeadColor: Color, [<Optional>] checkboxHorizontalMargin: float) =
   inherit Widget()
   [<IsConst>] static member defaultRowsPerPage: int = nativeOnly
 
@@ -10082,17 +10083,17 @@ type PaginatedDataTableState () =
 
 /// https://api.flutter.dev/flutter/material/PopupMenuEntry-class.html
 [<ImportMember("package:flutter/material.dart"); AbstractClass>]
-type PopupMenuEntry<'T> [<IsConst; NamedParams>] (?key: Key) =
+type PopupMenuEntry<'T> [<IsConst; NamedParams>] ([<Optional>] key: Key) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/PopupMenuDivider-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type PopupMenuDivider [<IsConst; NamedParams>] (?key: Key, ?height: float) =
+type PopupMenuDivider [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] height: float) =
   inherit PopupMenuEntry<unit>()
 
 /// https://api.flutter.dev/flutter/material/PopupMenuItem-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type PopupMenuItem<'T> [<IsConst; NamedParams>] (child: Widget option, ?key: Key, ?value: 'T, ?onTap: (unit -> unit), ?enabled: bool, ?height: float, ?padding: EdgeInsets, ?textStyle: TextStyle, ?mouseCursor: MouseCursor) =
+type PopupMenuItem<'T> [<IsConst; NamedParams>] (child: DartNullable<Widget>, [<Optional>] key: Key, [<Optional>] value: 'T, [<Optional>] onTap: (unit -> unit), [<Optional>] enabled: bool, [<Optional>] height: float, [<Optional>] padding: EdgeInsets, [<Optional>] textStyle: TextStyle, [<Optional>] mouseCursor: MouseCursor) =
   inherit PopupMenuEntry<'T>()
 
 /// https://api.flutter.dev/flutter/material/PopupMenuItemState-class.html
@@ -10102,12 +10103,12 @@ type PopupMenuItemState<'T, 'W> () =
 
 /// https://api.flutter.dev/flutter/material/CheckedPopupMenuItem-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CheckedPopupMenuItem<'T> [<IsConst; NamedParams>] (?key: Key, ?value: 'T, ?``checked``: bool, ?enabled: bool, ?padding: EdgeInsets, ?height: float, ?child: Widget) =
-  inherit PopupMenuItem<'T>(child)
+type CheckedPopupMenuItem<'T> [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] value: 'T, [<Optional>] ``checked``: bool, [<Optional>] enabled: bool, [<Optional>] padding: EdgeInsets, [<Optional>] height: float, [<Optional>] child: Widget) =
+  inherit PopupMenuItem<'T>(DartNullable child)
 
 /// https://api.flutter.dev/flutter/material/PopupMenuButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type PopupMenuButton<'T> [<IsConst; NamedParams>] (itemBuilder: (BuildContext -> PopupMenuEntry<'T>[]), ?key: Key, ?initialValue: 'T, ?onSelected: ('T -> unit), ?onCanceled: (unit -> unit), ?tooltip: string, ?elevation: float, ?padding: EdgeInsetsGeometry, ?child: Widget, ?splashRadius: float, ?icon: Widget, ?iconSize: float, ?offset: Offset, ?enabled: bool, ?shape: ShapeBorder, ?color: Color, ?enableFeedback: bool, ?constraints: BoxConstraints, ?position: PopupMenuPosition) =
+type PopupMenuButton<'T> [<IsConst; NamedParams>] (itemBuilder: (BuildContext -> PopupMenuEntry<'T>[]), [<Optional>] key: Key, [<Optional>] initialValue: 'T, [<Optional>] onSelected: ('T -> unit), [<Optional>] onCanceled: (unit -> unit), [<Optional>] tooltip: string, [<Optional>] elevation: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] child: Widget, [<Optional>] splashRadius: float, [<Optional>] icon: Widget, [<Optional>] iconSize: float, [<Optional>] offset: Offset, [<Optional>] enabled: bool, [<Optional>] shape: ShapeBorder, [<Optional>] color: Color, [<Optional>] enableFeedback: bool, [<Optional>] constraints: BoxConstraints, [<Optional>] position: PopupMenuPosition) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/PopupMenuButtonState-class.html
@@ -10117,80 +10118,80 @@ type PopupMenuButtonState<'T> () =
 
 /// https://api.flutter.dev/flutter/material/PopupMenuThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type PopupMenuThemeData [<IsConst; NamedParams>] (?color: Color, ?shape: ShapeBorder, ?elevation: float, ?textStyle: TextStyle, ?enableFeedback: bool, ?mouseCursor: MaterialStateProperty<MouseCursor option>) =
+type PopupMenuThemeData [<IsConst; NamedParams>] ([<Optional>] color: Color, [<Optional>] shape: ShapeBorder, [<Optional>] elevation: float, [<Optional>] textStyle: TextStyle, [<Optional>] enableFeedback: bool, [<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>) =
   class end
 
 /// https://api.flutter.dev/flutter/material/PopupMenuTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type PopupMenuTheme [<IsConst; NamedParams>] (data: PopupMenuThemeData, child: Widget, ?key: Key) =
+type PopupMenuTheme [<IsConst; NamedParams>] (data: PopupMenuThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/ProgressIndicator-class.html
 [<ImportMember("package:flutter/material.dart"); AbstractClass>]
-type ProgressIndicator [<IsConst; NamedParams>] (?key: Key, ?value: float, ?backgroundColor: Color, ?color: Color, ?valueColor: Animation<Color option>, ?semanticsLabel: string, ?semanticsValue: string) =
+type ProgressIndicator [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] value: float, [<Optional>] backgroundColor: Color, [<Optional>] color: Color, [<Optional>] valueColor: Animation<DartNullable<Color>>, [<Optional>] semanticsLabel: string, [<Optional>] semanticsValue: string) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type LinearProgressIndicator [<IsConst; NamedParams>] (?key: Key, ?value: float, ?backgroundColor: Color, ?color: Color, ?valueColor: Animation<Color option>, ?minHeight: float, ?semanticsLabel: string, ?semanticsValue: string) =
+type LinearProgressIndicator [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] value: float, [<Optional>] backgroundColor: Color, [<Optional>] color: Color, [<Optional>] valueColor: Animation<DartNullable<Color>>, [<Optional>] minHeight: float, [<Optional>] semanticsLabel: string, [<Optional>] semanticsValue: string) =
   inherit ProgressIndicator()
 
 /// https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type CircularProgressIndicator [<IsConst; NamedParams>] (?key: Key, ?value: float, ?backgroundColor: Color, ?color: Color, ?valueColor: Animation<Color option>, ?strokeWidth: float, ?semanticsLabel: string, ?semanticsValue: string) =
+type CircularProgressIndicator [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] value: float, [<Optional>] backgroundColor: Color, [<Optional>] color: Color, [<Optional>] valueColor: Animation<DartNullable<Color>>, [<Optional>] strokeWidth: float, [<Optional>] semanticsLabel: string, [<Optional>] semanticsValue: string) =
   inherit ProgressIndicator()
-  [<IsConst; NamedParams>] static member adaptive(?key: Key, ?value: float, ?backgroundColor: Color, ?valueColor: Animation<Color option>, ?strokeWidth: float, ?semanticsLabel: string, ?semanticsValue: string): CircularProgressIndicator = nativeOnly
+  [<IsConst; NamedParams>] static member adaptive([<Optional>] key: Key, [<Optional>] value: float, [<Optional>] backgroundColor: Color, [<Optional>] valueColor: Animation<DartNullable<Color>>, [<Optional>] strokeWidth: float, [<Optional>] semanticsLabel: string, [<Optional>] semanticsValue: string): CircularProgressIndicator = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/RefreshProgressIndicator-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RefreshProgressIndicator [<IsConst; NamedParams>] (?key: Key, ?value: float, ?backgroundColor: Color, ?color: Color, ?valueColor: Animation<Color option>, ?strokeWidth: float, ?semanticsLabel: string, ?semanticsValue: string) =
+type RefreshProgressIndicator [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] value: float, [<Optional>] backgroundColor: Color, [<Optional>] color: Color, [<Optional>] valueColor: Animation<DartNullable<Color>>, [<Optional>] strokeWidth: float, [<Optional>] semanticsLabel: string, [<Optional>] semanticsValue: string) =
   inherit CircularProgressIndicator()
   [<IsConst>] static member defaultStrokeWidth: float = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/ProgressIndicatorThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ProgressIndicatorThemeData [<IsConst; NamedParams>] (?color: Color, ?linearTrackColor: Color, ?linearMinHeight: float, ?circularTrackColor: Color, ?refreshBackgroundColor: Color) =
+type ProgressIndicatorThemeData [<IsConst; NamedParams>] ([<Optional>] color: Color, [<Optional>] linearTrackColor: Color, [<Optional>] linearMinHeight: float, [<Optional>] circularTrackColor: Color, [<Optional>] refreshBackgroundColor: Color) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ProgressIndicatorTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ProgressIndicatorTheme [<IsConst; NamedParams>] (data: ProgressIndicatorThemeData, child: Widget, ?key: Key) =
+type ProgressIndicatorTheme [<IsConst; NamedParams>] (data: ProgressIndicatorThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/Radio-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Radio<'T> [<IsConst; NamedParams>] (value: 'T, groupValue: 'T option, onChanged: ('T option -> unit), ?key: Key, ?mouseCursor: MouseCursor, ?toggleable: bool, ?activeColor: Color, ?fillColor: MaterialStateProperty<Color option>, ?focusColor: Color, ?hoverColor: Color, ?overlayColor: MaterialStateProperty<Color option>, ?splashRadius: float, ?materialTapTargetSize: MaterialTapTargetSize, ?visualDensity: VisualDensity, ?focusNode: FocusNode, ?autofocus: bool) =
+type Radio<'T> [<IsConst; NamedParams>] (value: 'T, groupValue: DartNullable<'T>, onChanged: (DartNullable<'T> -> unit), [<Optional>] key: Key, [<Optional>] mouseCursor: MouseCursor, [<Optional>] toggleable: bool, [<Optional>] activeColor: Color, [<Optional>] fillColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashRadius: float, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] visualDensity: VisualDensity, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/RadioListTile-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RadioListTile<'T> [<IsConst; NamedParams>] (value: 'T, groupValue: 'T option, onChanged: ('T option -> unit), ?key: Key, ?toggleable: bool, ?activeColor: Color, ?title: Widget, ?subtitle: Widget, ?isThreeLine: bool, ?dense: bool, ?secondary: Widget, ?selected: bool, ?controlAffinity: ListTileControlAffinity, ?autofocus: bool, ?contentPadding: EdgeInsetsGeometry, ?shape: ShapeBorder, ?tileColor: Color, ?selectedTileColor: Color, ?visualDensity: VisualDensity, ?focusNode: FocusNode, ?enableFeedback: bool) =
+type RadioListTile<'T> [<IsConst; NamedParams>] (value: 'T, groupValue: DartNullable<'T>, onChanged: (DartNullable<'T> -> unit), [<Optional>] key: Key, [<Optional>] toggleable: bool, [<Optional>] activeColor: Color, [<Optional>] title: Widget, [<Optional>] subtitle: Widget, [<Optional>] isThreeLine: bool, [<Optional>] dense: bool, [<Optional>] secondary: Widget, [<Optional>] selected: bool, [<Optional>] controlAffinity: ListTileControlAffinity, [<Optional>] autofocus: bool, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] shape: ShapeBorder, [<Optional>] tileColor: Color, [<Optional>] selectedTileColor: Color, [<Optional>] visualDensity: VisualDensity, [<Optional>] focusNode: FocusNode, [<Optional>] enableFeedback: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/RadioThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RadioThemeData [<IsConst; NamedParams>] (?mouseCursor: MaterialStateProperty<MouseCursor option>, ?fillColor: MaterialStateProperty<Color option>, ?overlayColor: MaterialStateProperty<Color option>, ?splashRadius: float, ?materialTapTargetSize: MaterialTapTargetSize, ?visualDensity: VisualDensity) =
+type RadioThemeData [<IsConst; NamedParams>] ([<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>, [<Optional>] fillColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashRadius: float, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] visualDensity: VisualDensity) =
   class end
 
 /// https://api.flutter.dev/flutter/material/RadioTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RadioTheme [<IsConst; NamedParams>] (data: RadioThemeData, child: Widget, ?key: Key) =
+type RadioTheme [<IsConst; NamedParams>] (data: RadioThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/RaisedButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RaisedButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), ?key: Key, ?onLongPress: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?mouseCursor: MouseCursor, ?textTheme: ButtonTextTheme, ?textColor: Color, ?disabledTextColor: Color, ?color: Color, ?disabledColor: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?colorBrightness: Brightness, ?elevation: float, ?focusElevation: float, ?hoverElevation: float, ?highlightElevation: float, ?disabledElevation: float, ?padding: EdgeInsetsGeometry, ?visualDensity: VisualDensity, ?shape: ShapeBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?materialTapTargetSize: MaterialTapTargetSize, ?animationDuration: TimeSpan, ?child: Widget) =
+type RaisedButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] textTheme: ButtonTextTheme, [<Optional>] textColor: Color, [<Optional>] disabledTextColor: Color, [<Optional>] color: Color, [<Optional>] disabledColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] colorBrightness: Brightness, [<Optional>] elevation: float, [<Optional>] focusElevation: float, [<Optional>] hoverElevation: float, [<Optional>] highlightElevation: float, [<Optional>] disabledElevation: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] visualDensity: VisualDensity, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] animationDuration: TimeSpan, [<Optional>] child: Widget) =
   inherit MaterialButton(onPressed)
-  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, ?key: Key, ?onLongPress: (unit -> unit), ?onHighlightChanged: (bool -> unit), ?mouseCursor: MouseCursor, ?textTheme: ButtonTextTheme, ?textColor: Color, ?disabledTextColor: Color, ?color: Color, ?disabledColor: Color, ?focusColor: Color, ?hoverColor: Color, ?highlightColor: Color, ?splashColor: Color, ?colorBrightness: Brightness, ?elevation: float, ?highlightElevation: float, ?disabledElevation: float, ?shape: ShapeBorder, ?clipBehavior: Clip, ?focusNode: FocusNode, ?autofocus: bool, ?padding: EdgeInsetsGeometry, ?materialTapTargetSize: MaterialTapTargetSize, ?animationDuration: TimeSpan): RaisedButton = nativeOnly
+  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHighlightChanged: (bool -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] textTheme: ButtonTextTheme, [<Optional>] textColor: Color, [<Optional>] disabledTextColor: Color, [<Optional>] color: Color, [<Optional>] disabledColor: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] colorBrightness: Brightness, [<Optional>] elevation: float, [<Optional>] highlightElevation: float, [<Optional>] disabledElevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] animationDuration: TimeSpan): RaisedButton = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/RangeSlider-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RangeSlider [<NamedParams>] (values: RangeValues, onChanged: (RangeValues -> unit), ?key: Key, ?onChangeStart: (RangeValues -> unit), ?onChangeEnd: (RangeValues -> unit), ?min: float, ?max: float, ?divisions: int, ?labels: RangeLabels, ?activeColor: Color, ?inactiveColor: Color, ?semanticFormatterCallback: (float -> string)) =
+type RangeSlider [<NamedParams>] (values: RangeValues, onChanged: (RangeValues -> unit), [<Optional>] key: Key, [<Optional>] onChangeStart: (RangeValues -> unit), [<Optional>] onChangeEnd: (RangeValues -> unit), [<Optional>] min: float, [<Optional>] max: float, [<Optional>] divisions: int, [<Optional>] labels: RangeLabels, [<Optional>] activeColor: Color, [<Optional>] inactiveColor: Color, [<Optional>] semanticFormatterCallback: (float -> string)) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/RefreshIndicator-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RefreshIndicator [<IsConst; NamedParams>] (child: Widget, onRefresh: (unit -> Future<unit>), ?key: Key, ?displacement: float, ?edgeOffset: float, ?color: Color, ?backgroundColor: Color, ?notificationPredicate: (ScrollNotification -> bool), ?semanticsLabel: string, ?semanticsValue: string, ?strokeWidth: float, ?triggerMode: RefreshIndicatorTriggerMode) =
+type RefreshIndicator [<IsConst; NamedParams>] (child: Widget, onRefresh: (unit -> Future<unit>), [<Optional>] key: Key, [<Optional>] displacement: float, [<Optional>] edgeOffset: float, [<Optional>] color: Color, [<Optional>] backgroundColor: Color, [<Optional>] notificationPredicate: (ScrollNotification -> bool), [<Optional>] semanticsLabel: string, [<Optional>] semanticsValue: string, [<Optional>] strokeWidth: float, [<Optional>] triggerMode: RefreshIndicatorTriggerMode) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/RefreshIndicatorState-class.html
@@ -10200,13 +10201,13 @@ type RefreshIndicatorState () =
 
 /// https://api.flutter.dev/flutter/material/ReorderableListView-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ReorderableListView [<NamedParams>] (children: Widget[], onReorder: (int -> int -> unit), ?key: Key, ?onReorderStart: (int -> unit), ?onReorderEnd: (int -> unit), ?itemExtent: float, ?prototypeItem: Widget, ?proxyDecorator: (Widget -> int -> Animation<float> -> Widget), ?buildDefaultDragHandles: bool, ?padding: EdgeInsets, ?header: Widget, ?footer: Widget, ?scrollDirection: Axis, ?reverse: bool, ?scrollController: ScrollController, ?primary: bool, ?physics: ScrollPhysics, ?shrinkWrap: bool, ?anchor: float, ?cacheExtent: float, ?dragStartBehavior: DragStartBehavior, ?keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior, ?restorationId: string, ?clipBehavior: Clip) =
+type ReorderableListView [<NamedParams>] (children: Widget[], onReorder: (int -> int -> unit), [<Optional>] key: Key, [<Optional>] onReorderStart: (int -> unit), [<Optional>] onReorderEnd: (int -> unit), [<Optional>] itemExtent: float, [<Optional>] prototypeItem: Widget, [<Optional>] proxyDecorator: (Widget -> int -> Animation<float> -> Widget), [<Optional>] buildDefaultDragHandles: bool, [<Optional>] padding: EdgeInsets, [<Optional>] header: Widget, [<Optional>] footer: Widget, [<Optional>] scrollDirection: Axis, [<Optional>] reverse: bool, [<Optional>] scrollController: ScrollController, [<Optional>] primary: bool, [<Optional>] physics: ScrollPhysics, [<Optional>] shrinkWrap: bool, [<Optional>] anchor: float, [<Optional>] cacheExtent: float, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior, [<Optional>] restorationId: string, [<Optional>] clipBehavior: Clip) =
   inherit Widget()
-  [<IsConst; NamedParams>] static member builder(itemBuilder: (BuildContext -> int -> Widget), itemCount: int, onReorder: (int -> int -> unit), ?key: Key, ?onReorderStart: (int -> unit), ?onReorderEnd: (int -> unit), ?itemExtent: float, ?prototypeItem: Widget, ?proxyDecorator: (Widget -> int -> Animation<float> -> Widget), ?buildDefaultDragHandles: bool, ?padding: EdgeInsets, ?header: Widget, ?footer: Widget, ?scrollDirection: Axis, ?reverse: bool, ?scrollController: ScrollController, ?primary: bool, ?physics: ScrollPhysics, ?shrinkWrap: bool, ?anchor: float, ?cacheExtent: float, ?dragStartBehavior: DragStartBehavior, ?keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior, ?restorationId: string, ?clipBehavior: Clip): ReorderableListView = nativeOnly
+  [<IsConst; NamedParams>] static member builder(itemBuilder: (BuildContext -> int -> Widget), itemCount: int, onReorder: (int -> int -> unit), [<Optional>] key: Key, [<Optional>] onReorderStart: (int -> unit), [<Optional>] onReorderEnd: (int -> unit), [<Optional>] itemExtent: float, [<Optional>] prototypeItem: Widget, [<Optional>] proxyDecorator: (Widget -> int -> Animation<float> -> Widget), [<Optional>] buildDefaultDragHandles: bool, [<Optional>] padding: EdgeInsets, [<Optional>] header: Widget, [<Optional>] footer: Widget, [<Optional>] scrollDirection: Axis, [<Optional>] reverse: bool, [<Optional>] scrollController: ScrollController, [<Optional>] primary: bool, [<Optional>] physics: ScrollPhysics, [<Optional>] shrinkWrap: bool, [<Optional>] anchor: float, [<Optional>] cacheExtent: float, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior, [<Optional>] restorationId: string, [<Optional>] clipBehavior: Clip): ReorderableListView = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/ScaffoldMessenger-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ScaffoldMessenger [<IsConst; NamedParams>] (child: Widget, ?key: Key) =
+type ScaffoldMessenger [<IsConst; NamedParams>] (child: Widget, [<Optional>] key: Key) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ScaffoldMessengerState-class.html
@@ -10221,12 +10222,12 @@ type ScaffoldPrelayoutGeometry [<IsConst; NamedParams>] (bottomSheetSize: Size, 
 
 /// https://api.flutter.dev/flutter/material/ScaffoldGeometry-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ScaffoldGeometry [<IsConst; NamedParams>] (?bottomNavigationBarTop: float, ?floatingActionButtonArea: Rect) =
+type ScaffoldGeometry [<IsConst; NamedParams>] ([<Optional>] bottomNavigationBarTop: float, [<Optional>] floatingActionButtonArea: Rect) =
   class end
 
 /// https://api.flutter.dev/flutter/material/Scaffold-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Scaffold [<IsConst; NamedParams>] (?key: Key, ?appBar: Widget (* PreferredSizeWidget *), ?body: Widget, ?floatingActionButton: Widget, ?floatingActionButtonLocation: FloatingActionButtonLocation, ?floatingActionButtonAnimator: FloatingActionButtonAnimator, ?persistentFooterButtons: Widget[], ?drawer: Widget, ?onDrawerChanged: (bool -> unit), ?endDrawer: Widget, ?onEndDrawerChanged: (bool -> unit), ?bottomNavigationBar: Widget, ?bottomSheet: Widget, ?backgroundColor: Color, ?resizeToAvoidBottomInset: bool, ?primary: bool, ?drawerDragStartBehavior: DragStartBehavior, ?extendBody: bool, ?extendBodyBehindAppBar: bool, ?drawerScrimColor: Color, ?drawerEdgeDragWidth: float, ?drawerEnableOpenDragGesture: bool, ?endDrawerEnableOpenDragGesture: bool, ?restorationId: string) =
+type Scaffold [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] appBar: Widget (* PreferredSizeWidget *), [<Optional>] body: Widget, [<Optional>] floatingActionButton: Widget, [<Optional>] floatingActionButtonLocation: FloatingActionButtonLocation, [<Optional>] floatingActionButtonAnimator: FloatingActionButtonAnimator, [<Optional>] persistentFooterButtons: Widget[], [<Optional>] drawer: Widget, [<Optional>] onDrawerChanged: (bool -> unit), [<Optional>] endDrawer: Widget, [<Optional>] onEndDrawerChanged: (bool -> unit), [<Optional>] bottomNavigationBar: Widget, [<Optional>] bottomSheet: Widget, [<Optional>] backgroundColor: Color, [<Optional>] resizeToAvoidBottomInset: bool, [<Optional>] primary: bool, [<Optional>] drawerDragStartBehavior: DragStartBehavior, [<Optional>] extendBody: bool, [<Optional>] extendBodyBehindAppBar: bool, [<Optional>] drawerScrimColor: Color, [<Optional>] drawerEdgeDragWidth: float, [<Optional>] drawerEnableOpenDragGesture: bool, [<Optional>] endDrawerEnableOpenDragGesture: bool, [<Optional>] restorationId: string) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ScaffoldState-class.html
@@ -10246,44 +10247,44 @@ type PersistentBottomSheetController<'T> =
 
 /// https://api.flutter.dev/flutter/material/Scrollbar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Scrollbar [<IsConst; NamedParams>] (child: Widget, ?key: Key, ?controller: ScrollController, ?thumbVisibility: bool, ?trackVisibility: bool, ?thickness: float, ?radius: Radius, ?notificationPredicate: (ScrollNotification -> bool), ?interactive: bool, ?scrollbarOrientation: ScrollbarOrientation, ?isAlwaysShown: bool, ?showTrackOnHover: bool, ?hoverThickness: float) =
+type Scrollbar [<IsConst; NamedParams>] (child: Widget, [<Optional>] key: Key, [<Optional>] controller: ScrollController, [<Optional>] thumbVisibility: bool, [<Optional>] trackVisibility: bool, [<Optional>] thickness: float, [<Optional>] radius: Radius, [<Optional>] notificationPredicate: (ScrollNotification -> bool), [<Optional>] interactive: bool, [<Optional>] scrollbarOrientation: ScrollbarOrientation, [<Optional>] isAlwaysShown: bool, [<Optional>] showTrackOnHover: bool, [<Optional>] hoverThickness: float) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ScrollbarThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ScrollbarThemeData [<IsConst; NamedParams>] (?thumbVisibility: MaterialStateProperty<bool option>, ?thickness: MaterialStateProperty<float option>, ?trackVisibility: MaterialStateProperty<bool option>, ?radius: Radius, ?thumbColor: MaterialStateProperty<Color option>, ?trackColor: MaterialStateProperty<Color option>, ?trackBorderColor: MaterialStateProperty<Color option>, ?crossAxisMargin: float, ?mainAxisMargin: float, ?minThumbLength: float, ?interactive: bool, ?isAlwaysShown: bool, ?showTrackOnHover: bool) =
+type ScrollbarThemeData [<IsConst; NamedParams>] ([<Optional>] thumbVisibility: MaterialStateProperty<DartNullable<bool>>, [<Optional>] thickness: MaterialStateProperty<DartNullable<float>>, [<Optional>] trackVisibility: MaterialStateProperty<DartNullable<bool>>, [<Optional>] radius: Radius, [<Optional>] thumbColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] trackColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] trackBorderColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] crossAxisMargin: float, [<Optional>] mainAxisMargin: float, [<Optional>] minThumbLength: float, [<Optional>] interactive: bool, [<Optional>] isAlwaysShown: bool, [<Optional>] showTrackOnHover: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ScrollbarTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ScrollbarTheme [<IsConst; NamedParams>] (data: ScrollbarThemeData, child: Widget, ?key: Key) =
+type ScrollbarTheme [<IsConst; NamedParams>] (data: ScrollbarThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/SearchDelegate-class.html
 [<ImportMember("package:flutter/material.dart"); AbstractClass>]
-type SearchDelegate<'T> [<NamedParams>] (?searchFieldLabel: string, ?searchFieldStyle: TextStyle, ?searchFieldDecorationTheme: InputDecorationTheme, ?keyboardType: TextInputType, ?textInputAction: TextInputAction) =
+type SearchDelegate<'T> [<NamedParams>] ([<Optional>] searchFieldLabel: string, [<Optional>] searchFieldStyle: TextStyle, [<Optional>] searchFieldDecorationTheme: InputDecorationTheme, [<Optional>] keyboardType: TextInputType, [<Optional>] textInputAction: TextInputAction) =
   class end
 
 /// https://api.flutter.dev/flutter/material/SelectableText-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SelectableText [<IsConst; NamedParams(fromIndex=1)>] (data: string, ?key: Key, ?focusNode: FocusNode, ?style: TextStyle, ?strutStyle: StrutStyle, ?textAlign: TextAlign, ?textDirection: TextDirection, ?textScaleFactor: float, ?showCursor: bool, ?autofocus: bool, ?toolbarOptions: ToolbarOptions, ?minLines: int, ?maxLines: int, ?cursorWidth: float, ?cursorHeight: float, ?cursorRadius: Radius, ?cursorColor: Color, ?selectionHeightStyle: BoxHeightStyle, ?selectionWidthStyle: BoxWidthStyle, ?dragStartBehavior: DragStartBehavior, ?enableInteractiveSelection: bool, ?selectionControls: TextSelectionControls, ?onTap: (unit -> unit), ?scrollPhysics: ScrollPhysics, ?semanticsLabel: string, ?textHeightBehavior: TextHeightBehavior, ?textWidthBasis: TextWidthBasis, ?onSelectionChanged: (TextSelection -> SelectionChangedCause option -> unit)) =
+type SelectableText [<IsConst; NamedParams(fromIndex=1)>] (data: string, [<Optional>] key: Key, [<Optional>] focusNode: FocusNode, [<Optional>] style: TextStyle, [<Optional>] strutStyle: StrutStyle, [<Optional>] textAlign: TextAlign, [<Optional>] textDirection: TextDirection, [<Optional>] textScaleFactor: float, [<Optional>] showCursor: bool, [<Optional>] autofocus: bool, [<Optional>] toolbarOptions: ToolbarOptions, [<Optional>] minLines: int, [<Optional>] maxLines: int, [<Optional>] cursorWidth: float, [<Optional>] cursorHeight: float, [<Optional>] cursorRadius: Radius, [<Optional>] cursorColor: Color, [<Optional>] selectionHeightStyle: BoxHeightStyle, [<Optional>] selectionWidthStyle: BoxWidthStyle, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] enableInteractiveSelection: bool, [<Optional>] selectionControls: TextSelectionControls, [<Optional>] onTap: (unit -> unit), [<Optional>] scrollPhysics: ScrollPhysics, [<Optional>] semanticsLabel: string, [<Optional>] textHeightBehavior: TextHeightBehavior, [<Optional>] textWidthBasis: TextWidthBasis, [<Optional>] onSelectionChanged: (TextSelection -> DartNullable<SelectionChangedCause> -> unit)) =
   inherit Widget()
-  [<IsConst; NamedParams(fromIndex=1)>] static member rich(textSpan: TextSpan, ?key: Key, ?focusNode: FocusNode, ?style: TextStyle, ?strutStyle: StrutStyle, ?textAlign: TextAlign, ?textDirection: TextDirection, ?textScaleFactor: float, ?showCursor: bool, ?autofocus: bool, ?toolbarOptions: ToolbarOptions, ?minLines: int, ?maxLines: int, ?cursorWidth: float, ?cursorHeight: float, ?cursorRadius: Radius, ?cursorColor: Color, ?selectionHeightStyle: BoxHeightStyle, ?selectionWidthStyle: BoxWidthStyle, ?dragStartBehavior: DragStartBehavior, ?enableInteractiveSelection: bool, ?selectionControls: TextSelectionControls, ?onTap: (unit -> unit), ?scrollPhysics: ScrollPhysics, ?semanticsLabel: string, ?textHeightBehavior: TextHeightBehavior, ?textWidthBasis: TextWidthBasis, ?onSelectionChanged: (TextSelection -> SelectionChangedCause option -> unit)): SelectableText = nativeOnly
+  [<IsConst; NamedParams(fromIndex=1)>] static member rich(textSpan: TextSpan, [<Optional>] key: Key, [<Optional>] focusNode: FocusNode, [<Optional>] style: TextStyle, [<Optional>] strutStyle: StrutStyle, [<Optional>] textAlign: TextAlign, [<Optional>] textDirection: TextDirection, [<Optional>] textScaleFactor: float, [<Optional>] showCursor: bool, [<Optional>] autofocus: bool, [<Optional>] toolbarOptions: ToolbarOptions, [<Optional>] minLines: int, [<Optional>] maxLines: int, [<Optional>] cursorWidth: float, [<Optional>] cursorHeight: float, [<Optional>] cursorRadius: Radius, [<Optional>] cursorColor: Color, [<Optional>] selectionHeightStyle: BoxHeightStyle, [<Optional>] selectionWidthStyle: BoxWidthStyle, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] enableInteractiveSelection: bool, [<Optional>] selectionControls: TextSelectionControls, [<Optional>] onTap: (unit -> unit), [<Optional>] scrollPhysics: ScrollPhysics, [<Optional>] semanticsLabel: string, [<Optional>] textHeightBehavior: TextHeightBehavior, [<Optional>] textWidthBasis: TextWidthBasis, [<Optional>] onSelectionChanged: (TextSelection -> DartNullable<SelectionChangedCause> -> unit)): SelectableText = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/Slider-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Slider [<IsConst; NamedParams>] (value: float, onChanged: (float -> unit), ?key: Key, ?onChangeStart: (float -> unit), ?onChangeEnd: (float -> unit), ?min: float, ?max: float, ?divisions: int, ?label: string, ?activeColor: Color, ?inactiveColor: Color, ?thumbColor: Color, ?mouseCursor: MouseCursor, ?semanticFormatterCallback: (float -> string), ?focusNode: FocusNode, ?autofocus: bool) =
+type Slider [<IsConst; NamedParams>] (value: float, onChanged: (float -> unit), [<Optional>] key: Key, [<Optional>] onChangeStart: (float -> unit), [<Optional>] onChangeEnd: (float -> unit), [<Optional>] min: float, [<Optional>] max: float, [<Optional>] divisions: int, [<Optional>] label: string, [<Optional>] activeColor: Color, [<Optional>] inactiveColor: Color, [<Optional>] thumbColor: Color, [<Optional>] mouseCursor: MouseCursor, [<Optional>] semanticFormatterCallback: (float -> string), [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool) =
   inherit Widget()
-  [<IsConst; NamedParams>] static member adaptive(value: float, onChanged: (float -> unit), ?key: Key, ?onChangeStart: (float -> unit), ?onChangeEnd: (float -> unit), ?min: float, ?max: float, ?divisions: int, ?label: string, ?mouseCursor: MouseCursor, ?activeColor: Color, ?inactiveColor: Color, ?thumbColor: Color, ?semanticFormatterCallback: (float -> string), ?focusNode: FocusNode, ?autofocus: bool): Slider = nativeOnly
+  [<IsConst; NamedParams>] static member adaptive(value: float, onChanged: (float -> unit), [<Optional>] key: Key, [<Optional>] onChangeStart: (float -> unit), [<Optional>] onChangeEnd: (float -> unit), [<Optional>] min: float, [<Optional>] max: float, [<Optional>] divisions: int, [<Optional>] label: string, [<Optional>] mouseCursor: MouseCursor, [<Optional>] activeColor: Color, [<Optional>] inactiveColor: Color, [<Optional>] thumbColor: Color, [<Optional>] semanticFormatterCallback: (float -> string), [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool): Slider = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/SliderTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SliderTheme [<IsConst; NamedParams>] (data: SliderThemeData, child: Widget, ?key: Key) =
+type SliderTheme [<IsConst; NamedParams>] (data: SliderThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/SliderThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SliderThemeData [<IsConst; NamedParams>] (?trackHeight: float, ?activeTrackColor: Color, ?inactiveTrackColor: Color, ?disabledActiveTrackColor: Color, ?disabledInactiveTrackColor: Color, ?activeTickMarkColor: Color, ?inactiveTickMarkColor: Color, ?disabledActiveTickMarkColor: Color, ?disabledInactiveTickMarkColor: Color, ?thumbColor: Color, ?overlappingShapeStrokeColor: Color, ?disabledThumbColor: Color, ?overlayColor: Color, ?valueIndicatorColor: Color, ?overlayShape: SliderComponentShape, ?tickMarkShape: SliderTickMarkShape, ?thumbShape: SliderComponentShape, ?trackShape: SliderTrackShape, ?valueIndicatorShape: SliderComponentShape, ?rangeTickMarkShape: RangeSliderTickMarkShape, ?rangeThumbShape: RangeSliderThumbShape, ?rangeTrackShape: RangeSliderTrackShape, ?rangeValueIndicatorShape: RangeSliderValueIndicatorShape, ?showValueIndicator: ShowValueIndicator, ?valueIndicatorTextStyle: TextStyle, ?minThumbSeparation: float, ?thumbSelector: (TextDirection -> RangeValues -> float -> Size -> Size -> float -> Thumb option), ?mouseCursor: MaterialStateProperty<MouseCursor option>) =
+type SliderThemeData [<IsConst; NamedParams>] ([<Optional>] trackHeight: float, [<Optional>] activeTrackColor: Color, [<Optional>] inactiveTrackColor: Color, [<Optional>] disabledActiveTrackColor: Color, [<Optional>] disabledInactiveTrackColor: Color, [<Optional>] activeTickMarkColor: Color, [<Optional>] inactiveTickMarkColor: Color, [<Optional>] disabledActiveTickMarkColor: Color, [<Optional>] disabledInactiveTickMarkColor: Color, [<Optional>] thumbColor: Color, [<Optional>] overlappingShapeStrokeColor: Color, [<Optional>] disabledThumbColor: Color, [<Optional>] overlayColor: Color, [<Optional>] valueIndicatorColor: Color, [<Optional>] overlayShape: SliderComponentShape, [<Optional>] tickMarkShape: SliderTickMarkShape, [<Optional>] thumbShape: SliderComponentShape, [<Optional>] trackShape: SliderTrackShape, [<Optional>] valueIndicatorShape: SliderComponentShape, [<Optional>] rangeTickMarkShape: RangeSliderTickMarkShape, [<Optional>] rangeThumbShape: RangeSliderThumbShape, [<Optional>] rangeTrackShape: RangeSliderTrackShape, [<Optional>] rangeValueIndicatorShape: RangeSliderValueIndicatorShape, [<Optional>] showValueIndicator: ShowValueIndicator, [<Optional>] valueIndicatorTextStyle: TextStyle, [<Optional>] minThumbSeparation: float, [<Optional>] thumbSelector: (TextDirection -> RangeValues -> float -> Size -> Size -> float -> DartNullable<Thumb>), [<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>) =
   [<NamedParams>] static member fromPrimaryColors(primaryColor: Color, primaryColorDark: Color, primaryColorLight: Color, valueIndicatorTextStyle: TextStyle): SliderThemeData = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/SliderComponentShape-class.html
@@ -10343,27 +10344,27 @@ type RoundedRectRangeSliderTrackShape [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/material/RoundSliderTickMarkShape-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RoundSliderTickMarkShape [<IsConst; NamedParams>] (?tickMarkRadius: float) =
+type RoundSliderTickMarkShape [<IsConst; NamedParams>] ([<Optional>] tickMarkRadius: float) =
   inherit SliderTickMarkShape()
 
 /// https://api.flutter.dev/flutter/material/RoundRangeSliderTickMarkShape-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RoundRangeSliderTickMarkShape [<IsConst; NamedParams>] (?tickMarkRadius: float) =
+type RoundRangeSliderTickMarkShape [<IsConst; NamedParams>] ([<Optional>] tickMarkRadius: float) =
   inherit RangeSliderTickMarkShape()
 
 /// https://api.flutter.dev/flutter/material/RoundSliderThumbShape-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RoundSliderThumbShape [<IsConst; NamedParams>] (?enabledThumbRadius: float, ?disabledThumbRadius: float, ?elevation: float, ?pressedElevation: float) =
+type RoundSliderThumbShape [<IsConst; NamedParams>] ([<Optional>] enabledThumbRadius: float, [<Optional>] disabledThumbRadius: float, [<Optional>] elevation: float, [<Optional>] pressedElevation: float) =
   inherit SliderComponentShape()
 
 /// https://api.flutter.dev/flutter/material/RoundRangeSliderThumbShape-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RoundRangeSliderThumbShape [<IsConst; NamedParams>] (?enabledThumbRadius: float, ?disabledThumbRadius: float, ?elevation: float, ?pressedElevation: float) =
+type RoundRangeSliderThumbShape [<IsConst; NamedParams>] ([<Optional>] enabledThumbRadius: float, [<Optional>] disabledThumbRadius: float, [<Optional>] elevation: float, [<Optional>] pressedElevation: float) =
   inherit RangeSliderThumbShape()
 
 /// https://api.flutter.dev/flutter/material/RoundSliderOverlayShape-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type RoundSliderOverlayShape [<IsConst; NamedParams>] (?overlayRadius: float) =
+type RoundSliderOverlayShape [<IsConst; NamedParams>] ([<Optional>] overlayRadius: float) =
   inherit SliderComponentShape()
 
 /// https://api.flutter.dev/flutter/material/RectangularSliderValueIndicatorShape-class.html
@@ -10398,126 +10399,126 @@ type RangeLabels [<IsConst>] (start: string, ``end``: string) =
 
 /// https://api.flutter.dev/flutter/material/SnackBarAction-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SnackBarAction [<IsConst; NamedParams>] (label: string, onPressed: (unit -> unit), ?key: Key, ?textColor: Color, ?disabledTextColor: Color) =
+type SnackBarAction [<IsConst; NamedParams>] (label: string, onPressed: (unit -> unit), [<Optional>] key: Key, [<Optional>] textColor: Color, [<Optional>] disabledTextColor: Color) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/SnackBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SnackBar [<IsConst; NamedParams>] (content: Widget, ?key: Key, ?backgroundColor: Color, ?elevation: float, ?margin: EdgeInsetsGeometry, ?padding: EdgeInsetsGeometry, ?width: float, ?shape: ShapeBorder, ?behavior: SnackBarBehavior, ?action: SnackBarAction, ?duration: TimeSpan, ?animation: Animation<float>, ?onVisible: (unit -> unit), ?dismissDirection: DismissDirection, ?clipBehavior: Clip) =
+type SnackBar [<IsConst; NamedParams>] (content: Widget, [<Optional>] key: Key, [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] margin: EdgeInsetsGeometry, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] width: float, [<Optional>] shape: ShapeBorder, [<Optional>] behavior: SnackBarBehavior, [<Optional>] action: SnackBarAction, [<Optional>] duration: TimeSpan, [<Optional>] animation: Animation<float>, [<Optional>] onVisible: (unit -> unit), [<Optional>] dismissDirection: DismissDirection, [<Optional>] clipBehavior: Clip) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/SnackBarThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SnackBarThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?actionTextColor: Color, ?disabledActionTextColor: Color, ?contentTextStyle: TextStyle, ?elevation: float, ?shape: ShapeBorder, ?behavior: SnackBarBehavior) =
+type SnackBarThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] actionTextColor: Color, [<Optional>] disabledActionTextColor: Color, [<Optional>] contentTextStyle: TextStyle, [<Optional>] elevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] behavior: SnackBarBehavior) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ControlsDetails-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ControlsDetails [<IsConst; NamedParams>] (currentStep: int, stepIndex: int, ?onStepCancel: (unit -> unit), ?onStepContinue: (unit -> unit)) =
+type ControlsDetails [<IsConst; NamedParams>] (currentStep: int, stepIndex: int, [<Optional>] onStepCancel: (unit -> unit), [<Optional>] onStepContinue: (unit -> unit)) =
   class end
 
 /// https://api.flutter.dev/flutter/material/Step-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Step [<IsConst; NamedParams>] (title: Widget, content: Widget, ?subtitle: Widget, ?state: StepState, ?isActive: bool) =
+type Step [<IsConst; NamedParams>] (title: Widget, content: Widget, [<Optional>] subtitle: Widget, [<Optional>] state: StepState, [<Optional>] isActive: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/material/Stepper-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Stepper [<IsConst; NamedParams>] (steps: Step[], ?key: Key, ?physics: ScrollPhysics, ?``type``: StepperType, ?currentStep: int, ?onStepTapped: (int -> unit), ?onStepContinue: (unit -> unit), ?onStepCancel: (unit -> unit), ?controlsBuilder: (BuildContext -> ControlsDetails -> Widget), ?elevation: float, ?margin: EdgeInsetsGeometry) =
+type Stepper [<IsConst; NamedParams>] (steps: Step[], [<Optional>] key: Key, [<Optional>] physics: ScrollPhysics, [<Optional>] ``type``: StepperType, [<Optional>] currentStep: int, [<Optional>] onStepTapped: (int -> unit), [<Optional>] onStepContinue: (unit -> unit), [<Optional>] onStepCancel: (unit -> unit), [<Optional>] controlsBuilder: (BuildContext -> ControlsDetails -> Widget), [<Optional>] elevation: float, [<Optional>] margin: EdgeInsetsGeometry) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/Switch-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Switch [<IsConst; NamedParams>] (value: bool, onChanged: (bool -> unit), ?key: Key, ?activeColor: Color, ?activeTrackColor: Color, ?inactiveThumbColor: Color, ?inactiveTrackColor: Color, ?activeThumbImage: ImageProvider<obj>, ?onActiveThumbImageError: (obj -> StackTrace option -> unit), ?inactiveThumbImage: ImageProvider<obj>, ?onInactiveThumbImageError: (obj -> StackTrace option -> unit), ?thumbColor: MaterialStateProperty<Color option>, ?trackColor: MaterialStateProperty<Color option>, ?materialTapTargetSize: MaterialTapTargetSize, ?dragStartBehavior: DragStartBehavior, ?mouseCursor: MouseCursor, ?focusColor: Color, ?hoverColor: Color, ?overlayColor: MaterialStateProperty<Color option>, ?splashRadius: float, ?focusNode: FocusNode, ?autofocus: bool) =
+type Switch [<IsConst; NamedParams>] (value: bool, onChanged: (bool -> unit), [<Optional>] key: Key, [<Optional>] activeColor: Color, [<Optional>] activeTrackColor: Color, [<Optional>] inactiveThumbColor: Color, [<Optional>] inactiveTrackColor: Color, [<Optional>] activeThumbImage: ImageProvider<obj>, [<Optional>] onActiveThumbImageError: (obj -> DartNullable<StackTrace> -> unit), [<Optional>] inactiveThumbImage: ImageProvider<obj>, [<Optional>] onInactiveThumbImageError: (obj -> DartNullable<StackTrace> -> unit), [<Optional>] thumbColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] trackColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] mouseCursor: MouseCursor, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashRadius: float, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool) =
   inherit Widget()
-  [<IsConst; NamedParams>] static member adaptive(value: bool, onChanged: (bool -> unit), ?key: Key, ?activeColor: Color, ?activeTrackColor: Color, ?inactiveThumbColor: Color, ?inactiveTrackColor: Color, ?activeThumbImage: ImageProvider<obj>, ?onActiveThumbImageError: (obj -> StackTrace option -> unit), ?inactiveThumbImage: ImageProvider<obj>, ?onInactiveThumbImageError: (obj -> StackTrace option -> unit), ?materialTapTargetSize: MaterialTapTargetSize, ?thumbColor: MaterialStateProperty<Color option>, ?trackColor: MaterialStateProperty<Color option>, ?dragStartBehavior: DragStartBehavior, ?mouseCursor: MouseCursor, ?focusColor: Color, ?hoverColor: Color, ?overlayColor: MaterialStateProperty<Color option>, ?splashRadius: float, ?focusNode: FocusNode, ?autofocus: bool): Switch = nativeOnly
+  [<IsConst; NamedParams>] static member adaptive(value: bool, onChanged: (bool -> unit), [<Optional>] key: Key, [<Optional>] activeColor: Color, [<Optional>] activeTrackColor: Color, [<Optional>] inactiveThumbColor: Color, [<Optional>] inactiveTrackColor: Color, [<Optional>] activeThumbImage: ImageProvider<obj>, [<Optional>] onActiveThumbImageError: (obj -> DartNullable<StackTrace> -> unit), [<Optional>] inactiveThumbImage: ImageProvider<obj>, [<Optional>] onInactiveThumbImageError: (obj -> DartNullable<StackTrace> -> unit), [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] thumbColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] trackColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] mouseCursor: MouseCursor, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashRadius: float, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool): Switch = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/SwitchListTile-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SwitchListTile [<IsConst; NamedParams>] (value: bool, onChanged: (bool -> unit), ?key: Key, ?tileColor: Color, ?activeColor: Color, ?activeTrackColor: Color, ?inactiveThumbColor: Color, ?inactiveTrackColor: Color, ?activeThumbImage: ImageProvider<obj>, ?inactiveThumbImage: ImageProvider<obj>, ?title: Widget, ?subtitle: Widget, ?isThreeLine: bool, ?dense: bool, ?contentPadding: EdgeInsetsGeometry, ?secondary: Widget, ?selected: bool, ?autofocus: bool, ?controlAffinity: ListTileControlAffinity, ?shape: ShapeBorder, ?selectedTileColor: Color, ?visualDensity: VisualDensity, ?focusNode: FocusNode, ?enableFeedback: bool, ?hoverColor: Color) =
+type SwitchListTile [<IsConst; NamedParams>] (value: bool, onChanged: (bool -> unit), [<Optional>] key: Key, [<Optional>] tileColor: Color, [<Optional>] activeColor: Color, [<Optional>] activeTrackColor: Color, [<Optional>] inactiveThumbColor: Color, [<Optional>] inactiveTrackColor: Color, [<Optional>] activeThumbImage: ImageProvider<obj>, [<Optional>] inactiveThumbImage: ImageProvider<obj>, [<Optional>] title: Widget, [<Optional>] subtitle: Widget, [<Optional>] isThreeLine: bool, [<Optional>] dense: bool, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] secondary: Widget, [<Optional>] selected: bool, [<Optional>] autofocus: bool, [<Optional>] controlAffinity: ListTileControlAffinity, [<Optional>] shape: ShapeBorder, [<Optional>] selectedTileColor: Color, [<Optional>] visualDensity: VisualDensity, [<Optional>] focusNode: FocusNode, [<Optional>] enableFeedback: bool, [<Optional>] hoverColor: Color) =
   inherit Widget()
-  [<IsConst; NamedParams>] static member adaptive(value: bool, onChanged: (bool -> unit), ?key: Key, ?tileColor: Color, ?activeColor: Color, ?activeTrackColor: Color, ?inactiveThumbColor: Color, ?inactiveTrackColor: Color, ?activeThumbImage: ImageProvider<obj>, ?inactiveThumbImage: ImageProvider<obj>, ?title: Widget, ?subtitle: Widget, ?isThreeLine: bool, ?dense: bool, ?contentPadding: EdgeInsetsGeometry, ?secondary: Widget, ?selected: bool, ?autofocus: bool, ?controlAffinity: ListTileControlAffinity, ?shape: ShapeBorder, ?selectedTileColor: Color, ?visualDensity: VisualDensity, ?focusNode: FocusNode, ?enableFeedback: bool, ?hoverColor: Color): SwitchListTile = nativeOnly
+  [<IsConst; NamedParams>] static member adaptive(value: bool, onChanged: (bool -> unit), [<Optional>] key: Key, [<Optional>] tileColor: Color, [<Optional>] activeColor: Color, [<Optional>] activeTrackColor: Color, [<Optional>] inactiveThumbColor: Color, [<Optional>] inactiveTrackColor: Color, [<Optional>] activeThumbImage: ImageProvider<obj>, [<Optional>] inactiveThumbImage: ImageProvider<obj>, [<Optional>] title: Widget, [<Optional>] subtitle: Widget, [<Optional>] isThreeLine: bool, [<Optional>] dense: bool, [<Optional>] contentPadding: EdgeInsetsGeometry, [<Optional>] secondary: Widget, [<Optional>] selected: bool, [<Optional>] autofocus: bool, [<Optional>] controlAffinity: ListTileControlAffinity, [<Optional>] shape: ShapeBorder, [<Optional>] selectedTileColor: Color, [<Optional>] visualDensity: VisualDensity, [<Optional>] focusNode: FocusNode, [<Optional>] enableFeedback: bool, [<Optional>] hoverColor: Color): SwitchListTile = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/SwitchThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SwitchThemeData [<IsConst; NamedParams>] (?thumbColor: MaterialStateProperty<Color option>, ?trackColor: MaterialStateProperty<Color option>, ?materialTapTargetSize: MaterialTapTargetSize, ?mouseCursor: MaterialStateProperty<MouseCursor option>, ?overlayColor: MaterialStateProperty<Color option>, ?splashRadius: float) =
+type SwitchThemeData [<IsConst; NamedParams>] ([<Optional>] thumbColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] trackColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashRadius: float) =
   class end
 
 /// https://api.flutter.dev/flutter/material/SwitchTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type SwitchTheme [<IsConst; NamedParams>] (data: SwitchThemeData, child: Widget, ?key: Key) =
+type SwitchTheme [<IsConst; NamedParams>] (data: SwitchThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedWidget(child)
 
 /// https://api.flutter.dev/flutter/material/TabBarTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TabBarTheme [<IsConst; NamedParams>] (?indicator: Decoration, ?indicatorSize: TabBarIndicatorSize, ?labelColor: Color, ?labelPadding: EdgeInsetsGeometry, ?labelStyle: TextStyle, ?unselectedLabelColor: Color, ?unselectedLabelStyle: TextStyle, ?overlayColor: MaterialStateProperty<Color option>, ?splashFactory: InteractiveInkFeatureFactory, ?mouseCursor: MaterialStateProperty<MouseCursor option>) =
+type TabBarTheme [<IsConst; NamedParams>] ([<Optional>] indicator: Decoration, [<Optional>] indicatorSize: TabBarIndicatorSize, [<Optional>] labelColor: Color, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] labelStyle: TextStyle, [<Optional>] unselectedLabelColor: Color, [<Optional>] unselectedLabelStyle: TextStyle, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] splashFactory: InteractiveInkFeatureFactory, [<Optional>] mouseCursor: MaterialStateProperty<DartNullable<MouseCursor>>) =
   class end
 
 /// https://api.flutter.dev/flutter/material/TabController-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TabController [<NamedParams>] (length: int, vsync: TickerProvider, ?initialIndex: int, ?animationDuration: TimeSpan) =
+type TabController [<NamedParams>] (length: int, vsync: TickerProvider, [<Optional>] initialIndex: int, [<Optional>] animationDuration: TimeSpan) =
   inherit ChangeNotifier()
 
 /// https://api.flutter.dev/flutter/material/DefaultTabController-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type DefaultTabController [<IsConst; NamedParams>] (length: int, child: Widget, ?key: Key, ?initialIndex: int, ?animationDuration: TimeSpan) =
+type DefaultTabController [<IsConst; NamedParams>] (length: int, child: Widget, [<Optional>] key: Key, [<Optional>] initialIndex: int, [<Optional>] animationDuration: TimeSpan) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/UnderlineTabIndicator-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type UnderlineTabIndicator [<IsConst; NamedParams>] (?borderSide: BorderSide, ?insets: EdgeInsetsGeometry) =
+type UnderlineTabIndicator [<IsConst; NamedParams>] ([<Optional>] borderSide: BorderSide, [<Optional>] insets: EdgeInsetsGeometry) =
   inherit Decoration()
 
 /// https://api.flutter.dev/flutter/material/Tab-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Tab [<IsConst; NamedParams>] (?key: Key, ?text: string, ?icon: Widget, ?iconMargin: EdgeInsetsGeometry, ?height: float, ?child: Widget) =
+type Tab [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] text: string, [<Optional>] icon: Widget, [<Optional>] iconMargin: EdgeInsetsGeometry, [<Optional>] height: float, [<Optional>] child: Widget) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TabBar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TabBar [<IsConst; NamedParams>] (tabs: Widget[], ?key: Key, ?controller: TabController, ?isScrollable: bool, ?padding: EdgeInsetsGeometry, ?indicatorColor: Color, ?automaticIndicatorColorAdjustment: bool, ?indicatorWeight: float, ?indicatorPadding: EdgeInsetsGeometry, ?indicator: Decoration, ?indicatorSize: TabBarIndicatorSize, ?labelColor: Color, ?labelStyle: TextStyle, ?labelPadding: EdgeInsetsGeometry, ?unselectedLabelColor: Color, ?unselectedLabelStyle: TextStyle, ?dragStartBehavior: DragStartBehavior, ?overlayColor: MaterialStateProperty<Color option>, ?mouseCursor: MouseCursor, ?enableFeedback: bool, ?onTap: (int -> unit), ?physics: ScrollPhysics, ?splashFactory: InteractiveInkFeatureFactory, ?splashBorderRadius: BorderRadius) =
+type TabBar [<IsConst; NamedParams>] (tabs: Widget[], [<Optional>] key: Key, [<Optional>] controller: TabController, [<Optional>] isScrollable: bool, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] indicatorColor: Color, [<Optional>] automaticIndicatorColorAdjustment: bool, [<Optional>] indicatorWeight: float, [<Optional>] indicatorPadding: EdgeInsetsGeometry, [<Optional>] indicator: Decoration, [<Optional>] indicatorSize: TabBarIndicatorSize, [<Optional>] labelColor: Color, [<Optional>] labelStyle: TextStyle, [<Optional>] labelPadding: EdgeInsetsGeometry, [<Optional>] unselectedLabelColor: Color, [<Optional>] unselectedLabelStyle: TextStyle, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] overlayColor: MaterialStateProperty<DartNullable<Color>>, [<Optional>] mouseCursor: MouseCursor, [<Optional>] enableFeedback: bool, [<Optional>] onTap: (int -> unit), [<Optional>] physics: ScrollPhysics, [<Optional>] splashFactory: InteractiveInkFeatureFactory, [<Optional>] splashBorderRadius: BorderRadius) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TabBarView-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TabBarView [<IsConst; NamedParams>] (children: Widget[], ?key: Key, ?controller: TabController, ?physics: ScrollPhysics, ?dragStartBehavior: DragStartBehavior, ?viewportFraction: float) =
+type TabBarView [<IsConst; NamedParams>] (children: Widget[], [<Optional>] key: Key, [<Optional>] controller: TabController, [<Optional>] physics: ScrollPhysics, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] viewportFraction: float) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TabPageSelectorIndicator-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TabPageSelectorIndicator [<IsConst; NamedParams>] (backgroundColor: Color, borderColor: Color, size: float, ?key: Key, ?borderStyle: BorderStyle) =
+type TabPageSelectorIndicator [<IsConst; NamedParams>] (backgroundColor: Color, borderColor: Color, size: float, [<Optional>] key: Key, [<Optional>] borderStyle: BorderStyle) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TabPageSelector-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TabPageSelector [<IsConst; NamedParams>] (?key: Key, ?controller: TabController, ?indicatorSize: float, ?color: Color, ?selectedColor: Color, ?borderStyle: BorderStyle) =
+type TabPageSelector [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] controller: TabController, [<Optional>] indicatorSize: float, [<Optional>] color: Color, [<Optional>] selectedColor: Color, [<Optional>] borderStyle: BorderStyle) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TextButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), child: Widget, ?key: Key, ?onLongPress: (unit -> unit), ?onHover: (bool -> unit), ?onFocusChange: (bool -> unit), ?style: ButtonStyle, ?focusNode: FocusNode, ?autofocus: bool, ?clipBehavior: Clip) =
+type TextButton [<IsConst; NamedParams>] (onPressed: (unit -> unit), child: Widget, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHover: (bool -> unit), [<Optional>] onFocusChange: (bool -> unit), [<Optional>] style: ButtonStyle, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] clipBehavior: Clip) =
   inherit ButtonStyleButton(nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly, nativeOnly)
-  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, ?key: Key, ?onLongPress: (unit -> unit), ?onHover: (bool -> unit), ?onFocusChange: (bool -> unit), ?style: ButtonStyle, ?focusNode: FocusNode, ?autofocus: bool, ?clipBehavior: Clip): TextButton = nativeOnly
+  [<NamedParams>] static member icon(onPressed: (unit -> unit), icon: Widget, label: Widget, [<Optional>] key: Key, [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHover: (bool -> unit), [<Optional>] onFocusChange: (bool -> unit), [<Optional>] style: ButtonStyle, [<Optional>] focusNode: FocusNode, [<Optional>] autofocus: bool, [<Optional>] clipBehavior: Clip): TextButton = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/TextButtonThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextButtonThemeData [<IsConst; NamedParams>] (?style: ButtonStyle) =
+type TextButtonThemeData [<IsConst; NamedParams>] ([<Optional>] style: ButtonStyle) =
   class end
 
 /// https://api.flutter.dev/flutter/material/TextButtonTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextButtonTheme [<IsConst; NamedParams>] (data: TextButtonThemeData, child: Widget, ?key: Key) =
+type TextButtonTheme [<IsConst; NamedParams>] (data: TextButtonThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/TextField-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextField [<IsConst; NamedParams>] (?key: Key, ?controller: TextEditingController, ?focusNode: FocusNode, ?decoration: InputDecoration, ?keyboardType: TextInputType, ?textInputAction: TextInputAction, ?textCapitalization: TextCapitalization, ?style: TextStyle, ?strutStyle: StrutStyle, ?textAlign: TextAlign, ?textAlignVertical: TextAlignVertical, ?textDirection: TextDirection, ?readOnly: bool, ?toolbarOptions: ToolbarOptions, ?showCursor: bool, ?autofocus: bool, ?obscuringCharacter: string, ?obscureText: bool, ?autocorrect: bool, ?smartDashesType: SmartDashesType, ?smartQuotesType: SmartQuotesType, ?enableSuggestions: bool, ?maxLines: int, ?minLines: int, ?expands: bool, ?maxLength: int, ?maxLengthEnforcement: MaxLengthEnforcement, ?onChanged: (string -> unit), ?onEditingComplete: (unit -> unit), ?onSubmitted: (string -> unit), ?onAppPrivateCommand: (string -> Dictionary<string, obj> -> unit), ?inputFormatters: TextInputFormatter[], ?enabled: bool, ?cursorWidth: float, ?cursorHeight: float, ?cursorRadius: Radius, ?cursorColor: Color, ?selectionHeightStyle: BoxHeightStyle, ?selectionWidthStyle: BoxWidthStyle, ?keyboardAppearance: Brightness, ?scrollPadding: EdgeInsets, ?dragStartBehavior: DragStartBehavior, ?enableInteractiveSelection: bool, ?selectionControls: TextSelectionControls, ?onTap: (unit -> unit), ?mouseCursor: MouseCursor, ?buildCounter: (BuildContext -> int -> bool -> int option -> Widget option), ?scrollController: ScrollController, ?scrollPhysics: ScrollPhysics, ?autofillHints: string seq, ?clipBehavior: Clip, ?restorationId: string, ?scribbleEnabled: bool, ?enableIMEPersonalizedLearning: bool) =
+type TextField [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] controller: TextEditingController, [<Optional>] focusNode: FocusNode, [<Optional>] decoration: InputDecoration, [<Optional>] keyboardType: TextInputType, [<Optional>] textInputAction: TextInputAction, [<Optional>] textCapitalization: TextCapitalization, [<Optional>] style: TextStyle, [<Optional>] strutStyle: StrutStyle, [<Optional>] textAlign: TextAlign, [<Optional>] textAlignVertical: TextAlignVertical, [<Optional>] textDirection: TextDirection, [<Optional>] readOnly: bool, [<Optional>] toolbarOptions: ToolbarOptions, [<Optional>] showCursor: bool, [<Optional>] autofocus: bool, [<Optional>] obscuringCharacter: string, [<Optional>] obscureText: bool, [<Optional>] autocorrect: bool, [<Optional>] smartDashesType: SmartDashesType, [<Optional>] smartQuotesType: SmartQuotesType, [<Optional>] enableSuggestions: bool, [<Optional>] maxLines: int, [<Optional>] minLines: int, [<Optional>] expands: bool, [<Optional>] maxLength: int, [<Optional>] maxLengthEnforcement: MaxLengthEnforcement, [<Optional>] onChanged: (string -> unit), [<Optional>] onEditingComplete: (unit -> unit), [<Optional>] onSubmitted: (string -> unit), [<Optional>] onAppPrivateCommand: (string -> Dictionary<string, obj> -> unit), [<Optional>] inputFormatters: TextInputFormatter[], [<Optional>] enabled: bool, [<Optional>] cursorWidth: float, [<Optional>] cursorHeight: float, [<Optional>] cursorRadius: Radius, [<Optional>] cursorColor: Color, [<Optional>] selectionHeightStyle: BoxHeightStyle, [<Optional>] selectionWidthStyle: BoxWidthStyle, [<Optional>] keyboardAppearance: Brightness, [<Optional>] scrollPadding: EdgeInsets, [<Optional>] dragStartBehavior: DragStartBehavior, [<Optional>] enableInteractiveSelection: bool, [<Optional>] selectionControls: TextSelectionControls, [<Optional>] onTap: (unit -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] buildCounter: (BuildContext -> int -> bool -> DartNullable<int> -> DartNullable<Widget>), [<Optional>] scrollController: ScrollController, [<Optional>] scrollPhysics: ScrollPhysics, [<Optional>] autofillHints: string seq, [<Optional>] clipBehavior: Clip, [<Optional>] restorationId: string, [<Optional>] scribbleEnabled: bool, [<Optional>] enableIMEPersonalizedLearning: bool) =
   inherit Widget()
   [<IsConst>] static member noMaxLength: int = nativeOnly
 
 /// https://api.flutter.dev/flutter/material/TextFormField-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextFormField [<NamedParams>] (?key: Key, ?controller: TextEditingController, ?initialValue: string, ?focusNode: FocusNode, ?decoration: InputDecoration, ?keyboardType: TextInputType, ?textCapitalization: TextCapitalization, ?textInputAction: TextInputAction, ?style: TextStyle, ?strutStyle: StrutStyle, ?textDirection: TextDirection, ?textAlign: TextAlign, ?textAlignVertical: TextAlignVertical, ?autofocus: bool, ?readOnly: bool, ?toolbarOptions: ToolbarOptions, ?showCursor: bool, ?obscuringCharacter: string, ?obscureText: bool, ?autocorrect: bool, ?smartDashesType: SmartDashesType, ?smartQuotesType: SmartQuotesType, ?enableSuggestions: bool, ?maxLengthEnforcement: MaxLengthEnforcement, ?maxLines: int, ?minLines: int, ?expands: bool, ?maxLength: int, ?onChanged: (string -> unit), ?onTap: (unit -> unit), ?onEditingComplete: (unit -> unit), ?onFieldSubmitted: (string -> unit), ?onSaved: (string option -> unit), ?validator: (string option -> string option), ?inputFormatters: TextInputFormatter[], ?enabled: bool, ?cursorWidth: float, ?cursorHeight: float, ?cursorRadius: Radius, ?cursorColor: Color, ?keyboardAppearance: Brightness, ?scrollPadding: EdgeInsets, ?enableInteractiveSelection: bool, ?selectionControls: TextSelectionControls, ?buildCounter: (BuildContext -> int -> bool -> int option -> Widget option), ?scrollPhysics: ScrollPhysics, ?autofillHints: string seq, ?autovalidateMode: AutovalidateMode, ?scrollController: ScrollController, ?restorationId: string, ?enableIMEPersonalizedLearning: bool, ?mouseCursor: MouseCursor) =
+type TextFormField [<NamedParams>] ([<Optional>] key: Key, [<Optional>] controller: TextEditingController, [<Optional>] initialValue: string, [<Optional>] focusNode: FocusNode, [<Optional>] decoration: InputDecoration, [<Optional>] keyboardType: TextInputType, [<Optional>] textCapitalization: TextCapitalization, [<Optional>] textInputAction: TextInputAction, [<Optional>] style: TextStyle, [<Optional>] strutStyle: StrutStyle, [<Optional>] textDirection: TextDirection, [<Optional>] textAlign: TextAlign, [<Optional>] textAlignVertical: TextAlignVertical, [<Optional>] autofocus: bool, [<Optional>] readOnly: bool, [<Optional>] toolbarOptions: ToolbarOptions, [<Optional>] showCursor: bool, [<Optional>] obscuringCharacter: string, [<Optional>] obscureText: bool, [<Optional>] autocorrect: bool, [<Optional>] smartDashesType: SmartDashesType, [<Optional>] smartQuotesType: SmartQuotesType, [<Optional>] enableSuggestions: bool, [<Optional>] maxLengthEnforcement: MaxLengthEnforcement, [<Optional>] maxLines: int, [<Optional>] minLines: int, [<Optional>] expands: bool, [<Optional>] maxLength: int, [<Optional>] onChanged: (string -> unit), [<Optional>] onTap: (unit -> unit), [<Optional>] onEditingComplete: (unit -> unit), [<Optional>] onFieldSubmitted: (string -> unit), [<Optional>] onSaved: (DartNullable<string> -> unit), [<Optional>] validator: (DartNullable<string> -> DartNullable<string>), [<Optional>] inputFormatters: TextInputFormatter[], [<Optional>] enabled: bool, [<Optional>] cursorWidth: float, [<Optional>] cursorHeight: float, [<Optional>] cursorRadius: Radius, [<Optional>] cursorColor: Color, [<Optional>] keyboardAppearance: Brightness, [<Optional>] scrollPadding: EdgeInsets, [<Optional>] enableInteractiveSelection: bool, [<Optional>] selectionControls: TextSelectionControls, [<Optional>] buildCounter: (BuildContext -> int -> bool -> DartNullable<int> -> DartNullable<Widget>), [<Optional>] scrollPhysics: ScrollPhysics, [<Optional>] autofillHints: string seq, [<Optional>] autovalidateMode: AutovalidateMode, [<Optional>] scrollController: ScrollController, [<Optional>] restorationId: string, [<Optional>] enableIMEPersonalizedLearning: bool, [<Optional>] mouseCursor: MouseCursor) =
   inherit FormField<string>(nativeOnly)
 
 /// https://api.flutter.dev/flutter/material/MaterialTextSelectionControls-class.html
@@ -10527,49 +10528,49 @@ type MaterialTextSelectionControls () =
 
 /// https://api.flutter.dev/flutter/material/TextSelectionThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextSelectionThemeData [<IsConst; NamedParams>] (?cursorColor: Color, ?selectionColor: Color, ?selectionHandleColor: Color) =
+type TextSelectionThemeData [<IsConst; NamedParams>] ([<Optional>] cursorColor: Color, [<Optional>] selectionColor: Color, [<Optional>] selectionHandleColor: Color) =
   class end
 
 /// https://api.flutter.dev/flutter/material/TextSelectionTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextSelectionTheme [<IsConst; NamedParams>] (data: TextSelectionThemeData, child: Widget, ?key: Key) =
+type TextSelectionTheme [<IsConst; NamedParams>] (data: TextSelectionThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/TextSelectionToolbar-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextSelectionToolbar [<IsConst; NamedParams>] (anchorAbove: Offset, anchorBelow: Offset, children: Widget[], ?key: Key, ?toolbarBuilder: (BuildContext -> Widget -> Widget)) =
+type TextSelectionToolbar [<IsConst; NamedParams>] (anchorAbove: Offset, anchorBelow: Offset, children: Widget[], [<Optional>] key: Key, [<Optional>] toolbarBuilder: (BuildContext -> Widget -> Widget)) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TextSelectionToolbarTextButton-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextSelectionToolbarTextButton [<IsConst; NamedParams>] (child: Widget, padding: EdgeInsets, ?key: Key, ?onPressed: (unit -> unit)) =
+type TextSelectionToolbarTextButton [<IsConst; NamedParams>] (child: Widget, padding: EdgeInsets, [<Optional>] key: Key, [<Optional>] onPressed: (unit -> unit)) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TextTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TextTheme [<IsConst; NamedParams>] (?displayLarge: TextStyle, ?displayMedium: TextStyle, ?displaySmall: TextStyle, ?headlineLarge: TextStyle, ?headlineMedium: TextStyle, ?headlineSmall: TextStyle, ?titleLarge: TextStyle, ?titleMedium: TextStyle, ?titleSmall: TextStyle, ?bodyLarge: TextStyle, ?bodyMedium: TextStyle, ?bodySmall: TextStyle, ?labelLarge: TextStyle, ?labelMedium: TextStyle, ?labelSmall: TextStyle, ?headline1: TextStyle, ?headline2: TextStyle, ?headline3: TextStyle, ?headline4: TextStyle, ?headline5: TextStyle, ?headline6: TextStyle, ?subtitle1: TextStyle, ?subtitle2: TextStyle, ?bodyText1: TextStyle, ?bodyText2: TextStyle, ?caption: TextStyle, ?button: TextStyle, ?overline: TextStyle) =
+type TextTheme [<IsConst; NamedParams>] ([<Optional>] displayLarge: TextStyle, [<Optional>] displayMedium: TextStyle, [<Optional>] displaySmall: TextStyle, [<Optional>] headlineLarge: TextStyle, [<Optional>] headlineMedium: TextStyle, [<Optional>] headlineSmall: TextStyle, [<Optional>] titleLarge: TextStyle, [<Optional>] titleMedium: TextStyle, [<Optional>] titleSmall: TextStyle, [<Optional>] bodyLarge: TextStyle, [<Optional>] bodyMedium: TextStyle, [<Optional>] bodySmall: TextStyle, [<Optional>] labelLarge: TextStyle, [<Optional>] labelMedium: TextStyle, [<Optional>] labelSmall: TextStyle, [<Optional>] headline1: TextStyle, [<Optional>] headline2: TextStyle, [<Optional>] headline3: TextStyle, [<Optional>] headline4: TextStyle, [<Optional>] headline5: TextStyle, [<Optional>] headline6: TextStyle, [<Optional>] subtitle1: TextStyle, [<Optional>] subtitle2: TextStyle, [<Optional>] bodyText1: TextStyle, [<Optional>] bodyText2: TextStyle, [<Optional>] caption: TextStyle, [<Optional>] button: TextStyle, [<Optional>] overline: TextStyle) =
   class end
 
 /// https://api.flutter.dev/flutter/material/Theme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Theme [<IsConst; NamedParams>] (data: ThemeData, child: Widget, ?key: Key) =
+type Theme [<IsConst; NamedParams>] (data: ThemeData, child: Widget, [<Optional>] key: Key) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ThemeDataTween-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ThemeDataTween [<NamedParams>] (?``begin``: ThemeData, ?``end``: ThemeData) =
+type ThemeDataTween [<NamedParams>] ([<Optional>] ``begin``: ThemeData, [<Optional>] ``end``: ThemeData) =
   inherit Tween<ThemeData>()
 
 /// https://api.flutter.dev/flutter/material/AnimatedTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type AnimatedTheme [<IsConst; NamedParams>] (data: ThemeData, child: Widget, ?key: Key, ?curve: Curve, ?duration: TimeSpan, ?onEnd: (unit -> unit)) =
+type AnimatedTheme [<IsConst; NamedParams>] (data: ThemeData, child: Widget, [<Optional>] key: Key, [<Optional>] curve: Curve, [<Optional>] duration: TimeSpan, [<Optional>] onEnd: (unit -> unit)) =
   inherit ImplicitlyAnimatedWidget(nativeOnly)
 
 /// https://api.flutter.dev/flutter/material/ThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ThemeData [<NamedParams>] (?applyElevationOverlayColor: bool, (*?cupertinoOverrideTheme: NoDefaultCupertinoThemeData,*) ?extensions: ThemeExtension<obj> seq, ?inputDecorationTheme: InputDecorationTheme, ?materialTapTargetSize: MaterialTapTargetSize, ?pageTransitionsTheme: PageTransitionsTheme, ?platform: TargetPlatform, ?scrollbarTheme: ScrollbarThemeData, ?splashFactory: InteractiveInkFeatureFactory, ?visualDensity: VisualDensity, ?useMaterial3: bool, ?colorScheme: ColorScheme, ?colorSchemeSeed: Color, ?brightness: Brightness, ?primarySwatch: MaterialColor, ?primaryColor: Color, ?primaryColorLight: Color, ?primaryColorDark: Color, ?focusColor: Color, ?hoverColor: Color, ?shadowColor: Color, ?canvasColor: Color, ?scaffoldBackgroundColor: Color, ?bottomAppBarColor: Color, ?cardColor: Color, ?dividerColor: Color, ?highlightColor: Color, ?splashColor: Color, ?selectedRowColor: Color, ?unselectedWidgetColor: Color, ?disabledColor: Color, ?secondaryHeaderColor: Color, ?backgroundColor: Color, ?dialogBackgroundColor: Color, ?indicatorColor: Color, ?hintColor: Color, ?errorColor: Color, ?toggleableActiveColor: Color, ?fontFamily: string, ?typography: Typography, ?textTheme: TextTheme, ?primaryTextTheme: TextTheme, ?iconTheme: IconThemeData, ?primaryIconTheme: IconThemeData, ?appBarTheme: AppBarTheme, ?bannerTheme: MaterialBannerThemeData, ?bottomAppBarTheme: BottomAppBarTheme, ?bottomNavigationBarTheme: BottomNavigationBarThemeData, ?bottomSheetTheme: BottomSheetThemeData, ?buttonBarTheme: ButtonBarThemeData, ?buttonTheme: ButtonThemeData, ?cardTheme: CardTheme, ?checkboxTheme: CheckboxThemeData, ?chipTheme: ChipThemeData, ?dataTableTheme: DataTableThemeData, ?dialogTheme: DialogTheme, ?dividerTheme: DividerThemeData, ?drawerTheme: DrawerThemeData, ?elevatedButtonTheme: ElevatedButtonThemeData, ?floatingActionButtonTheme: FloatingActionButtonThemeData, ?listTileTheme: ListTileThemeData, ?navigationBarTheme: NavigationBarThemeData, ?navigationRailTheme: NavigationRailThemeData, ?outlinedButtonTheme: OutlinedButtonThemeData, ?popupMenuTheme: PopupMenuThemeData, ?progressIndicatorTheme: ProgressIndicatorThemeData, ?radioTheme: RadioThemeData, ?sliderTheme: SliderThemeData, ?snackBarTheme: SnackBarThemeData, ?switchTheme: SwitchThemeData, ?tabBarTheme: TabBarTheme, ?textButtonTheme: TextButtonThemeData, ?textSelectionTheme: TextSelectionThemeData, ?timePickerTheme: TimePickerThemeData, ?toggleButtonsTheme: ToggleButtonsThemeData, ?tooltipTheme: TooltipThemeData, ?expansionTileTheme: ExpansionTileThemeData, ?useTextSelectionTheme: bool, ?textSelectionColor: Color, ?cursorColor: Color, ?textSelectionHandleColor: Color, ?accentColor: Color, ?accentColorBrightness: Brightness, ?accentTextTheme: TextTheme, ?accentIconTheme: IconThemeData, ?buttonColor: Color, ?fixTextFieldOutlineLabel: bool, ?primaryColorBrightness: Brightness, ?androidOverscrollIndicator: AndroidOverscrollIndicator) =
-  // [<IsConst; NamedParams>] static member raw(applyElevationOverlayColor: bool, cupertinoOverrideTheme: NoDefaultCupertinoThemeData option, extensions: Dictionary<obj, ThemeExtension<obj>>, inputDecorationTheme: InputDecorationTheme, materialTapTargetSize: MaterialTapTargetSize, pageTransitionsTheme: PageTransitionsTheme, platform: TargetPlatform, scrollbarTheme: ScrollbarThemeData, splashFactory: InteractiveInkFeatureFactory, visualDensity: VisualDensity, useMaterial3: bool, colorScheme: ColorScheme, primaryColor: Color, primaryColorLight: Color, primaryColorDark: Color, focusColor: Color, hoverColor: Color, shadowColor: Color, canvasColor: Color, scaffoldBackgroundColor: Color, bottomAppBarColor: Color, cardColor: Color, dividerColor: Color, highlightColor: Color, splashColor: Color, selectedRowColor: Color, unselectedWidgetColor: Color, disabledColor: Color, secondaryHeaderColor: Color, backgroundColor: Color, dialogBackgroundColor: Color, indicatorColor: Color, hintColor: Color, errorColor: Color, toggleableActiveColor: Color, typography: Typography, textTheme: TextTheme, primaryTextTheme: TextTheme, iconTheme: IconThemeData, primaryIconTheme: IconThemeData, appBarTheme: AppBarTheme, bannerTheme: MaterialBannerThemeData, bottomAppBarTheme: BottomAppBarTheme, bottomNavigationBarTheme: BottomNavigationBarThemeData, bottomSheetTheme: BottomSheetThemeData, buttonBarTheme: ButtonBarThemeData, buttonTheme: ButtonThemeData, cardTheme: CardTheme, checkboxTheme: CheckboxThemeData, chipTheme: ChipThemeData, dataTableTheme: DataTableThemeData, dialogTheme: DialogTheme, dividerTheme: DividerThemeData, drawerTheme: DrawerThemeData, elevatedButtonTheme: ElevatedButtonThemeData, floatingActionButtonTheme: FloatingActionButtonThemeData, listTileTheme: ListTileThemeData, navigationBarTheme: NavigationBarThemeData, navigationRailTheme: NavigationRailThemeData, outlinedButtonTheme: OutlinedButtonThemeData, popupMenuTheme: PopupMenuThemeData, progressIndicatorTheme: ProgressIndicatorThemeData, radioTheme: RadioThemeData, sliderTheme: SliderThemeData, snackBarTheme: SnackBarThemeData, switchTheme: SwitchThemeData, tabBarTheme: TabBarTheme, textButtonTheme: TextButtonThemeData, textSelectionTheme: TextSelectionThemeData, timePickerTheme: TimePickerThemeData, toggleButtonsTheme: ToggleButtonsThemeData, tooltipTheme: TooltipThemeData, expansionTileTheme: ExpansionTileThemeData, useTextSelectionTheme: bool, textSelectionColor: Color, cursorColor: Color, textSelectionHandleColor: Color, accentColor: Color, accentColorBrightness: Brightness, accentTextTheme: TextTheme, accentIconTheme: IconThemeData, buttonColor: Color, fixTextFieldOutlineLabel: bool, primaryColorBrightness: Brightness, androidOverscrollIndicator: AndroidOverscrollIndicator option): ThemeData = nativeOnly
-  [<NamedParams>] static member from(colorScheme: ColorScheme, ?textTheme: TextTheme, ?useMaterial3: bool): ThemeData = nativeOnly
+type ThemeData [<NamedParams>] ([<Optional>] applyElevationOverlayColor: bool, (*[<Optional>] cupertinoOverrideTheme: NoDefaultCupertinoThemeData,*) [<Optional>] extensions: ThemeExtension<obj> seq, [<Optional>] inputDecorationTheme: InputDecorationTheme, [<Optional>] materialTapTargetSize: MaterialTapTargetSize, [<Optional>] pageTransitionsTheme: PageTransitionsTheme, [<Optional>] platform: TargetPlatform, [<Optional>] scrollbarTheme: ScrollbarThemeData, [<Optional>] splashFactory: InteractiveInkFeatureFactory, [<Optional>] visualDensity: VisualDensity, [<Optional>] useMaterial3: bool, [<Optional>] colorScheme: ColorScheme, [<Optional>] colorSchemeSeed: Color, [<Optional>] brightness: Brightness, [<Optional>] primarySwatch: MaterialColor, [<Optional>] primaryColor: Color, [<Optional>] primaryColorLight: Color, [<Optional>] primaryColorDark: Color, [<Optional>] focusColor: Color, [<Optional>] hoverColor: Color, [<Optional>] shadowColor: Color, [<Optional>] canvasColor: Color, [<Optional>] scaffoldBackgroundColor: Color, [<Optional>] bottomAppBarColor: Color, [<Optional>] cardColor: Color, [<Optional>] dividerColor: Color, [<Optional>] highlightColor: Color, [<Optional>] splashColor: Color, [<Optional>] selectedRowColor: Color, [<Optional>] unselectedWidgetColor: Color, [<Optional>] disabledColor: Color, [<Optional>] secondaryHeaderColor: Color, [<Optional>] backgroundColor: Color, [<Optional>] dialogBackgroundColor: Color, [<Optional>] indicatorColor: Color, [<Optional>] hintColor: Color, [<Optional>] errorColor: Color, [<Optional>] toggleableActiveColor: Color, [<Optional>] fontFamily: string, [<Optional>] typography: Typography, [<Optional>] textTheme: TextTheme, [<Optional>] primaryTextTheme: TextTheme, [<Optional>] iconTheme: IconThemeData, [<Optional>] primaryIconTheme: IconThemeData, [<Optional>] appBarTheme: AppBarTheme, [<Optional>] bannerTheme: MaterialBannerThemeData, [<Optional>] bottomAppBarTheme: BottomAppBarTheme, [<Optional>] bottomNavigationBarTheme: BottomNavigationBarThemeData, [<Optional>] bottomSheetTheme: BottomSheetThemeData, [<Optional>] buttonBarTheme: ButtonBarThemeData, [<Optional>] buttonTheme: ButtonThemeData, [<Optional>] cardTheme: CardTheme, [<Optional>] checkboxTheme: CheckboxThemeData, [<Optional>] chipTheme: ChipThemeData, [<Optional>] dataTableTheme: DataTableThemeData, [<Optional>] dialogTheme: DialogTheme, [<Optional>] dividerTheme: DividerThemeData, [<Optional>] drawerTheme: DrawerThemeData, [<Optional>] elevatedButtonTheme: ElevatedButtonThemeData, [<Optional>] floatingActionButtonTheme: FloatingActionButtonThemeData, [<Optional>] listTileTheme: ListTileThemeData, [<Optional>] navigationBarTheme: NavigationBarThemeData, [<Optional>] navigationRailTheme: NavigationRailThemeData, [<Optional>] outlinedButtonTheme: OutlinedButtonThemeData, [<Optional>] popupMenuTheme: PopupMenuThemeData, [<Optional>] progressIndicatorTheme: ProgressIndicatorThemeData, [<Optional>] radioTheme: RadioThemeData, [<Optional>] sliderTheme: SliderThemeData, [<Optional>] snackBarTheme: SnackBarThemeData, [<Optional>] switchTheme: SwitchThemeData, [<Optional>] tabBarTheme: TabBarTheme, [<Optional>] textButtonTheme: TextButtonThemeData, [<Optional>] textSelectionTheme: TextSelectionThemeData, [<Optional>] timePickerTheme: TimePickerThemeData, [<Optional>] toggleButtonsTheme: ToggleButtonsThemeData, [<Optional>] tooltipTheme: TooltipThemeData, [<Optional>] expansionTileTheme: ExpansionTileThemeData, [<Optional>] useTextSelectionTheme: bool, [<Optional>] textSelectionColor: Color, [<Optional>] cursorColor: Color, [<Optional>] textSelectionHandleColor: Color, [<Optional>] accentColor: Color, [<Optional>] accentColorBrightness: Brightness, [<Optional>] accentTextTheme: TextTheme, [<Optional>] accentIconTheme: IconThemeData, [<Optional>] buttonColor: Color, [<Optional>] fixTextFieldOutlineLabel: bool, [<Optional>] primaryColorBrightness: Brightness, [<Optional>] androidOverscrollIndicator: AndroidOverscrollIndicator) =
+  // [<IsConst; NamedParams>] static member raw(applyElevationOverlayColor: bool, cupertinoOverrideTheme: DartNullable<NoDefaultCupertinoThemeData>, extensions: Dictionary<obj, ThemeExtension<obj>>, inputDecorationTheme: InputDecorationTheme, materialTapTargetSize: MaterialTapTargetSize, pageTransitionsTheme: PageTransitionsTheme, platform: TargetPlatform, scrollbarTheme: ScrollbarThemeData, splashFactory: InteractiveInkFeatureFactory, visualDensity: VisualDensity, useMaterial3: bool, colorScheme: ColorScheme, primaryColor: Color, primaryColorLight: Color, primaryColorDark: Color, focusColor: Color, hoverColor: Color, shadowColor: Color, canvasColor: Color, scaffoldBackgroundColor: Color, bottomAppBarColor: Color, cardColor: Color, dividerColor: Color, highlightColor: Color, splashColor: Color, selectedRowColor: Color, unselectedWidgetColor: Color, disabledColor: Color, secondaryHeaderColor: Color, backgroundColor: Color, dialogBackgroundColor: Color, indicatorColor: Color, hintColor: Color, errorColor: Color, toggleableActiveColor: Color, typography: Typography, textTheme: TextTheme, primaryTextTheme: TextTheme, iconTheme: IconThemeData, primaryIconTheme: IconThemeData, appBarTheme: AppBarTheme, bannerTheme: MaterialBannerThemeData, bottomAppBarTheme: BottomAppBarTheme, bottomNavigationBarTheme: BottomNavigationBarThemeData, bottomSheetTheme: BottomSheetThemeData, buttonBarTheme: ButtonBarThemeData, buttonTheme: ButtonThemeData, cardTheme: CardTheme, checkboxTheme: CheckboxThemeData, chipTheme: ChipThemeData, dataTableTheme: DataTableThemeData, dialogTheme: DialogTheme, dividerTheme: DividerThemeData, drawerTheme: DrawerThemeData, elevatedButtonTheme: ElevatedButtonThemeData, floatingActionButtonTheme: FloatingActionButtonThemeData, listTileTheme: ListTileThemeData, navigationBarTheme: NavigationBarThemeData, navigationRailTheme: NavigationRailThemeData, outlinedButtonTheme: OutlinedButtonThemeData, popupMenuTheme: PopupMenuThemeData, progressIndicatorTheme: ProgressIndicatorThemeData, radioTheme: RadioThemeData, sliderTheme: SliderThemeData, snackBarTheme: SnackBarThemeData, switchTheme: SwitchThemeData, tabBarTheme: TabBarTheme, textButtonTheme: TextButtonThemeData, textSelectionTheme: TextSelectionThemeData, timePickerTheme: TimePickerThemeData, toggleButtonsTheme: ToggleButtonsThemeData, tooltipTheme: TooltipThemeData, expansionTileTheme: ExpansionTileThemeData, useTextSelectionTheme: bool, textSelectionColor: Color, cursorColor: Color, textSelectionHandleColor: Color, accentColor: Color, accentColorBrightness: Brightness, accentTextTheme: TextTheme, accentIconTheme: IconThemeData, buttonColor: Color, fixTextFieldOutlineLabel: bool, primaryColorBrightness: Brightness, androidOverscrollIndicator: DartNullable<AndroidOverscrollIndicator>): ThemeData = nativeOnly
+  [<NamedParams>] static member from(colorScheme: ColorScheme, [<Optional>] textTheme: TextTheme, [<Optional>] useMaterial3: bool): ThemeData = nativeOnly
   static member light(): ThemeData = nativeOnly
   static member dark(): ThemeData = nativeOnly
   static member fallback(): ThemeData = nativeOnly
@@ -10586,7 +10587,7 @@ type ThemeExtension<'T> [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/material/VisualDensity-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type VisualDensity [<IsConst; NamedParams>] (?horizontal: float, ?vertical: float) =
+type VisualDensity [<IsConst; NamedParams>] ([<Optional>] horizontal: float, [<Optional>] vertical: float) =
   [<IsConst>] static member minimumDensity: float = nativeOnly
   [<IsConst>] static member maximumDensity: float = nativeOnly
   [<IsConst>] static member standard: VisualDensity = nativeOnly
@@ -10609,32 +10610,32 @@ type RestorableTimeOfDay (defaultValue: TimeOfDay) =
 
 /// https://api.flutter.dev/flutter/material/TimePickerDialog-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TimePickerDialog [<IsConst; NamedParams>] (initialTime: TimeOfDay, ?key: Key, ?cancelText: string, ?confirmText: string, ?helpText: string, ?errorInvalidText: string, ?hourLabelText: string, ?minuteLabelText: string, ?restorationId: string, ?initialEntryMode: TimePickerEntryMode, ?onEntryModeChanged: (TimePickerEntryMode -> unit)) =
+type TimePickerDialog [<IsConst; NamedParams>] (initialTime: TimeOfDay, [<Optional>] key: Key, [<Optional>] cancelText: string, [<Optional>] confirmText: string, [<Optional>] helpText: string, [<Optional>] errorInvalidText: string, [<Optional>] hourLabelText: string, [<Optional>] minuteLabelText: string, [<Optional>] restorationId: string, [<Optional>] initialEntryMode: TimePickerEntryMode, [<Optional>] onEntryModeChanged: (TimePickerEntryMode -> unit)) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TimePickerThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TimePickerThemeData [<IsConst; NamedParams>] (?backgroundColor: Color, ?hourMinuteTextColor: Color, ?hourMinuteColor: Color, ?dayPeriodTextColor: Color, ?dayPeriodColor: Color, ?dialHandColor: Color, ?dialBackgroundColor: Color, ?dialTextColor: Color, ?entryModeIconColor: Color, ?hourMinuteTextStyle: TextStyle, ?dayPeriodTextStyle: TextStyle, ?helpTextStyle: TextStyle, ?shape: ShapeBorder, ?hourMinuteShape: ShapeBorder, ?dayPeriodShape: OutlinedBorder, ?dayPeriodBorderSide: BorderSide, ?inputDecorationTheme: InputDecorationTheme) =
+type TimePickerThemeData [<IsConst; NamedParams>] ([<Optional>] backgroundColor: Color, [<Optional>] hourMinuteTextColor: Color, [<Optional>] hourMinuteColor: Color, [<Optional>] dayPeriodTextColor: Color, [<Optional>] dayPeriodColor: Color, [<Optional>] dialHandColor: Color, [<Optional>] dialBackgroundColor: Color, [<Optional>] dialTextColor: Color, [<Optional>] entryModeIconColor: Color, [<Optional>] hourMinuteTextStyle: TextStyle, [<Optional>] dayPeriodTextStyle: TextStyle, [<Optional>] helpTextStyle: TextStyle, [<Optional>] shape: ShapeBorder, [<Optional>] hourMinuteShape: ShapeBorder, [<Optional>] dayPeriodShape: OutlinedBorder, [<Optional>] dayPeriodBorderSide: BorderSide, [<Optional>] inputDecorationTheme: InputDecorationTheme) =
   class end
 
 /// https://api.flutter.dev/flutter/material/TimePickerTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TimePickerTheme [<IsConst; NamedParams>] (data: TimePickerThemeData, child: Widget, ?key: Key) =
+type TimePickerTheme [<IsConst; NamedParams>] (data: TimePickerThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/ToggleButtons-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ToggleButtons [<IsConst; NamedParams>] (children: Widget[], isSelected: bool[], ?key: Key, ?onPressed: (int -> unit), ?mouseCursor: MouseCursor, ?tapTargetSize: MaterialTapTargetSize, ?textStyle: TextStyle, ?constraints: BoxConstraints, ?color: Color, ?selectedColor: Color, ?disabledColor: Color, ?fillColor: Color, ?focusColor: Color, ?highlightColor: Color, ?hoverColor: Color, ?splashColor: Color, ?focusNodes: FocusNode[], ?renderBorder: bool, ?borderColor: Color, ?selectedBorderColor: Color, ?disabledBorderColor: Color, ?borderRadius: BorderRadius, ?borderWidth: float, ?direction: Axis, ?verticalDirection: VerticalDirection) =
+type ToggleButtons [<IsConst; NamedParams>] (children: Widget[], isSelected: bool[], [<Optional>] key: Key, [<Optional>] onPressed: (int -> unit), [<Optional>] mouseCursor: MouseCursor, [<Optional>] tapTargetSize: MaterialTapTargetSize, [<Optional>] textStyle: TextStyle, [<Optional>] constraints: BoxConstraints, [<Optional>] color: Color, [<Optional>] selectedColor: Color, [<Optional>] disabledColor: Color, [<Optional>] fillColor: Color, [<Optional>] focusColor: Color, [<Optional>] highlightColor: Color, [<Optional>] hoverColor: Color, [<Optional>] splashColor: Color, [<Optional>] focusNodes: FocusNode[], [<Optional>] renderBorder: bool, [<Optional>] borderColor: Color, [<Optional>] selectedBorderColor: Color, [<Optional>] disabledBorderColor: Color, [<Optional>] borderRadius: BorderRadius, [<Optional>] borderWidth: float, [<Optional>] direction: Axis, [<Optional>] verticalDirection: VerticalDirection) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/ToggleButtonsThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ToggleButtonsThemeData [<IsConst; NamedParams>] (?textStyle: TextStyle, ?constraints: BoxConstraints, ?color: Color, ?selectedColor: Color, ?disabledColor: Color, ?fillColor: Color, ?focusColor: Color, ?highlightColor: Color, ?hoverColor: Color, ?splashColor: Color, ?borderColor: Color, ?selectedBorderColor: Color, ?disabledBorderColor: Color, ?borderRadius: BorderRadius, ?borderWidth: float) =
+type ToggleButtonsThemeData [<IsConst; NamedParams>] ([<Optional>] textStyle: TextStyle, [<Optional>] constraints: BoxConstraints, [<Optional>] color: Color, [<Optional>] selectedColor: Color, [<Optional>] disabledColor: Color, [<Optional>] fillColor: Color, [<Optional>] focusColor: Color, [<Optional>] highlightColor: Color, [<Optional>] hoverColor: Color, [<Optional>] splashColor: Color, [<Optional>] borderColor: Color, [<Optional>] selectedBorderColor: Color, [<Optional>] disabledBorderColor: Color, [<Optional>] borderRadius: BorderRadius, [<Optional>] borderWidth: float) =
   class end
 
 /// https://api.flutter.dev/flutter/material/ToggleButtonsTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type ToggleButtonsTheme [<IsConst; NamedParams>] (data: ToggleButtonsThemeData, child: Widget, ?key: Key) =
+type ToggleButtonsTheme [<IsConst; NamedParams>] (data: ToggleButtonsThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/ToggleablePainter-class.html
@@ -10644,7 +10645,7 @@ type ToggleablePainter () =
 
 /// https://api.flutter.dev/flutter/material/Tooltip-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Tooltip [<IsConst; NamedParams>] (?key: Key, ?message: string, ?richMessage: InlineSpan, ?height: float, ?padding: EdgeInsetsGeometry, ?margin: EdgeInsetsGeometry, ?verticalOffset: float, ?preferBelow: bool, ?excludeFromSemantics: bool, ?decoration: Decoration, ?textStyle: TextStyle, ?waitDuration: TimeSpan, ?showDuration: TimeSpan, ?child: Widget, ?triggerMode: TooltipTriggerMode, ?enableFeedback: bool) =
+type Tooltip [<IsConst; NamedParams>] ([<Optional>] key: Key, [<Optional>] message: string, [<Optional>] richMessage: InlineSpan, [<Optional>] height: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] margin: EdgeInsetsGeometry, [<Optional>] verticalOffset: float, [<Optional>] preferBelow: bool, [<Optional>] excludeFromSemantics: bool, [<Optional>] decoration: Decoration, [<Optional>] textStyle: TextStyle, [<Optional>] waitDuration: TimeSpan, [<Optional>] showDuration: TimeSpan, [<Optional>] child: Widget, [<Optional>] triggerMode: TooltipTriggerMode, [<Optional>] enableFeedback: bool) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/TooltipState-class.html
@@ -10654,25 +10655,25 @@ type TooltipState () =
 
 /// https://api.flutter.dev/flutter/material/TooltipThemeData-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TooltipThemeData [<IsConst; NamedParams>] (?height: float, ?padding: EdgeInsetsGeometry, ?margin: EdgeInsetsGeometry, ?verticalOffset: float, ?preferBelow: bool, ?excludeFromSemantics: bool, ?decoration: Decoration, ?textStyle: TextStyle, ?waitDuration: TimeSpan, ?showDuration: TimeSpan, ?triggerMode: TooltipTriggerMode, ?enableFeedback: bool) =
+type TooltipThemeData [<IsConst; NamedParams>] ([<Optional>] height: float, [<Optional>] padding: EdgeInsetsGeometry, [<Optional>] margin: EdgeInsetsGeometry, [<Optional>] verticalOffset: float, [<Optional>] preferBelow: bool, [<Optional>] excludeFromSemantics: bool, [<Optional>] decoration: Decoration, [<Optional>] textStyle: TextStyle, [<Optional>] waitDuration: TimeSpan, [<Optional>] showDuration: TimeSpan, [<Optional>] triggerMode: TooltipTriggerMode, [<Optional>] enableFeedback: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/material/TooltipTheme-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TooltipTheme [<IsConst; NamedParams>] (data: TooltipThemeData, child: Widget, ?key: Key) =
+type TooltipTheme [<IsConst; NamedParams>] (data: TooltipThemeData, child: Widget, [<Optional>] key: Key) =
   inherit InheritedTheme(child)
 
 /// https://api.flutter.dev/flutter/material/TooltipVisibility-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type TooltipVisibility [<IsConst; NamedParams>] (visible: bool, child: Widget, ?key: Key) =
+type TooltipVisibility [<IsConst; NamedParams>] (visible: bool, child: Widget, [<Optional>] key: Key) =
   inherit Widget()
 
 /// https://api.flutter.dev/flutter/material/Typography-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type Typography [<NamedParams>] (?platform: TargetPlatform, ?black: TextTheme, ?white: TextTheme, ?englishLike: TextTheme, ?dense: TextTheme, ?tall: TextTheme) =
-  [<NamedParams>] static member material2014(?platform: TargetPlatform, ?black: TextTheme, ?white: TextTheme, ?englishLike: TextTheme, ?dense: TextTheme, ?tall: TextTheme): Typography = nativeOnly
-  [<NamedParams>] static member material2018(?platform: TargetPlatform, ?black: TextTheme, ?white: TextTheme, ?englishLike: TextTheme, ?dense: TextTheme, ?tall: TextTheme): Typography = nativeOnly
-  [<NamedParams>] static member material2021(?platform: TargetPlatform, ?black: TextTheme, ?white: TextTheme, ?englishLike: TextTheme, ?dense: TextTheme, ?tall: TextTheme): Typography = nativeOnly
+type Typography [<NamedParams>] ([<Optional>] platform: TargetPlatform, [<Optional>] black: TextTheme, [<Optional>] white: TextTheme, [<Optional>] englishLike: TextTheme, [<Optional>] dense: TextTheme, [<Optional>] tall: TextTheme) =
+  [<NamedParams>] static member material2014([<Optional>] platform: TargetPlatform, [<Optional>] black: TextTheme, [<Optional>] white: TextTheme, [<Optional>] englishLike: TextTheme, [<Optional>] dense: TextTheme, [<Optional>] tall: TextTheme): Typography = nativeOnly
+  [<NamedParams>] static member material2018([<Optional>] platform: TargetPlatform, [<Optional>] black: TextTheme, [<Optional>] white: TextTheme, [<Optional>] englishLike: TextTheme, [<Optional>] dense: TextTheme, [<Optional>] tall: TextTheme): Typography = nativeOnly
+  [<NamedParams>] static member material2021([<Optional>] platform: TargetPlatform, [<Optional>] black: TextTheme, [<Optional>] white: TextTheme, [<Optional>] englishLike: TextTheme, [<Optional>] dense: TextTheme, [<Optional>] tall: TextTheme): Typography = nativeOnly
   [<IsConst>] static member blackMountainView: TextTheme = nativeOnly
   [<IsConst>] static member whiteMountainView: TextTheme = nativeOnly
   [<IsConst>] static member blackRedmond: TextTheme = nativeOnly
@@ -10695,7 +10696,7 @@ type Typography [<NamedParams>] (?platform: TargetPlatform, ?black: TextTheme, ?
 
 /// https://api.flutter.dev/flutter/material/UserAccountsDrawerHeader-class.html
 [<ImportMember("package:flutter/material.dart")>]
-type UserAccountsDrawerHeader [<IsConst; NamedParams>] (accountName: Widget option, accountEmail: Widget option, ?key: Key, ?decoration: Decoration, ?margin: EdgeInsetsGeometry, ?currentAccountPicture: Widget, ?otherAccountsPictures: Widget[], ?currentAccountPictureSize: Size, ?otherAccountsPicturesSize: Size, ?onDetailsPressed: (unit -> unit), ?arrowColor: Color) =
+type UserAccountsDrawerHeader [<IsConst; NamedParams>] (accountName: DartNullable<Widget>, accountEmail: DartNullable<Widget>, [<Optional>] key: Key, [<Optional>] decoration: Decoration, [<Optional>] margin: EdgeInsetsGeometry, [<Optional>] currentAccountPicture: Widget, [<Optional>] otherAccountsPictures: Widget[], [<Optional>] currentAccountPictureSize: Size, [<Optional>] otherAccountsPicturesSize: Size, [<Optional>] onDetailsPressed: (unit -> unit), [<Optional>] arrowColor: Color) =
   inherit Widget()
 
 [<AutoOpen>]
@@ -10704,17 +10705,17 @@ module Functions =
   [<ImportAll("package:flutter/material.dart")>]
   type Material =
     /// https://api.flutter.dev/flutter/material/showAboutDialog.html
-    [<NamedParams>] static member showAboutDialog(context: BuildContext, ?applicationName: string, ?applicationVersion: string, ?applicationIcon: Widget, ?applicationLegalese: string, ?children: Widget[], ?useRootNavigator: bool, ?routeSettings: RouteSettings, ?anchorPoint: Offset): unit = nativeOnly
+    [<NamedParams>] static member showAboutDialog(context: BuildContext, [<Optional>] applicationName: string, [<Optional>] applicationVersion: string, [<Optional>] applicationIcon: Widget, [<Optional>] applicationLegalese: string, [<Optional>] children: Widget[], [<Optional>] useRootNavigator: bool, [<Optional>] routeSettings: RouteSettings, [<Optional>] anchorPoint: Offset): unit = nativeOnly
     /// https://api.flutter.dev/flutter/material/showLicensePage.html
-    [<NamedParams>] static member showLicensePage(context: BuildContext, ?applicationName: string, ?applicationVersion: string, ?applicationIcon: Widget, ?applicationLegalese: string, ?useRootNavigator: bool): unit = nativeOnly
+    [<NamedParams>] static member showLicensePage(context: BuildContext, [<Optional>] applicationName: string, [<Optional>] applicationVersion: string, [<Optional>] applicationIcon: Widget, [<Optional>] applicationLegalese: string, [<Optional>] useRootNavigator: bool): unit = nativeOnly
     /// https://api.flutter.dev/flutter/material/showModalBottomSheet.html
-    [<NamedParams>] static member showModalBottomSheet<'T>(context: BuildContext, builder: (BuildContext -> Widget), ?backgroundColor: Color, ?elevation: float, ?shape: ShapeBorder, ?clipBehavior: Clip, ?constraints: BoxConstraints, ?barrierColor: Color, ?isScrollControlled: bool, ?useRootNavigator: bool, ?isDismissible: bool, ?enableDrag: bool, ?routeSettings: RouteSettings, ?transitionAnimationController: AnimationController, ?anchorPoint: Offset): Future<'T option> = nativeOnly
+    [<NamedParams>] static member showModalBottomSheet<'T>(context: BuildContext, builder: (BuildContext -> Widget), [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] constraints: BoxConstraints, [<Optional>] barrierColor: Color, [<Optional>] isScrollControlled: bool, [<Optional>] useRootNavigator: bool, [<Optional>] isDismissible: bool, [<Optional>] enableDrag: bool, [<Optional>] routeSettings: RouteSettings, [<Optional>] transitionAnimationController: AnimationController, [<Optional>] anchorPoint: Offset): Future<DartNullable<'T>> = nativeOnly
     /// https://api.flutter.dev/flutter/material/showBottomSheet.html
-    [<NamedParams>] static member showBottomSheet<'T>(context: BuildContext, builder: (BuildContext -> Widget), ?backgroundColor: Color, ?elevation: float, ?shape: ShapeBorder, ?clipBehavior: Clip, ?constraints: BoxConstraints, ?enableDrag: bool, ?transitionAnimationController: AnimationController): PersistentBottomSheetController<'T> = nativeOnly
+    [<NamedParams>] static member showBottomSheet<'T>(context: BuildContext, builder: (BuildContext -> Widget), [<Optional>] backgroundColor: Color, [<Optional>] elevation: float, [<Optional>] shape: ShapeBorder, [<Optional>] clipBehavior: Clip, [<Optional>] constraints: BoxConstraints, [<Optional>] enableDrag: bool, [<Optional>] transitionAnimationController: AnimationController): PersistentBottomSheetController<'T> = nativeOnly
     /// https://api.flutter.dev/flutter/material/showDatePicker.html
-    [<NamedParams>] static member showDatePicker(context: BuildContext, initialDate: DateTime, firstDate: DateTime, lastDate: DateTime, ?currentDate: DateTime, ?initialEntryMode: DatePickerEntryMode, ?selectableDayPredicate: (DateTime -> bool), ?helpText: string, ?cancelText: string, ?confirmText: string, ?locale: Locale, ?useRootNavigator: bool, ?routeSettings: RouteSettings, ?textDirection: TextDirection, ?builder: (BuildContext -> Widget option -> Widget), ?initialDatePickerMode: DatePickerMode, ?errorFormatText: string, ?errorInvalidText: string, ?fieldHintText: string, ?fieldLabelText: string, ?keyboardType: TextInputType, ?anchorPoint: Offset): Future<DateTime option> = nativeOnly
+    [<NamedParams>] static member showDatePicker(context: BuildContext, initialDate: DateTime, firstDate: DateTime, lastDate: DateTime, [<Optional>] currentDate: DateTime, [<Optional>] initialEntryMode: DatePickerEntryMode, [<Optional>] selectableDayPredicate: (DateTime -> bool), [<Optional>] helpText: string, [<Optional>] cancelText: string, [<Optional>] confirmText: string, [<Optional>] locale: Locale, [<Optional>] useRootNavigator: bool, [<Optional>] routeSettings: RouteSettings, [<Optional>] textDirection: TextDirection, [<Optional>] builder: (BuildContext -> DartNullable<Widget> -> Widget), [<Optional>] initialDatePickerMode: DatePickerMode, [<Optional>] errorFormatText: string, [<Optional>] errorInvalidText: string, [<Optional>] fieldHintText: string, [<Optional>] fieldLabelText: string, [<Optional>] keyboardType: TextInputType, [<Optional>] anchorPoint: Offset): Future<DartNullable<DateTime>> = nativeOnly
     /// https://api.flutter.dev/flutter/material/showDateRangePicker.html
-    [<NamedParams>] static member showDateRangePicker(context: BuildContext, firstDate: DateTime, lastDate: DateTime, ?initialDateRange: DateTimeRange, ?currentDate: DateTime, ?initialEntryMode: DatePickerEntryMode, ?helpText: string, ?cancelText: string, ?confirmText: string, ?saveText: string, ?errorFormatText: string, ?errorInvalidText: string, ?errorInvalidRangeText: string, ?fieldStartHintText: string, ?fieldEndHintText: string, ?fieldStartLabelText: string, ?fieldEndLabelText: string, ?locale: Locale, ?useRootNavigator: bool, ?routeSettings: RouteSettings, ?textDirection: TextDirection, ?builder: (BuildContext -> Widget option -> Widget), ?anchorPoint: Offset): Future<DateTimeRange option> = nativeOnly
+    [<NamedParams>] static member showDateRangePicker(context: BuildContext, firstDate: DateTime, lastDate: DateTime, [<Optional>] initialDateRange: DateTimeRange, [<Optional>] currentDate: DateTime, [<Optional>] initialEntryMode: DatePickerEntryMode, [<Optional>] helpText: string, [<Optional>] cancelText: string, [<Optional>] confirmText: string, [<Optional>] saveText: string, [<Optional>] errorFormatText: string, [<Optional>] errorInvalidText: string, [<Optional>] errorInvalidRangeText: string, [<Optional>] fieldStartHintText: string, [<Optional>] fieldEndHintText: string, [<Optional>] fieldStartLabelText: string, [<Optional>] fieldEndLabelText: string, [<Optional>] locale: Locale, [<Optional>] useRootNavigator: bool, [<Optional>] routeSettings: RouteSettings, [<Optional>] textDirection: TextDirection, [<Optional>] builder: (BuildContext -> DartNullable<Widget> -> Widget), [<Optional>] anchorPoint: Offset): Future<DartNullable<DateTimeRange>> = nativeOnly
     /// https://api.flutter.dev/flutter/material/debugCheckHasMaterial.html
     static member debugCheckHasMaterial(context: BuildContext): bool = nativeOnly
     /// https://api.flutter.dev/flutter/material/debugCheckHasMaterialLocalizations.html
@@ -10724,12 +10725,12 @@ module Functions =
     /// https://api.flutter.dev/flutter/material/debugCheckHasScaffoldMessenger.html
     static member debugCheckHasScaffoldMessenger(context: BuildContext): bool = nativeOnly
     /// https://api.flutter.dev/flutter/material/showDialog.html
-    [<NamedParams>] static member showDialog<'T>(context: BuildContext, builder: (BuildContext -> Widget), ?barrierDismissible: bool, ?barrierColor: Color, ?barrierLabel: string, ?useSafeArea: bool, ?useRootNavigator: bool, ?routeSettings: RouteSettings, ?anchorPoint: Offset): Future<'T option> = nativeOnly
+    [<NamedParams>] static member showDialog<'T>(context: BuildContext, builder: (BuildContext -> Widget), [<Optional>] barrierDismissible: bool, [<Optional>] barrierColor: Color, [<Optional>] barrierLabel: string, [<Optional>] useSafeArea: bool, [<Optional>] useRootNavigator: bool, [<Optional>] routeSettings: RouteSettings, [<Optional>] anchorPoint: Offset): Future<DartNullable<'T>> = nativeOnly
     /// https://api.flutter.dev/flutter/material/showMenu.html
-    [<NamedParams>] static member showMenu<'T>(context: BuildContext, position: RelativeRect, items: PopupMenuEntry<'T>[], ?initialValue: 'T, ?elevation: float, ?semanticLabel: string, ?shape: ShapeBorder, ?color: Color, ?useRootNavigator: bool, ?constraints: BoxConstraints): Future<'T option> = nativeOnly
+    [<NamedParams>] static member showMenu<'T>(context: BuildContext, position: RelativeRect, items: PopupMenuEntry<'T>[], [<Optional>] initialValue: 'T, [<Optional>] elevation: float, [<Optional>] semanticLabel: string, [<Optional>] shape: ShapeBorder, [<Optional>] color: Color, [<Optional>] useRootNavigator: bool, [<Optional>] constraints: BoxConstraints): Future<DartNullable<'T>> = nativeOnly
     /// https://api.flutter.dev/flutter/material/showSearch.html
-    [<NamedParams>] static member showSearch<'T>(context: BuildContext, ``delegate``: SearchDelegate<'T>, ?query: string, ?useRootNavigator: bool): Future<'T option> = nativeOnly
+    [<NamedParams>] static member showSearch<'T>(context: BuildContext, ``delegate``: SearchDelegate<'T>, [<Optional>] query: string, [<Optional>] useRootNavigator: bool): Future<DartNullable<'T>> = nativeOnly
     /// https://api.flutter.dev/flutter/material/hourFormat.html
     [<NamedParams>] static member hourFormat(``of``: TimeOfDayFormat): HourFormat = nativeOnly
     /// https://api.flutter.dev/flutter/material/showTimePicker.html
-    [<NamedParams>] static member showTimePicker(context: BuildContext, initialTime: TimeOfDay, ?builder: (BuildContext -> Widget option -> Widget), ?useRootNavigator: bool, ?initialEntryMode: TimePickerEntryMode, ?cancelText: string, ?confirmText: string, ?helpText: string, ?errorInvalidText: string, ?hourLabelText: string, ?minuteLabelText: string, ?routeSettings: RouteSettings, ?onEntryModeChanged: (TimePickerEntryMode -> unit), ?anchorPoint: Offset): Future<TimeOfDay option> = nativeOnly
+    [<NamedParams>] static member showTimePicker(context: BuildContext, initialTime: TimeOfDay, [<Optional>] builder: (BuildContext -> DartNullable<Widget> -> Widget), [<Optional>] useRootNavigator: bool, [<Optional>] initialEntryMode: TimePickerEntryMode, [<Optional>] cancelText: string, [<Optional>] confirmText: string, [<Optional>] helpText: string, [<Optional>] errorInvalidText: string, [<Optional>] hourLabelText: string, [<Optional>] minuteLabelText: string, [<Optional>] routeSettings: RouteSettings, [<Optional>] onEntryModeChanged: (TimePickerEntryMode -> unit), [<Optional>] anchorPoint: Offset): Future<DartNullable<TimeOfDay>> = nativeOnly

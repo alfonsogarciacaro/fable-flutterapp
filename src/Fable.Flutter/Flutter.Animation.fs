@@ -1,6 +1,7 @@
 namespace rec Flutter.Animation
 
 open System
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 open Dart
@@ -29,8 +30,8 @@ type Animation<'T> [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/animation/AnimationController-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type AnimationController [<NamedParams>] (vsync: TickerProvider, ?value: float, ?duration: TimeSpan, ?reverseDuration: TimeSpan, ?debugLabel: string, ?lowerBound: float, ?upperBound: float, ?animationBehavior: AnimationBehavior) =
-  [<NamedParams>] static member unbounded(vsync: TickerProvider, ?value: float, ?duration: TimeSpan, ?reverseDuration: TimeSpan, ?debugLabel: string, ?animationBehavior: AnimationBehavior): AnimationController = nativeOnly
+type AnimationController [<NamedParams>] (vsync: TickerProvider, [<Optional>] value: float, [<Optional>] duration: TimeSpan, [<Optional>] reverseDuration: TimeSpan, [<Optional>] debugLabel: string, [<Optional>] lowerBound: float, [<Optional>] upperBound: float, [<Optional>] animationBehavior: AnimationBehavior) =
+  [<NamedParams>] static member unbounded(vsync: TickerProvider, [<Optional>] value: float, [<Optional>] duration: TimeSpan, [<Optional>] reverseDuration: TimeSpan, [<Optional>] debugLabel: string, [<Optional>] animationBehavior: AnimationBehavior): AnimationController = nativeOnly
 
 /// https://api.flutter.dev/flutter/animation/AlwaysStoppedAnimation-class.html
 [<ImportMember("package:flutter/animation.dart")>]
@@ -39,7 +40,7 @@ type AlwaysStoppedAnimation<'T> [<IsConst>] (value: 'T) =
 
 /// https://api.flutter.dev/flutter/animation/ProxyAnimation-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type ProxyAnimation (?animation: Animation<float>) =
+type ProxyAnimation ([<Optional>] animation: Animation<float>) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/ReverseAnimation-class.html
@@ -49,12 +50,12 @@ type ReverseAnimation (parent: Animation<float>) =
 
 /// https://api.flutter.dev/flutter/animation/CurvedAnimation-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type CurvedAnimation [<NamedParams>] (parent: Animation<float>, curve: Curve, ?reverseCurve: Curve) =
+type CurvedAnimation [<NamedParams>] (parent: Animation<float>, curve: Curve, [<Optional>] reverseCurve: Curve) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/TrainHoppingAnimation-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type TrainHoppingAnimation [<NamedParams(fromIndex=2)>] (_currentTrain: Animation<float>, _nextTrain: Animation<float> option, ?onSwitchedTrain: (unit -> unit)) =
+type TrainHoppingAnimation [<NamedParams(fromIndex=2)>] (_currentTrain: Animation<float>, _nextTrain: DartNullable<Animation<float>>, [<Optional>] onSwitchedTrain: (unit -> unit)) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/CompoundAnimation-class.html
@@ -94,7 +95,7 @@ type SawTooth [<IsConst>] (count: int) =
 
 /// https://api.flutter.dev/flutter/animation/Interval-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type Interval [<IsConst; NamedParams(fromIndex=2)>] (``begin``: float, ``end``: float, ?curve: Curve) =
+type Interval [<IsConst; NamedParams(fromIndex=2)>] (``begin``: float, ``end``: float, [<Optional>] curve: Curve) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/Threshold-class.html
@@ -124,13 +125,13 @@ type Curve2DSample [<IsConst>] (t: float, value: Offset) =
 
 /// https://api.flutter.dev/flutter/animation/CatmullRomSpline-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type CatmullRomSpline [<NamedParams(fromIndex=1)>] (controlPoints: Offset[], ?tension: float, ?startHandle: Offset, ?endHandle: Offset) =
-  [<NamedParams(fromIndex=1)>] static member precompute(controlPoints: Offset[], ?tension: float, ?startHandle: Offset, ?endHandle: Offset): CatmullRomSpline = nativeOnly
+type CatmullRomSpline [<NamedParams(fromIndex=1)>] (controlPoints: Offset[], [<Optional>] tension: float, [<Optional>] startHandle: Offset, [<Optional>] endHandle: Offset) =
+  [<NamedParams(fromIndex=1)>] static member precompute(controlPoints: Offset[], [<Optional>] tension: float, [<Optional>] startHandle: Offset, [<Optional>] endHandle: Offset): CatmullRomSpline = nativeOnly
 
 /// https://api.flutter.dev/flutter/animation/CatmullRomCurve-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type CatmullRomCurve [<NamedParams(fromIndex=1)>] (controlPoints: Offset[], ?tension: float) =
-  [<NamedParams(fromIndex=1)>] static member precompute(controlPoints: Offset[], ?tension: float): CatmullRomCurve = nativeOnly
+type CatmullRomCurve [<NamedParams(fromIndex=1)>] (controlPoints: Offset[], [<Optional>] tension: float) =
+  [<NamedParams(fromIndex=1)>] static member precompute(controlPoints: Offset[], [<Optional>] tension: float): CatmullRomCurve = nativeOnly
 
 /// https://api.flutter.dev/flutter/animation/FlippedCurve-class.html
 [<ImportMember("package:flutter/animation.dart")>]
@@ -139,17 +140,17 @@ type FlippedCurve [<IsConst>] (curve: Curve) =
 
 /// https://api.flutter.dev/flutter/animation/ElasticInCurve-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type ElasticInCurve [<IsConst>] (?period: float) =
+type ElasticInCurve [<IsConst>] ([<Optional>] period: float) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/ElasticOutCurve-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type ElasticOutCurve [<IsConst>] (?period: float) =
+type ElasticOutCurve [<IsConst>] ([<Optional>] period: float) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/ElasticInOutCurve-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type ElasticInOutCurve [<IsConst>] (?period: float) =
+type ElasticInOutCurve [<IsConst>] ([<Optional>] period: float) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/Curves-class.html
@@ -205,7 +206,7 @@ type Animatable<'T> [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/animation/Tween-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type Tween<'T> [<NamedParams>] (?``begin``: 'T, ?``end``: 'T) =
+type Tween<'T> [<NamedParams>] ([<Optional>] ``begin``: 'T, [<Optional>] ``end``: 'T) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/ReverseTween-class.html
@@ -215,27 +216,27 @@ type ReverseTween<'T> (parent: Tween<'T>) =
 
 /// https://api.flutter.dev/flutter/animation/ColorTween-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type ColorTween [<NamedParams>] (?``begin``: Color, ?``end``: Color) =
+type ColorTween [<NamedParams>] ([<Optional>] ``begin``: Color, [<Optional>] ``end``: Color) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/SizeTween-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type SizeTween [<NamedParams>] (?``begin``: Size, ?``end``: Size) =
+type SizeTween [<NamedParams>] ([<Optional>] ``begin``: Size, [<Optional>] ``end``: Size) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/RectTween-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type RectTween [<NamedParams>] (?``begin``: Rect, ?``end``: Rect) =
+type RectTween [<NamedParams>] ([<Optional>] ``begin``: Rect, [<Optional>] ``end``: Rect) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/IntTween-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type IntTween [<NamedParams>] (?``begin``: int, ?``end``: int) =
+type IntTween [<NamedParams>] ([<Optional>] ``begin``: int, [<Optional>] ``end``: int) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/StepTween-class.html
 [<ImportMember("package:flutter/animation.dart")>]
-type StepTween [<NamedParams>] (?``begin``: int, ?``end``: int) =
+type StepTween [<NamedParams>] ([<Optional>] ``begin``: int, [<Optional>] ``end``: int) =
   class end
 
 /// https://api.flutter.dev/flutter/animation/ConstantTween-class.html

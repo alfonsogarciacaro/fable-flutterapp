@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fable.Core" Version="4.0.0-snake-island-alpha-003" />
+    <PackageReference Include="Fable.Core" Version="4.0.0-snake-island-alpha-005" />
   </ItemGroup>
 
 </Project>

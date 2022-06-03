@@ -2,6 +2,7 @@ namespace rec Dart //.VectorMath
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 
@@ -137,7 +138,7 @@ type Sphere () =
 
 /// https://api.flutter.dev/flutter/vector_math/SimplexNoise-class.html
 [<ImportMember("package:vector_math/vector_math.dart")>]
-type SimplexNoise (?r: Random) =
+type SimplexNoise ([<Optional>] r: Random) =
   class end
 
 /// https://api.flutter.dev/flutter/vector_math/Triangle-class.html
@@ -154,36 +155,36 @@ type Vector () =
 /// https://api.flutter.dev/flutter/vector_math/Vector2-class.html
 [<ImportMember("package:vector_math/vector_math.dart")>]
 type Vector2 (x: float, y: float) =
-  static member array(array: float[], ?offset: int): Vector2 = nativeOnly
+  static member array(array: float[], [<Optional>] offset: int): Vector2 = nativeOnly
   static member zero(): Vector2 = nativeOnly
   static member all(value: float): Vector2 = nativeOnly
   static member copy(other: Vector2): Vector2 = nativeOnly
   static member fromFloat32List(_v2storage: single[]): Vector2 = nativeOnly
   static member fromBuffer(buffer: ByteBuffer, offset: int): Vector2 = nativeOnly
-  static member random(?rng: Random): Vector2 = nativeOnly
+  static member random([<Optional>] rng: Random): Vector2 = nativeOnly
 
 /// https://api.flutter.dev/flutter/vector_math/Vector3-class.html
 [<ImportMember("package:vector_math/vector_math.dart")>]
 type Vector3 (x: float, y: float, z: float) =
-  static member array(array: float[], ?offset: int): Vector3 = nativeOnly
+  static member array(array: float[], [<Optional>] offset: int): Vector3 = nativeOnly
   static member zero(): Vector3 = nativeOnly
   static member all(value: float): Vector3 = nativeOnly
   static member copy(other: Vector3): Vector3 = nativeOnly
   static member fromFloat32List(_v3storage: single[]): Vector3 = nativeOnly
   static member fromBuffer(buffer: ByteBuffer, offset: int): Vector3 = nativeOnly
-  static member random(?rng: Random): Vector3 = nativeOnly
+  static member random([<Optional>] rng: Random): Vector3 = nativeOnly
 
 /// https://api.flutter.dev/flutter/vector_math/Vector4-class.html
 [<ImportMember("package:vector_math/vector_math.dart")>]
 type Vector4 (x: float, y: float, z: float, w: float) =
-  static member array(array: float[], ?offset: int): Vector4 = nativeOnly
+  static member array(array: float[], [<Optional>] offset: int): Vector4 = nativeOnly
   static member zero(): Vector4 = nativeOnly
   static member identity(): Vector4 = nativeOnly
   static member all(value: float): Vector4 = nativeOnly
   static member copy(other: Vector4): Vector4 = nativeOnly
   static member fromFloat32List(_v4storage: single[]): Vector4 = nativeOnly
   static member fromBuffer(buffer: ByteBuffer, offset: int): Vector4 = nativeOnly
-  static member random(?rng: Random): Vector4 = nativeOnly
+  static member random([<Optional>] rng: Random): Vector4 = nativeOnly
 
 [<ImportAll("package:vector_math/vector_math.dart")>]
 type VectorMath =

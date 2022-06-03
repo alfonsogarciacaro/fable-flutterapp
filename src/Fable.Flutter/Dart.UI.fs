@@ -2,6 +2,7 @@ namespace rec Dart //.UI
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 
@@ -405,7 +406,7 @@ type OffsetBase [<IsConst>] (_dx: float, _dy: float) =
 [<ImportMember("dart:ui")>]
 type Offset [<IsConst>] (dx: float, dy: float) =
   // inherit OffsetBase()
-  static member fromDirection(direction: float, ?distance: float): Offset = nativeOnly
+  static member fromDirection(direction: float, [<Optional>] distance: float): Offset = nativeOnly
   [<IsConst>] static member zero: Offset = nativeOnly
   [<IsConst>] static member infinite: Offset = nativeOnly
 
@@ -446,8 +447,8 @@ type RRect =
   static member fromLTRBR(left: float, top: float, right: float, bottom: float, radius: Radius): RRect = nativeOnly
   static member fromRectXY(rect: Rect, radiusX: float, radiusY: float): RRect = nativeOnly
   static member fromRectAndRadius(rect: Rect, radius: Radius): RRect = nativeOnly
-  [<NamedParams(fromIndex=4)>] static member fromLTRBAndCorners(left: float, top: float, right: float, bottom: float, ?topLeft: Radius, ?topRight: Radius, ?bottomRight: Radius, ?bottomLeft: Radius): RRect = nativeOnly
-  [<NamedParams(fromIndex=1)>] static member fromRectAndCorners(rect: Rect, ?topLeft: Radius, ?topRight: Radius, ?bottomRight: Radius, ?bottomLeft: Radius): RRect = nativeOnly
+  [<NamedParams(fromIndex=4)>] static member fromLTRBAndCorners(left: float, top: float, right: float, bottom: float, [<Optional>] topLeft: Radius, [<Optional>] topRight: Radius, [<Optional>] bottomRight: Radius, [<Optional>] bottomLeft: Radius): RRect = nativeOnly
+  [<NamedParams(fromIndex=1)>] static member fromRectAndCorners(rect: Rect, [<Optional>] topLeft: Radius, [<Optional>] topRight: Radius, [<Optional>] bottomRight: Radius, [<Optional>] bottomLeft: Radius): RRect = nativeOnly
   [<IsConst>] static member zero: RRect = nativeOnly
 
 /// https://api.flutter.dev/flutter/dart-ui/RSTransform-class.html
@@ -462,7 +463,7 @@ type IsolateNameServer =
 
 /// https://api.flutter.dev/flutter/dart-ui/KeyData-class.html
 [<ImportMember("dart:ui")>]
-type KeyData [<IsConst; NamedParams>] (timeStamp: TimeSpan, ``type``: KeyEventType, physical: int, logical: int, character: string option, synthesized: bool) =
+type KeyData [<IsConst; NamedParams>] (timeStamp: TimeSpan, ``type``: KeyEventType, physical: int, logical: int, character: DartNullable<string>, synthesized: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/DartPluginRegistrant-class.html
@@ -542,10 +543,10 @@ type ColorFilter =
 /// https://api.flutter.dev/flutter/dart-ui/ImageFilter-class.html
 [<ImportMember("dart:ui")>]
 type ImageFilter =
-  [<NamedParams>] static member blur(?sigmaX: float, ?sigmaY: float, ?tileMode: TileMode): ImageFilter = nativeOnly
-  [<NamedParams>] static member dilate(?radiusX: float, ?radiusY: float): ImageFilter = nativeOnly
-  [<NamedParams>] static member erode(?radiusX: float, ?radiusY: float): ImageFilter = nativeOnly
-  [<NamedParams(fromIndex=1)>] static member matrix(matrix4: float[], ?filterQuality: FilterQuality): ImageFilter = nativeOnly
+  [<NamedParams>] static member blur([<Optional>] sigmaX: float, [<Optional>] sigmaY: float, [<Optional>] tileMode: TileMode): ImageFilter = nativeOnly
+  [<NamedParams>] static member dilate([<Optional>] radiusX: float, [<Optional>] radiusY: float): ImageFilter = nativeOnly
+  [<NamedParams>] static member erode([<Optional>] radiusX: float, [<Optional>] radiusY: float): ImageFilter = nativeOnly
+  [<NamedParams(fromIndex=1)>] static member matrix(matrix4: float[], [<Optional>] filterQuality: FilterQuality): ImageFilter = nativeOnly
   [<NamedParams>] static member compose(outer: ImageFilter, inner: ImageFilter): ImageFilter = nativeOnly
 
 /// https://api.flutter.dev/flutter/dart-ui/Shader-class.html
@@ -556,13 +557,13 @@ type Shader =
 /// https://api.flutter.dev/flutter/dart-ui/Gradient-class.html
 [<ImportMember("dart:ui")>]
 type Gradient =
-  static member linear(from: Offset, ``to``: Offset, colors: Color[], ?colorStops: float[], ?tileMode: TileMode, ?matrix4: float[]): Gradient = nativeOnly
-  static member radial(center: Offset, radius: float, colors: Color[], ?colorStops: float[], ?tileMode: TileMode, ?matrix4: float[], ?focal: Offset, ?focalRadius: float): Gradient = nativeOnly
-  static member sweep(center: Offset, colors: Color[], ?colorStops: float[], ?tileMode: TileMode, ?startAngle: float, ?endAngle: float, ?matrix4: float[]): Gradient = nativeOnly
+  static member linear(from: Offset, ``to``: Offset, colors: Color[], [<Optional>] colorStops: float[], [<Optional>] tileMode: TileMode, [<Optional>] matrix4: float[]): Gradient = nativeOnly
+  static member radial(center: Offset, radius: float, colors: Color[], [<Optional>] colorStops: float[], [<Optional>] tileMode: TileMode, [<Optional>] matrix4: float[], [<Optional>] focal: Offset, [<Optional>] focalRadius: float): Gradient = nativeOnly
+  static member sweep(center: Offset, colors: Color[], [<Optional>] colorStops: float[], [<Optional>] tileMode: TileMode, [<Optional>] startAngle: float, [<Optional>] endAngle: float, [<Optional>] matrix4: float[]): Gradient = nativeOnly
 
 /// https://api.flutter.dev/flutter/dart-ui/ImageShader-class.html
 [<ImportMember("dart:ui")>]
-type ImageShader [<NamedParams(fromIndex=4)>] (image: Image, tmx: TileMode, tmy: TileMode, matrix4: float[], ?filterQuality: FilterQuality) =
+type ImageShader [<NamedParams(fromIndex=4)>] (image: Image, tmx: TileMode, tmy: TileMode, matrix4: float[], [<Optional>] filterQuality: FilterQuality) =
   interface Shader
 
 /// https://api.flutter.dev/flutter/dart-ui/FragmentProgram-class.html
@@ -572,12 +573,12 @@ type FragmentProgram =
 
 /// https://api.flutter.dev/flutter/dart-ui/Vertices-class.html
 [<ImportMember("dart:ui")>]
-type Vertices [<NamedParams(fromIndex=2)>] (mode: VertexMode, positions: Offset[], ?textureCoordinates: Offset[], ?colors: Color[], ?indices: int[]) =
-  [<NamedParams(fromIndex=2)>] static member raw(mode: VertexMode, positions: single[], ?textureCoordinates: single[], ?colors: int[], ?indices: uint16[]): Vertices = nativeOnly
+type Vertices [<NamedParams(fromIndex=2)>] (mode: VertexMode, positions: Offset[], [<Optional>] textureCoordinates: Offset[], [<Optional>] colors: Color[], [<Optional>] indices: int[]) =
+  [<NamedParams(fromIndex=2)>] static member raw(mode: VertexMode, positions: single[], [<Optional>] textureCoordinates: single[], [<Optional>] colors: int[], [<Optional>] indices: uint16[]): Vertices = nativeOnly
 
 /// https://api.flutter.dev/flutter/dart-ui/Canvas-class.html
 [<ImportMember("dart:ui")>]
-type Canvas (recorder: PictureRecorder, ?cullRect: Rect) =
+type Canvas (recorder: PictureRecorder, [<Optional>] cullRect: Rect) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/Picture-class.html
@@ -592,7 +593,7 @@ type PictureRecorder () =
 
 /// https://api.flutter.dev/flutter/dart-ui/Shadow-class.html
 [<ImportMember("dart:ui")>]
-type Shadow [<IsConst; NamedParams>] (?color: Color, ?offset: Offset, ?blurRadius: float) =
+type Shadow [<IsConst; NamedParams>] ([<Optional>] color: Color, [<Optional>] offset: Offset, [<Optional>] blurRadius: float) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/ImmutableBuffer-class.html
@@ -603,7 +604,7 @@ type ImmutableBuffer =
 /// https://api.flutter.dev/flutter/dart-ui/ImageDescriptor-class.html
 [<ImportMember("dart:ui")>]
 type ImageDescriptor =
-  [<NamedParams(fromIndex=1)>] static member raw(buffer: ImmutableBuffer, width: int, height: int, pixelFormat: PixelFormat, ?rowBytes: int): ImageDescriptor = nativeOnly
+  [<NamedParams(fromIndex=1)>] static member raw(buffer: ImmutableBuffer, width: int, height: int, pixelFormat: PixelFormat, [<Optional>] rowBytes: int): ImageDescriptor = nativeOnly
 
 /// https://api.flutter.dev/flutter/dart-ui/PlatformDispatcher-class.html
 [<ImportMember("dart:ui")>]
@@ -612,17 +613,17 @@ type PlatformDispatcher =
 
 /// https://api.flutter.dev/flutter/dart-ui/PlatformConfiguration-class.html
 [<ImportMember("dart:ui")>]
-type PlatformConfiguration [<IsConst; NamedParams>] (?accessibilityFeatures: AccessibilityFeatures, ?alwaysUse24HourFormat: bool, ?semanticsEnabled: bool, ?platformBrightness: Brightness, ?textScaleFactor: float, ?locales: Locale[], ?defaultRouteName: string, ?systemFontFamily: string) =
+type PlatformConfiguration [<IsConst; NamedParams>] ([<Optional>] accessibilityFeatures: AccessibilityFeatures, [<Optional>] alwaysUse24HourFormat: bool, [<Optional>] semanticsEnabled: bool, [<Optional>] platformBrightness: Brightness, [<Optional>] textScaleFactor: float, [<Optional>] locales: Locale[], [<Optional>] defaultRouteName: string, [<Optional>] systemFontFamily: string) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/ViewConfiguration-class.html
 [<ImportMember("dart:ui")>]
-type ViewConfiguration [<IsConst; NamedParams>] (?window: FlutterView, ?devicePixelRatio: float, ?geometry: Rect, ?visible: bool, ?viewInsets: WindowPadding, ?viewPadding: WindowPadding, ?systemGestureInsets: WindowPadding, ?padding: WindowPadding, ?gestureSettings: GestureSettings, ?displayFeatures: DisplayFeature[]) =
+type ViewConfiguration [<IsConst; NamedParams>] ([<Optional>] window: FlutterView, [<Optional>] devicePixelRatio: float, [<Optional>] geometry: Rect, [<Optional>] visible: bool, [<Optional>] viewInsets: WindowPadding, [<Optional>] viewPadding: WindowPadding, [<Optional>] systemGestureInsets: WindowPadding, [<Optional>] padding: WindowPadding, [<Optional>] gestureSettings: GestureSettings, [<Optional>] displayFeatures: DisplayFeature[]) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/FrameTiming-class.html
 [<ImportMember("dart:ui")>]
-type FrameTiming [<NamedParams>] (vsyncStart: int, buildStart: int, buildFinish: int, rasterStart: int, rasterFinish: int, rasterFinishWallTime: int, ?layerCacheCount: int, ?layerCacheBytes: int, ?pictureCacheCount: int, ?pictureCacheBytes: int, ?frameNumber: int) =
+type FrameTiming [<NamedParams>] (vsyncStart: int, buildStart: int, buildFinish: int, rasterStart: int, rasterFinish: int, rasterFinishWallTime: int, [<Optional>] layerCacheCount: int, [<Optional>] layerCacheBytes: int, [<Optional>] pictureCacheCount: int, [<Optional>] pictureCacheBytes: int, [<Optional>] frameNumber: int) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/WindowPadding-class.html
@@ -637,8 +638,8 @@ type DisplayFeature [<IsConst; NamedParams>] (bounds: Rect, ``type``: DisplayFea
 
 /// https://api.flutter.dev/flutter/dart-ui/Locale-class.html
 [<ImportMember("dart:ui")>]
-type Locale [<IsConst>] (_languageCode: string, ?_countryCode: string) =
-  [<IsConst; NamedParams>] static member fromSubtags(?languageCode: string, ?scriptCode: string, ?countryCode: string): Locale = nativeOnly
+type Locale [<IsConst>] (_languageCode: string, [<Optional>] _countryCode: string) =
+  [<IsConst; NamedParams>] static member fromSubtags([<Optional>] languageCode: string, [<Optional>] scriptCode: string, [<Optional>] countryCode: string): Locale = nativeOnly
 
 /// https://api.flutter.dev/flutter/dart-ui/CallbackHandle-class.html
 [<ImportMember("dart:ui")>]
@@ -652,12 +653,12 @@ type PluginUtilities =
 
 /// https://api.flutter.dev/flutter/dart-ui/PointerData-class.html
 [<ImportMember("dart:ui")>]
-type PointerData [<IsConst; NamedParams>] (?embedderId: int, ?timeStamp: TimeSpan, ?change: PointerChange, ?kind: PointerDeviceKind, ?signalKind: PointerSignalKind, ?device: int, ?pointerIdentifier: int, ?physicalX: float, ?physicalY: float, ?physicalDeltaX: float, ?physicalDeltaY: float, ?buttons: int, ?obscured: bool, ?synthesized: bool, ?pressure: float, ?pressureMin: float, ?pressureMax: float, ?distance: float, ?distanceMax: float, ?size: float, ?radiusMajor: float, ?radiusMinor: float, ?radiusMin: float, ?radiusMax: float, ?orientation: float, ?tilt: float, ?platformData: int, ?scrollDeltaX: float, ?scrollDeltaY: float, ?panX: float, ?panY: float, ?panDeltaX: float, ?panDeltaY: float, ?scale: float, ?rotation: float) =
+type PointerData [<IsConst; NamedParams>] ([<Optional>] embedderId: int, [<Optional>] timeStamp: TimeSpan, [<Optional>] change: PointerChange, [<Optional>] kind: PointerDeviceKind, [<Optional>] signalKind: PointerSignalKind, [<Optional>] device: int, [<Optional>] pointerIdentifier: int, [<Optional>] physicalX: float, [<Optional>] physicalY: float, [<Optional>] physicalDeltaX: float, [<Optional>] physicalDeltaY: float, [<Optional>] buttons: int, [<Optional>] obscured: bool, [<Optional>] synthesized: bool, [<Optional>] pressure: float, [<Optional>] pressureMin: float, [<Optional>] pressureMax: float, [<Optional>] distance: float, [<Optional>] distanceMax: float, [<Optional>] size: float, [<Optional>] radiusMajor: float, [<Optional>] radiusMinor: float, [<Optional>] radiusMin: float, [<Optional>] radiusMax: float, [<Optional>] orientation: float, [<Optional>] tilt: float, [<Optional>] platformData: int, [<Optional>] scrollDeltaX: float, [<Optional>] scrollDeltaY: float, [<Optional>] panX: float, [<Optional>] panY: float, [<Optional>] panDeltaX: float, [<Optional>] panDeltaY: float, [<Optional>] scale: float, [<Optional>] rotation: float) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/PointerDataPacket-class.html
 [<ImportMember("dart:ui")>]
-type PointerDataPacket [<IsConst; NamedParams>] (?data: PointerData[]) =
+type PointerDataPacket [<IsConst; NamedParams>] ([<Optional>] data: PointerData[]) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/SemanticsAction-class.html
@@ -760,7 +761,7 @@ type FontWeight =
 
 /// https://api.flutter.dev/flutter/dart-ui/FontFeature-class.html
 [<ImportMember("dart:ui")>]
-type FontFeature [<IsConst>] (feature: string, ?value: int) =
+type FontFeature [<IsConst>] (feature: string, [<Optional>] value: int) =
   [<IsConst>] static member enable(feature: string): FontFeature = nativeOnly
   [<IsConst>] static member disable(feature: string): FontFeature = nativeOnly
   [<IsConst>] static member alternative(value: int): FontFeature = nativeOnly
@@ -773,8 +774,8 @@ type FontFeature [<IsConst>] (feature: string, ?value: int) =
   [<IsConst>] static member historicalForms(): FontFeature = nativeOnly
   [<IsConst>] static member historicalLigatures(): FontFeature = nativeOnly
   [<IsConst>] static member liningFigures(): FontFeature = nativeOnly
-  [<IsConst; NamedParams>] static member localeAware(?enable: bool): FontFeature = nativeOnly
-  [<IsConst>] static member notationalForms(?value: int): FontFeature = nativeOnly
+  [<IsConst; NamedParams>] static member localeAware([<Optional>] enable: bool): FontFeature = nativeOnly
+  [<IsConst>] static member notationalForms([<Optional>] value: int): FontFeature = nativeOnly
   [<IsConst>] static member numerators(): FontFeature = nativeOnly
   [<IsConst>] static member oldstyleFigures(): FontFeature = nativeOnly
   [<IsConst>] static member ordinalForms(): FontFeature = nativeOnly
@@ -785,7 +786,7 @@ type FontFeature [<IsConst>] (feature: string, ?value: int) =
   static member stylisticSet(value: int): FontFeature = nativeOnly
   [<IsConst>] static member subscripts(): FontFeature = nativeOnly
   [<IsConst>] static member superscripts(): FontFeature = nativeOnly
-  [<IsConst>] static member swash(?value: int): FontFeature = nativeOnly
+  [<IsConst>] static member swash([<Optional>] value: int): FontFeature = nativeOnly
   [<IsConst>] static member tabularFigures(): FontFeature = nativeOnly
   [<IsConst>] static member slashedZero(): FontFeature = nativeOnly
 
@@ -805,22 +806,22 @@ type TextDecoration =
 
 /// https://api.flutter.dev/flutter/dart-ui/TextHeightBehavior-class.html
 [<ImportMember("dart:ui")>]
-type TextHeightBehavior [<IsConst; NamedParams>] (?applyHeightToFirstAscent: bool, ?applyHeightToLastDescent: bool, ?leadingDistribution: TextLeadingDistribution) =
+type TextHeightBehavior [<IsConst; NamedParams>] ([<Optional>] applyHeightToFirstAscent: bool, [<Optional>] applyHeightToLastDescent: bool, [<Optional>] leadingDistribution: TextLeadingDistribution) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/TextStyle-class.html
 [<ImportMember("dart:ui")>]
-type TextStyle [<NamedParams>] (?color: Color, ?decoration: TextDecoration, ?decorationColor: Color, ?decorationStyle: TextDecorationStyle, ?decorationThickness: float, ?fontWeight: FontWeight, ?fontStyle: FontStyle, ?textBaseline: TextBaseline, ?fontFamily: string, ?fontFamilyFallback: string[], ?fontSize: float, ?letterSpacing: float, ?wordSpacing: float, ?height: float, ?leadingDistribution: TextLeadingDistribution, ?locale: Locale, ?background: Paint, ?foreground: Paint, ?shadows: Shadow[], ?fontFeatures: FontFeature[], ?fontVariations: FontVariation[]) =
+type TextStyle [<NamedParams>] ([<Optional>] color: Color, [<Optional>] decoration: TextDecoration, [<Optional>] decorationColor: Color, [<Optional>] decorationStyle: TextDecorationStyle, [<Optional>] decorationThickness: float, [<Optional>] fontWeight: FontWeight, [<Optional>] fontStyle: FontStyle, [<Optional>] textBaseline: TextBaseline, [<Optional>] fontFamily: string, [<Optional>] fontFamilyFallback: string[], [<Optional>] fontSize: float, [<Optional>] letterSpacing: float, [<Optional>] wordSpacing: float, [<Optional>] height: float, [<Optional>] leadingDistribution: TextLeadingDistribution, [<Optional>] locale: Locale, [<Optional>] background: Paint, [<Optional>] foreground: Paint, [<Optional>] shadows: Shadow[], [<Optional>] fontFeatures: FontFeature[], [<Optional>] fontVariations: FontVariation[]) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/ParagraphStyle-class.html
 [<ImportMember("dart:ui")>]
-type ParagraphStyle [<NamedParams>] (?textAlign: TextAlign, ?textDirection: TextDirection, ?maxLines: int, ?fontFamily: string, ?fontSize: float, ?height: float, ?textHeightBehavior: TextHeightBehavior, ?fontWeight: FontWeight, ?fontStyle: FontStyle, ?strutStyle: StrutStyle, ?ellipsis: string, ?locale: Locale) =
+type ParagraphStyle [<NamedParams>] ([<Optional>] textAlign: TextAlign, [<Optional>] textDirection: TextDirection, [<Optional>] maxLines: int, [<Optional>] fontFamily: string, [<Optional>] fontSize: float, [<Optional>] height: float, [<Optional>] textHeightBehavior: TextHeightBehavior, [<Optional>] fontWeight: FontWeight, [<Optional>] fontStyle: FontStyle, [<Optional>] strutStyle: StrutStyle, [<Optional>] ellipsis: string, [<Optional>] locale: Locale) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/StrutStyle-class.html
 [<ImportMember("dart:ui")>]
-type StrutStyle [<NamedParams>] (?fontFamily: string, ?fontFamilyFallback: string[], ?fontSize: float, ?height: float, ?leadingDistribution: TextLeadingDistribution, ?leading: float, ?fontWeight: FontWeight, ?fontStyle: FontStyle, ?forceStrutHeight: bool) =
+type StrutStyle [<NamedParams>] ([<Optional>] fontFamily: string, [<Optional>] fontFamilyFallback: string[], [<Optional>] fontSize: float, [<Optional>] height: float, [<Optional>] leadingDistribution: TextLeadingDistribution, [<Optional>] leading: float, [<Optional>] fontWeight: FontWeight, [<Optional>] fontStyle: FontStyle, [<Optional>] forceStrutHeight: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/TextBox-class.html
@@ -830,7 +831,7 @@ type TextBox =
 
 /// https://api.flutter.dev/flutter/dart-ui/TextPosition-class.html
 [<ImportMember("dart:ui")>]
-type TextPosition [<IsConst; NamedParams>] (offset: int, ?affinity: TextAffinity) =
+type TextPosition [<IsConst; NamedParams>] (offset: int, [<Optional>] affinity: TextAffinity) =
   class end
 
 /// https://api.flutter.dev/flutter/dart-ui/TextRange-class.html
@@ -886,26 +887,26 @@ type FrameData =
 
 /// https://api.flutter.dev/flutter/dart-ui/GestureSettings-class.html
 [<ImportMember("dart:ui")>]
-type GestureSettings [<IsConst; NamedParams>] (?physicalTouchSlop: float, ?physicalDoubleTapSlop: float) =
+type GestureSettings [<IsConst; NamedParams>] ([<Optional>] physicalTouchSlop: float, [<Optional>] physicalDoubleTapSlop: float) =
   class end
 
 [<ImportAll("dart:ui")>]
 type UI =
-  /// https://api.flutter.dev/flutter/dart-ui/hashValues.html
-  static member hashValues(arg01: obj option, arg02: obj option, ?arg03: obj, ?arg04: obj, ?arg05: obj, ?arg06: obj, ?arg07: obj, ?arg08: obj, ?arg09: obj, ?arg10: obj, ?arg11: obj, ?arg12: obj, ?arg13: obj, ?arg14: obj, ?arg15: obj, ?arg16: obj, ?arg17: obj, ?arg18: obj, ?arg19: obj, ?arg20: obj): int = nativeOnly
-  /// https://api.flutter.dev/flutter/dart-ui/hashList.html
-  static member hashList(arguments: obj option seq option): int = nativeOnly
+  // /// https://api.flutter.dev/flutter/dart-ui/hashValues.html
+  // static member hashValues(arg01: DartNullable<obj>, arg02: DartNullable<obj>, [<Optional>] arg03: obj, [<Optional>] arg04: obj, [<Optional>] arg05: obj, [<Optional>] arg06: obj, [<Optional>] arg07: obj, [<Optional>] arg08: obj, [<Optional>] arg09: obj, [<Optional>] arg10: obj, [<Optional>] arg11: obj, [<Optional>] arg12: obj, [<Optional>] arg13: obj, [<Optional>] arg14: obj, [<Optional>] arg15: obj, [<Optional>] arg16: obj, [<Optional>] arg17: obj, [<Optional>] arg18: obj, [<Optional>] arg19: obj, [<Optional>] arg20: obj): int = nativeOnly
+  // /// https://api.flutter.dev/flutter/dart-ui/hashList.html
+  // static member hashList(arguments: DartNullable<DartNullable<obj>>): int = nativeOnly
   /// https://api.flutter.dev/flutter/dart-ui/lerpDouble.html
-  static member lerpDouble(a: int option, b: int option, t: float): float option = nativeOnly
+  static member lerpDouble(a: DartNullable<int>, b: DartNullable<int>, t: float): DartNullable<float> = nativeOnly
   /// https://api.flutter.dev/flutter/dart-ui/lerpDouble.html
-  static member lerpDouble(a: float option, b: float option, t: float): float option = nativeOnly
+  static member lerpDouble(a: DartNullable<float>, b: DartNullable<float>, t: float): DartNullable<float> = nativeOnly
   /// https://api.flutter.dev/flutter/dart-ui/saveCompilationTrace.html
   static member saveCompilationTrace(): int[] = nativeOnly
   /// https://api.flutter.dev/flutter/dart-ui/instantiateImageCodec.html
-  [<NamedParams(fromIndex=1)>] static member instantiateImageCodec(list: byte[], ?targetWidth: int, ?targetHeight: int, ?allowUpscaling: bool): Future<Codec> = nativeOnly
+  [<NamedParams(fromIndex=1)>] static member instantiateImageCodec(list: byte[], [<Optional>] targetWidth: int, [<Optional>] targetHeight: int, [<Optional>] allowUpscaling: bool): Future<Codec> = nativeOnly
   /// https://api.flutter.dev/flutter/dart-ui/decodeImageFromList.html
   static member decodeImageFromList(list: byte[], callback: (Image -> unit)): unit = nativeOnly
   /// https://api.flutter.dev/flutter/dart-ui/decodeImageFromPixels.html
-  [<NamedParams(fromIndex=5)>] static member decodeImageFromPixels(pixels: byte[], width: int, height: int, format: PixelFormat, callback: (Image -> unit), ?rowBytes: int, ?targetWidth: int, ?targetHeight: int, ?allowUpscaling: bool): unit = nativeOnly
+  [<NamedParams(fromIndex=5)>] static member decodeImageFromPixels(pixels: byte[], width: int, height: int, format: PixelFormat, callback: (Image -> unit), [<Optional>] rowBytes: int, [<Optional>] targetWidth: int, [<Optional>] targetHeight: int, [<Optional>] allowUpscaling: bool): unit = nativeOnly
   /// https://api.flutter.dev/flutter/dart-ui/loadFontFromList.html
-  [<NamedParams(fromIndex=1)>] static member loadFontFromList(list: byte[], ?fontFamily: string): Future<unit> = nativeOnly
+  [<NamedParams(fromIndex=1)>] static member loadFontFromList(list: byte[], [<Optional>] fontFamily: string): Future<unit> = nativeOnly

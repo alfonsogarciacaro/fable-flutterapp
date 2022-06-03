@@ -2,6 +2,7 @@ namespace rec Flutter.Painting
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 open Dart
@@ -140,7 +141,7 @@ type TextAlignVertical [<IsConst; NamedParams>] (y: float) =
 
 /// https://api.flutter.dev/flutter/painting/BeveledRectangleBorder-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type BeveledRectangleBorder [<IsConst; NamedParams>] (?side: BorderSide, ?borderRadius: BorderRadiusGeometry) =
+type BeveledRectangleBorder [<IsConst; NamedParams>] ([<Optional>] side: BorderSide, [<Optional>] borderRadius: BorderRadiusGeometry) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/BorderRadiusGeometry-class.html
@@ -153,9 +154,9 @@ type BorderRadiusGeometry [<IsConst>] () =
 type BorderRadius =
   [<IsConst>] static member all(radius: Radius): BorderRadius = nativeOnly
   static member circular(radius: float): BorderRadius = nativeOnly
-  [<IsConst; NamedParams>] static member vertical(?top: Radius, ?bottom: Radius): BorderRadius = nativeOnly
-  [<IsConst; NamedParams>] static member horizontal(?left: Radius, ?right: Radius): BorderRadius = nativeOnly
-  [<IsConst; NamedParams>] static member only(?topLeft: Radius, ?topRight: Radius, ?bottomLeft: Radius, ?bottomRight: Radius): BorderRadius = nativeOnly
+  [<IsConst; NamedParams>] static member vertical([<Optional>] top: Radius, [<Optional>] bottom: Radius): BorderRadius = nativeOnly
+  [<IsConst; NamedParams>] static member horizontal([<Optional>] left: Radius, [<Optional>] right: Radius): BorderRadius = nativeOnly
+  [<IsConst; NamedParams>] static member only([<Optional>] topLeft: Radius, [<Optional>] topRight: Radius, [<Optional>] bottomLeft: Radius, [<Optional>] bottomRight: Radius): BorderRadius = nativeOnly
   [<IsConst>] static member zero: BorderRadius = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/BorderRadiusDirectional-class.html
@@ -163,14 +164,14 @@ type BorderRadius =
 type BorderRadiusDirectional =
   [<IsConst>] static member all(radius: Radius): BorderRadiusDirectional = nativeOnly
   static member circular(radius: float): BorderRadiusDirectional = nativeOnly
-  [<IsConst; NamedParams>] static member vertical(?top: Radius, ?bottom: Radius): BorderRadiusDirectional = nativeOnly
-  [<IsConst; NamedParams>] static member horizontal(?start: Radius, ?``end``: Radius): BorderRadiusDirectional = nativeOnly
-  [<IsConst; NamedParams>] static member only(?topStart: Radius, ?topEnd: Radius, ?bottomStart: Radius, ?bottomEnd: Radius): BorderRadiusDirectional = nativeOnly
+  [<IsConst; NamedParams>] static member vertical([<Optional>] top: Radius, [<Optional>] bottom: Radius): BorderRadiusDirectional = nativeOnly
+  [<IsConst; NamedParams>] static member horizontal([<Optional>] start: Radius, [<Optional>] ``end``: Radius): BorderRadiusDirectional = nativeOnly
+  [<IsConst; NamedParams>] static member only([<Optional>] topStart: Radius, [<Optional>] topEnd: Radius, [<Optional>] bottomStart: Radius, [<Optional>] bottomEnd: Radius): BorderRadiusDirectional = nativeOnly
   [<IsConst>] static member zero: BorderRadiusDirectional = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/BorderSide-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type BorderSide [<IsConst; NamedParams>] (?color: Color, ?width: float, ?style: BorderStyle) =
+type BorderSide [<IsConst; NamedParams>] ([<Optional>] color: Color, [<Optional>] width: float, [<Optional>] style: BorderStyle) =
   [<IsConst>] static member none: BorderSide = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/ShapeBorder-class.html
@@ -180,7 +181,7 @@ type ShapeBorder [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/painting/OutlinedBorder-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type OutlinedBorder [<IsConst; NamedParams>] (?side: BorderSide) =
+type OutlinedBorder [<IsConst; NamedParams>] ([<Optional>] side: BorderSide) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/BoxBorder-class.html
@@ -190,19 +191,19 @@ type BoxBorder [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/painting/Border-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type Border [<IsConst; NamedParams>] (?top: BorderSide, ?right: BorderSide, ?bottom: BorderSide, ?left: BorderSide) =
+type Border [<IsConst; NamedParams>] ([<Optional>] top: BorderSide, [<Optional>] right: BorderSide, [<Optional>] bottom: BorderSide, [<Optional>] left: BorderSide) =
   [<IsConst>] static member fromBorderSide(side: BorderSide): Border = nativeOnly
-  [<IsConst; NamedParams>] static member symmetric(?vertical: BorderSide, ?horizontal: BorderSide): Border = nativeOnly
-  [<NamedParams>] static member all(?color: Color, ?width: float, ?style: BorderStyle): Border = nativeOnly
+  [<IsConst; NamedParams>] static member symmetric([<Optional>] vertical: BorderSide, [<Optional>] horizontal: BorderSide): Border = nativeOnly
+  [<NamedParams>] static member all([<Optional>] color: Color, [<Optional>] width: float, [<Optional>] style: BorderStyle): Border = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/BorderDirectional-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type BorderDirectional [<IsConst; NamedParams>] (?top: BorderSide, ?start: BorderSide, ?``end``: BorderSide, ?bottom: BorderSide) =
+type BorderDirectional [<IsConst; NamedParams>] ([<Optional>] top: BorderSide, [<Optional>] start: BorderSide, [<Optional>] ``end``: BorderSide, [<Optional>] bottom: BorderSide) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/BoxDecoration-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type BoxDecoration [<IsConst; NamedParams>] (?color: Color, ?image: DecorationImage, ?border: BoxBorder, ?borderRadius: BorderRadiusGeometry, ?boxShadow: BoxShadow[], ?gradient: Gradient, ?backgroundBlendMode: BlendMode, ?shape: BoxShape) =
+type BoxDecoration [<IsConst; NamedParams>] ([<Optional>] color: Color, [<Optional>] image: DecorationImage, [<Optional>] border: BoxBorder, [<Optional>] borderRadius: BorderRadiusGeometry, [<Optional>] boxShadow: BoxShadow[], [<Optional>] gradient: Gradient, [<Optional>] backgroundBlendMode: BlendMode, [<Optional>] shape: BoxShape) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/FittedSizes-class.html
@@ -212,12 +213,12 @@ type FittedSizes [<IsConst>] (source: Size, destination: Size) =
 
 /// https://api.flutter.dev/flutter/painting/BoxShadow-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type BoxShadow [<IsConst; NamedParams>] (?color: Color, ?offset: Offset, ?blurRadius: float, ?spreadRadius: float, ?blurStyle: BlurStyle) =
+type BoxShadow [<IsConst; NamedParams>] ([<Optional>] color: Color, [<Optional>] offset: Offset, [<Optional>] blurRadius: float, [<Optional>] spreadRadius: float, [<Optional>] blurStyle: BlurStyle) =
   inherit Shadow()
 
 /// https://api.flutter.dev/flutter/painting/CircleBorder-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type CircleBorder [<IsConst; NamedParams>] (?side: BorderSide) =
+type CircleBorder [<IsConst; NamedParams>] ([<Optional>] side: BorderSide) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ClipContext-class.html
@@ -244,17 +245,17 @@ type ColorSwatch<'T> [<IsConst>] (primary: int, _swatch: Dictionary<'T, Color>) 
 
 /// https://api.flutter.dev/flutter/painting/ColorProperty-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ColorProperty [<NamedParams(fromIndex=2)>] (name: string, value: Color option, ?showName: bool, ?defaultValue: obj, ?style: DiagnosticsTreeStyle, ?level: DiagnosticLevel) =
+type ColorProperty [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<Color>, [<Optional>] showName: bool, [<Optional>] defaultValue: obj, [<Optional>] style: DiagnosticsTreeStyle, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ContinuousRectangleBorder-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ContinuousRectangleBorder [<IsConst; NamedParams>] (?side: BorderSide, ?borderRadius: BorderRadiusGeometry) =
+type ContinuousRectangleBorder [<IsConst; NamedParams>] ([<Optional>] side: BorderSide, [<Optional>] borderRadius: BorderRadiusGeometry) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ImageSizeInfo-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ImageSizeInfo [<IsConst; NamedParams>] (displaySize: Size, imageSize: Size, ?source: string) =
+type ImageSizeInfo [<IsConst; NamedParams>] (displaySize: Size, imageSize: Size, [<Optional>] source: string) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/Decoration-class.html
@@ -264,12 +265,12 @@ type Decoration [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/painting/BoxPainter-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type BoxPainter [<IsConst>] (?onChanged: (unit -> unit)) =
+type BoxPainter [<IsConst>] ([<Optional>] onChanged: (unit -> unit)) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/DecorationImage-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type DecorationImage [<IsConst; NamedParams>] (image: ImageProvider<obj>, ?onError: (obj -> StackTrace option -> unit), ?colorFilter: ColorFilter, ?fit: BoxFit, ?alignment: AlignmentGeometry, ?centerSlice: Rect, ?repeat: ImageRepeat, ?matchTextDirection: bool, ?scale: float, ?opacity: float, ?filterQuality: FilterQuality, ?invertColors: bool, ?isAntiAlias: bool) =
+type DecorationImage [<IsConst; NamedParams>] (image: ImageProvider<obj>, [<Optional>] onError: (obj -> DartNullable<StackTrace> -> unit), [<Optional>] colorFilter: ColorFilter, [<Optional>] fit: BoxFit, [<Optional>] alignment: AlignmentGeometry, [<Optional>] centerSlice: Rect, [<Optional>] repeat: ImageRepeat, [<Optional>] matchTextDirection: bool, [<Optional>] scale: float, [<Optional>] opacity: float, [<Optional>] filterQuality: FilterQuality, [<Optional>] invertColors: bool, [<Optional>] isAntiAlias: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/DecorationImagePainter-class.html
@@ -287,8 +288,8 @@ type EdgeInsetsGeometry [<IsConst>] () =
 type EdgeInsets =
   [<IsConst>] static member fromLTRB(left: float, top: float, right: float, bottom: float): EdgeInsets = nativeOnly
   [<IsConst>] static member all(value: float): EdgeInsets = nativeOnly
-  [<IsConst; NamedParams>] static member only(?left: float, ?top: float, ?right: float, ?bottom: float): EdgeInsets = nativeOnly
-  [<IsConst; NamedParams>] static member symmetric(?vertical: float, ?horizontal: float): EdgeInsets = nativeOnly
+  [<IsConst; NamedParams>] static member only([<Optional>] left: float, [<Optional>] top: float, [<Optional>] right: float, [<Optional>] bottom: float): EdgeInsets = nativeOnly
+  [<IsConst; NamedParams>] static member symmetric([<Optional>] vertical: float, [<Optional>] horizontal: float): EdgeInsets = nativeOnly
   static member fromWindowPadding(padding: WindowPadding, devicePixelRatio: float): EdgeInsets = nativeOnly
   [<IsConst>] static member zero: EdgeInsets = nativeOnly
 
@@ -296,13 +297,13 @@ type EdgeInsets =
 [<ImportMember("package:flutter/painting.dart")>]
 type EdgeInsetsDirectional =
   [<IsConst>] static member fromSTEB(start: float, top: float, ``end``: float, bottom: float): EdgeInsetsDirectional = nativeOnly
-  [<IsConst; NamedParams>] static member only(?start: float, ?top: float, ?``end``: float, ?bottom: float): EdgeInsetsDirectional = nativeOnly
+  [<IsConst; NamedParams>] static member only([<Optional>] start: float, [<Optional>] top: float, [<Optional>] ``end``: float, [<Optional>] bottom: float): EdgeInsetsDirectional = nativeOnly
   [<IsConst>] static member all(value: float): EdgeInsetsDirectional = nativeOnly
   [<IsConst>] static member zero: EdgeInsetsDirectional = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/FlutterLogoDecoration-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type FlutterLogoDecoration [<IsConst; NamedParams>] (?textColor: Color, ?style: FlutterLogoStyle, ?margin: EdgeInsets) =
+type FlutterLogoDecoration [<IsConst; NamedParams>] ([<Optional>] textColor: Color, [<Optional>] style: FlutterLogoStyle, [<Optional>] margin: EdgeInsets) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/FractionalOffset-class.html
@@ -332,22 +333,22 @@ type GradientRotation [<IsConst>] (radians: float) =
 
 /// https://api.flutter.dev/flutter/painting/Gradient-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type Gradient [<IsConst; NamedParams>] (colors: Color[], ?stops: float[], ?transform: GradientTransform) =
+type Gradient [<IsConst; NamedParams>] (colors: Color[], [<Optional>] stops: float[], [<Optional>] transform: GradientTransform) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/LinearGradient-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type LinearGradient [<IsConst; NamedParams>] (colors: Color[], ?``begin``: AlignmentGeometry, ?``end``: AlignmentGeometry, ?stops: float[], ?tileMode: TileMode, ?transform: GradientTransform) =
+type LinearGradient [<IsConst; NamedParams>] (colors: Color[], [<Optional>] ``begin``: AlignmentGeometry, [<Optional>] ``end``: AlignmentGeometry, [<Optional>] stops: float[], [<Optional>] tileMode: TileMode, [<Optional>] transform: GradientTransform) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/RadialGradient-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type RadialGradient [<IsConst; NamedParams>] (colors: Color[], ?center: AlignmentGeometry, ?radius: float, ?stops: float[], ?tileMode: TileMode, ?focal: AlignmentGeometry, ?focalRadius: float, ?transform: GradientTransform) =
+type RadialGradient [<IsConst; NamedParams>] (colors: Color[], [<Optional>] center: AlignmentGeometry, [<Optional>] radius: float, [<Optional>] stops: float[], [<Optional>] tileMode: TileMode, [<Optional>] focal: AlignmentGeometry, [<Optional>] focalRadius: float, [<Optional>] transform: GradientTransform) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/SweepGradient-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type SweepGradient [<IsConst; NamedParams>] (colors: Color[], ?center: AlignmentGeometry, ?startAngle: float, ?endAngle: float, ?stops: float[], ?tileMode: TileMode, ?transform: GradientTransform) =
+type SweepGradient [<IsConst; NamedParams>] (colors: Color[], [<Optional>] center: AlignmentGeometry, [<Optional>] startAngle: float, [<Optional>] endAngle: float, [<Optional>] stops: float[], [<Optional>] tileMode: TileMode, [<Optional>] transform: GradientTransform) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ImageCache-class.html
@@ -362,7 +363,7 @@ type ImageCacheStatus =
 
 /// https://api.flutter.dev/flutter/painting/ImageConfiguration-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ImageConfiguration [<IsConst; NamedParams>] (?bundle: AssetBundle, ?devicePixelRatio: float, ?locale: Locale, ?textDirection: TextDirection, ?size: Size, ?platform: TargetPlatform) =
+type ImageConfiguration [<IsConst; NamedParams>] ([<Optional>] bundle: AssetBundle, [<Optional>] devicePixelRatio: float, [<Optional>] locale: Locale, [<Optional>] textDirection: TextDirection, [<Optional>] size: Size, [<Optional>] platform: TargetPlatform) =
   [<IsConst>] static member empty: ImageConfiguration = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/ImageProvider-class.html
@@ -387,48 +388,48 @@ type ResizeImageKey =
 
 /// https://api.flutter.dev/flutter/painting/ResizeImage-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ResizeImage [<IsConst; NamedParams(fromIndex=1)>] (imageProvider: ImageProvider<obj>, ?width: int, ?height: int, ?allowUpscaling: bool) =
+type ResizeImage [<IsConst; NamedParams(fromIndex=1)>] (imageProvider: ImageProvider<obj>, [<Optional>] width: int, [<Optional>] height: int, [<Optional>] allowUpscaling: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/NetworkImage-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type NetworkImage [<IsConst; NamedParams(fromIndex=1)>] (url: string, ?scale: float, ?headers: Dictionary<string, string>) =
+type NetworkImage [<IsConst; NamedParams(fromIndex=1)>] (url: string, [<Optional>] scale: float, [<Optional>] headers: Dictionary<string, string>) =
   class end
 
 // TODO dart:io
 // /// https://api.flutter.dev/flutter/painting/FileImage-class.html
 // [<ImportMember("package:flutter/painting.dart")>]
-// type FileImage [<IsConst; NamedParams(fromIndex=1)>] (file: File, ?scale: float) =
+// type FileImage [<IsConst; NamedParams(fromIndex=1)>] (file: File, [<Optional>] scale: float) =
 //   class end
 
 /// https://api.flutter.dev/flutter/painting/MemoryImage-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type MemoryImage [<IsConst; NamedParams(fromIndex=1)>] (bytes: byte[], ?scale: float) =
+type MemoryImage [<IsConst; NamedParams(fromIndex=1)>] (bytes: byte[], [<Optional>] scale: float) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ExactAssetImage-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ExactAssetImage [<IsConst; NamedParams(fromIndex=1)>] (assetName: string, ?scale: float, ?bundle: AssetBundle, ?package: string) =
+type ExactAssetImage [<IsConst; NamedParams(fromIndex=1)>] (assetName: string, [<Optional>] scale: float, [<Optional>] bundle: AssetBundle, [<Optional>] package: string) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/AssetImage-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type AssetImage [<IsConst; NamedParams(fromIndex=1)>] (assetName: string, ?bundle: AssetBundle, ?package: string) =
+type AssetImage [<IsConst; NamedParams(fromIndex=1)>] (assetName: string, [<Optional>] bundle: AssetBundle, [<Optional>] package: string) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ImageInfo-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ImageInfo [<IsConst; NamedParams>] (image: Image, ?scale: float, ?debugLabel: string) =
+type ImageInfo [<IsConst; NamedParams>] (image: Image, [<Optional>] scale: float, [<Optional>] debugLabel: string) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ImageStreamListener-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ImageStreamListener [<IsConst; NamedParams(fromIndex=1)>] (onImage: (ImageInfo -> bool -> unit), ?onChunk: (ImageChunkEvent -> unit), ?onError: (obj -> StackTrace option -> unit)) =
+type ImageStreamListener [<IsConst; NamedParams(fromIndex=1)>] (onImage: (ImageInfo -> bool -> unit), [<Optional>] onChunk: (ImageChunkEvent -> unit), [<Optional>] onError: (obj -> DartNullable<StackTrace> -> unit)) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ImageChunkEvent-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ImageChunkEvent [<IsConst; NamedParams>] (cumulativeBytesLoaded: int, expectedTotalBytes: int option) =
+type ImageChunkEvent [<IsConst; NamedParams>] (cumulativeBytesLoaded: int, expectedTotalBytes: DartNullable<int>) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ImageStream-class.html
@@ -448,27 +449,27 @@ type ImageStreamCompleter () =
 
 /// https://api.flutter.dev/flutter/painting/OneFrameImageStreamCompleter-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type OneFrameImageStreamCompleter [<NamedParams(fromIndex=1)>] (image: Future<ImageInfo>, ?informationCollector: (unit -> DiagnosticsNode seq)) =
+type OneFrameImageStreamCompleter [<NamedParams(fromIndex=1)>] (image: Future<ImageInfo>, [<Optional>] informationCollector: (unit -> DiagnosticsNode seq)) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/MultiFrameImageStreamCompleter-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type MultiFrameImageStreamCompleter [<NamedParams>] (codec: Future<Codec>, scale: float, ?debugLabel: string, ?chunkEvents: Stream<ImageChunkEvent>, ?informationCollector: (unit -> DiagnosticsNode seq)) =
+type MultiFrameImageStreamCompleter [<NamedParams>] (codec: Future<Codec>, scale: float, [<Optional>] debugLabel: string, [<Optional>] chunkEvents: Stream<ImageChunkEvent>, [<Optional>] informationCollector: (unit -> DiagnosticsNode seq)) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/Accumulator-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type Accumulator (?_value: int) =
+type Accumulator ([<Optional>] _value: int) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/InlineSpanSemanticsInformation-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type InlineSpanSemanticsInformation [<IsConst; NamedParams(fromIndex=1)>] (text: string, ?isPlaceholder: bool, ?semanticsLabel: string, ?stringAttributes: StringAttribute[], ?recognizer: GestureRecognizer) =
+type InlineSpanSemanticsInformation [<IsConst; NamedParams(fromIndex=1)>] (text: string, [<Optional>] isPlaceholder: bool, [<Optional>] semanticsLabel: string, [<Optional>] stringAttributes: StringAttribute[], [<Optional>] recognizer: GestureRecognizer) =
   [<IsConst>] static member placeholder: InlineSpanSemanticsInformation = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/InlineSpan-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type InlineSpan [<IsConst; NamedParams>] (?style: TextStyle) =
+type InlineSpan [<IsConst; NamedParams>] ([<Optional>] style: TextStyle) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/MatrixUtils-class.html
@@ -478,7 +479,7 @@ type MatrixUtils =
 
 /// https://api.flutter.dev/flutter/painting/TransformProperty-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type TransformProperty [<NamedParams(fromIndex=2)>] (name: string, value: Matrix4 option, ?showName: bool, ?defaultValue: obj, ?level: DiagnosticLevel) =
+type TransformProperty [<NamedParams(fromIndex=2)>] (name: string, value: DartNullable<Matrix4>, [<Optional>] showName: bool, [<Optional>] defaultValue: obj, [<Optional>] level: DiagnosticLevel) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/NotchedShape-class.html
@@ -493,17 +494,17 @@ type CircularNotchedRectangle [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/painting/AutomaticNotchedShape-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type AutomaticNotchedShape [<IsConst>] (host: ShapeBorder, ?guest: ShapeBorder) =
+type AutomaticNotchedShape [<IsConst>] (host: ShapeBorder, [<Optional>] guest: ShapeBorder) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/PlaceholderSpan-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type PlaceholderSpan [<IsConst; NamedParams>] (?alignment: PlaceholderAlignment, ?baseline: TextBaseline, ?style: TextStyle) =
+type PlaceholderSpan [<IsConst; NamedParams>] ([<Optional>] alignment: PlaceholderAlignment, [<Optional>] baseline: TextBaseline, [<Optional>] style: TextStyle) =
   [<IsConst>] static member placeholderCodeUnit: int = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/RoundedRectangleBorder-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type RoundedRectangleBorder [<IsConst; NamedParams>] (?side: BorderSide, ?borderRadius: BorderRadiusGeometry) =
+type RoundedRectangleBorder [<IsConst; NamedParams>] ([<Optional>] side: BorderSide, [<Optional>] borderRadius: BorderRadiusGeometry) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/ShaderWarmUp-class.html
@@ -513,37 +514,37 @@ type ShaderWarmUp [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/painting/ShapeDecoration-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type ShapeDecoration [<IsConst; NamedParams>] (shape: ShapeBorder, ?color: Color, ?image: DecorationImage, ?gradient: Gradient, ?shadows: BoxShadow[]) =
+type ShapeDecoration [<IsConst; NamedParams>] (shape: ShapeBorder, [<Optional>] color: Color, [<Optional>] image: DecorationImage, [<Optional>] gradient: Gradient, [<Optional>] shadows: BoxShadow[]) =
   static member fromBoxDecoration(source: BoxDecoration): ShapeDecoration = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/StadiumBorder-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type StadiumBorder [<IsConst; NamedParams>] (?side: BorderSide) =
+type StadiumBorder [<IsConst; NamedParams>] ([<Optional>] side: BorderSide) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/StrutStyle-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type StrutStyle [<IsConst; NamedParams>] (?fontFamily: string, ?fontFamilyFallback: string[], ?fontSize: float, ?height: float, ?leadingDistribution: TextLeadingDistribution, ?leading: float, ?fontWeight: FontWeight, ?fontStyle: FontStyle, ?forceStrutHeight: bool, ?debugLabel: string, ?package: string) =
-  [<NamedParams(fromIndex=1)>] static member fromTextStyle(textStyle: TextStyle, ?fontFamily: string, ?fontFamilyFallback: string[], ?fontSize: float, ?height: float, ?leadingDistribution: TextLeadingDistribution, ?leading: float, ?fontWeight: FontWeight, ?fontStyle: FontStyle, ?forceStrutHeight: bool, ?debugLabel: string, ?package: string): StrutStyle = nativeOnly
+type StrutStyle [<IsConst; NamedParams>] ([<Optional>] fontFamily: string, [<Optional>] fontFamilyFallback: string[], [<Optional>] fontSize: float, [<Optional>] height: float, [<Optional>] leadingDistribution: TextLeadingDistribution, [<Optional>] leading: float, [<Optional>] fontWeight: FontWeight, [<Optional>] fontStyle: FontStyle, [<Optional>] forceStrutHeight: bool, [<Optional>] debugLabel: string, [<Optional>] package: string) =
+  [<NamedParams(fromIndex=1)>] static member fromTextStyle(textStyle: TextStyle, [<Optional>] fontFamily: string, [<Optional>] fontFamilyFallback: string[], [<Optional>] fontSize: float, [<Optional>] height: float, [<Optional>] leadingDistribution: TextLeadingDistribution, [<Optional>] leading: float, [<Optional>] fontWeight: FontWeight, [<Optional>] fontStyle: FontStyle, [<Optional>] forceStrutHeight: bool, [<Optional>] debugLabel: string, [<Optional>] package: string): StrutStyle = nativeOnly
   [<IsConst>] static member disabled: StrutStyle = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/PlaceholderDimensions-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type PlaceholderDimensions [<IsConst; NamedParams>] (size: Size, alignment: PlaceholderAlignment, ?baseline: TextBaseline, ?baselineOffset: float) =
+type PlaceholderDimensions [<IsConst; NamedParams>] (size: Size, alignment: PlaceholderAlignment, [<Optional>] baseline: TextBaseline, [<Optional>] baselineOffset: float) =
   [<IsConst>] static member empty: PlaceholderDimensions = nativeOnly
 
 /// https://api.flutter.dev/flutter/painting/TextPainter-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type TextPainter [<NamedParams>] (?text: InlineSpan, ?textAlign: TextAlign, ?textDirection: TextDirection, ?textScaleFactor: float, ?maxLines: int, ?ellipsis: string, ?locale: Locale, ?strutStyle: StrutStyle, ?textWidthBasis: TextWidthBasis, ?textHeightBehavior: TextHeightBehavior) =
+type TextPainter [<NamedParams>] ([<Optional>] text: InlineSpan, [<Optional>] textAlign: TextAlign, [<Optional>] textDirection: TextDirection, [<Optional>] textScaleFactor: float, [<Optional>] maxLines: int, [<Optional>] ellipsis: string, [<Optional>] locale: Locale, [<Optional>] strutStyle: StrutStyle, [<Optional>] textWidthBasis: TextWidthBasis, [<Optional>] textHeightBehavior: TextHeightBehavior) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/TextSpan-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type TextSpan [<IsConst; NamedParams>] (?text: string, ?children: InlineSpan[], ?style: TextStyle, ?recognizer: GestureRecognizer, ?mouseCursor: MouseCursor, ?onEnter: (PointerEnterEvent -> unit), ?onExit: (PointerExitEvent -> unit), ?semanticsLabel: string, ?locale: Locale, ?spellOut: bool) =
+type TextSpan [<IsConst; NamedParams>] ([<Optional>] text: string, [<Optional>] children: InlineSpan[], [<Optional>] style: TextStyle, [<Optional>] recognizer: GestureRecognizer, [<Optional>] mouseCursor: MouseCursor, [<Optional>] onEnter: (PointerEnterEvent -> unit), [<Optional>] onExit: (PointerExitEvent -> unit), [<Optional>] semanticsLabel: string, [<Optional>] locale: Locale, [<Optional>] spellOut: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/painting/TextStyle-class.html
 [<ImportMember("package:flutter/painting.dart")>]
-type TextStyle [<IsConst; NamedParams>] (?``inherit``: bool, ?color: Color, ?backgroundColor: Color, ?fontSize: float, ?fontWeight: FontWeight, ?fontStyle: FontStyle, ?letterSpacing: float, ?wordSpacing: float, ?textBaseline: TextBaseline, ?height: float, ?leadingDistribution: TextLeadingDistribution, ?locale: Locale, ?foreground: Paint, ?background: Paint, ?shadows: Shadow[], ?fontFeatures: FontFeature[], ?decoration: TextDecoration, ?decorationColor: Color, ?decorationStyle: TextDecorationStyle, ?decorationThickness: float, ?debugLabel: string, ?fontFamily: string, ?fontFamilyFallback: string[], ?package: string, ?overflow: TextOverflow) =
+type TextStyle [<IsConst; NamedParams>] ([<Optional>] ``inherit``: bool, [<Optional>] color: Color, [<Optional>] backgroundColor: Color, [<Optional>] fontSize: float, [<Optional>] fontWeight: FontWeight, [<Optional>] fontStyle: FontStyle, [<Optional>] letterSpacing: float, [<Optional>] wordSpacing: float, [<Optional>] textBaseline: TextBaseline, [<Optional>] height: float, [<Optional>] leadingDistribution: TextLeadingDistribution, [<Optional>] locale: Locale, [<Optional>] foreground: Paint, [<Optional>] background: Paint, [<Optional>] shadows: Shadow[], [<Optional>] fontFeatures: FontFeature[], [<Optional>] decoration: TextDecoration, [<Optional>] decorationColor: Color, [<Optional>] decorationStyle: TextDecorationStyle, [<Optional>] decorationThickness: float, [<Optional>] debugLabel: string, [<Optional>] fontFamily: string, [<Optional>] fontFamilyFallback: string[], [<Optional>] package: string, [<Optional>] overflow: TextOverflow) =
   class end
 

@@ -2,6 +2,7 @@ namespace rec Dart
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open System.Text.RegularExpressions
 open Fable.Core
 open Fable.Core.Dart

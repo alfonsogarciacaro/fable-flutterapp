@@ -2,6 +2,7 @@ namespace rec Flutter.Rendering
 
 open System
 open System.Collections.Generic
+open System.Runtime.InteropServices
 open Fable.Core
 open Fable.Core.Dart
 open Dart
@@ -156,22 +157,22 @@ type WrapCrossAlignment =
 
 /// https://api.flutter.dev/flutter/rendering/RenderAnimatedSize-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderAnimatedSize [<NamedParams>] (vsync: TickerProvider, duration: TimeSpan, ?reverseDuration: TimeSpan, ?curve: Curve, ?alignment: AlignmentGeometry, ?textDirection: TextDirection, ?child: RenderBox, ?clipBehavior: Clip) =
+type RenderAnimatedSize [<NamedParams>] (vsync: TickerProvider, duration: TimeSpan, [<Optional>] reverseDuration: TimeSpan, [<Optional>] curve: Curve, [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection, [<Optional>] child: RenderBox, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderingFlutterBinding-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderingFlutterBinding [<NamedParams>] (?root: RenderBox) =
+type RenderingFlutterBinding [<NamedParams>] ([<Optional>] root: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/BoxConstraints-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type BoxConstraints [<IsConst; NamedParams>] (?minWidth: float, ?maxWidth: float, ?minHeight: float, ?maxHeight: float) =
+type BoxConstraints [<IsConst; NamedParams>] ([<Optional>] minWidth: float, [<Optional>] maxWidth: float, [<Optional>] minHeight: float, [<Optional>] maxHeight: float) =
   static member tight(size: Size): BoxConstraints = nativeOnly
-  [<IsConst; NamedParams>] static member tightFor(?width: float, ?height: float): BoxConstraints = nativeOnly
-  [<IsConst; NamedParams>] static member tightForFinite(?width: float, ?height: float): BoxConstraints = nativeOnly
+  [<IsConst; NamedParams>] static member tightFor([<Optional>] width: float, [<Optional>] height: float): BoxConstraints = nativeOnly
+  [<IsConst; NamedParams>] static member tightForFinite([<Optional>] width: float, [<Optional>] height: float): BoxConstraints = nativeOnly
   static member loose(size: Size): BoxConstraints = nativeOnly
-  [<IsConst; NamedParams>] static member expand(?width: float, ?height: float): BoxConstraints = nativeOnly
+  [<IsConst; NamedParams>] static member expand([<Optional>] width: float, [<Optional>] height: float): BoxConstraints = nativeOnly
 
 /// https://api.flutter.dev/flutter/rendering/BoxHitTestResult-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
@@ -205,32 +206,32 @@ type MultiChildLayoutParentData () =
 
 /// https://api.flutter.dev/flutter/rendering/MultiChildLayoutDelegate-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type MultiChildLayoutDelegate [<NamedParams>] (?relayout: Listenable) =
+type MultiChildLayoutDelegate [<NamedParams>] ([<Optional>] relayout: Listenable) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderCustomMultiChildLayoutBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderCustomMultiChildLayoutBox [<NamedParams>] (``delegate``: MultiChildLayoutDelegate, ?children: RenderBox[]) =
+type RenderCustomMultiChildLayoutBox [<NamedParams>] (``delegate``: MultiChildLayoutDelegate, [<Optional>] children: RenderBox[]) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/CustomPainter-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type CustomPainter [<IsConst; NamedParams>] (?repaint: Listenable) =
+type CustomPainter [<IsConst; NamedParams>] ([<Optional>] repaint: Listenable) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/CustomPainterSemantics-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type CustomPainterSemantics [<IsConst; NamedParams>] (rect: Rect, properties: SemanticsProperties, ?key: Key, ?transform: Matrix4, ?tags: HashSet<SemanticsTag>) =
+type CustomPainterSemantics [<IsConst; NamedParams>] (rect: Rect, properties: SemanticsProperties, [<Optional>] key: Key, [<Optional>] transform: Matrix4, [<Optional>] tags: HashSet<SemanticsTag>) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderCustomPaint-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderCustomPaint [<NamedParams>] (?painter: CustomPainter, ?foregroundPainter: CustomPainter, ?preferredSize: Size, ?isComplex: bool, ?willChange: bool, ?child: RenderBox) =
+type RenderCustomPaint [<NamedParams>] ([<Optional>] painter: CustomPainter, [<Optional>] foregroundPainter: CustomPainter, [<Optional>] preferredSize: Size, [<Optional>] isComplex: bool, [<Optional>] willChange: bool, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/TextSelectionPoint-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type TextSelectionPoint [<IsConst>] (point: Offset, direction: TextDirection option) =
+type TextSelectionPoint [<IsConst>] (point: Offset, direction: DartNullable<TextDirection>) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/VerticalCaretMovementRun-class.html
@@ -240,7 +241,7 @@ type VerticalCaretMovementRun =
 
 /// https://api.flutter.dev/flutter/rendering/RenderEditable-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderEditable [<NamedParams>] (textDirection: TextDirection, startHandleLayerLink: LayerLink, endHandleLayerLink: LayerLink, offset: ViewportOffset, (*textSelectionDelegate: TextSelectionDelegate,*) ?text: InlineSpan, ?textAlign: TextAlign, ?cursorColor: Color, ?backgroundCursorColor: Color, ?showCursor: ValueNotifier<bool>, ?hasFocus: bool, ?maxLines: int, ?minLines: int, ?expands: bool, ?strutStyle: StrutStyle, ?selectionColor: Color, ?textScaleFactor: float, ?selection: TextSelection, ?onCaretChanged: (Rect -> unit), ?ignorePointer: bool, ?readOnly: bool, ?forceLine: bool, ?textHeightBehavior: TextHeightBehavior, ?textWidthBasis: TextWidthBasis, ?obscuringCharacter: string, ?obscureText: bool, ?locale: Locale, ?cursorWidth: float, ?cursorHeight: float, ?cursorRadius: Radius, ?paintCursorAboveText: bool, ?cursorOffset: Offset, ?devicePixelRatio: float, ?selectionHeightStyle: BoxHeightStyle, ?selectionWidthStyle: BoxWidthStyle, ?enableInteractiveSelection: bool, ?floatingCursorAddedMargin: EdgeInsets, ?promptRectRange: TextRange, ?promptRectColor: Color, ?clipBehavior: Clip, ?painter: RenderEditablePainter, ?foregroundPainter: RenderEditablePainter, ?children: RenderBox[]) =
+type RenderEditable [<NamedParams>] (textDirection: TextDirection, startHandleLayerLink: LayerLink, endHandleLayerLink: LayerLink, offset: ViewportOffset, (*textSelectionDelegate: TextSelectionDelegate,*) [<Optional>] text: InlineSpan, [<Optional>] textAlign: TextAlign, [<Optional>] cursorColor: Color, [<Optional>] backgroundCursorColor: Color, [<Optional>] showCursor: ValueNotifier<bool>, [<Optional>] hasFocus: bool, [<Optional>] maxLines: int, [<Optional>] minLines: int, [<Optional>] expands: bool, [<Optional>] strutStyle: StrutStyle, [<Optional>] selectionColor: Color, [<Optional>] textScaleFactor: float, [<Optional>] selection: TextSelection, [<Optional>] onCaretChanged: (Rect -> unit), [<Optional>] ignorePointer: bool, [<Optional>] readOnly: bool, [<Optional>] forceLine: bool, [<Optional>] textHeightBehavior: TextHeightBehavior, [<Optional>] textWidthBasis: TextWidthBasis, [<Optional>] obscuringCharacter: string, [<Optional>] obscureText: bool, [<Optional>] locale: Locale, [<Optional>] cursorWidth: float, [<Optional>] cursorHeight: float, [<Optional>] cursorRadius: Radius, [<Optional>] paintCursorAboveText: bool, [<Optional>] cursorOffset: Offset, [<Optional>] devicePixelRatio: float, [<Optional>] selectionHeightStyle: BoxHeightStyle, [<Optional>] selectionWidthStyle: BoxWidthStyle, [<Optional>] enableInteractiveSelection: bool, [<Optional>] floatingCursorAddedMargin: EdgeInsets, [<Optional>] promptRectRange: TextRange, [<Optional>] promptRectColor: Color, [<Optional>] clipBehavior: Clip, [<Optional>] painter: RenderEditablePainter, [<Optional>] foregroundPainter: RenderEditablePainter, [<Optional>] children: RenderBox[]) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderEditablePainter-class.html
@@ -250,7 +251,7 @@ type RenderEditablePainter () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderErrorBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderErrorBox (?message: string) =
+type RenderErrorBox ([<Optional>] message: string) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/FlexParentData-class.html
@@ -260,7 +261,7 @@ type FlexParentData () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderFlex-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderFlex [<NamedParams>] (?children: RenderBox[], ?direction: Axis, ?mainAxisSize: MainAxisSize, ?mainAxisAlignment: MainAxisAlignment, ?crossAxisAlignment: CrossAxisAlignment, ?textDirection: TextDirection, ?verticalDirection: VerticalDirection, ?textBaseline: TextBaseline, ?clipBehavior: Clip) =
+type RenderFlex [<NamedParams>] ([<Optional>] children: RenderBox[], [<Optional>] direction: Axis, [<Optional>] mainAxisSize: MainAxisSize, [<Optional>] mainAxisAlignment: MainAxisAlignment, [<Optional>] crossAxisAlignment: CrossAxisAlignment, [<Optional>] textDirection: TextDirection, [<Optional>] verticalDirection: VerticalDirection, [<Optional>] textBaseline: TextBaseline, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/FlowPaintingContext-class.html
@@ -270,7 +271,7 @@ type FlowPaintingContext () =
 
 /// https://api.flutter.dev/flutter/rendering/FlowDelegate-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type FlowDelegate [<IsConst; NamedParams>] (?repaint: Listenable) =
+type FlowDelegate [<IsConst; NamedParams>] ([<Optional>] repaint: Listenable) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/FlowParentData-class.html
@@ -280,12 +281,12 @@ type FlowParentData () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderFlow-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderFlow [<NamedParams>] (``delegate``: FlowDelegate, ?children: RenderBox[], ?clipBehavior: Clip) =
+type RenderFlow [<NamedParams>] (``delegate``: FlowDelegate, [<Optional>] children: RenderBox[], [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderImage-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderImage [<NamedParams>] (?image: Image, ?debugImageLabel: string, ?width: float, ?height: float, ?scale: float, ?color: Color, ?opacity: Animation<float>, ?colorBlendMode: BlendMode, ?fit: BoxFit, ?alignment: AlignmentGeometry, ?repeat: ImageRepeat, ?centerSlice: Rect, ?matchTextDirection: bool, ?textDirection: TextDirection, ?invertColors: bool, ?isAntiAlias: bool, ?filterQuality: FilterQuality) =
+type RenderImage [<NamedParams>] ([<Optional>] image: Image, [<Optional>] debugImageLabel: string, [<Optional>] width: float, [<Optional>] height: float, [<Optional>] scale: float, [<Optional>] color: Color, [<Optional>] opacity: Animation<float>, [<Optional>] colorBlendMode: BlendMode, [<Optional>] fit: BoxFit, [<Optional>] alignment: AlignmentGeometry, [<Optional>] repeat: ImageRepeat, [<Optional>] centerSlice: Rect, [<Optional>] matchTextDirection: bool, [<Optional>] textDirection: TextDirection, [<Optional>] invertColors: bool, [<Optional>] isAntiAlias: bool, [<Optional>] filterQuality: FilterQuality) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/AnnotationEntry-class.html
@@ -305,7 +306,7 @@ type Layer () =
 
 /// https://api.flutter.dev/flutter/rendering/LayerHandle-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type LayerHandle<'T> (?_layer: 'T) =
+type LayerHandle<'T> ([<Optional>] _layer: 'T) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/PictureLayer-class.html
@@ -315,7 +316,7 @@ type PictureLayer (canvasBounds: Rect) =
 
 /// https://api.flutter.dev/flutter/rendering/TextureLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type TextureLayer [<NamedParams>] (rect: Rect, textureId: int, ?freeze: bool, ?filterQuality: FilterQuality) =
+type TextureLayer [<NamedParams>] (rect: Rect, textureId: int, [<Optional>] freeze: bool, [<Optional>] filterQuality: FilterQuality) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/PlatformViewLayer-class.html
@@ -335,57 +336,57 @@ type ContainerLayer () =
 
 /// https://api.flutter.dev/flutter/rendering/OffsetLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type OffsetLayer [<NamedParams>] (?offset: Offset) =
+type OffsetLayer [<NamedParams>] ([<Optional>] offset: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ClipRectLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type ClipRectLayer [<NamedParams>] (?clipRect: Rect, ?clipBehavior: Clip) =
+type ClipRectLayer [<NamedParams>] ([<Optional>] clipRect: Rect, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ClipRRectLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type ClipRRectLayer [<NamedParams>] (?clipRRect: RRect, ?clipBehavior: Clip) =
+type ClipRRectLayer [<NamedParams>] ([<Optional>] clipRRect: RRect, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ClipPathLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type ClipPathLayer [<NamedParams>] (?clipPath: Path, ?clipBehavior: Clip) =
+type ClipPathLayer [<NamedParams>] ([<Optional>] clipPath: Path, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ColorFilterLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type ColorFilterLayer [<NamedParams>] (?colorFilter: ColorFilter) =
+type ColorFilterLayer [<NamedParams>] ([<Optional>] colorFilter: ColorFilter) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ImageFilterLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type ImageFilterLayer [<NamedParams>] (?imageFilter: ImageFilter) =
+type ImageFilterLayer [<NamedParams>] ([<Optional>] imageFilter: ImageFilter) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/TransformLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type TransformLayer [<NamedParams>] (?transform: Matrix4, ?offset: Offset) =
+type TransformLayer [<NamedParams>] ([<Optional>] transform: Matrix4, [<Optional>] offset: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/OpacityLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type OpacityLayer [<NamedParams>] (?alpha: int, ?offset: Offset) =
+type OpacityLayer [<NamedParams>] ([<Optional>] alpha: int, [<Optional>] offset: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ShaderMaskLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type ShaderMaskLayer [<NamedParams>] (?shader: Shader, ?maskRect: Rect, ?blendMode: BlendMode) =
+type ShaderMaskLayer [<NamedParams>] ([<Optional>] shader: Shader, [<Optional>] maskRect: Rect, [<Optional>] blendMode: BlendMode) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/BackdropFilterLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type BackdropFilterLayer [<NamedParams>] (?filter: ImageFilter, ?blendMode: BlendMode) =
+type BackdropFilterLayer [<NamedParams>] ([<Optional>] filter: ImageFilter, [<Optional>] blendMode: BlendMode) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/PhysicalModelLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type PhysicalModelLayer [<NamedParams>] (?clipPath: Path, ?clipBehavior: Clip, ?elevation: float, ?color: Color, ?shadowColor: Color) =
+type PhysicalModelLayer [<NamedParams>] ([<Optional>] clipPath: Path, [<Optional>] clipBehavior: Clip, [<Optional>] elevation: float, [<Optional>] color: Color, [<Optional>] shadowColor: Color) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/LayerLink-class.html
@@ -395,17 +396,17 @@ type LayerLink () =
 
 /// https://api.flutter.dev/flutter/rendering/LeaderLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type LeaderLayer [<NamedParams>] (link: LayerLink, ?offset: Offset) =
+type LeaderLayer [<NamedParams>] (link: LayerLink, [<Optional>] offset: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/FollowerLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type FollowerLayer [<NamedParams>] (link: LayerLink, ?showWhenUnlinked: bool, ?unlinkedOffset: Offset, ?linkedOffset: Offset) =
+type FollowerLayer [<NamedParams>] (link: LayerLink, [<Optional>] showWhenUnlinked: bool, [<Optional>] unlinkedOffset: Offset, [<Optional>] linkedOffset: Offset) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/AnnotatedRegionLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type AnnotatedRegionLayer<'T> [<NamedParams(fromIndex=1)>] (value: 'T, ?size: Size, ?offset: Offset, ?opaque: bool) =
+type AnnotatedRegionLayer<'T> [<NamedParams(fromIndex=1)>] (value: 'T, [<Optional>] size: Size, [<Optional>] offset: Offset, [<Optional>] opaque: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ChildLayoutHelper-class.html
@@ -420,7 +421,7 @@ type ListBodyParentData () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderListBody-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderListBody [<NamedParams>] (?children: RenderBox[], ?axisDirection: AxisDirection) =
+type RenderListBody [<NamedParams>] ([<Optional>] children: RenderBox[], [<Optional>] axisDirection: AxisDirection) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ListWheelChildManager-class.html
@@ -435,7 +436,7 @@ type ListWheelParentData () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderListWheelViewport-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderListWheelViewport [<NamedParams>] (childManager: ListWheelChildManager, offset: ViewportOffset, itemExtent: float, ?diameterRatio: float, ?perspective: float, ?offAxisFraction: float, ?useMagnifier: bool, ?magnification: float, ?overAndUnderCenterOpacity: float, ?squeeze: float, ?renderChildrenOutsideViewport: bool, ?clipBehavior: Clip, ?children: RenderBox[]) =
+type RenderListWheelViewport [<NamedParams>] (childManager: ListWheelChildManager, offset: ViewportOffset, itemExtent: float, [<Optional>] diameterRatio: float, [<Optional>] perspective: float, [<Optional>] offAxisFraction: float, [<Optional>] useMagnifier: bool, [<Optional>] magnification: float, [<Optional>] overAndUnderCenterOpacity: float, [<Optional>] squeeze: float, [<Optional>] renderChildrenOutsideViewport: bool, [<Optional>] clipBehavior: Clip, [<Optional>] children: RenderBox[]) =
   [<IsConst>] static member defaultDiameterRatio: float = nativeOnly
   [<IsConst>] static member defaultPerspective: float = nativeOnly
   [<IsConst>] static member diameterRatioZeroMessage: string = nativeOnly
@@ -469,7 +470,7 @@ type SemanticsHandle =
 
 /// https://api.flutter.dev/flutter/rendering/PipelineOwner-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type PipelineOwner [<NamedParams>] (?onNeedVisualUpdate: (unit -> unit), ?onSemanticsOwnerCreated: (unit -> unit), ?onSemanticsOwnerDisposed: (unit -> unit)) =
+type PipelineOwner [<NamedParams>] ([<Optional>] onNeedVisualUpdate: (unit -> unit), [<Optional>] onSemanticsOwnerCreated: (unit -> unit), [<Optional>] onSemanticsOwnerDisposed: (unit -> unit)) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderObject-class.html
@@ -494,17 +495,17 @@ type PlaceholderSpanIndexSemanticsTag [<IsConst>] (index: int) =
 
 /// https://api.flutter.dev/flutter/rendering/RenderParagraph-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderParagraph [<NamedParams(fromIndex=1)>] (text: InlineSpan, textDirection: TextDirection, ?textAlign: TextAlign, ?softWrap: bool, ?overflow: TextOverflow, ?textScaleFactor: float, ?maxLines: int, ?locale: Locale, ?strutStyle: StrutStyle, ?textWidthBasis: TextWidthBasis, ?textHeightBehavior: TextHeightBehavior, ?children: RenderBox[]) =
+type RenderParagraph [<NamedParams(fromIndex=1)>] (text: InlineSpan, textDirection: TextDirection, [<Optional>] textAlign: TextAlign, [<Optional>] softWrap: bool, [<Optional>] overflow: TextOverflow, [<Optional>] textScaleFactor: float, [<Optional>] maxLines: int, [<Optional>] locale: Locale, [<Optional>] strutStyle: StrutStyle, [<Optional>] textWidthBasis: TextWidthBasis, [<Optional>] textHeightBehavior: TextHeightBehavior, [<Optional>] children: RenderBox[]) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderPerformanceOverlay-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderPerformanceOverlay [<NamedParams>] (?optionsMask: int, ?rasterizerThreshold: int, ?checkerboardRasterCacheImages: bool, ?checkerboardOffscreenLayers: bool) =
+type RenderPerformanceOverlay [<NamedParams>] ([<Optional>] optionsMask: int, [<Optional>] rasterizerThreshold: int, [<Optional>] checkerboardRasterCacheImages: bool, [<Optional>] checkerboardOffscreenLayers: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderAndroidView-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderAndroidView [<NamedParams>] (viewController: AndroidViewController, hitTestBehavior: PlatformViewHitTestBehavior, gestureRecognizers: HashSet<Factory<OneSequenceGestureRecognizer>>, ?clipBehavior: Clip) =
+type RenderAndroidView [<NamedParams>] (viewController: AndroidViewController, hitTestBehavior: PlatformViewHitTestBehavior, gestureRecognizers: HashSet<Factory<OneSequenceGestureRecognizer>>, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderUiKitView-class.html
@@ -519,287 +520,287 @@ type PlatformViewRenderBox [<NamedParams>] (controller: PlatformViewController, 
 
 /// https://api.flutter.dev/flutter/rendering/RenderProxyBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderProxyBox (?child: RenderBox) =
+type RenderProxyBox ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderProxyBoxWithHitTestBehavior-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderProxyBoxWithHitTestBehavior [<NamedParams>] (?behavior: HitTestBehavior, ?child: RenderBox) =
+type RenderProxyBoxWithHitTestBehavior [<NamedParams>] ([<Optional>] behavior: HitTestBehavior, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderConstrainedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderConstrainedBox [<NamedParams>] (additionalConstraints: BoxConstraints, ?child: RenderBox) =
+type RenderConstrainedBox [<NamedParams>] (additionalConstraints: BoxConstraints, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderLimitedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderLimitedBox [<NamedParams>] (?child: RenderBox, ?maxWidth: float, ?maxHeight: float) =
+type RenderLimitedBox [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] maxWidth: float, [<Optional>] maxHeight: float) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderAspectRatio-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderAspectRatio [<NamedParams>] (aspectRatio: float, ?child: RenderBox) =
+type RenderAspectRatio [<NamedParams>] (aspectRatio: float, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderIntrinsicWidth-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderIntrinsicWidth [<NamedParams>] (?stepWidth: float, ?stepHeight: float, ?child: RenderBox) =
+type RenderIntrinsicWidth [<NamedParams>] ([<Optional>] stepWidth: float, [<Optional>] stepHeight: float, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderIntrinsicHeight-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderIntrinsicHeight [<NamedParams>] (?child: RenderBox) =
+type RenderIntrinsicHeight [<NamedParams>] ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderOpacity-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderOpacity [<NamedParams>] (?opacity: float, ?alwaysIncludeSemantics: bool, ?child: RenderBox) =
+type RenderOpacity [<NamedParams>] ([<Optional>] opacity: float, [<Optional>] alwaysIncludeSemantics: bool, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderAnimatedOpacity-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderAnimatedOpacity [<NamedParams>] (opacity: Animation<float>, ?alwaysIncludeSemantics: bool, ?child: RenderBox) =
+type RenderAnimatedOpacity [<NamedParams>] (opacity: Animation<float>, [<Optional>] alwaysIncludeSemantics: bool, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderShaderMask-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderShaderMask [<NamedParams>] (shaderCallback: (Rect -> Shader), ?child: RenderBox, ?blendMode: BlendMode) =
+type RenderShaderMask [<NamedParams>] (shaderCallback: (Rect -> Shader), [<Optional>] child: RenderBox, [<Optional>] blendMode: BlendMode) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderBackdropFilter-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderBackdropFilter [<NamedParams>] (filter: ImageFilter, ?child: RenderBox, ?blendMode: BlendMode) =
+type RenderBackdropFilter [<NamedParams>] (filter: ImageFilter, [<Optional>] child: RenderBox, [<Optional>] blendMode: BlendMode) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/CustomClipper-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type CustomClipper<'T> [<IsConst; NamedParams>] (?reclip: Listenable) =
+type CustomClipper<'T> [<IsConst; NamedParams>] ([<Optional>] reclip: Listenable) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ShapeBorderClipper-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type ShapeBorderClipper [<IsConst; NamedParams>] (shape: ShapeBorder, ?textDirection: TextDirection) =
+type ShapeBorderClipper [<IsConst; NamedParams>] (shape: ShapeBorder, [<Optional>] textDirection: TextDirection) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderClipRect-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderClipRect [<NamedParams>] (?child: RenderBox, ?clipper: CustomClipper<Rect>, ?clipBehavior: Clip) =
+type RenderClipRect [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] clipper: CustomClipper<Rect>, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderClipRRect-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderClipRRect [<NamedParams>] (?child: RenderBox, ?borderRadius: BorderRadius, ?clipper: CustomClipper<RRect>, ?clipBehavior: Clip) =
+type RenderClipRRect [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] borderRadius: BorderRadius, [<Optional>] clipper: CustomClipper<RRect>, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderClipOval-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderClipOval [<NamedParams>] (?child: RenderBox, ?clipper: CustomClipper<Rect>, ?clipBehavior: Clip) =
+type RenderClipOval [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] clipper: CustomClipper<Rect>, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderClipPath-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderClipPath [<NamedParams>] (?child: RenderBox, ?clipper: CustomClipper<Path>, ?clipBehavior: Clip) =
+type RenderClipPath [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] clipper: CustomClipper<Path>, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderPhysicalModel-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderPhysicalModel [<NamedParams>] (color: Color, ?child: RenderBox, ?shape: BoxShape, ?clipBehavior: Clip, ?borderRadius: BorderRadius, ?elevation: float, ?shadowColor: Color) =
+type RenderPhysicalModel [<NamedParams>] (color: Color, [<Optional>] child: RenderBox, [<Optional>] shape: BoxShape, [<Optional>] clipBehavior: Clip, [<Optional>] borderRadius: BorderRadius, [<Optional>] elevation: float, [<Optional>] shadowColor: Color) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderPhysicalShape-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderPhysicalShape [<NamedParams>] (clipper: CustomClipper<Path>, color: Color, ?child: RenderBox, ?clipBehavior: Clip, ?elevation: float, ?shadowColor: Color) =
+type RenderPhysicalShape [<NamedParams>] (clipper: CustomClipper<Path>, color: Color, [<Optional>] child: RenderBox, [<Optional>] clipBehavior: Clip, [<Optional>] elevation: float, [<Optional>] shadowColor: Color) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderDecoratedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderDecoratedBox [<NamedParams>] (decoration: Decoration, ?position: DecorationPosition, ?configuration: ImageConfiguration, ?child: RenderBox) =
+type RenderDecoratedBox [<NamedParams>] (decoration: Decoration, [<Optional>] position: DecorationPosition, [<Optional>] configuration: ImageConfiguration, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderTransform-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderTransform [<NamedParams>] (transform: Matrix4, ?origin: Offset, ?alignment: AlignmentGeometry, ?textDirection: TextDirection, ?transformHitTests: bool, ?filterQuality: FilterQuality, ?child: RenderBox) =
+type RenderTransform [<NamedParams>] (transform: Matrix4, [<Optional>] origin: Offset, [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection, [<Optional>] transformHitTests: bool, [<Optional>] filterQuality: FilterQuality, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderFittedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderFittedBox [<NamedParams>] (?fit: BoxFit, ?alignment: AlignmentGeometry, ?textDirection: TextDirection, ?child: RenderBox, ?clipBehavior: Clip) =
+type RenderFittedBox [<NamedParams>] ([<Optional>] fit: BoxFit, [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection, [<Optional>] child: RenderBox, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderFractionalTranslation-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderFractionalTranslation [<NamedParams>] (translation: Offset, ?transformHitTests: bool, ?child: RenderBox) =
+type RenderFractionalTranslation [<NamedParams>] (translation: Offset, [<Optional>] transformHitTests: bool, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderPointerListener-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderPointerListener [<NamedParams>] (?onPointerDown: (PointerDownEvent -> unit), ?onPointerMove: (PointerMoveEvent -> unit), ?onPointerUp: (PointerUpEvent -> unit), ?onPointerHover: (PointerHoverEvent -> unit), ?onPointerCancel: (PointerCancelEvent -> unit), ?onPointerSignal: (PointerSignalEvent -> unit), ?behavior: HitTestBehavior, ?child: RenderBox) =
+type RenderPointerListener [<NamedParams>] ([<Optional>] onPointerDown: (PointerDownEvent -> unit), [<Optional>] onPointerMove: (PointerMoveEvent -> unit), [<Optional>] onPointerUp: (PointerUpEvent -> unit), [<Optional>] onPointerHover: (PointerHoverEvent -> unit), [<Optional>] onPointerCancel: (PointerCancelEvent -> unit), [<Optional>] onPointerSignal: (PointerSignalEvent -> unit), [<Optional>] behavior: HitTestBehavior, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderMouseRegion-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderMouseRegion [<NamedParams>] (?onEnter: (PointerEnterEvent -> unit), ?onHover: (PointerHoverEvent -> unit), ?onExit: (PointerExitEvent -> unit), ?cursor: MouseCursor, ?validForMouseTracker: bool, ?opaque: bool, ?child: RenderBox, ?hitTestBehavior: HitTestBehavior) =
+type RenderMouseRegion [<NamedParams>] ([<Optional>] onEnter: (PointerEnterEvent -> unit), [<Optional>] onHover: (PointerHoverEvent -> unit), [<Optional>] onExit: (PointerExitEvent -> unit), [<Optional>] cursor: MouseCursor, [<Optional>] validForMouseTracker: bool, [<Optional>] opaque: bool, [<Optional>] child: RenderBox, [<Optional>] hitTestBehavior: HitTestBehavior) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderRepaintBoundary-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderRepaintBoundary [<NamedParams>] (?child: RenderBox) =
+type RenderRepaintBoundary [<NamedParams>] ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderIgnorePointer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderIgnorePointer [<NamedParams>] (?child: RenderBox, ?ignoring: bool, ?ignoringSemantics: bool) =
+type RenderIgnorePointer [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] ignoring: bool, [<Optional>] ignoringSemantics: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderOffstage-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderOffstage [<NamedParams>] (?offstage: bool, ?child: RenderBox) =
+type RenderOffstage [<NamedParams>] ([<Optional>] offstage: bool, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderAbsorbPointer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderAbsorbPointer [<NamedParams>] (?child: RenderBox, ?absorbing: bool, ?ignoringSemantics: bool) =
+type RenderAbsorbPointer [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] absorbing: bool, [<Optional>] ignoringSemantics: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderMetaData-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderMetaData [<NamedParams>] (?metaData: obj, ?behavior: HitTestBehavior, ?child: RenderBox) =
+type RenderMetaData [<NamedParams>] ([<Optional>] metaData: obj, [<Optional>] behavior: HitTestBehavior, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSemanticsGestureHandler-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSemanticsGestureHandler [<NamedParams>] (?child: RenderBox, ?onTap: (unit -> unit), ?onLongPress: (unit -> unit), ?onHorizontalDragUpdate: (DragUpdateDetails -> unit), ?onVerticalDragUpdate: (DragUpdateDetails -> unit), ?scrollFactor: float, ?behavior: HitTestBehavior) =
+type RenderSemanticsGestureHandler [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] onTap: (unit -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] onHorizontalDragUpdate: (DragUpdateDetails -> unit), [<Optional>] onVerticalDragUpdate: (DragUpdateDetails -> unit), [<Optional>] scrollFactor: float, [<Optional>] behavior: HitTestBehavior) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSemanticsAnnotations-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSemanticsAnnotations [<NamedParams>] (?child: RenderBox, ?container: bool, ?explicitChildNodes: bool, ?excludeSemantics: bool, ?enabled: bool, ?``checked``: bool, ?toggled: bool, ?selected: bool, ?button: bool, ?slider: bool, ?keyboardKey: bool, ?link: bool, ?header: bool, ?textField: bool, ?readOnly: bool, ?focusable: bool, ?focused: bool, ?inMutuallyExclusiveGroup: bool, ?obscured: bool, ?multiline: bool, ?scopesRoute: bool, ?namesRoute: bool, ?hidden: bool, ?image: bool, ?liveRegion: bool, ?maxValueLength: int, ?currentValueLength: int, ?attributedLabel: AttributedString, ?attributedValue: AttributedString, ?attributedIncreasedValue: AttributedString, ?attributedDecreasedValue: AttributedString, ?attributedHint: AttributedString, ?hintOverrides: SemanticsHintOverrides, ?textDirection: TextDirection, ?sortKey: SemanticsSortKey, ?tagForChildren: SemanticsTag, ?onTap: (unit -> unit), ?onDismiss: (unit -> unit), ?onLongPress: (unit -> unit), ?onScrollLeft: (unit -> unit), ?onScrollRight: (unit -> unit), ?onScrollUp: (unit -> unit), ?onScrollDown: (unit -> unit), ?onIncrease: (unit -> unit), ?onDecrease: (unit -> unit), ?onCopy: (unit -> unit), ?onCut: (unit -> unit), ?onPaste: (unit -> unit), ?onMoveCursorForwardByCharacter: (bool -> unit), ?onMoveCursorBackwardByCharacter: (bool -> unit), ?onMoveCursorForwardByWord: (bool -> unit), ?onMoveCursorBackwardByWord: (bool -> unit), ?onSetSelection: (TextSelection -> unit), ?onSetText: (string -> unit), ?onDidGainAccessibilityFocus: (unit -> unit), ?onDidLoseAccessibilityFocus: (unit -> unit), ?customSemanticsActions: Dictionary<CustomSemanticsAction, (unit -> unit)>) =
+type RenderSemanticsAnnotations [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] container: bool, [<Optional>] explicitChildNodes: bool, [<Optional>] excludeSemantics: bool, [<Optional>] enabled: bool, [<Optional>] ``checked``: bool, [<Optional>] toggled: bool, [<Optional>] selected: bool, [<Optional>] button: bool, [<Optional>] slider: bool, [<Optional>] keyboardKey: bool, [<Optional>] link: bool, [<Optional>] header: bool, [<Optional>] textField: bool, [<Optional>] readOnly: bool, [<Optional>] focusable: bool, [<Optional>] focused: bool, [<Optional>] inMutuallyExclusiveGroup: bool, [<Optional>] obscured: bool, [<Optional>] multiline: bool, [<Optional>] scopesRoute: bool, [<Optional>] namesRoute: bool, [<Optional>] hidden: bool, [<Optional>] image: bool, [<Optional>] liveRegion: bool, [<Optional>] maxValueLength: int, [<Optional>] currentValueLength: int, [<Optional>] attributedLabel: AttributedString, [<Optional>] attributedValue: AttributedString, [<Optional>] attributedIncreasedValue: AttributedString, [<Optional>] attributedDecreasedValue: AttributedString, [<Optional>] attributedHint: AttributedString, [<Optional>] hintOverrides: SemanticsHintOverrides, [<Optional>] textDirection: TextDirection, [<Optional>] sortKey: SemanticsSortKey, [<Optional>] tagForChildren: SemanticsTag, [<Optional>] onTap: (unit -> unit), [<Optional>] onDismiss: (unit -> unit), [<Optional>] onLongPress: (unit -> unit), [<Optional>] onScrollLeft: (unit -> unit), [<Optional>] onScrollRight: (unit -> unit), [<Optional>] onScrollUp: (unit -> unit), [<Optional>] onScrollDown: (unit -> unit), [<Optional>] onIncrease: (unit -> unit), [<Optional>] onDecrease: (unit -> unit), [<Optional>] onCopy: (unit -> unit), [<Optional>] onCut: (unit -> unit), [<Optional>] onPaste: (unit -> unit), [<Optional>] onMoveCursorForwardByCharacter: (bool -> unit), [<Optional>] onMoveCursorBackwardByCharacter: (bool -> unit), [<Optional>] onMoveCursorForwardByWord: (bool -> unit), [<Optional>] onMoveCursorBackwardByWord: (bool -> unit), [<Optional>] onSetSelection: (TextSelection -> unit), [<Optional>] onSetText: (string -> unit), [<Optional>] onDidGainAccessibilityFocus: (unit -> unit), [<Optional>] onDidLoseAccessibilityFocus: (unit -> unit), [<Optional>] customSemanticsActions: Dictionary<CustomSemanticsAction, (unit -> unit)>) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderBlockSemantics-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderBlockSemantics [<NamedParams>] (?child: RenderBox, ?blocking: bool) =
+type RenderBlockSemantics [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] blocking: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderMergeSemantics-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderMergeSemantics [<NamedParams>] (?child: RenderBox) =
+type RenderMergeSemantics [<NamedParams>] ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderExcludeSemantics-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderExcludeSemantics [<NamedParams>] (?child: RenderBox, ?excluding: bool) =
+type RenderExcludeSemantics [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] excluding: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderIndexedSemantics-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderIndexedSemantics [<NamedParams>] (index: int, ?child: RenderBox) =
+type RenderIndexedSemantics [<NamedParams>] (index: int, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderLeaderLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderLeaderLayer [<NamedParams>] (link: LayerLink, ?child: RenderBox) =
+type RenderLeaderLayer [<NamedParams>] (link: LayerLink, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderFollowerLayer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderFollowerLayer [<NamedParams>] (link: LayerLink, ?showWhenUnlinked: bool, ?offset: Offset, ?leaderAnchor: Alignment, ?followerAnchor: Alignment, ?child: RenderBox) =
+type RenderFollowerLayer [<NamedParams>] (link: LayerLink, [<Optional>] showWhenUnlinked: bool, [<Optional>] offset: Offset, [<Optional>] leaderAnchor: Alignment, [<Optional>] followerAnchor: Alignment, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderAnnotatedRegion-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderAnnotatedRegion<'T> [<NamedParams>] (value: 'T, sized: bool, ?child: RenderBox) =
+type RenderAnnotatedRegion<'T> [<NamedParams>] (value: 'T, sized: bool, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderProxySliver-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderProxySliver (?child: RenderSliver) =
+type RenderProxySliver ([<Optional>] child: RenderSliver) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverOpacity-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverOpacity [<NamedParams>] (?opacity: float, ?alwaysIncludeSemantics: bool, ?sliver: RenderSliver) =
+type RenderSliverOpacity [<NamedParams>] ([<Optional>] opacity: float, [<Optional>] alwaysIncludeSemantics: bool, [<Optional>] sliver: RenderSliver) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverIgnorePointer-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverIgnorePointer [<NamedParams>] (?sliver: RenderSliver, ?ignoring: bool, ?ignoringSemantics: bool) =
+type RenderSliverIgnorePointer [<NamedParams>] ([<Optional>] sliver: RenderSliver, [<Optional>] ignoring: bool, [<Optional>] ignoringSemantics: bool) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverOffstage-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverOffstage [<NamedParams>] (?offstage: bool, ?sliver: RenderSliver) =
+type RenderSliverOffstage [<NamedParams>] ([<Optional>] offstage: bool, [<Optional>] sliver: RenderSliver) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverAnimatedOpacity-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverAnimatedOpacity [<NamedParams>] (opacity: Animation<float>, ?alwaysIncludeSemantics: bool, ?sliver: RenderSliver) =
+type RenderSliverAnimatedOpacity [<NamedParams>] (opacity: Animation<float>, [<Optional>] alwaysIncludeSemantics: bool, [<Optional>] sliver: RenderSliver) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderRotatedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderRotatedBox [<NamedParams>] (quarterTurns: int, ?child: RenderBox) =
+type RenderRotatedBox [<NamedParams>] (quarterTurns: int, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderShiftedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderShiftedBox (child: RenderBox option) =
+type RenderShiftedBox (child: DartNullable<RenderBox>) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderPadding-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderPadding [<NamedParams>] (padding: EdgeInsetsGeometry, ?textDirection: TextDirection, ?child: RenderBox) =
+type RenderPadding [<NamedParams>] (padding: EdgeInsetsGeometry, [<Optional>] textDirection: TextDirection, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderAligningShiftedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderAligningShiftedBox [<NamedParams>] (textDirection: TextDirection option, ?alignment: AlignmentGeometry, ?child: RenderBox) =
-  static member ``mixin``(alignment: AlignmentGeometry, textDirection: TextDirection option, child: RenderBox option): RenderAligningShiftedBox = nativeOnly
+type RenderAligningShiftedBox [<NamedParams>] (textDirection: DartNullable<TextDirection>, [<Optional>] alignment: AlignmentGeometry, [<Optional>] child: RenderBox) =
+  static member ``mixin``(alignment: AlignmentGeometry, textDirection: DartNullable<TextDirection>, child: DartNullable<RenderBox>): RenderAligningShiftedBox = nativeOnly
 
 /// https://api.flutter.dev/flutter/rendering/RenderPositionedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderPositionedBox [<NamedParams>] (?child: RenderBox, ?widthFactor: float, ?heightFactor: float, ?alignment: AlignmentGeometry, ?textDirection: TextDirection) =
+type RenderPositionedBox [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] widthFactor: float, [<Optional>] heightFactor: float, [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderConstrainedOverflowBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderConstrainedOverflowBox [<NamedParams>] (?child: RenderBox, ?minWidth: float, ?maxWidth: float, ?minHeight: float, ?maxHeight: float, ?alignment: AlignmentGeometry, ?textDirection: TextDirection) =
+type RenderConstrainedOverflowBox [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] minWidth: float, [<Optional>] maxWidth: float, [<Optional>] minHeight: float, [<Optional>] maxHeight: float, [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderConstraintsTransformBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderConstraintsTransformBox [<NamedParams>] (alignment: AlignmentGeometry, textDirection: TextDirection option, constraintsTransform: (BoxConstraints -> BoxConstraints), ?child: RenderBox, ?clipBehavior: Clip) =
+type RenderConstraintsTransformBox [<NamedParams>] (alignment: AlignmentGeometry, textDirection: DartNullable<TextDirection>, constraintsTransform: (BoxConstraints -> BoxConstraints), [<Optional>] child: RenderBox, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderUnconstrainedBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderUnconstrainedBox [<NamedParams>] (alignment: AlignmentGeometry, textDirection: TextDirection option, ?constrainedAxis: Axis, ?child: RenderBox, ?clipBehavior: Clip) =
+type RenderUnconstrainedBox [<NamedParams>] (alignment: AlignmentGeometry, textDirection: DartNullable<TextDirection>, [<Optional>] constrainedAxis: Axis, [<Optional>] child: RenderBox, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSizedOverflowBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSizedOverflowBox [<NamedParams>] (requestedSize: Size, ?child: RenderBox, ?alignment: AlignmentGeometry, ?textDirection: TextDirection) =
+type RenderSizedOverflowBox [<NamedParams>] (requestedSize: Size, [<Optional>] child: RenderBox, [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderFractionallySizedOverflowBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderFractionallySizedOverflowBox [<NamedParams>] (?child: RenderBox, ?widthFactor: float, ?heightFactor: float, ?alignment: AlignmentGeometry, ?textDirection: TextDirection) =
+type RenderFractionallySizedOverflowBox [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] widthFactor: float, [<Optional>] heightFactor: float, [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/SingleChildLayoutDelegate-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type SingleChildLayoutDelegate [<IsConst; NamedParams>] (?relayout: Listenable) =
+type SingleChildLayoutDelegate [<IsConst; NamedParams>] ([<Optional>] relayout: Listenable) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderCustomSingleChildLayoutBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderCustomSingleChildLayoutBox [<NamedParams>] (``delegate``: SingleChildLayoutDelegate, ?child: RenderBox) =
+type RenderCustomSingleChildLayoutBox [<NamedParams>] (``delegate``: SingleChildLayoutDelegate, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderBaseline-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderBaseline [<NamedParams>] (baseline: float, baselineType: TextBaseline, ?child: RenderBox) =
+type RenderBaseline [<NamedParams>] (baseline: float, baselineType: TextBaseline, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/SliverConstraints-class.html
@@ -809,7 +810,7 @@ type SliverConstraints [<IsConst; NamedParams>] (axisDirection: AxisDirection, g
 
 /// https://api.flutter.dev/flutter/rendering/SliverGeometry-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type SliverGeometry [<IsConst; NamedParams>] (?scrollExtent: float, ?paintExtent: float, ?paintOrigin: float, ?layoutExtent: float, ?maxPaintExtent: float, ?maxScrollObstructionExtent: float, ?hitTestExtent: float, ?visible: bool, ?hasVisualOverflow: bool, ?scrollOffsetCorrection: float, ?cacheExtent: float) =
+type SliverGeometry [<IsConst; NamedParams>] ([<Optional>] scrollExtent: float, [<Optional>] paintExtent: float, [<Optional>] paintOrigin: float, [<Optional>] layoutExtent: float, [<Optional>] maxPaintExtent: float, [<Optional>] maxScrollObstructionExtent: float, [<Optional>] hitTestExtent: float, [<Optional>] visible: bool, [<Optional>] hasVisualOverflow: bool, [<Optional>] scrollOffsetCorrection: float, [<Optional>] cacheExtent: float) =
   [<IsConst>] static member zero: SliverGeometry = nativeOnly
 
 /// https://api.flutter.dev/flutter/rendering/SliverHitTestResult-class.html
@@ -849,32 +850,32 @@ type RenderSliver () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverSingleBoxAdapter-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverSingleBoxAdapter [<NamedParams>] (?child: RenderBox) =
+type RenderSliverSingleBoxAdapter [<NamedParams>] ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverToBoxAdapter-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverToBoxAdapter [<NamedParams>] (?child: RenderBox) =
+type RenderSliverToBoxAdapter [<NamedParams>] ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverFillViewport-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverFillViewport [<NamedParams>] (childManager: RenderSliverBoxChildManager, ?viewportFraction: float) =
+type RenderSliverFillViewport [<NamedParams>] (childManager: RenderSliverBoxChildManager, [<Optional>] viewportFraction: float) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverFillRemainingWithScrollable-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverFillRemainingWithScrollable [<NamedParams>] (?child: RenderBox) =
+type RenderSliverFillRemainingWithScrollable [<NamedParams>] ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverFillRemaining-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverFillRemaining [<NamedParams>] (?child: RenderBox) =
+type RenderSliverFillRemaining [<NamedParams>] ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverFillRemainingAndOverscroll-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverFillRemainingAndOverscroll [<NamedParams>] (?child: RenderBox) =
+type RenderSliverFillRemainingAndOverscroll [<NamedParams>] ([<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverFixedExtentBoxAdaptor-class.html
@@ -909,12 +910,12 @@ type SliverGridDelegate [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/rendering/SliverGridDelegateWithFixedCrossAxisCount-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type SliverGridDelegateWithFixedCrossAxisCount [<IsConst; NamedParams>] (crossAxisCount: int, ?mainAxisSpacing: float, ?crossAxisSpacing: float, ?childAspectRatio: float, ?mainAxisExtent: float) =
+type SliverGridDelegateWithFixedCrossAxisCount [<IsConst; NamedParams>] (crossAxisCount: int, [<Optional>] mainAxisSpacing: float, [<Optional>] crossAxisSpacing: float, [<Optional>] childAspectRatio: float, [<Optional>] mainAxisExtent: float) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/SliverGridDelegateWithMaxCrossAxisExtent-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type SliverGridDelegateWithMaxCrossAxisExtent [<IsConst; NamedParams>] (maxCrossAxisExtent: float, ?mainAxisSpacing: float, ?crossAxisSpacing: float, ?childAspectRatio: float, ?mainAxisExtent: float) =
+type SliverGridDelegateWithMaxCrossAxisExtent [<IsConst; NamedParams>] (maxCrossAxisExtent: float, [<Optional>] mainAxisSpacing: float, [<Optional>] crossAxisSpacing: float, [<Optional>] childAspectRatio: float, [<Optional>] mainAxisExtent: float) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/SliverGridParentData-class.html
@@ -954,47 +955,47 @@ type RenderSliverEdgeInsetsPadding () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverPadding-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverPadding [<NamedParams>] (padding: EdgeInsetsGeometry, ?textDirection: TextDirection, ?child: RenderSliver) =
+type RenderSliverPadding [<NamedParams>] (padding: EdgeInsetsGeometry, [<Optional>] textDirection: TextDirection, [<Optional>] child: RenderSliver) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/OverScrollHeaderStretchConfiguration-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type OverScrollHeaderStretchConfiguration [<NamedParams>] (?stretchTriggerOffset: float, ?onStretchTrigger: (unit -> Future<unit>)) =
+type OverScrollHeaderStretchConfiguration [<NamedParams>] ([<Optional>] stretchTriggerOffset: float, [<Optional>] onStretchTrigger: (unit -> Future<unit>)) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/PersistentHeaderShowOnScreenConfiguration-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type PersistentHeaderShowOnScreenConfiguration [<IsConst; NamedParams>] (?minShowOnScreenExtent: float, ?maxShowOnScreenExtent: float) =
+type PersistentHeaderShowOnScreenConfiguration [<IsConst; NamedParams>] ([<Optional>] minShowOnScreenExtent: float, [<Optional>] maxShowOnScreenExtent: float) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverPersistentHeader-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverPersistentHeader [<NamedParams>] (?child: RenderBox, ?stretchConfiguration: OverScrollHeaderStretchConfiguration) =
+type RenderSliverPersistentHeader [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] stretchConfiguration: OverScrollHeaderStretchConfiguration) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverScrollingPersistentHeader-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverScrollingPersistentHeader [<NamedParams>] (?child: RenderBox, ?stretchConfiguration: OverScrollHeaderStretchConfiguration) =
+type RenderSliverScrollingPersistentHeader [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] stretchConfiguration: OverScrollHeaderStretchConfiguration) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverPinnedPersistentHeader-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverPinnedPersistentHeader [<NamedParams>] (?child: RenderBox, ?stretchConfiguration: OverScrollHeaderStretchConfiguration, ?showOnScreenConfiguration: PersistentHeaderShowOnScreenConfiguration) =
+type RenderSliverPinnedPersistentHeader [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] stretchConfiguration: OverScrollHeaderStretchConfiguration, [<Optional>] showOnScreenConfiguration: PersistentHeaderShowOnScreenConfiguration) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/FloatingHeaderSnapConfiguration-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type FloatingHeaderSnapConfiguration [<NamedParams>] (?curve: Curve, ?duration: TimeSpan) =
+type FloatingHeaderSnapConfiguration [<NamedParams>] ([<Optional>] curve: Curve, [<Optional>] duration: TimeSpan) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverFloatingPersistentHeader-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverFloatingPersistentHeader [<NamedParams>] (showOnScreenConfiguration: PersistentHeaderShowOnScreenConfiguration option, ?child: RenderBox, ?vsync: TickerProvider, ?snapConfiguration: FloatingHeaderSnapConfiguration, ?stretchConfiguration: OverScrollHeaderStretchConfiguration) =
+type RenderSliverFloatingPersistentHeader [<NamedParams>] (showOnScreenConfiguration: DartNullable<PersistentHeaderShowOnScreenConfiguration>, [<Optional>] child: RenderBox, [<Optional>] vsync: TickerProvider, [<Optional>] snapConfiguration: FloatingHeaderSnapConfiguration, [<Optional>] stretchConfiguration: OverScrollHeaderStretchConfiguration) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderSliverFloatingPinnedPersistentHeader-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderSliverFloatingPinnedPersistentHeader [<NamedParams>] (?child: RenderBox, ?vsync: TickerProvider, ?snapConfiguration: FloatingHeaderSnapConfiguration, ?stretchConfiguration: OverScrollHeaderStretchConfiguration, ?showOnScreenConfiguration: PersistentHeaderShowOnScreenConfiguration) =
+type RenderSliverFloatingPinnedPersistentHeader [<NamedParams>] ([<Optional>] child: RenderBox, [<Optional>] vsync: TickerProvider, [<Optional>] snapConfiguration: FloatingHeaderSnapConfiguration, [<Optional>] stretchConfiguration: OverScrollHeaderStretchConfiguration, [<Optional>] showOnScreenConfiguration: PersistentHeaderShowOnScreenConfiguration) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RelativeRect-class.html
@@ -1012,12 +1013,12 @@ type StackParentData () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderStack-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderStack [<NamedParams>] (?children: RenderBox[], ?alignment: AlignmentGeometry, ?textDirection: TextDirection, ?fit: StackFit, ?clipBehavior: Clip) =
+type RenderStack [<NamedParams>] ([<Optional>] children: RenderBox[], [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection, [<Optional>] fit: StackFit, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderIndexedStack-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderIndexedStack [<NamedParams>] (?children: RenderBox[], ?alignment: AlignmentGeometry, ?textDirection: TextDirection, ?index: int) =
+type RenderIndexedStack [<NamedParams>] ([<Optional>] children: RenderBox[], [<Optional>] alignment: AlignmentGeometry, [<Optional>] textDirection: TextDirection, [<Optional>] index: int) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/TableCellParentData-class.html
@@ -1032,7 +1033,7 @@ type TableColumnWidth [<IsConst>] () =
 
 /// https://api.flutter.dev/flutter/rendering/IntrinsicColumnWidth-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type IntrinsicColumnWidth [<IsConst; NamedParams>] (?flex: float) =
+type IntrinsicColumnWidth [<IsConst; NamedParams>] ([<Optional>] flex: float) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/FixedColumnWidth-class.html
@@ -1047,7 +1048,7 @@ type FractionColumnWidth [<IsConst>] (value: float) =
 
 /// https://api.flutter.dev/flutter/rendering/FlexColumnWidth-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type FlexColumnWidth [<IsConst>] (?value: float) =
+type FlexColumnWidth [<IsConst>] ([<Optional>] value: float) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/MaxColumnWidth-class.html
@@ -1062,43 +1063,43 @@ type MinColumnWidth [<IsConst>] (a: TableColumnWidth, b: TableColumnWidth) =
 
 /// https://api.flutter.dev/flutter/rendering/RenderTable-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderTable [<NamedParams>] (textDirection: TextDirection, ?columns: int, ?rows: int, ?columnWidths: Dictionary<int, TableColumnWidth>, ?defaultColumnWidth: TableColumnWidth, ?border: TableBorder, ?rowDecorations: Decoration option[], ?configuration: ImageConfiguration, ?defaultVerticalAlignment: TableCellVerticalAlignment, ?textBaseline: TextBaseline, ?children: RenderBox[][]) =
+type RenderTable [<NamedParams>] (textDirection: TextDirection, [<Optional>] columns: int, [<Optional>] rows: int, [<Optional>] columnWidths: Dictionary<int, TableColumnWidth>, [<Optional>] defaultColumnWidth: TableColumnWidth, [<Optional>] border: TableBorder, [<Optional>] rowDecorations: DartNullable<Decoration>[], [<Optional>] configuration: ImageConfiguration, [<Optional>] defaultVerticalAlignment: TableCellVerticalAlignment, [<Optional>] textBaseline: TextBaseline, [<Optional>] children: RenderBox[][]) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/TableBorder-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type TableBorder [<IsConst; NamedParams>] (?top: BorderSide, ?right: BorderSide, ?bottom: BorderSide, ?left: BorderSide, ?horizontalInside: BorderSide, ?verticalInside: BorderSide, ?borderRadius: BorderRadius) =
-  [<NamedParams>] static member all(?color: Color, ?width: float, ?style: BorderStyle, ?borderRadius: BorderRadius): TableBorder = nativeOnly
-  [<NamedParams>] static member symmetric(?inside: BorderSide, ?outside: BorderSide): TableBorder = nativeOnly
+type TableBorder [<IsConst; NamedParams>] ([<Optional>] top: BorderSide, [<Optional>] right: BorderSide, [<Optional>] bottom: BorderSide, [<Optional>] left: BorderSide, [<Optional>] horizontalInside: BorderSide, [<Optional>] verticalInside: BorderSide, [<Optional>] borderRadius: BorderRadius) =
+  [<NamedParams>] static member all([<Optional>] color: Color, [<Optional>] width: float, [<Optional>] style: BorderStyle, [<Optional>] borderRadius: BorderRadius): TableBorder = nativeOnly
+  [<NamedParams>] static member symmetric([<Optional>] inside: BorderSide, [<Optional>] outside: BorderSide): TableBorder = nativeOnly
 
 /// https://api.flutter.dev/flutter/rendering/TextureBox-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type TextureBox [<NamedParams>] (textureId: int, ?freeze: bool, ?filterQuality: FilterQuality) =
+type TextureBox [<NamedParams>] (textureId: int, [<Optional>] freeze: bool, [<Optional>] filterQuality: FilterQuality) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/FractionalOffsetTween-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type FractionalOffsetTween [<NamedParams>] (?``begin``: FractionalOffset, ?``end``: FractionalOffset) =
+type FractionalOffsetTween [<NamedParams>] ([<Optional>] ``begin``: FractionalOffset, [<Optional>] ``end``: FractionalOffset) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/AlignmentTween-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type AlignmentTween [<NamedParams>] (?``begin``: Alignment, ?``end``: Alignment) =
+type AlignmentTween [<NamedParams>] ([<Optional>] ``begin``: Alignment, [<Optional>] ``end``: Alignment) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/AlignmentGeometryTween-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type AlignmentGeometryTween [<NamedParams>] (?``begin``: AlignmentGeometry, ?``end``: AlignmentGeometry) =
+type AlignmentGeometryTween [<NamedParams>] ([<Optional>] ``begin``: AlignmentGeometry, [<Optional>] ``end``: AlignmentGeometry) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ViewConfiguration-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type ViewConfiguration [<IsConst; NamedParams>] (?size: Size, ?devicePixelRatio: float) =
+type ViewConfiguration [<IsConst; NamedParams>] ([<Optional>] size: Size, [<Optional>] devicePixelRatio: float) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderView-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderView [<NamedParams>] (configuration: ViewConfiguration, window: FlutterView, ?child: RenderBox) =
+type RenderView [<NamedParams>] (configuration: ViewConfiguration, window: FlutterView, [<Optional>] child: RenderBox) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderAbstractViewport-class.html
@@ -1113,18 +1114,18 @@ type RevealedOffset [<IsConst; NamedParams>] (offset: float, rect: Rect) =
 
 /// https://api.flutter.dev/flutter/rendering/RenderViewportBase-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderViewportBase<'ParentDataClass> [<NamedParams>] (crossAxisDirection: AxisDirection, offset: ViewportOffset, ?axisDirection: AxisDirection, ?cacheExtent: float, ?cacheExtentStyle: CacheExtentStyle, ?clipBehavior: Clip) =
+type RenderViewportBase<'ParentDataClass> [<NamedParams>] (crossAxisDirection: AxisDirection, offset: ViewportOffset, [<Optional>] axisDirection: AxisDirection, [<Optional>] cacheExtent: float, [<Optional>] cacheExtentStyle: CacheExtentStyle, [<Optional>] clipBehavior: Clip) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/RenderViewport-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderViewport [<NamedParams>] (crossAxisDirection: AxisDirection, offset: ViewportOffset, ?axisDirection: AxisDirection, ?anchor: float, ?children: RenderSliver[], ?center: RenderSliver, ?cacheExtent: float, ?cacheExtentStyle: CacheExtentStyle, ?clipBehavior: Clip) =
+type RenderViewport [<NamedParams>] (crossAxisDirection: AxisDirection, offset: ViewportOffset, [<Optional>] axisDirection: AxisDirection, [<Optional>] anchor: float, [<Optional>] children: RenderSliver[], [<Optional>] center: RenderSliver, [<Optional>] cacheExtent: float, [<Optional>] cacheExtentStyle: CacheExtentStyle, [<Optional>] clipBehavior: Clip) =
   [<IsConst>] static member useTwoPaneSemantics: SemanticsTag = nativeOnly
   [<IsConst>] static member excludeFromScrolling: SemanticsTag = nativeOnly
 
 /// https://api.flutter.dev/flutter/rendering/RenderShrinkWrappingViewport-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderShrinkWrappingViewport [<NamedParams>] (crossAxisDirection: AxisDirection, offset: ViewportOffset, ?axisDirection: AxisDirection, ?clipBehavior: Clip, ?children: RenderSliver[]) =
+type RenderShrinkWrappingViewport [<NamedParams>] (crossAxisDirection: AxisDirection, offset: ViewportOffset, [<Optional>] axisDirection: AxisDirection, [<Optional>] clipBehavior: Clip, [<Optional>] children: RenderSliver[]) =
   class end
 
 /// https://api.flutter.dev/flutter/rendering/ViewportOffset-class.html
@@ -1140,6 +1141,6 @@ type WrapParentData () =
 
 /// https://api.flutter.dev/flutter/rendering/RenderWrap-class.html
 [<ImportMember("package:flutter/rendering.dart")>]
-type RenderWrap [<NamedParams>] (?children: RenderBox[], ?direction: Axis, ?alignment: WrapAlignment, ?spacing: float, ?runAlignment: WrapAlignment, ?runSpacing: float, ?crossAxisAlignment: WrapCrossAlignment, ?textDirection: TextDirection, ?verticalDirection: VerticalDirection, ?clipBehavior: Clip) =
+type RenderWrap [<NamedParams>] ([<Optional>] children: RenderBox[], [<Optional>] direction: Axis, [<Optional>] alignment: WrapAlignment, [<Optional>] spacing: float, [<Optional>] runAlignment: WrapAlignment, [<Optional>] runSpacing: float, [<Optional>] crossAxisAlignment: WrapCrossAlignment, [<Optional>] textDirection: TextDirection, [<Optional>] verticalDirection: VerticalDirection, [<Optional>] clipBehavior: Clip) =
   class end
 
